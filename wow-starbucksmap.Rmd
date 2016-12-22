@@ -1,6 +1,6 @@
 # 5 lines of code for a map[^1]
 
-```{r load-packages}
+```{r load-packages, message=FALSE}
 require(readr) 
 require(leaflet)
 library(dplyr)
@@ -8,7 +8,7 @@ library(dplyr)
 
 
 ## Load Data
-```{r loaddata}
+```{r loaddata, message=FALSE}
 starbucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
 ```
 

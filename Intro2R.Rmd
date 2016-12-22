@@ -1,7 +1,7 @@
 ---
 title: "Intro to R by Data & Visualization Services"
 author: "Joel Herndon & John Little"
-date: "10/17/2016"
+date: "`r Sys.Date()`"
 output: 
   html_document:
     toc: true
@@ -10,26 +10,7 @@ output:
     theme: readable
     highlight: pygments
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r preamble, echo=FALSE}
-last.edited <- Sys.Date()
-preamble <- "This document was last updated"
-modified.date <- paste(preamble, last.edited, sep = " ")
-modified.date
-
-repository <- "https://bitbucket.org/libjohn/intro2r"
-preamble2 <- "Repository for this document:"
-repository <- paste(preamble2, repository, sep = " ")
-repository
-```
-
-
 # Intro to R
-
 
 ## Housekeeping
 
@@ -56,14 +37,13 @@ We'll use a derivitive of the mtcars dataset.  Use the `?` to get the codebook.
 ```{r get data}
 # readr::read_csv
 # using this packages will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
-cars <- read_csv("cars.csv")
+cars <- read_csv("https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/cars.csv")
 ```
 
 #### Other Data Loaders -- selective list
 * ENVIRONMENT PANE: Import Dataset 
     + FILES PANE: Files--Upload
-* `readxl`  
-    * **Note:** There are several differen read-excel-file packages
+* `readxl`  ^[There are several differen read-excel-file packages.  [See this video](https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/jailbreakr-Get-out-of-Excel-free) discussing readxl, openxlsx, XLConnect, xlsx, gdata, linen]
 
 
 ### View your data in a grid
@@ -160,6 +140,14 @@ sixcyls %>%
   count(hp)
 ```
 
+### Summarize
+Summarize to collapse values into a summary
+
+```{r}
+group_by(cars, cyl, gear) %>% 
+  summarize(MPG = mean(mpg)) 
+```
+
 ### Put it all together
 ```{r alltogether}
 
@@ -168,6 +156,15 @@ cars %>%
   select(makeModel, mpg:wt) %>%
   mutate(dispWt = disp / wt) %>% 
   arrange(desc(mpg), wt)
+```
+
+
+```{r}
+group_by(cars, cyl, gear) %>% 
+  select(cyl, gear, mpg, wt) %>% 
+  summarize(MPG = mean(mpg), WIL = as.integer(mean(wt)*1000)) %>% 
+  arrange(desc(MPG), desc(gear)) %>% 
+  select(MPG, Cylinder = cyl, Gear = gear, "Weight in lbs" = WIL)
 ```
 
 ## EXERCISE, Part 2
