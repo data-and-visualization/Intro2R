@@ -9,7 +9,8 @@ library(dplyr)
 
 ## Load Data
 ```{r loaddata, message=FALSE}
-starbucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
+# source of data is https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv
+starbucks <- read_csv("https://github.com/data-and-visualization/Intro2R/raw/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv")
 ```
 
 ## Filter to NC
