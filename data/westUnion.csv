@@ -1,0 +1,60 @@
+name,type,menuType,itemType,itemName,cost,rating
+Devils Krafthouse,bar and grill,appetizer,snack,sweet potato tots,4,8
+Devils Krafthouse,bar and grill,appetizer,snack,french fries,4,10
+Devils Krafthouse,bar and grill,appetizer,snack,quesadillas,6,5
+Devils Krafthouse,bar and grill,appetizer,snack,southwest chili wings,8,6
+Devils Krafthouse,bar and grill,appetizer,snack,chicken tenders,7,7
+Devils Krafthouse,bar and grill,appetizer,snack,nachos,8,8
+Devils Krafthouse,bar and grill,appetizer,snack,peel and eat shrimp,9,5
+Devils Krafthouse,bar and grill,appetizer,snack,tortilla chips and salsa,4,6
+Devils Krafthouse,bar and grill,entree,sandwich,turkey club double decker,9,5
+Devils Krafthouse,bar and grill,entree,sandwich,fried chicken sandwich,9,5
+Devils Krafthouse,bar and grill,entree,sandwich,philly cheese steak,9,6
+Devils Krafthouse,bar and grill,entree,sandwich,grilled cheese,8,6
+Devils Krafthouse,bar and grill,side,soup,black bean tortilla soup,4,8
+Devils Krafthouse,bar and grill,side,soup,texas style beef chili,7,6
+Devils Krafthouse,bar and grill,side,salad,southwest chopped salad,7,7
+Devils Krafthouse,bar and grill,side,salad,ceasar salad,7,5
+Devils Krafthouse,bar and grill,side,salad,spinach salad,8,6
+Devils Krafthouse,bar and grill,entree,burger,devil's classic,8,5
+Devils Krafthouse,bar and grill,entree,burger,sloppy,9,4
+Devils Krafthouse,bar and grill,entree,burger,southwestern,9,5
+Devils Krafthouse,bar and grill,entree,burger,french,9,6
+Devils Krafthouse,bar and grill,entree,burger,krafthouse krazy burger,10,7
+Devils Krafthouse,bar and grill,entree,sausage,italian sausage,8,6
+Devils Krafthouse,bar and grill,entree,sausage,bratwurst,8,7
+Devils Krafthouse,bar and grill,entree,sausage,chili dog,7,6
+Devils Krafthouse,bar and grill,dessert,dessert,chocolate brownie,8,8
+Devils Krafthouse,bar and grill,dessert,dessert,banana split,6,9
+Devils Krafthouse,bar and grill,dessert,dessert,key lime pie,6,10
+Devils Krafthouse,bar and grill,entree,tacos,grilled fish,10,10
+Devils Krafthouse,bar and grill,entree,tacos,pork carnitas,8,8
+Devils Krafthouse,bar and grill,entree,tacos,grilled chicken,8,6
+Devils Krafthouse,bar and grill,entree,tacos,ground beef,8,7
+Tandoor,restaurant,appetizer,appetizer,vegetable samosa,4,8
+Tandoor,restaurant,appetizer,appetizer,lamb samosa,5,6
+Tandoor,restaurant,appetizer,appetizer,gobi pakora,4,
+Tandoor,restaurant,appetizer,appetizer,aloo bhonda,4,
+Tandoor,restaurant,appetizer,appetizer,vegetable pakora,4,9
+Tandoor,restaurant,appetizer,appetizer,madala dosai,8,10
+Tandoor,restaurant,appetizer,appetizer,chicken tikka dosai,10,8
+Tandoor,restaurant,appetizer,appetizer,sada dosai,6,
+Tandoor,restaurant,appetizer,appetizer,vegetable dosai,8,7
+Tandoor,restaurant,entree,chicken,chicken korma,10,8
+Tandoor,restaurant,entree,lamb,lamb korma,12,7
+Tandoor,restaurant,entree,beef,beef bhunas,12,6
+Tandoor,restaurant,entree,shrimp,shrimp bhunas,12,5
+Tandoor,restaurant,appetizer,bread,naan,2,10
+Tandoor,restaurant,appetizer,bread,onion kulcha,3,8
+Tandoor,restaurant,appetizer,bread,garlic naan,3,10
+Tandoor,restaurant,appetizer,bread,peswari naan,4,7
+Tandoor,restaurant,appetizer,bread,chicken tikka naan,5,6
+Tandoor,restaurant,appetizer,bread,panir kulcha,4,7
+Cafe,cafe,entree,sandwich,croque monsieur,7,8
+Cafe,cafe,entree,sandwich,truffled hummus crepe,7,7
+Cafe,cafe,entree,sandwich,chicken pesto crepe,8,6
+Cafe,cafe,entree,sandwich,apple and brie crepe,7,9
+Cafe,cafe,dessert,dessert,cinnamon sugar,5,9
+Cafe,cafe,dessert,dessert,nutella,6,8
+Cafe,cafe,dessert,dessert,banana foster,6,7
+Cafe,cafe,dessert,dessert,crepe suzette,6,8

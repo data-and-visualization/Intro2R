@@ -1,0 +1,239 @@
+---
+title: "Intro to R by Data & Visualization Services"
+author: "Joel Herndon & John Little"
+date: "10/17/2016"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+    theme: readable
+    highlight: pygments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r preamble, echo=FALSE}
+last.edited <- Sys.Date()
+preamble <- "This document was last updated"
+modified.date <- paste(preamble, last.edited, sep = " ")
+modified.date
+
+repository <- "https://bitbucket.org/libjohn/intro2r"
+preamble2 <- "Repository for this document:"
+repository <- paste(preamble2, repository, sep = " ")
+repository
+```
+
+
+# Intro to R
+
+
+## Housekeeping
+
+#### Joel - PPT
+
+1. Welcome
+2. What is r
+3. What is [RStudio](https://www.rstudio.com/)
+4. What is a Project
+5. What is [Docker](https://vm-manage.oit.duke.edu/containers/rstudio)
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(ggvis)
+```
+
+## Data Management
+
+#### John
+
+We'll use a derivitive of the mtcars dataset.  Use the `?` to get the codebook.
+
+### Load Data
+```{r get data}
+# readr::read_csv
+# using this packages will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+cars <- read_csv("cars.csv")
+```
+
+#### Other Data Loaders -- selective list
+* ENVIRONMENT PANE: Import Dataset 
+    + FILES PANE: Files--Upload
+* `readxl`  
+    * **Note:** There are several differen read-excel-file packages
+
+
+### View your data in a grid
+
+```{r}
+View(cars)
+# Displays as a tab in the source-pane quadrant
+# Does not dipsplay in an Rmarkdown document
+```
+
+#### Notes
+
+* An exploratory convenience, not "reproducible" in the sense of generating a report or leaving a trail of your work
+* Environment Pane has information about data objects
+* View output has sorting 
+
+
+
+### Structure of Data Object
+
+#### tbl_df
+* "tibble diff" or "Table as data frame"", a modern tidyverse table
+```{r Table-dataframe}
+cars %>% 
+  tbl_df()
+```
+
+#### tbl_vars
+* list table variables (column headers)
+```{r variables}
+cars %>% 
+  tbl_vars()
+```
+
+#### Similar Commands
+* `tbl_sums()` -- lists **dimensions** with a brief summary of the object
+* `class()` -- identifies the **data type** of the object
+* `str()` -- identifies the **structure** of the object
+
+
+## EXERCISE, Part One
+
+#### Joel
+
+1. Student_Assignments.Rmd::PART ONE
+**Loading Data**
+
+## Data Reshaping - dplyr
+
+#### John
+
+**dplyr** is a widely adopted r package, part of tidyverse, which uses **five English verbs** to reshape data
+
+### Arrange
+
+**Arrange** to sort rows
+```{r arrange}
+cars %>% 
+  arrange(cyl, desc(mpg), desc(hp))
+```
+
+### Select
+**Select** to choose columns (variables)
+```{r select}
+cars %>% 
+    arrange(cyl, desc(mpg), desc(hp)) %>% 
+    select(makeModel, cyl, mpg, hp)
+```
+
+
+### Filter
+
+**Filter** to select rows
+```{r filter}
+sixcyls <- cars %>% 
+  filter(cyl == 6)
+
+sixcyls    # display filtered data frame
+```
+
+### Mutate
+
+**Mutate** to create new variables (add columns) 
+```{r mutate}
+sixcyls %>% 
+  mutate(dispWt = disp / wt) %>% 
+  select(makeModel, cyl, mpg, hp, dispWt)
+```
+
+### Count
+**Count** to summarize observations (or rows)
+```{r count}
+sixcyls %>% 
+  count(hp)
+```
+
+### Put it all together
+```{r alltogether}
+
+cars %>% 
+  filter(cyl >= 4, cyl <= 6) %>% 
+  select(makeModel, mpg:wt) %>%
+  mutate(dispWt = disp / wt) %>% 
+  arrange(desc(mpg), wt)
+```
+
+## EXERCISE, Part 2
+
+2. Student_Assignments.Rmd::PART TWO
+**Data Management**
+
+1. `arrange()`
+2. `filter()`
+3. `mutate()`
+4. `select()`
+5. `count()`
+
+## Visualization with ggvis
+
+When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
+
+### Scatter Plot
+Linear model and 95% confidence interval
+```{r ggvis-scatter}
+cars %>% 
+  ggvis(~wt, ~mpg) %>% 
+  layer_points() %>% 
+  layer_model_predictions(model = "lm", se=TRUE)
+```
+[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
+
+### Bar Graph
+```{r ggvis-bargraph}
+cars %>% 
+  mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
+  ggvis(~cyl) %>% 
+  layer_bars()
+```
+[More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
+
+### Histogram
+```{r ggvis-hist, message=FALSE}
+cars %>% 
+  ggvis(~mpg) %>% 
+  layer_histograms()
+```
+[More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
+
+### Line graph
+```{r ggvis-line, warning=FALSE}
+cars %>% 
+  ggvis(~mpg, ~wt) %>% 
+  group_by(cyl) %>% 
+  layer_lines(stroke = ~factor(cyl)) %>% 
+  layer_points(~mpg, ~wt, stroke := "black", fill = ~factor(cyl))
+```
+[More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
+
+```{r ggvis-linesmooth, warning=FALSE, message=FALSE}
+cars %>% 
+  ggvis(~mpg, ~wt) %>% 
+  group_by(cyl) %>% 
+  layer_model_predictions(model="lm", se = TRUE) %>% 
+  layer_points(~mpg, ~wt, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
+```
+
+
+
+#### Shareable under CC BY-NC-SA license 
+
+Data, presentation, and handouts are shareable under [CC BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+![This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License")
