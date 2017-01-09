@@ -1,5 +1,5 @@
 # Intro2R
-[TESTING] Supporting datasets and files for our Intro to R workshop.
+Supporting datasets and files for our Intro to R workshop.
 
 # README
 
