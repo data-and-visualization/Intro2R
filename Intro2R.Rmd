@@ -212,19 +212,19 @@ cars %>%
 ### Line graph
 ```{r ggvis-line, warning=FALSE}
 cars %>% 
-  ggvis(~mpg, ~wt) %>% 
+  ggvis( ~wt, ~mpg) %>% 
   group_by(cyl) %>% 
   layer_lines(stroke = ~factor(cyl)) %>% 
-  layer_points(~mpg, ~wt, stroke := "black", fill = ~factor(cyl))
+  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl))
 ```
 [More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
 
 ```{r ggvis-linesmooth, warning=FALSE, message=FALSE}
 cars %>% 
-  ggvis(~mpg, ~wt) %>% 
+  ggvis(~wt, ~mpg) %>% 
   group_by(cyl) %>% 
   layer_model_predictions(model="lm", se = TRUE) %>% 
-  layer_points(~mpg, ~wt, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
+  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
 ```
 
 
