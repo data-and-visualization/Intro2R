@@ -18,6 +18,8 @@ For the workshop, we've prebuilt a data set that has information about menus in 
 ```{r}
 library(tidyverse)
 westUnion <- read_csv("https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv")
+# or 
+# westUnion <- read_csv("data/westUnion.csv")  # if you cloned the repository
 ```
 
 2. What data type is `westUnion`?

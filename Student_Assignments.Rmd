@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 For the workshop, we've prebuilt a data set that has information about menus in Duke's new West Union from three restaurants.  
 
-1. Using what we've you've seen in class, if `westUnion.csv` is a csv file, how would you load the file into a new variable called `westUnion`?
+1. Using what we've you've seen in class, if `data/westUnion.csv` is a csv file, how would you load the file into a new variable called `westUnion`?
 
 2. What data type is `westUnion`?
 
