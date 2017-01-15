@@ -79,7 +79,7 @@ cars %>%
 ```
 
 #### Similar Commands
-* `tbl_sums()` -- lists **dimensions** with a brief summary of the object
+* `tbl_sum()` -- lists **dimensions** with a brief summary of the object
 * `class()` -- identifies the **data type** of the object
 * `str()` -- identifies the **structure** of the object
 
@@ -144,11 +144,14 @@ sixcyls %>%
 Summarize to collapse values into a summary
 
 ```{r}
-group_by(cars, cyl, gear) %>% 
-  summarize(MPG = mean(mpg)) 
+sixcyls %>% 
+  group_by(hp) %>% 
+  summarize(Count = n())
 ```
 
+
 ### Put it all together
+
 ```{r alltogether}
 
 cars %>% 
@@ -156,15 +159,6 @@ cars %>%
   select(makeModel, mpg:wt) %>%
   mutate(dispWt = disp / wt) %>% 
   arrange(desc(mpg), wt)
-```
-
-
-```{r}
-group_by(cars, cyl, gear) %>% 
-  select(cyl, gear, mpg, wt) %>% 
-  summarize(MPG = mean(mpg), WIL = as.integer(mean(wt)*1000)) %>% 
-  arrange(desc(MPG), desc(gear)) %>% 
-  select(MPG, Cylinder = cyl, Gear = gear, "Weight in lbs" = WIL)
 ```
 
 ## EXERCISE, Part 2
