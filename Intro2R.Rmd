@@ -67,8 +67,7 @@ View(cars)
 #### tbl_df
 * "tibble diff" or "Table as data frame"", a modern tidyverse table
 ```{r Table-dataframe}
-cars %>% 
-  tbl_df()
+cars 
 ```
 
 #### tbl_vars
@@ -79,6 +78,8 @@ cars %>%
 ```
 
 #### Similar Commands
+
+* `tbl_df()` -- coerce an old-style data.frame into a tibble data.frame
 * `tbl_sum()` -- lists **dimensions** with a brief summary of the object
 * `class()` -- identifies the **data type** of the object
 * `str()` -- identifies the **structure** of the object
