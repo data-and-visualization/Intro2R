@@ -1,8 +1,4 @@
 # General stuff
-.Rproj.user
-.Rproj
-.Rhistory
-.RData
 _publish.R
 _book
 _bookdown_files
@@ -26,6 +22,7 @@ rsconnect
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
