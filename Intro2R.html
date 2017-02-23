@@ -11,7 +11,7 @@
 
 <meta name="author" content="Joel Herndon &amp; John Little" />
 
-<meta name="date" content="2017-01-19" />
+<meta name="date" content="2017-02-23" />
 
 <title>Intro to R by Data &amp; Visualization Services</title>
 
@@ -254,17 +254,17 @@ div.tocify {
 
 <h1 class="title toc-ignore">Intro to R by Data &amp; Visualization Services</h1>
 <h4 class="author"><em>Joel Herndon &amp; John Little</em></h4>
-<h4 class="date"><em>2017-01-19</em></h4>
+<h4 class="date"><em>2017-02-23</em></h4>
 
 </div>
 
 
 <div id="intro-to-r" class="section level1">
 <h1>Intro to R</h1>
-<div id="housekeeping" class="section level2">
-<h2>Housekeeping</h2>
-<div id="joel---ppt" class="section level4">
-<h4>Joel - PPT</h4>
+<div id="housekeeping-joel" class="section level2">
+<h2>Housekeeping (Joel)</h2>
+<div id="overview-ppt" class="section level4">
+<h4>Overview PPT</h4>
 <ol style="list-style-type: decimal">
 <li>Welcome</li>
 <li>What is r</li>
@@ -276,12 +276,9 @@ div.tocify {
 <span class="kw">library</span>(ggvis)</code></pre></div>
 </div>
 </div>
-<div id="data-management" class="section level2">
-<h2>Data Management</h2>
-<div id="john" class="section level4">
-<h4>John</h4>
+<div id="data-management-john" class="section level2">
+<h2>Data Management (John)</h2>
 <p>We’ll use a derivitive of the mtcars dataset. Use the <code>?</code> to get the codebook.</p>
-</div>
 <div id="load-data" class="section level3">
 <h3>Load Data</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># readr::read_csv</span>
@@ -305,10 +302,7 @@ cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <div id="other-data-loaders-selective-list" class="section level4">
 <h4>Other Data Loaders – selective list</h4>
 <ul>
-<li>ENVIRONMENT PANE: Import Dataset
-<ul>
-<li>FILES PANE: Files–Upload</li>
-</ul></li>
+<li>ENVIRONMENT PANE: <strong>Import Dataset</strong> (Read more: <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">quick overview</a>)</li>
 <li><code>readxl</code> <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
 </ul>
 </div>
@@ -321,9 +315,11 @@ cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <div id="notes" class="section level4">
 <h4>Notes</h4>
 <ul>
-<li>An exploratory convenience, not “reproducible” in the sense of generating a report or leaving a trail of your work</li>
-<li>Environment Pane has information about data objects</li>
+<li><code>View()</code> is an exploratory convenience; it’s not “reproducible” in the sense of generating a report or leaving a trail of your work
+<ul>
 <li>View output has sorting</li>
+</ul></li>
+<li>Environment Pane has information about data objects</li>
 </ul>
 </div>
 </div>
@@ -355,8 +351,7 @@ cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <ul>
 <li>list table variables (column headers)</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">tbl_vars</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tbl_vars</span>(cars)</code></pre></div>
 <pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
 ##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
 ## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
@@ -372,24 +367,18 @@ str() # identifies the <strong>structure</strong> of the object</p>
 </div>
 </div>
 </div>
-<div id="exercise-part-one" class="section level2">
-<h2>EXERCISE, Part One</h2>
-<div id="joel" class="section level4">
-<h4>Joel</h4>
+<div id="exercise-part-one-joel" class="section level2">
+<h2>EXERCISE, Part One (Joel)</h2>
 <ol style="list-style-type: decimal">
 <li>Student_Assignments.Rmd::PART ONE <strong>Loading Data</strong></li>
 </ol>
 </div>
-</div>
-<div id="data-reshaping---dplyr" class="section level2">
-<h2>Data Reshaping - dplyr</h2>
-<div id="john-1" class="section level4">
-<h4>John</h4>
+<div id="data-reshaping---dplyr-john" class="section level2">
+<h2>Data Reshaping - dplyr (John)</h2>
 <p><strong>dplyr</strong> is a widely adopted r package, part of tidyverse, which uses <strong>five English verbs</strong> to reshape data</p>
-</div>
 <div id="arrange" class="section level3">
 <h3>Arrange</h3>
-<p><strong>Arrange</strong> to sort rows</p>
+<p><strong>Arrange</strong> to sort rows by column</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">arrange</span>(cyl, <span class="kw">desc</span>(mpg), <span class="kw">desc</span>(hp))</code></pre></div>
 <pre><code>## # A tibble: 32 × 12
@@ -521,8 +510,8 @@ sixcyls    <span class="co"># display filtered data frame</span></code></pre></d
 ## 18      Merc 280C  17.8     6 167.6   123  3.92 3.440 48.72093</code></pre>
 </div>
 </div>
-<div id="exercise-part-2" class="section level2">
-<h2>EXERCISE, Part 2</h2>
+<div id="exercise-part-2-joel" class="section level2">
+<h2>EXERCISE, Part 2 (Joel)</h2>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Student_Assignments.Rmd::PART TWO <strong>Data Management</strong></p></li>
 <li><code>arrange()</code></li>
@@ -532,8 +521,8 @@ sixcyls    <span class="co"># display filtered data frame</span></code></pre></d
 <li><p><code>count()</code></p></li>
 </ol>
 </div>
-<div id="visualization-with-ggvis" class="section level2">
-<h2>Visualization with ggvis</h2>
+<div id="visualization-with-ggvis-john" class="section level2">
+<h2>Visualization with ggvis (John)</h2>
 <p>When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort. Your visualizations then appear in the Viewer Pane.</p>
 <div id="scatter-plot" class="section level3">
 <h3>Scatter Plot</h3>
@@ -543,27 +532,27 @@ sixcyls    <span class="co"># display filtered data frame</span></code></pre></d
 <span class="st">  </span><span class="kw">layer_points</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## Guessing formula = mpg ~ wt</code></pre>
-<p><div id="plot_id881984536-container" class="ggvis-output-container">
-<div id="plot_id881984536" class="ggvis-output"></div>
+<p><div id="plot_id874609789-container" class="ggvis-output-container">
+<div id="plot_id874609789" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id881984536_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id881984536" data-renderer="svg">SVG</a>
+<a id="plot_id874609789_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id874609789" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id881984536_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id881984536" data-renderer="canvas">Canvas</a>
+<a id="plot_id874609789_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id874609789" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id881984536_download" class="ggvis-download" data-plot-id="plot_id881984536">Download</a>
+<a id="plot_id874609789_download" class="ggvis-download" data-plot-id="plot_id874609789">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id881984536_spec = {
+var plot_id874609789_spec = {
   "data": [
     {
       "name": ".0",
@@ -765,7 +754,7 @@ var plot_id881984536_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id881984536").parseSpec(plot_id881984536_spec);
+ggvis.getPlot("plot_id874609789").parseSpec(plot_id874609789_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a></p>
 </div>
 <div id="bar-graph" class="section level3">
@@ -774,27 +763,27 @@ ggvis.getPlot("plot_id881984536").parseSpec(plot_id881984536_spec);
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cyl =</span> <span class="kw">factor</span>(cyl, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;four&quot;</span>,<span class="st">&quot;six&quot;</span>,<span class="st">&quot;eight&quot;</span>))) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(~cyl) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_bars</span>()</code></pre></div>
-<p><div id="plot_id199500666-container" class="ggvis-output-container">
-<div id="plot_id199500666" class="ggvis-output"></div>
+<p><div id="plot_id308615475-container" class="ggvis-output-container">
+<div id="plot_id308615475" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id199500666_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id199500666" data-renderer="svg">SVG</a>
+<a id="plot_id308615475_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id308615475" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id199500666_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id199500666" data-renderer="canvas">Canvas</a>
+<a id="plot_id308615475_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id308615475" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id199500666_download" class="ggvis-download" data-plot-id="plot_id199500666">Download</a>
+<a id="plot_id308615475_download" class="ggvis-download" data-plot-id="plot_id308615475">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id199500666_spec = {
+var plot_id308615475_spec = {
   "data": [
     {
       "name": ".0/count1/stack2",
@@ -922,7 +911,7 @@ var plot_id199500666_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id199500666").parseSpec(plot_id199500666_spec);
+ggvis.getPlot("plot_id308615475").parseSpec(plot_id308615475_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#bar-graphs">More information on ggvis bar graphs</a></p>
 </div>
 <div id="histogram" class="section level3">
@@ -930,27 +919,27 @@ ggvis.getPlot("plot_id199500666").parseSpec(plot_id199500666_spec);
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(~mpg) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_histograms</span>()</code></pre></div>
-<p><div id="plot_id370805453-container" class="ggvis-output-container">
-<div id="plot_id370805453" class="ggvis-output"></div>
+<p><div id="plot_id663156436-container" class="ggvis-output-container">
+<div id="plot_id663156436" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id370805453_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id370805453" data-renderer="svg">SVG</a>
+<a id="plot_id663156436_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id663156436" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id370805453_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id370805453" data-renderer="canvas">Canvas</a>
+<a id="plot_id663156436_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id663156436" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id370805453_download" class="ggvis-download" data-plot-id="plot_id370805453">Download</a>
+<a id="plot_id663156436_download" class="ggvis-download" data-plot-id="plot_id663156436">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id370805453_spec = {
+var plot_id663156436_spec = {
   "data": [
     {
       "name": ".0/bin1/stack2",
@@ -1081,7 +1070,7 @@ var plot_id370805453_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id370805453").parseSpec(plot_id370805453_spec);
+ggvis.getPlot("plot_id663156436").parseSpec(plot_id663156436_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#histograms">More information on ggvis histograms</a></p>
 </div>
 <div id="line-graph" class="section level3">
@@ -1091,27 +1080,27 @@ ggvis.getPlot("plot_id370805453").parseSpec(plot_id370805453_spec);
 <span class="st">  </span><span class="kw">group_by</span>(cyl) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_lines</span>(<span class="dt">stroke =</span> ~<span class="kw">factor</span>(cyl)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>(~wt, ~mpg, stroke :<span class="er">=</span><span class="st"> &quot;black&quot;</span>, <span class="dt">fill =</span> ~<span class="kw">factor</span>(cyl))</code></pre></div>
-<p><div id="plot_id390658504-container" class="ggvis-output-container">
-<div id="plot_id390658504" class="ggvis-output"></div>
+<p><div id="plot_id595717223-container" class="ggvis-output-container">
+<div id="plot_id595717223" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id390658504_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id390658504" data-renderer="svg">SVG</a>
+<a id="plot_id595717223_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id595717223" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id390658504_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id390658504" data-renderer="canvas">Canvas</a>
+<a id="plot_id595717223_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id595717223" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id390658504_download" class="ggvis-download" data-plot-id="plot_id390658504">Download</a>
+<a id="plot_id595717223_download" class="ggvis-download" data-plot-id="plot_id595717223">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id390658504_spec = {
+var plot_id595717223_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1359,34 +1348,34 @@ var plot_id390658504_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id390658504").parseSpec(plot_id390658504_spec);
+ggvis.getPlot("plot_id595717223").parseSpec(plot_id595717223_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">More information on line graphs</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(~wt, ~mpg) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(cyl) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>(~wt, ~mpg, stroke :<span class="er">=</span><span class="st"> &quot;black&quot;</span>, <span class="dt">fill =</span> ~<span class="kw">factor</span>(cyl), size :<span class="er">=</span><span class="st"> </span><span class="er">~</span>hp, opacity :<span class="er">=</span><span class="st"> </span><span class="fl">0.7</span>) </code></pre></div>
-<div id="plot_id596290562-container" class="ggvis-output-container">
-<div id="plot_id596290562" class="ggvis-output"></div>
+<div id="plot_id919010701-container" class="ggvis-output-container">
+<div id="plot_id919010701" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id596290562_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id596290562" data-renderer="svg">SVG</a>
+<a id="plot_id919010701_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id919010701" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id596290562_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id596290562" data-renderer="canvas">Canvas</a>
+<a id="plot_id919010701_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id919010701" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id596290562_download" class="ggvis-download" data-plot-id="plot_id596290562">Download</a>
+<a id="plot_id919010701_download" class="ggvis-download" data-plot-id="plot_id919010701">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id596290562_spec = {
+var plot_id919010701_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1662,13 +1651,13 @@ var plot_id596290562_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id596290562").parseSpec(plot_id596290562_spec);
+ggvis.getPlot("plot_id919010701").parseSpec(plot_id919010701_spec);
 </script>
-<div id="shareable-under-cc-by-nc-sa-license" class="section level4">
-<h4>Shareable under CC BY-NC-SA license</h4>
-<p>Data, presentation, and handouts are shareable under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA license</a></p>
+<div id="shareable-under-cc-by-nc-license" class="section level4">
+<h4>Shareable under CC BY-NC license</h4>
+<p>Data, presentation, and handouts are shareable under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC license</a></p>
 <div class="figure">
-<img src="data:image/png;base64,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" title="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License" alt="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License." />
+<img src="data:image/png;base64,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" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License" alt="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License." />
 <p class="caption">This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
 </div>
 </div>
