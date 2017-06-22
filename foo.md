@@ -1,3 +1,0 @@
-foo.md
-
-## foo test
