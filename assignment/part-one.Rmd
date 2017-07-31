@@ -16,11 +16,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Hints:
 
-- The data are in a a csv file on your local workstation but need to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/westUnion.csv`.
+- The data are in a *CSV* file on your local workstation which needs to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/westUnion.csv`.
 
-- One option is to use the *Import Dataset* feature of RStudio. The code will be generated for you, which you can run immediately.  Or, look to the bottom of the dialogue box and capture the code to run in your R script.
+- One option is to use the *Import Dataset* feature of RStudio from the *File* menubar. Code will be generated for you, which you can run immediately, or look to the bottom of the dialogue box and capture the code to run in your code chunk.
 
-    - insert image: images/import_data.png
 
 Write the R code required to load csv data:
 
