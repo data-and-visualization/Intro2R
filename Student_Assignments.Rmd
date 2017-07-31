@@ -8,10 +8,6 @@ output:
 fontsize: 25pt
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## PART ONE: Loading Data
 
 For the workshop, we've prebuilt a data set that has information about menus in Duke's new West Union from three restaurants.  

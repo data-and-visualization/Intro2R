@@ -59,13 +59,28 @@ View(cars)
 
 
 
-### Structure of Data Object
+### Tibble (modern Data Frames)
 
 #### tbl_df
-* "tibble diff" or "Table as data frame"", a modern tidyverse table
+* "Table as data frame"", a modern tidyverse table
 ```{r Table-dataframe}
 cars 
 ```
+
+#### Data Structure
+
+```{r}
+class(cars)
+```
+
+
+#### Glimpse
+
+```{r}
+glimpse(cars)
+```
+
+
 
 #### tbl_vars
 * list table variables (column headers)
@@ -73,11 +88,8 @@ cars
 tbl_vars(cars)
 ```
 
-#### Similar Commands
+#### Similar Command
 
-> tbl_df()    # coerce an old-style data.frame into a tibble data.frame  
-> tbl_sum()   # lists **dimensions** with a brief summary of the object  
-> class()     # identifies the **data type** of the object  
 > str()       # identifies the **structure** of the object  
 
 ## EXERCISE, Part One  (Joel)
