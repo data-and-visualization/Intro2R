@@ -22,26 +22,32 @@ output:
 4. What is a Project
 5. What is [Docker](https://vm-manage.oit.duke.edu/containers/rstudio)
 
-```{r load-packages, message=FALSE}
+```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(readr)
 library(ggvis)
 ```
 
 ## Data Management (John)
 
-We'll use a derivitive of the mtcars dataset.  Use the `?` to get the codebook.
+- We'll use a derivitive of the `mtcars` dataset.  
+- Use the `?mtcars` to get the codebook.
 
 ### Load Data
-```{r get data}
+
+RStudio has an on-board data loading wizard which uses the `readr()` package for data loading.  
+See Menubar `File > Import Dataset`
+
+> ![RStudio Environment Pane](images/import_data.png "Environment Pane")
+
+&nbsp;
+
+```{r get data, message=FALSE, warning=FALSE}
 # readr::read_csv
-# using this packages will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+# 'read_csv()' is part of the 'readr' package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+
 cars <- read_csv("data/cars.csv")
 ```
-
-#### Other Data Loaders -- selective list
-* ENVIRONMENT PANE: **Import Dataset** (Read more:  [quick overview](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio))
-* `readxl`  ^[There are several differen read-excel-file packages.  [See this video](https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/jailbreakr-Get-out-of-Excel-free) discussing readxl, openxlsx, XLConnect, xlsx, gdata, linen]
-
 
 ### View your data in a grid
 
@@ -51,11 +57,17 @@ View(cars)
 # Does not dipsplay in an Rmarkdown document
 ```
 
-#### Notes
+#### Other Data Loaders, a selective list
 
-* `View()` is an exploratory convenience; it's not "reproducible" in the sense of generating a report or leaving a trail of your work
-    * View output has sorting 
-* Environment Pane has information about data objects
+- `readxl`  ^[There are several differen read-excel-file packages.  [See this video](https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/jailbreakr-Get-out-of-Excel-free) discussing readxl, openxlsx, XLConnect, xlsx, gdata, linen]
+
+- `View()` is an exploratory convenience; it's not "reproducible" in the sense of generating a report or leaving a trail of your work
+
+    - View output has sorting 
+
+- Environment Pane has information about data objects
+
+- ENVIRONMENT PANE: **Import Dataset** (Read more:  [quick overview](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio))
 
 
 
@@ -69,34 +81,43 @@ cars
 
 #### Data Structure
 
+##### Class
+
 ```{r}
 class(cars)
 ```
 
 
-#### Glimpse
+##### Glimpse into a data frame
 
 ```{r}
 glimpse(cars)
 ```
 
+##### Older style works beyond data frames
+
+```{r}
+str(cars)
+```
 
 
-#### tbl_vars
-* list table variables (column headers)
+#### Useful Command
+
+List table variables (column headers)
+
 ```{r variables}
 tbl_vars(cars)
 ```
 
-#### Similar Command
 
-> str()       # identifies the **structure** of the object  
-
-## EXERCISE, Part One  (Joel)
+## EXERCISE, Part One: Loading Data  (Joel)
 
 
-1. Student_Assignments.Rmd::PART ONE
-**Loading Data**
+- Open File:  Student_Assignments.Rmd (Part One)
+
+OR
+
+- Paste into Console:  `rmarkdown::run("assignment/part-one.Rmd")`
 
 ## Data Reshaping - dplyr (John)
 

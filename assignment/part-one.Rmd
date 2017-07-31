@@ -1,5 +1,5 @@
 ---
-title: "Tutorial Part 1: Intro2R"
+title: "Assignment Part 1: Intro2R"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -20,13 +20,20 @@ Hints:
 
 - One option is to use the *Import Dataset* feature of RStudio. The code will be generated for you, which you can run immediately.  Or, look to the bottom of the dialogue box and capture the code to run in your R script.
 
-    - ![]("images/import_data.png")
+    - insert image: images/import_data.png
 
 Write the R code required to load csv data:
 
-```{r two-plus-two, exercise=TRUE}
+```{r read_csv, exercise=TRUE}
 
 ```
+
+```{r read_csv-solution}
+westUnion <- read_csv("data/westUnion.csv")
+# Note...  Your code will not run in this tutorial window
+# Use an R Notebook to practice exercise one.
+```
+
 
 ## Data Type
 
@@ -38,7 +45,7 @@ quiz(
     answer("class(westUnion)", correct = TRUE),
     answer("str(westUnion)")
   ),
-  question("the data type for westUnion is?",
+  question("The data type for westUnion is?",
     answer("Data Frame", message = "A modern data frame is known as a Tibble"),
     answer("List"),
     answer("Character"),

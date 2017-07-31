@@ -272,59 +272,49 @@ div.tocify {
 <li>What is a Project</li>
 <li>What is <a href="https://vm-manage.oit.duke.edu/containers/rstudio">Docker</a></li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## Warning: package 'tidyverse' was built under R version 3.3.3</code></pre>
-<pre><code>## Warning: package 'tibble' was built under R version 3.3.3</code></pre>
-<pre><code>## Warning: package 'tidyr' was built under R version 3.3.3</code></pre>
-<pre><code>## Warning: package 'readr' was built under R version 3.3.3</code></pre>
-<pre><code>## Warning: package 'purrr' was built under R version 3.3.3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggvis)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(ggvis)</code></pre></div>
 </div>
 </div>
 <div id="data-management-john" class="section level2">
 <h2>Data Management (John)</h2>
-<p>We’ll use a derivitive of the mtcars dataset. Use the <code>?</code> to get the codebook.</p>
+<ul>
+<li>We’ll use a derivitive of the <code>mtcars</code> dataset.<br />
+</li>
+<li>Use the <code>?mtcars</code> to get the codebook.</li>
+</ul>
 <div id="load-data" class="section level3">
 <h3>Load Data</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># readr::read_csv</span>
-<span class="co"># using this packages will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html</span>
-cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cars.csv&quot;</span>)</code></pre></div>
-<pre><code>## Parsed with column specification:
-## cols(
-##   mpg = col_double(),
-##   cyl = col_double(),
-##   disp = col_double(),
-##   hp = col_double(),
-##   drat = col_double(),
-##   wt = col_double(),
-##   qsec = col_double(),
-##   vs = col_double(),
-##   am = col_double(),
-##   gear = col_double(),
-##   carb = col_double(),
-##   makeModel = col_character()
-## )</code></pre>
-<div id="other-data-loaders-selective-list" class="section level4">
-<h4>Other Data Loaders – selective list</h4>
-<ul>
-<li>ENVIRONMENT PANE: <strong>Import Dataset</strong> (Read more: <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">quick overview</a>)</li>
-<li><code>readxl</code> <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
-</ul>
+<p>RStudio has an on-board data loading wizard which uses the <code>readr()</code> package for data loading.<br />
+See Menubar <code>File &gt; Import Dataset</code></p>
+<blockquote>
+<div class="figure">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAawAAAC5CAYAAAB0pAswAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAEh1SURBVHhe7b13dBzHne/b573z7j/3vLO65+x99t5d+91re3ct767X62vRpHZ99ZzO2uu4zpZsi8nSXls5UpIVSImiSEISRYk5SWLOAEGCOSIQIJFzzjkNMsAg/d7vV93VU11T05gZAkMQ/NU5H0zX7/ft6p7u6vp29QwAC7hw4cKFC5dboLBhceHChQuXW6KwYXHhwoULl1uisGFx4cKFC5dborBhceHChQuXW6KwYXHhwoULl1uisGFx4cKFC5dborBhceHChQuXW6JYAwMDwDAMwzBTHev6Rx+ByjUHPR4O1vvDen9Y7w/r/WG9P9NNbw0MDYNKv4MeDwfr/WG9P6z3h/X+sN6f6aa3+gYGgQhoyLie1+t6XM/rdT2u5/W6Htfzel2P63m9rsf1vF7X43per+txPa/X9bie1+t6XM/rdT2u5/W6Htfzel2P63m9rsf1vF7X43per+txPa/X9bie1+t6XM/rdT2u5/W6Htfzel2P63m9rsf1vF7X43per+txPa/X9bie1+t6XM/rdT2u5/W6Htfzel2P63m9rsf1vF7X43per+txPa/X9bie1+t6XM/rdT2u5/W6HrcC/Rhw6BsHVcv6UFjvD+v9Yb0/rPfndtBbvf0DIAlEAOv9Yb0/rPeH9f6w3p/prvcYlkmk53VY7w/r/WG9P6z3h/X+TDc9G5aGSaPCen9Y7w/r/WG9P7e7PsSwJJE0psJ6f1jvD+v9Yb0/rPdnuuit3j5cMBDQliWqRoX1rFdhPetVWM96lVj1aFj9uGDT4xCMkcgUt2E961VYz3oV1rNeZSL0lgyqqCsRJo0K6/1hvT+s94f1/rDen+mkNxjWPrjfmgGv55KAli24f6+u8aI2SJg0Kqz3h/X+sN4f1vvDen+mst7qCWDQg2NYOXo8PL0OppwJ1vvDen9Y7w/r/WG9P1NZz4aFsN4f1vvDen9Y7w/r/VH1aFh9sHu2BZZlc9frS4RhLc7pQ8FesfwaLnc7y4v3LIG7HO3v9pDGYc9stw3Lmg27ZNyh20GNSebMnWsknN7Ull/7rGf9eDnW++dY759jvX9uovTWpddngDVjCVzCCglE3TEp3bB+R2YktcKgbGOyc7NhNy6rGxsPuRNPPv003HnnnXDHHXcIaJli4fR6PBys94f1/rDeH9b7w3p/YtFbvyNDysZKr013L5mPHQu/TFrHzAw5E8H2zTz19DPw+c9/XvDEk0+Nq9dhvT+s94f1/rDeH9b7M1F6NCycJXmCkRmWuR58VBhsL3IeevgR+ONDDxtzDMMwzO2NM8MKQFevZI9jRAEUBJe9cW9drqvHqS4Jth9Ej7M+NK/XWe/N63XWe/N6nfXevF5nvTev12+23tp1P86K7t/jBkX9hgwrB16bQbMsuy6RGhU9zvrQvF5nvTev11nvzet11nvzep313rxev9l6q7sHDeYu+1GeeJy3WzGmHsWUlOXuHm/dXg62cdfiHIzZOgnVVUxx1ofmTDHWs16NsZ71amw6661O/EHoAomal8usD8J61quwnvUqrJ9Yvcew1BX0mJ5nPevD5Uwx1nvreoz13roeY723rsduF71rWCZIYFoxHKz3h/X+sN4f1vvDen+mg97q7O6FcHQ5mHImWO8P6/1hvT+s94f1/kwHfYhhyUZ0dJ3EpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWkLXsWGFwaQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJUxawqQlTFrCpCVMWsKkJXSd1dc/AAzDMAwz1bGKS0pBpaSkzFPnOMc5znGOc3wqxK20tIvAMAzDMFMdq7SsAhiGYRhmqmM1NLaASmNTq6fOcY5znOMc5/hUiFttHd3Q1t5lQ8sqHOc4xznOcY5PkbjlJhmGYRhmCmO1tnWCCwY8dY5znOMc5zjHp0jcasEfDMMwDDPVYcNiGIZhbgms5tYOUGnR6hznOMc5znGOT4W4Vd/YAoT42iB9hRCRMY7f3Dgt09c6m1raBY3Nbe5yM+GcRBkbLy6X1e3cjPfFcY5znOOxxK2qmnogqonaBhsnxvGbE68h6hqhtr4R6uqb3JNF5kWmJYxLMS9ajiQuTz61SW3TNm5kPznOcY5zPJ5xq6S0AkpKy23KcFnC8ZsWLy2rRKqgrLwKKiprxImyDQzNq8G++1DNS9BE2DMyNd7QiCbV0OyaFHWAyuo6KK+oEdu5kf3kOMc5zvF4xq2m5la8+2amCo3i1Z4RNbfQKxlOE5SjcVVU1QrDEcblzLrktFmHcqQTszRcv6W1Hdo7OqENaW2nR4Y0C7PbZxiGuRWw2tpxEIuCq9euC0bHxiDQPwDtnfQLXV5Na1tHsE6DpFimmBJnYqKiqsY1rTqcOZnMiqBcB56b/oEhGBkdw/N1BcauXIUxekWoLbksIY3Ejlkuowpq/MZz6vaChO7LLZLDYyyW8XUYj3tfH14jHaHXSKCvHzo76bf3vfHpTkNjMxQVl4bEp8rxCLd/zNTAunr1GgiuSWxDEhhykVyQbFiTR0lZJZRVVNvPedG45ExLhwyNBoHh4RFhWMK0Ri18tWlrx9cRG4qLnFNXmXo5fC8joVB8KuToRk7EnfzA4JC4cVDPYW9vn/hndGrsdqK2rgHKyivc+lQ7Hvr+MVMHa9w7RgU7Pv4FyYY1edBnWkXF5eIRocewGhycOn3mRedmaGgETWsUhkcIy4UMa3jYy5CDHr99c3jMkCEHWVcJyYnj7ID1fjwH3T0B8XhXnkM6L+o5vR3Jzsl1l6fi8VD3j5k6WO6doWNA6t2iKRfJBcmGNXmQYeXkFkBxqW1a9OhPhWZWZFY0AxscGkZGcECgV8KywcGYDGtg0GbQwa2jhnOx5ezjbGMf9xHo7RsQn0PKc8iGxYbFxIbl3hk6jHc3GckFyYY1edA3BzMyL0NeQbF4PGh/+y+INCsyNjo/NBhI+gcsGxxYybDcOkKDrVpX4ZwZc25QoB737p4+PB/V7jmkmHpOb0fYsJhYsOxBDY3Hwa07hqTnIrkg2bAmj6LiMkhNvyhmWUUlZVCLBkUmJb/2To8Jq6rrxFfW6QsX8nzZyxb09du4hoXLAmfAlXnOxZjzHG97ubOrBwqLStxzyIbFhsXEhmVfWDbUcdS6SjA3/gV5OxtWUvIR2LpzF7IbtiH2sl238dZJk3joiLEtE3kFRXDufBpcys6DgqJS16xUw6LfsyoqKRdfiBH0E4PuwEqQYfX1BeuEO/hSnHMx5eh6sI81YR9/+nWCqT5Axxs2LCYW0LDQdPDiEjgGJC84U07Nh7sgb1fDOpCUDOs2bob31qxD1juvEqqrseAyrXMg6ZBY39SuSl5+IZw6c048FszNL/IYFiF+KbiyBgqLS8W5UaFZgRxoTYblYhiYOYdEkOvvxxs5ujaU496O/T4z67J7Dtmw2LCY2LDERSXuwG1cQ5IXnJaL5IK8XQ0raEY60qzMhqVialeFHgWeOHUW0jOChkWzKptGNCvVsPod5LmiAdWeFUjDCjjQoDvbssDSmL3Xzrk6B3W98XKy3SW5oTmx7DAdcv10rSjXBh1/uj4uZl5yz2HkA/RO+I04dr+D7Wo881X4CsW/8ipkeHR3wcJMRTeFuTHDku9XYYKPBRvW1MQxLGe2pCIvOC0XyQV5OxvW8ZOn4UJqmkO6ATVnL5/AdSI1rOycfDh+4gykZWRBTl6hx7CqahrQrGrF72nR40I6N/S7WIR9rpyBFQfaEMNCwhqWptPr4+WMhuW8ymXTelM1l7MkeGz0nHptyGNP10fGxSz3HN5Mw8pYdJfY99/sMOfjRcyGteN3Yv9D8DkWsbxnNqypiTCsgAOZk7vsoOdk3M6ZL8hoDGvLBzsEry5dAfsPHROxchxwZfzF1xLgzPn0kPWmIqtw1tTU3OL96n8ENDe3CrOi9U3tqmRn56FhnUbDyhTmFZxd2dCfb6JvD9K3CNVzZJ8zZ1B1DEsMtLgs49JY9uCynhPLiDtA38a5vbPt4yRnn571Irg+Jt6wImf7b+19vzUNSx6P0Pe+fVH4YxHLe2bDmpp4DUtbNuVk3K7fuGHV1NTDvgOHYP2mD+Ht99bDrv2HxN+9K6+ogq3b98K6jR9AwjtrIeXE2ZB1pxr0mK+8vMqY84MM2p5hRWZYx46fEt8UvJyT529YYnZsY3/+aD8OlI8E1c+0+jAmDWsf1j25PAtmUG6GBXn7nAEDmbHEXm8Jxqk+G3NiPUWfi3W1XTW3xBn45fb0Gd5eJ96vtqdtP2R7Sn4JxvuUOu0fvR/RJuLZHu6LyI2zLfleXUintCk/53UfrSP0GW98ZlhBnRykJb/ZkQkLv+KNha4vUbanbGuhaJNywbaCJuC0EaGJxmRY7uxKOx4e1GPh9579YcOamlji7psuLDSg/PwC8Xe0qC7NSOYEuBzJBRntI0H6Snzy4WPCnN5duxm27j4oTKsMB969aGBr1r8v4gcPHzeuHyvi3280OX/hvIn+ArrzV9A9yLgNrWNqi5hyhkXnaZAYcqAB1YYMawBf6XeJCPolWN0wiDfyMYfIQVy8KhzA9XJxMBf1OXabeUvt+kx8JRNwDYu2J9tSoPgcLabmBqSJzMQ2TXnZJuY9bRv2V+jDbG/GG95tmdZ9w2BYeU6b9vGUx1oyEYYVhnCGZXhsFt6wwm3DaUsalhaXj9ms3+6099XZ5lcWZSr7H55YDEvfplt3sM2TDWs6Y+XnFwrTKSgogsNHjkJKyjEoKCzGu0Uc6BxDEgwMiddILshYPsOif6eRcuyUMK13Vm+ED3bthwY0CPozRAcPpdimtW4z7EtKMa4fC7v37If1G7bAOsFmQbDujUt27t5nbIuIi2GhSUVqWANDQ4LgudIMyzGriA3LqZNeDvhLse7OSnCQz8PcG/jq5nBbrmHRtpS2aAZEeWlwcn3aFzmTmXPAu47eptgfvU25PzKv7C+Zjrs9MljanlyfzEdpS7x3zHu2hfV9uB7Vad/k8aS4jXq87ePf0dUVV8MKDuSO6Sjoj8dcrduWNntyDUv/fMy7TbvdyL/oEB/DstfjR4LTBys5+TAOmJVAr7t374FDyUcgBwfCAfrdK+f3r+QvD/f12/XxLshYv3RB32xLPnJcPB586931kHjkpPirDZmXcnGmlSxM6711W+DoqXPG9aOBfv9p7fpN4nMj2ywk5m/vSVav2yB+j8rUZjwMKycn3zWscJ9hkfmTYQ0Nj4i/RGIzjOcKB1RkCCHDUv/UEP3tPDmoH8C4J1foDOJoKPlOTprSMsyRxjWpAqcdrBdim5RT21VnQ2ROlM93DGQGvort4XrqLG0Q25TryDbV7ZnadA3Kqc9V6nJ7IeD6+diemMU5bdG+qNui9y4Na+5Bu22C4uKYieNs/+K9PPZd3T03aFia8Yz7SFDWJUEjCWdY6szIEwvZVpBgW872Ipy9EDdkWNp2vO+JDWs6Y+3Zuw/27N2L7IODBxMhN68A7xhtk7IJGpaIR3BBxmpYWdl5sHNPoviyxQdbd8GJs6lQV98IZ1Mz0CT2ifgOnHmdwbpp/Wggo5LophQJpjbjYli5URjWCJ4fMi0XHFQRGoSlYUnoD7+6xkI6NYemJAfxAie3VA7imKO6NIGZTpyMhtqknMcIFUOQ5lewzM5bc+06rSfbJ1NQ1wnZPpmIoU1pUNJ81bppe/QqlpX3Sm2p+yLf6wFcj+pi3+R6sg3P8bbp6om3YQWRg7WclYQzLPfRXrgZlsmMnNxXvmK3EashRHw85L4Q7v6yYd1OWHv37hdmRVRWVjkmFTQjWad/UyHi2sVouiBjMayc/GI0pf3w1sp1sB3NKTUtAw1yAC7nFMLGD3bCu2s2wp59iZB1KRvNM9ILPjxkDqnpGWjQ+VFBRhHu23xkOjdmWON/rT03t0AYVlp6JmSjeemGVVlVB6W4D+4My4M9sErDomUVOairzMTBXTcs0qqDOM3YhqRpOIg4aTHnmgXV1bZoPWewN23buI7Tpmf7hjY921TaJ8Ny9RpzD2htOet6toV1aVgCuU1HG3qTEP8Zlv6ojJAzKNfACLG+XFfH2aafYXk+Iwo1Sz9iMizE9N4k4xmWwPg+QmHDmpoIw5IcPnxE/IklMirv46RgPZILMlrDKigqg3VbtguzohlUKg7GZEq5aGJvvbcR3l29CXbvTRQD9ODQjZsVQebQ0NAkthMNjY3NU8KwyDjH+wxreHjMYdQhuExtia/Vy9xIUhjDwnaKEpxBfDkUCm0xLBOD+ExYVoRt0l/xH5YxVUc52e48OEjbK1zuGkIh/asTHOQFuKxv/6DMFQVNRKyDyG0twxw9stTblG3JNvS626YCzZg8bZFO3RbmxL9nkRpV52jFfzTQjnl3d+/NNSxlNuKZpYSsL1G252tYphlaZMRqWAL1PUjc7RuOmfE9+8OGNTWxEhMP4cyqWpjV3n37ISXlKNAXMeRfbbexDYv+t1IkF2Q0hkWzgbfeWw/vrNogZlaZWdlAv5ycX1gCC99YAWvWb4Fdew4KIx0YHAxZP1bIHC7goJ+TVxAVtE44Y7mxNu1Hk6Z2VaIxLPmPG1Vsc7ENy41jTODqrkyRHBqAijAELTblcsp7cejpidWwpjra40OjxswNGVYcYMOamliFRUViACsuLoGUo8fg6LHjUFpaZpuR5w7cHuwiuSCjMaynXlwMq9ZtFp9P0Z8dGhoahjw0q2dfXgIbNm8V8YqKKmFi+ro3ws49ex32CXY5rzYyFx5Tm9SGxLQO4d1OELmeqV2VGzUs+/zZ/yLfnL9dMZlPNMh2bg/DiuUxmwobFhMLlnthoRkVFhZBaVm5c6GFu+udWMO6WVy/fv2GmIw2CVO7Krl5hWxYU5rbzbC0x5URwobFxELQsCJmehjWrUp0hhV6rmxMhhVOS3DOjF8uSE9PYNoZ1o3ChsXEQgyGFYp+QbJhTR6xzrDkI10JtUWzZlmXg69b51xMOU8dl4npOMO6UdiwmFjQDMu+AM0Ec+NdkGxYk0c0hjU0MhoWasv9Ug2eSxsnL+Ociz4n6wqx/x7W9IUNi4kFK9q7yUguSDasyYO+mBKpYQ3iAOoBz5WE/uzV4BAuE3pexjkXfU7WZR5p6+iCU2fOi2NO0N/olMu3K/TviOTyVDwe6v4xUwdr3DtGLRfJBdnQ1AxNza3Q1NIGza3t0IIGZpsYG9aNknU5Z0IMK6+4bPzBl3PR52Rd5pH2zm7xqwt0zBmGiR1r3AvQlOML8qZx5lzqhBgWlZjOPef8c7Iu88jw6Jg43ly4cLmxMiGGxRdk/IpuUH5w4cKFy3QqURsWl5tbCguLI55h9Q8NMwzDTBssU5CZurBhTQwB+gekg0MwMDxizDNMJHA/ii/CsOigDwybBcz4xPP4sWFNDJ09PXjeBsQXiUx5hokE7kfxRRgWHXR63KcnmciI5/GLyrAGcR1CbUPGtPjAEN4h3kb6xpZW6OrpFb+uocbD6W+348N6h3H0Dc0t0NWL/WjM6Ufj6PU4620i1Vu00NDSggd8LKoVJax3jt8oHr8I9QIZi1I/kYZF/4hTxiPZz+mkr6yuhfbOLhi7cjUi/e12fFjvMI6+oqrG7kdXnX40jl6gxCPVN1UWQNG+DZCx8GlIefrhcfUuMjZN9MKwKqtr3AN+u7zxidRX0PGjgS9CvUDGotTH+khQ3Yas6zGV6a4vLC4B+r3Aa9evu3mZs+v07+4tXDaj51jvZfrpQ/sIofcjSTi9JLS/hdc3VxdB4fb34PQj90LS/f8OZxNen9D2iVtFb9GPIjzo+gFXhXK5J9AHTS3tUIUDYyneoZooU5YrUdfS0Qm9ff2eNlXC7ZgaU5mKeuq06sA3nl6vR6O/GYbV3VUDrdUp0FS6DRqJkm3QXL4XOppzPPqUpgrI72p265G2L+tEa3cA0vMrID3PS4ahnppdCmcuFUFqbgl09faFtKfX1VhOfj60tLbB9Y8+cvMyZ9eDg1ZHrwVNbRY0tlo4m7apb7agrsmC2kYLahosqK63qaxDalCPWu+AF1rXYyqsn2r60D5C6P1IEk4vCe1vZn1rbTkU7FwDZx+5Dw47ZtVQXjph7UtuFb0wrFw86PoBV4Vyua65Dcqr66C0sgbKcGAcj9LKamFgza0dnjZVwu2YGlOZinrqtOrAN55erwcGhqCmNQCXKjvhdH47HM9pg5N5bZBR1gUVTQHoCAy6+lgMy94nnLk59WDMRo0Hc7a+uwvPX/kuqDg3HwqS/pegMOkeKEn5MdRlJ0B3exnQP9Yk/Q/Tt8HLxaehsqfTbXu89tVYB5pVGhrRi2sPQcL7yfDWB4d9eWPjQXjunZ3wxFu74HJxFXTiDZVf+xKqX7x0GZqam+Hjjz8Oo7cHrZ4AGhEaUkGZBfklFuQWW5BTaMHlfAuyci24mGNB+mULUjMtOH/RgjNpFpy6YEE25ls7g4NfSRcaXZ86AAaRMT1nirH+Zum9/Uei9iM1Hk4fzJn7Z//AAPQN9OJNfjd0tjVB3p5VcO4Pv4Cke78HZ5a9Co3lZR69WEfDjvv3/9DcraEXhpWJB10/4EFRcMXckgq8i2yCkQh/H4v+qGVJRY2YbVFbvTiwXW6vhra+XmP7wZiNGg/mpp6eOq08fpHo1Vh3Hx6jhl7Yc6EJXt5eAXPfKYRfLM2D+xLy4KnNpbD5RANklXdBW49tWhM9wzLtp8zTa2X681CT/jhcG+kW75Gg8jEadFvpJihI/j5eXD2oHxKG9Ykjy+DxvKMRt6/WT2YWwFPvHoSlxxugs28QhkeGjYyMEiMwOjYKle0D8FJiJTz46ibILa31bV9C9fSLmdDY1Czei1lvD1pl1bZhdfRYeK7M9PTjq0IbmhMZ2slzwQHvR+kWrK5UB0DzwKjm9TrrvXm9Prl6b/+R6P1IEk6v5vU60dPdDG2thdBUmwbZyavh3G/+FfZ89244/84yaKquDNHr7ah5vT4d9MKw6KDrB1wVyuXLhaXQ3NYptJEWenxYgjMtaqeutwM+c+A/4FhDrrF9WZeocTWv12+2Xj1+kejlcmBgGMoaAvDS9nL49fJ8+OmS3BB+hizYUo4zrnaxTjSGpZqjul8mAoE2aK5IgrIzv4e8xHsg/+D/gqLDP0BT2gz9PTXQ09MFvYGAIK+1AXZW58HzaevhZ4mPwL+lvg/fS90Gnzu2QhjW3x5fCX/MSTZsx39/jqXnwsNv7oZlJxqhq39ImJIJMqqxsTG4cmUMqjsGg4ZV5jUsP9IyLkJjY5PxvNnYg1YJmkwOzqoKyiMnHzmTYcHxs8EBjwzrH09ZsLQ0OFCaCA6QkcF6fyZOb+ojI6IfNTj9yKxRCd//A3190N1RCj1t5yDQchA6KtdATdJjcGTedyBtVQLUFeRDX19/yHpeIr/ebW49vTAsOujeA25eMbuwJCbDKq6sEevXO4b1xUOPw/aqcxP6RrzEVx96/HRC2+8bGIKmjgF4bXcl3P92Psx+uwAW7aqEAxnNcL6wE87kt+OsqxFe3FoOr+yogFP5bWK96AxL3Qd/mkq2QkPOcuhtSIGu6t2C7tqDEOgog97eAHR0dkJTZwccri+Bp3NT4HsXPoQvH38bPpv8Knzq6JuCT6JZkWERf3fyPXgwO8m4rXAcTcuFPyaENywyKmFWaFRXrl6Bq9euomENeQzL1K4J1bBMeTlQFaP50Ayrs9eCxjYL8krsGVQnzrgqapBaC7ow144xyl2qsyCxyoLFaFjzj1nweK7NF09aeFwsmHkGTQt13sHQZo5lwT5D/GZA+/JGgTlHUN79F/kOfnqd8dq/USa+fVMfiaQf+dM/OAhdXS3QUHES8g8tgOrzL0BP7SpoK34Vas8/BmlbnofqnDScedFTDHMbtxNhDMvMRBnWn+26D+459ifYXH4qZBu3IpEeP6K1ewBqWwNQXN8DyZmtMG9loTCrVcm1kFnWBVXNfZjrh9LGfqhq6YPLlV3ikWBdW59Y/8YMa8QQs+NVGc9D/aXn4fq1MRgaHnbpQbNq7+iE6tZmSKopgPuz9sE/nVoDf5WS4JqTiS+dWg3PF5xw2zdv2xsLZ1ijo2hUCBmVNKsraFZXr1+D6s5hH8MK/37TMjINA42qtweqwjL7s6iPPsY770Gs4wzpylWsf4QG1mxDy8NXLEgptGAt6h/Nt+Db5y3468MWfBpNi/iLFNuwiC+jeb2epw+It55hefIHbNOag6+qLhy3tmEF+7PXsML3N1Mu0B+A5voiKEp5A0rPLoT8fb+F3F0/hdJjv4fqrCehPP1RKEhdB+1t9hOqaNufjnrNsPxXlIbVN/Ix1HSFp677Y7j+0cewv+EivJS+DV7Au/HlhYnwSu5u+G/75gnDIr5x7CXYhjMt7zYPis7mvXubiZ0vdH9C8d9/c/zG9TT42cfPGzfpT+NMaW1KHbxzqAae+6Acfrk0T8yg0ks6oahhELal9sDC/R3wWmIX7MnshYrmAU8b0RjW4MgIDA4T9Lcg8RXbEYjYCBrSCLRUnYRmpODoL6H42K+gvfY0VBUmeahE0nN2wmunl8I39/0Rvrz/SfiHI0tw4F0F/3zsTfja/kfgR+kfwt8cf8djVtQ+IbZH+zLO/hxPywsxrFFnZmU/AkSjcmZW19Csrn90HWq7RlzDyiuv9W1f3Z/0TPrswR5ozHoLtWhQOBuqabRwRowzKzSuAqzTFzH6+nHmhbOpGoQ+tyrFGdaiTAt+egEN6ZQF//0ompRjUCp/fsiCTyVZ8K3jdvsEbWtwxB5kDzh1Wl6Kg/9M5xqYcxC1iLwm5iTa67hazEktQe2o7R+YG8xZMy3IpzgOxIRn/S9Z8CWpI3A9sX+K3t0mGrS6/4O4T27bhGNikrn0HnAddT/d9pX3Roj3i3HRvpaTx4j2ZSluT8bF/oRr39HL/Seo7fnzHX7v4NRD9d7+I/uz+hmWX39T+z99sSLQ1wmd7VVQXXQQLq75BuTu+DmUn3gIcnf/CtLWfhOy9/8c8o7Og7z09dDRVme3EWH7kfT/W1Vv0UKG8xmMSPismEOfYbV3oildhwN5VwTJRR/BwfyrYjmx4BocKrwOhwuvwNjVj+F7Z15zzSkcs1KehZT6bGXHEmEuGtTSQqdO+5I4FzvfXOyok3Ogtu3YAdu2EzudV5twer39dMewItGvPlLr+YyKDCsxowXKG/tga1oPfPuNJvjMkw2CH7zVAvsvBaC7b9jd/2gMa0jbTx3ax9PrPwXn3/87OLPpM3B20/+A8x/+I5x7/4sO/yA4veXvIWXTnbBv/ecEi7fMgqeOvQKv5x6HrekbYce6z0JHdwP8MG07fObYCnix6LTbvnocxtsfaVhLjzdCY9cgGgHO8AaGoZcYHIG+oTGb4SvQjwyMXIXS1uAjwXzdsDTU/TEalgd7QMsvtuAy3qkX4cyKzCuvyH6lOuXykAsYW5llwS/OWvDdMxZ8HbkLDenzaFBfwNkU8Vc4w/qvyWhaOKj/8LQ9CLoDMoED/lwcYFXDcgd/OWDj4KsO4AcUw1KNIn+ZXS/AZfEeZN3RC/NSBnK5vtTL2FJ8X1KjYzKsIUTGKbYUt+Gal9xnp663H05L7ZOW3iu1L/WE532QUTnvgerj7T9BbT/7LJ6fL1hwxx02tEyxUL25P3sMS+YcQvV009kPnR210FKfBp1NR2GsJxkCtSsh/b2vQdqaf4WCQw9DLt7UH3/tC3Dm/R/AxTOboLW1IaRtwrQ/dm78/n+r6o2GFW5FaVjlrWPwQWoAPkzrEwa1/eKAqO+6NAwH867Crot9MHLlo4gM68/3/A4+e+A/lO2EGtbQSCJ2QIrR/shlk97JJS5T7kylLoh+oL7z3e/Cpz71Keywdwg+/elPi1g4vX585JcuItFvOlEPc1YUCOa+UwAPrymBvKpuyK4egKd3trtmJXn1YBdUtgyJQbulezAqwxoeoX++Kf8Rp70fXkbhwtZ/gs6Gk3BluAPGhtpgjF41RpGRoXaX88n3wvmTz0NJeSYU5e6Do6v+HAI9jfCjjO2QUJYKHQN9bvvqtsbbn+PptmEtPNIAy3GWlXCyaVzI3KRhFZTX+bav7k9GZhY0OQONWW8PkPQ19oZmC8au2DMreiRIAx3V63HmVYozrNxuC94qt+CPaRasqbAgDWdbR9HkNhxGY8Pl6l4LvpNqwX/ea8H9qGnGGZlsX0UYFi1j+7RMA66a0+vLnLrIkXk4OTem5nF5WOad9qUJqFoJxWT7pBdoeX0dal/EHSNTc4S6TjTty2V1/wlVQ9BsK9L2VRY8Z8Gdd9o8g2Zl1lOfCPYf2Z+pH0nDCuaCGnV5eKgL+rouQaDlGPS1HIDBjv3IXmgtWQa1F5+GjHXfhLMrvw3nt/wSTq2+B46/8nkozzsNPT09uD9qu8E21eVIrnd1+VbUW7RABz14wMOvmFtkG1Zd90fCqAiaYcllWT9Wch3GrkU2w/rGiZegLtDuboPMSRhQkayPQuGymXgnlejsj55X67RMd4vL8W4StQfnoWnhzMxtW0LvL7hM73fe/PnCtIg5c+cqebNexJzjk4F368Hj56/vDgwJ4yFaEfq6eh/OHrKqBuCJ7R0hhvXSvk7Iq+uH1OIOmIcGF61hjUfFxSVQnrYAOmq2wnAgDYYCqTDUex45B0M9Z2Co+yQMdR2DwfbDMNi8D9kD5Rf+N2Qf+R0UZ27AC+oAnEDD6uttgswO3IdAV+h2Romx0LiGaljRoBqWqd0QcH8uZgUNy6jBQYrIRuOhXwIO9xlWERrW5R4LtuHrjhwLytG8+jGfi4PlLpxNDTiD3zdxlvVQJs7I2u12PYzaUN896MTkgCs1nrqjlXVdSyzDwVvNH6RtKHnf9bX2TXjyzv7LuHwPhTSzw7qKWMfQflgt5R09xebiMZXryFjIOhHsvwfUP/a4BY8+asi5KH1D6c8XlRsfj0bF0fe3H4KeuvXQWbUaumq2QCfSUvI2tBQtg4bc5VBy4klIW/8DOLp4BiQv/TakbHwY2pprYHCIfp1Da1MlwuvL5RbWW/SDDro44OOsmFtUBi1oWCNXP4bOwfB0IR999DHk9NTAtvzT8EHOSThanw27alLhU/t+75rVz88th4yWMm07jukozFymDr62QS0rMtRHaXmWOeeur6C938ceexw77WNejUqY4+MePy0ezYlo6xmBDWd7YNaiZtes7lncAttw5lpQ24czswbxFfdoDGtkZAzobxz60d1WCAUn5kFV5mPQXb8J+tv2QH/rDmQb9DV/AH2Nm6CvYR0Eat+FQPkbyGJoy3kKCg7/GHLwAitKf08YVn+g2di+YMxhnP05kZ7vMaykvE64UNEbpDIgOF/eAxtSWw2GVW9sNwTcl0zFsIwaHMQI+n2qojKcFaFp1TZY4jEgGRXVyyotyMTcqSoLkvE1Hc2NvlFIubM4o9qxx26D2IqazLZg3cOYDfX7RCcmBlzcltR46o6WBmSTVsY8bZXgMg68YfPq+lr7JjzrOPtfRKYzz4k5n2cVmdbR2/fTUt1pn/ZfjXs0Knr746G0b8wLlL6h9GfRj5r9+hHi6PvajkNT8ZvQVPA6NBclIG9CY/4byFtQczkBis8tgowd98Gxt/8/OLZ6NpTln4OBgT5zmyrK/hjzOrew3qIfdNDFAR9nRfoX7WRY0ZTqukYoq64T6zcPdLvfEvzluQQ41pgXso2R0STsbGg6xbiM+1KUMAs7cwJ2ZkM+RO8sF4XTakRxoARh9O7xU2KCKNofRk1h4xCsPd0DT+3ogKd3dsCWcwHIrRmAk7nt8MTGUvjV8vzoDMvZ/qjcD2dZgNsUjI1C9aUEKDk9B+rznoO+lq3Q17QF2QgBMqq6VRCoWQGBymUQKHkFAsV/gt6CZ6HyxM8gJ/lXkHVorm1YfWhYxvaDjLc/umFVtQ1Afecg5Nb3QXnrAFy9elVA3xg8lN8ZaliVaFhOe6b21f3JunQJmltaxHkz63Gm1G9B2iWcLRVaUNdoQVWtbVi19c7jwAoLsnDGlV6NMyfM0edZpKHc8VMWbPrQ/oaZGPCcQXFUgjGBEqNBNlFZJpORuXlYX47tq3VhQs6yMAonl4jLVJfti/osNARcJo3MS73btrI/avtUp1e57FnHqRcnYJvOOkKfZG+zWOaX2/nlTt7TvqOl/VPbUtsnSLsMdfNQT8vu+6S8djzH239dr2tC9dQnlP6BUH+hftTi9CO//kYM9tdBS3Ui1Oa+CbWXX8Hr7XU0q7fx+nsTSi+8BpcPPw7nd9wLZz68Dy4dfQcGBvvFTS+tG9o/HZSYqpmueot+ZGVdEgfcb0X68ztZOfl4d9kqtJGWsspqyCsshb7+AWhxDOuHpxfDsabckG0J0GTmocksLwnG7I6Z5OhtE3LzHr29vAyX7TYdw1LaivVAuXVE11OnpRKpXi4LUFvd3A85VT1QXB+AqpYByKjoh8yqAShr6ocLxV2w/EAN3PcmDuZriqIyrLErV8Iz5nDlKnS15EDhyQeh+OTPobv2PQjUrw0aVdWbEKhYCr1lrwqj6s17EnpzHoOW1Puh6NB34ezmL8CJ1f8VOturxe+U0Ffh6X2p7Ru3r0D64eEROJbqfSRIhpVc0CWWN6e3wlXUEqMjI5CU3xFqWBV19raVtl20/bmcne0ONCFaAgepxiYLUtB4KtCQ9EeCH2O9sQVzOKPqpgENY5QbQM3HgEZ30YK337OgrcOO0aBHn3u5UF2L0SCbpCwn4ICr5sLVxbIzyAtwUC/R2k+ar+WduKctRV8i28P1ZEyF1nHbI7Q2iQSMyfwsbE/dZ719P626LcrJ9vWcug/j7b/p+PsSpj+H7Udh9EODPVBfegDKLy5G01oCVVnLoOTcy5BzdAFc2HkvnNj0PUjd/wTUV2Z51gshTPthmSZ6i35cvpwdesA1GnHae/zsBSivrIFr164L/XjlCt4NZ1zKgeOnz0FdQxO0DfbCd04uhIzWUnuwNg0ujukklKhvRMZouUR07lkJJSJXQjMwV6/q9PUcYjxQfnrqtFREPYb296W1wCs7KuGtg7Vw9DL9DcFuSCvthj0Yf+7DcvgNmtWD7xXB+mP1E2dYDqO4/b7+PihOWwK5yT+EhuzHIFD9tmtUgbLFYmbVW/Q8GtWj0Jv9EPIf0J01H6qOfg/ObfzvkLLyDriQegyKSsuhqaUVevvoMQb93hRtw/84UB/o6++HtrZ22H887YYM62KefWMU1rQE9v4UFRdDe0eH+FNToRrCgkuXLdixF+/4y8IbFj0epOWrGKNvDkrDOnPegleWWFCGszAyLfocK2QQnCDUwZ2ZLGS/8Pbn8ftRaP8n06otPgQXEx+CS0nzIDvlMTi3/edw5oPvw4ktv4JLJ1dhfxkIWc9MhOOMy62tt+gHHfTwB9yGBshtu/fD2dQM6OzqFgP0eKWxqQX2HEyG1Ru2wOmz58UgRjM1uhMnaJnuyIODG2EyLGlM8/EOFOtJ8927qlkJCYo+AsNymbgDaz5+kbe/J7UFHl5XAurX3VVmv1MIbyfViq+3R2NYdMPgAffJxYnRAF9b3whZaXvg/P65kJf0bZxNLYbe0lchUPwKBAr/BL35OLPKfRx6Lj2IzIPui7OhO/130HL6x1C4dwYcXfv3sH37Rkg6fAzOp2VAaUWV+Mv+nm2bwP3o6xuA6pp6uJybD5v2pHgMq7pjGJILu13Dot/FIoaxzyTlhRrW/pQz4v9cBfr63fb19yupb2iAnt5e8UeL3bhHb8HFLAu27rJg7WYLVm+0YPlKC15+3YJFb1jw0mILnnnRgqf/ZMHzL9s8sQBjWH/uJQseedKCF14JGhZ9cH8FBz4XbH9cItTPJ8MiI41Q78J6fzx6p49oePqRp/+EQp9V9w8OQUd3N1RVFUPGqffh0Ppfw4nNP4DzW38Ih9d9HzaveADWbVwFB46eguPn0iE9KxfySsqhsq4BWto6cFt9MDQ0Ymw/hHH2J4RbQG/RDzrongtXB1doam6BrOwcOHLiDOzafwg2b9sNK9duhNcT3oEXX10KC15aDM+/8josWvoWJLy7FtZt2QYf7twPB5KPwoWMTBxIq6G7p1d8blBdU4uDax00NDVDR2eXGLT0HfNFaqeIvr4ej991p8Ma8iFo7XcGhsWMak1KPTyyvhh+tTxP/H7Wg6uKYOm+Gpx1dUBTJz1quxqVYV29dg3v/P2hzk/noLqmFHIvvAcZe74FOftmIl+FXDSj3D1fgZzdX4acXV+CnJ1/h3wBsnfcCdnb/xYuffhZuPDBVyFp92I4cuwIpF+8hNuugObWNvHNJnc7tB8SZdsEbb+9vROq0GjOX8yGNbuOw6MrDwlWbD8OCzemiOXn1ibD+r0nBOv2HIdXNh52dU+vPgx7jl6AvOJyaMO2aGDQt+MB94MGmWGcqdHTAqMGacUBorK6DgpxwMjJL4JL2XmQkXkZ0pHUjCw054twDm/gzjucu5Buk5qON3bpeH7yobsbtzOMAwyea9M2BD7Hx4hHn4yGNQveLHVyJjz6CGC9P4q+B8c0Or9+/Uhq6bPq/oEhvIHphmo0oOzL6XB0/wrYvfKnkLT2B7B11YPw7rtLYOX6LbB510HYm3wCjp9Jg4zLBVBcXgMNza3Q7RiWqX2BGg/HLay36AcddHHAfVakk9Ld3QP1jc3ic6n8olK4nFeAF+8lceGedS7UVDSnzMu5kIsDZjEOnHX1TWJA7Mc7eRog6PEP/QHVnp4ABAL9MIAnkL6UoG9P4LM/Rm6S3j1+SkwQRm+ip38UqloHIauyF84VdsHZgk7IKKPPtfqho5cGPFsXjWHRPo0HtUmfo/X3D0J7UwHU5K2H8gvPKzznsEDjWUHZxbegsLgMZ2kNYoCnczo8bBuGaXs6nu13dEERXpi7j6ZHxYGTmdDY3CZufKitSLZNOjIRU45hIiWafkTXMJkW/ReLLhz/6N/rl5cXw6WzH0LOuU1wMTVZPKFIzcyFrNwiyCsqF/+mqQ7H3Nb2LmFWdCNIHyOY2r8dsOgHHXQ9wUROPI9fNIZ1/fp1JgzX8CbCFGeYaOB+FF8s+sEH/caI5/GLxrDocySGYZjpgmUKMlOXaAzr5Pl0hmGYaYNlCjJTl2gMq77B/uOuXLhw4TIdimV97t+BiR9U+vr6YiYaw5L/NJJhGGY6wIYVZ9iwGIZhYoMNK86wYTEMw8QGG1aciathDeJJJtSTLmNanP6rMeudOutZL2G9YKro2bDizFQyLPqX+zKudpjq001QvKfaZreCE6vPbIuog4Vrn/U2rHdySpz1Nqx30PRsWHEmroalnHi1c8i6Hgv0DULdxRZIW5QHJx/KDEvWimJozOvwrBtJ+yqsZ70K61mvEk7PhhVnxjOs2bNnG+OSyTSsno4BOPvsZaNJ6WS+WeRZN5L2VVjPehXWs14lnJ4NK874GRaZlcSUJ2IxLPtk45TbqasdgJCxWA0r0va9OdazXs2xnvVqzqxnw4oz4QxLNSs/05roGRZR1ZIDpwrWwKm81XD4xNtw6OhbXhJXwoknUsMalmxPr0vUuJrX66z35vU66715vc56b16vTwc9G1acMRmWblJ6XSUaw1LvUuQJ16lqvgxnizZAUtai8GS8Bsm718Lx5095DCuS9r346Q/CHGsmvFGgxsLpTVoikv1R153I/TeRCLMtC2YfMOVMTPb+sN4f1vtz8/VsWHHGz7DGixHRGZb5pKvkVB4ym5SBje+dhVWvlgg2rqqCw7m9gobOQWPbJvbNdf51uWTmMsgTuXAmZCIarY7fupTT9i/m7UwHbuQ4M8zEw4YVZ8IZlh4LF78xwxoJiUVjWC/suQz/+/2WEMi0GoVphbZvQ/FEYQYzlhZ64vvmzoV9YlkdHElvakvG9IF0PL2KXNeUo300DdDRtC/j00FvOs6qTo2bcqwPxlk/EXo2rDhjMqxoiMawBkdGYHCYGLVfsQMIRGwEhpCcqhs3LOJ4QcDYPkHLB3BmNXNZkZMz7U8izMXBcWmhU8d9p3XUmVi+q7eNZenBZTDTnQnNhQPq+z04N7guMueg3B9n3SJ7G979cXLOPqj7PzgSus05B2id4Htz9bRt2l+5TiG17ywfcNbHfIGjD3mf+v4o25yL78N3fw4E3zdpg/tfBEtnOtsQ+4QxcTwN7dA2ioJ1wdxER484bbrvF5n/+9/bzPcSTi+OfQT9k/UE66WeDSvOxNOwhvQOoEEdYEINy9C+3SGdQZFMQtRN++M1rPxlM53Bm+qj9qBOg6ajFY/unEE/VF8MS+fKZUSYFxoaLquGFXp8nFwYw5rrbFMYitKmWMZ9k3rXwEIMS64fbL9A7jfuC+1PuPdJ6wyp2zTuj7KuqkU87RYuh5nufgS3IQxUrif2R91/ux0V9fg8u2ABfOELX4A77rhDQMvPPrsgrJ4Gp0j6J+sJ1hOkZcOKM/E0rOGRUewECHYA0TmcThFkdMIM6wQalql98Sru1ufBQXd/0FDUu31hHo5hKcvLiqSeoFhwILW1lKe6Fgt5v6o+uBx6fCgn90ti2Ka7P1SXOdJRe8HlYbkODvhevUSNyf2h2DzbXD15vS6XTftj1gaPJx1/vR1altu32/Xuv2xXhfTB5QXPPQd33nmn4JlnnlVyQY26HEn/VJdZr3P76dmw4ky8DWs8cquSjeZkwtewCgPG9gWjNPDZhuXNBQdSz7JRH0ZLuVGiBJbhICxjhTRz8RiPtm7xmL2uB61diWg/Sct5tQdxBjM3EZcT54E1LxH11L7PPrtt4PsU7cv98VvHqReT3n9/PHVxPNVjYTgeIdvQ998HZf8fe+xxePTRx0I1Kp73GwGs9+c20rNhxZl4GtbIyBiMYEfwI7d6YgzrZGGfsX3BGJrJLHpMVqLlaNCdJQZHz/KYs1yka+dBYsh6yBih5Mk0ZiZAkWddbTsluBxyfLR2JW77ak6rC6NKgqLls2BuEumREcN2PW07MdoXoZexMO/Tow+TM9WNx1MSZj1xfPRcGMTxQSLobwLW+8P6sLBhxZm4GpbTEUZlh3CWBXjyidKGs3As502jQUkOZr4K28+/A8/uyjeaFXGyCA3L0L5bL0kQH+LTYE51e3+SYB4OiMtxcBzFgdJdxlziPJwFzELTcdYXdTQEuz3SqvVgXuxDEpqHsm5xwizs6Ng2Drz2uvZ21GMSuj8OTp7WkwO5rbfrcn/l/s+chWbjrKNqQvU28n0WC733fYTuj1KPcH9k3XN8hN7GPR50bMT7Da7n3X+pd3D2360jqob1DkqM9Uo+Rj0bVpyJp2GNXbkSnjGHK1ehquWi0agke9OXwaNbq9CYmkOMSnIKDStc+8E4DYY4cCrMSihx9PZAmVAS1CfNV7Q4qJd42kFtwvww+RJIwBmdzM1KSLD1JZQ7pCzrhO4fMS9J5tT1tDq+1yQyhfmHnLyuCdXL4zPu+6R1hN6nvZD2ZV0eT6qbtqOsJ/bHe3xKhNmjfn6S046Dsv+eeDhY7w/r/XH0bFhxZsoYlstVGBwKQFdfUwgnC6vhmZ2F8NSOIvjD+01Go5KEGJbSvjkeDtb7w3p/WO/Pra1nw4oz8TSsK1evesHO4aLnDDR1j8KBy31Gg1LZfykATT1jUbfP+nFgvT+s92ca6tmw4kw8DevqtWtw9WoEkE6i5dp6x2BvVsCXVtTo63nwad8I6/1hvT+s9+cW1rNhxZl4Gta1a9cZhmGmDWxYcSaehnX9+nWGYZhpAxtWnImnYfUE+hiGYaYNbFhxJp6GdfJ8OsMwzLSBDSvOxNOw6huaxPa4cOHCZToUNqw4Q8VkRJHChsWFC5fbtbBhxRkqJiOKlGgMy7Q+wzDMrQobVpxhw2IYhokNNqw4w4bFMAwTG2xYcYYNi2EYJjbYsOIMGxbDMExssGHFGTYshmGY2GDDijNTw7ByYckM5X8jKcyYMQNm782FXON6kbN3tmxzNuw15BmGYaKFDSvOTDnDmrHEMSc0qb2zYYY0LzceG2xYDMNMNGxYcYZKTk5OzEyeYTmgadlGg7OtJblB/ewZOPuSJhRkxuy9nvWDRhUG1LvbiqJdhmEYNqw4M+UNq28vzJbG4ZpLLuxdsgSWLEETybV1NBuT5jJ7r7q+TWQzrOjbZRjm9oUNK85MfcPy5rzrqQSNLTgTCxL7I0H/dhmGuX1hw4ozt6xh5e61H985ZqJyQ4YVZbsMw9y+sGHFmalvWIZHgurnWvTZknh8NwEzrBjaZRjm9oUNK85MecMK+QwpnPZGDSu2dhmGuX1hw4ozU9awcukLEMGvtdOMR+qD5jMDltAsiLSzZzgxRNG6uMZn/15XSB6JqV2GYW5brL+YNReY+DHlDEtjxozZsCTEYFCvGgmButnqZ09ofPo6HvNRdMHZVCztMgxzu8KGFWcm2rBqahuNhpVfUGI84QzDMLcqN9+wZs6BT874DXzyrnvFK9WNumnCRBuWalaqYfnPsBiGYW49bo5hkUl99X7Bp/9lHvzLz5+CRe9sg+/Pexk+9/UH3NxfzJp+5sWGxTAMExvxNyw0q89/6z/g2795Ab513/Nw148eg/nPvg2bdh2Fxxaugf/5g0fgn3/2FNzzy2fhb775IK4zsab1Z3PuhT+be68xFw/YsBiGYWIj7oZFMycypIdfWQ0vvvkBPL5oHSxbuxs27T4GCRv2wSOvrIEFb2yCRzH/9V8vcGZa5rZi4T8/+wv4T2//BP5s3q+N+cmGDYthGCY2boph0SzqiVfX4azqmDCqjfi6YVeKeN2IMy16fW7ZFpxlPYP63xnbiRUyrP9j24/g/3r3J3DH/ffBJ/8lvo8d2bAYhmFiI76GNXMOfOae38OX/u0heOilVbBx51FY9WEyLHpnOzy9ZBMsWrlD1DftPipmWF/54aPw119/ANebbW4vBqRhEf/n5h/Df7nvPvjEPRPX/niwYTEMw8RGXA3rkzN+C9/+zfNoRmvgzQ37YMPOFPFli6/++DH4xF33wayfPAELsU7xJat3wR/+9B78+PcL4a9m/dbYXiyohiX5f359L/zlv8THtNiwGIZhYiOuhvWJu+6FBUs3w5ptycKUVm9NhscWrRVmZefvgydfWw/rdhwWeeLVd7fDnd/CWZbWVqyYDOsfF30d7vzJT4z6iYYNi2EYJjbiPsOiz69++dASWLhyO6xHQ3rxrQ/hi9/5gzCr//n9h+HlFVtFfBHm73tsGXzt50/BX3x1cmZY/+n9H8CXF34dPvvjn0/bGRYXLvEu3O+4TFaJ+2dYf3X3HPjyDx6FR3BmtWHXUXj3gyR4IeF9+MNLq8S3Bt/7IFHMwH6/YAV8/tsPwv/7tfliPWN7MSAN6//e8D344kvfhM/98Bfwl1+b2G8i+kHFZESRwobFZaoX7ndcJqvE17AQ+pbgN3/7AvwJzWntjiOwevth8fruh0nidR2yBmOPvLIa/un7j0zK19r/y9p/g7994TvwNz/+Gfy3f57e3xLkwiXehfsdl8kqN8WwvnHfc+JbgvT51QPPr4TFq3aiUaWIx4F/eOk9eGbpZnjwhZUw89+fmHDD+ss//gQ+99y/wed/8lNjfrKhYjKiSJkMwxq7eh0qW3oh+VItrD9eBO8dyYfNJ4vh8OUaqGzuhZGxq46SC5fxCxsWl8kqcTcserz31994AO7+yZPir1z8/b/+AeY98zas3nYYfv7HxfAP3/kDfO0Xz8A9v3L+0sUEPg4k/vbff4r8zJiLB1RMRhQpE2lYV69dh5aeQThf1AybT5XChpPlsPpEObx7rBxWHi2Dd4+WwppjRXC2oAHaewbgo48+ctbkwiV88fa7Klhx992ev8h/990PQEqVk5alagU8oOseSMG1J7OkwAO0LdzO9ClVkPLA3XC3chwtOt5ONtpSVZUCK6i9cMcozuct/oYlmAOfnDlbzJ7+xz3z4Zv3LYAFy7eggT0Kn/pnexZmz6zi+7guHlAxGVGkTKRhtfQMwamCJlhzvBTeSSmF91MbYXtWG2zN6oANqS3w9okaeHFPASxPKoATefXQ0t3PpsVl3KIbVgq6kzuA0QB4Nw1s2iCaggOfR7fCHnQn1Uymn2FVrSDzuBtWqI5RFa192KZnG5DzGu4Yxfm83STDUsAZFH178BNfob/W/tsJn1FNNaiYjChSJsqwRq5cg/PFzbDuRBlsPFcHB/K6YFNGO3yQ2QGrzrfCGyea4K0zLbAS+dO+Ynh9fy4cz66F/sFhNi0uvmW8GyXjoGookepiL9PNsGg2OzHvp8o1uejbnMzzdvMN6zaDismIImWiDCu3ugPNCmdWxytgd3YnvHOmGV472gilbcNwoaoPXktphEXIYozR61M7CmBFcj7kV7XAlStXnFa4cAktkRnW+I+p2LCiLRNnWMHChnVbQ8VkRJEyUYa1/Vw5rDhSCuvPN8LaC63wqmNQZFjDV67DpfoBUZe8cKASFu7Ngz3nS2BoaMhpRSlVePFrz7ItrHs6rXgcpD9fvxtCrwX1IsFl9/GE5dU6z9fdttz2Jm2E4xJB8et3VSkP4Pk3nfPQkvIAndMb+PyFHldRP3L7xgOwwtM3FMMSn8VIraEP3cS+Nu77kI/hwnH3CryKYi3RG1bM5028jzBGh/2GzgsbVpyhYjKiSJkIw7r20cfwTnIeLD1UAutSW2H5ySbXmMiwqPSPXoOsugEx66L4K8l18PzufFiVnAOBQEBo3CIvGLwwPNcRXuSe65kuegwEQ87FENK55UWyAgcJzIkV7FjwunE02sVIjzI82+QS9xLa7xxjcLg7kltvp09FpDUVMcDR+vILANgvxJ2/2oec/SLjwaBXpw6cN7GvRfQ+ZJHXTdRW4VOibPOGzpu9LdO6wgRxH9iw4gwVkxFFykQYFn2NffnBHHgtsQTePdfimpJqWFS6h67C4mN2fOGRBnh2Vz68uT8Luru7HYVdbuRO2Px4yLlIKO72XTsWvG4czQ3dPXKZjOI/wwre3IQ/b87AFfPAG65v6PFwjwT1+M3qa5G+D1mceMzHzVSiadPWxn7esAiD1scD+3xQs2xYcYaKyYgiZSIM68q167DiUD4sPFAMCcrsSjUsfYb1cnItPLszF1YczISOjg6hsUt0F4n9eMO+QwwSxrDGa1M8XrLbuBtnYzyzmhrFz7BEcWYN5tPrDHqxzqyo+Nzlez9fCWdYhv53M/paxO9DluiuxchKpG1OwHkTxW5H3Zx4r445s2HFGSomI4qUifoM64MzpbDoQBG8eqQ2xLBMn2H96WAlvLQrB94/ngudnZ1OK1Qiv0jsiww7I3Zq2a19Z1gRXnj274o4Awo937/Ra4bLDZVxDSvsQBzdeQ9bbtiwwsXj3NduGcOa2O2qBiXblk2zYcUZKiYjipSJMqyL5S3wZnIhPL2ryGNMZFjiW4LKY0Liye35sHRvJpzLLoWenh6nFbtE9kjQPAhMhGEFC65H+xL3Rzdc1BLrDEv0owk5d07/CffIzI2HMSYfowiWePS1SN+HLE486uvGr4zf5sSdN1novDhmTOdCaZsNK85QMRlRpEyUYQ0Mj8GxnHpYfKAAXthf4RrTynOt8NbpFo9ZLdhbCi/tzITdZ3Khtr4R+vv7nVac4lzg4jfq1V4rPpSWAafjkzk5oeC3n2K4U6Q7XfogWlnP/XxkQi9YLtEWT7+jPoAn3D1NeN6ESegDnO9jwhiK015EX7rA/hf8tp/ST51I9H1NtjGe6UVQInofskRw3URdxmlzos+bU8SNLDZKZqgeQzasOEPFZESRohtWTW2j0bDyC0p8Devjjz+GiqZu2J1aAa/tz8eZViG8mFgFC4/UC5N65XCdeAxIv3/18s4s+PBENuSUVInZ1cjIiNOKUsSjEtNX1j1XuefrufRZAH3TKvTijuDCo+1h+57t0cDjXthcblbxGpb2lWw8R6Y/3WPP0k3oNzORF2Eq6rbDfK2d+l3wLzvY/dIji7qvTaBhYRn/fcgyUYYV3H8jys3GZJw3UdSbYCdEhQ0rzlAxGVGkTNQMi0r/0CiUN3bB4UvVsDwpD17cmwdP78yHJ3egge3Igz/tzIHX9+DM6nQuXC6uhNb2DhgeHoZr1645LXDhElrG63dcuMRa2LDiDBWTEUXKRBoWzbKuX78Ogf4hyCiuh/dPFUDCgUuwePdFWL4vEzamZMPJzGKormsQX2WnXxgms6L1uHAJV9iwuExWYcOKM1RMRhQpE2lYVMh8yIRGR0dhYGBAPPKjbwG2t7eLr6+TUdFnVvQYUJoVGxYXv8KGxWWyChtWnKFiMqJImWjD4sJlogv3Oy6TVdiw4gwVkxFFChsWl6leuN9xmazChhVnqJiMKFLYsLhM9cL9jstkFTasOEPFZESRwobFZaoX7ndcJquwYcUZKiYjipRoDYthGGa6wIYVZ+JtWFy4xLtwv+MyWYUNK85QMRlRpLBhcZnqhfsdl8kpAP8/OVsBsCAQSHgAAAAASUVORK5CYII=" title="Environment Pane" alt="RStudio Environment Pane" />
+<p class="caption">RStudio Environment Pane</p>
 </div>
+</blockquote>
+<p> </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># readr::read_csv</span>
+<span class="co"># 'read_csv()' is part of the 'readr' package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html</span>
+
+cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cars.csv&quot;</span>)</code></pre></div>
 </div>
 <div id="view-your-data-in-a-grid" class="section level3">
 <h3>View your data in a grid</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(cars)
 <span class="co"># Displays as a tab in the source-pane quadrant</span>
 <span class="co"># Does not dipsplay in an Rmarkdown document</span></code></pre></div>
-<div id="notes" class="section level4">
-<h4>Notes</h4>
+<div id="other-data-loaders-a-selective-list" class="section level4">
+<h4>Other Data Loaders, a selective list</h4>
 <ul>
-<li><code>View()</code> is an exploratory convenience; it’s not “reproducible” in the sense of generating a report or leaving a trail of your work
+<li><p><code>readxl</code> <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p></li>
+<li><p><code>View()</code> is an exploratory convenience; it’s not “reproducible” in the sense of generating a report or leaving a trail of your work</p>
 <ul>
 <li>View output has sorting</li>
 </ul></li>
-<li>Environment Pane has information about data objects</li>
+<li><p>Environment Pane has information about data objects</p></li>
+<li><p>ENVIRONMENT PANE: <strong>Import Dataset</strong> (Read more: <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">quick overview</a>)</p></li>
 </ul>
 </div>
 </div>
@@ -353,11 +343,13 @@ cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 </div>
 <div id="data-structure" class="section level4">
 <h4>Data Structure</h4>
+<div id="class" class="section level5">
+<h5>Class</h5>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(cars)</code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 </div>
-<div id="glimpse" class="section level4">
-<h4>Glimpse</h4>
+<div id="glimpse-into-a-data-frame" class="section level5">
+<h5>Glimpse into a data frame</h5>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(cars)</code></pre></div>
 <pre><code>## Observations: 32
 ## Variables: 12
@@ -374,29 +366,72 @@ cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 ## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...
 ## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...</code></pre>
 </div>
-<div id="tbl_vars" class="section level4">
-<h4>tbl_vars</h4>
-<ul>
-<li>list table variables (column headers)</li>
-</ul>
+<div id="older-style-works-beyond-data-frames" class="section level5">
+<h5>Older style works beyond data frames</h5>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cars)</code></pre></div>
+<pre><code>## Classes 'tbl_df', 'tbl' and 'data.frame':    32 obs. of  12 variables:
+##  $ mpg      : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl      : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp     : num  160 160 108 258 360 ...
+##  $ hp       : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat     : num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt       : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec     : num  16.5 17 18.6 19.4 17 ...
+##  $ vs       : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am       : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear     : num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb     : num  4 4 1 1 2 1 4 2 2 4 ...
+##  $ makeModel: chr  &quot;Mazda RX4&quot; &quot;Mazda RX4 Wag&quot; &quot;Datsun 710&quot; &quot;Hornet 4 Drive&quot; ...
+##  - attr(*, &quot;spec&quot;)=List of 2
+##   ..$ cols   :List of 12
+##   .. ..$ mpg      : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ cyl      : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ disp     : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ hp       : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ drat     : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ wt       : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ qsec     : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ vs       : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ am       : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ gear     : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ carb     : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
+##   .. ..$ makeModel: list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   ..$ default: list()
+##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
+##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
+</div>
+</div>
+<div id="useful-command" class="section level4">
+<h4>Useful Command</h4>
+<p>List table variables (column headers)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tbl_vars</span>(cars)</code></pre></div>
 <pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
 ##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
 ## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
 </div>
-<div id="similar-command" class="section level4">
-<h4>Similar Command</h4>
-<blockquote>
-<p>str() # identifies the <strong>structure</strong> of the object</p>
-</blockquote>
 </div>
 </div>
-</div>
-<div id="exercise-part-one-joel" class="section level2">
-<h2>EXERCISE, Part One (Joel)</h2>
-<ol style="list-style-type: decimal">
-<li>Student_Assignments.Rmd::PART ONE <strong>Loading Data</strong></li>
-</ol>
+<div id="exercise-part-one-loading-data-joel" class="section level2">
+<h2>EXERCISE, Part One: Loading Data (Joel)</h2>
+<ul>
+<li>Open File: Student_Assignments.Rmd (Part One)</li>
+</ul>
+<p>OR</p>
+<ul>
+<li>Paste into Console: <code>rmarkdown::run(&quot;assignment/part-one.Rmd&quot;)</code></li>
+</ul>
 </div>
 <div id="data-reshaping---dplyr-john" class="section level2">
 <h2>Data Reshaping - dplyr (John)</h2>
@@ -557,27 +592,27 @@ cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <span class="st">  </span><span class="kw">layer_points</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## Guessing formula = mpg ~ wt</code></pre>
-<p><div id="plot_id782622321-container" class="ggvis-output-container">
-<div id="plot_id782622321" class="ggvis-output"></div>
+<p><div id="plot_id122877456-container" class="ggvis-output-container">
+<div id="plot_id122877456" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id782622321_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id782622321" data-renderer="svg">SVG</a>
+<a id="plot_id122877456_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id122877456" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id782622321_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id782622321" data-renderer="canvas">Canvas</a>
+<a id="plot_id122877456_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id122877456" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id782622321_download" class="ggvis-download" data-plot-id="plot_id782622321">Download</a>
+<a id="plot_id122877456_download" class="ggvis-download" data-plot-id="plot_id122877456">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id782622321_spec = {
+var plot_id122877456_spec = {
   "data": [
     {
       "name": ".0",
@@ -779,7 +814,7 @@ var plot_id782622321_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id782622321").parseSpec(plot_id782622321_spec);
+ggvis.getPlot("plot_id122877456").parseSpec(plot_id122877456_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a></p>
 </div>
 <div id="bar-graph" class="section level3">
@@ -788,27 +823,27 @@ ggvis.getPlot("plot_id782622321").parseSpec(plot_id782622321_spec);
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cyl =</span> <span class="kw">factor</span>(cyl, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;four&quot;</span>,<span class="st">&quot;six&quot;</span>,<span class="st">&quot;eight&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>cyl) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_bars</span>()</code></pre></div>
-<p><div id="plot_id507245217-container" class="ggvis-output-container">
-<div id="plot_id507245217" class="ggvis-output"></div>
+<p><div id="plot_id735851363-container" class="ggvis-output-container">
+<div id="plot_id735851363" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id507245217_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id507245217" data-renderer="svg">SVG</a>
+<a id="plot_id735851363_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id735851363" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id507245217_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id507245217" data-renderer="canvas">Canvas</a>
+<a id="plot_id735851363_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id735851363" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id507245217_download" class="ggvis-download" data-plot-id="plot_id507245217">Download</a>
+<a id="plot_id735851363_download" class="ggvis-download" data-plot-id="plot_id735851363">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id507245217_spec = {
+var plot_id735851363_spec = {
   "data": [
     {
       "name": ".0/count1/stack2",
@@ -936,7 +971,7 @@ var plot_id507245217_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id507245217").parseSpec(plot_id507245217_spec);
+ggvis.getPlot("plot_id735851363").parseSpec(plot_id735851363_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#bar-graphs">More information on ggvis bar graphs</a></p>
 </div>
 <div id="histogram" class="section level3">
@@ -944,27 +979,27 @@ ggvis.getPlot("plot_id507245217").parseSpec(plot_id507245217_spec);
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_histograms</span>()</code></pre></div>
-<p><div id="plot_id823146604-container" class="ggvis-output-container">
-<div id="plot_id823146604" class="ggvis-output"></div>
+<p><div id="plot_id879767195-container" class="ggvis-output-container">
+<div id="plot_id879767195" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id823146604_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id823146604" data-renderer="svg">SVG</a>
+<a id="plot_id879767195_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id879767195" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id823146604_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id823146604" data-renderer="canvas">Canvas</a>
+<a id="plot_id879767195_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id879767195" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id823146604_download" class="ggvis-download" data-plot-id="plot_id823146604">Download</a>
+<a id="plot_id879767195_download" class="ggvis-download" data-plot-id="plot_id879767195">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id823146604_spec = {
+var plot_id879767195_spec = {
   "data": [
     {
       "name": ".0/bin1/stack2",
@@ -1095,7 +1130,7 @@ var plot_id823146604_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id823146604").parseSpec(plot_id823146604_spec);
+ggvis.getPlot("plot_id879767195").parseSpec(plot_id879767195_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#histograms">More information on ggvis histograms</a></p>
 </div>
 <div id="line-graph" class="section level3">
@@ -1105,27 +1140,27 @@ ggvis.getPlot("plot_id823146604").parseSpec(plot_id823146604_spec);
 <span class="st">  </span><span class="kw">group_by</span>(cyl) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_lines</span>(<span class="dt">stroke =</span> <span class="op">~</span><span class="kw">factor</span>(cyl)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg, stroke <span class="op">:</span><span class="er">=</span><span class="st"> &quot;black&quot;</span>, <span class="dt">fill =</span> <span class="op">~</span><span class="kw">factor</span>(cyl))</code></pre></div>
-<p><div id="plot_id520366137-container" class="ggvis-output-container">
-<div id="plot_id520366137" class="ggvis-output"></div>
+<p><div id="plot_id491526221-container" class="ggvis-output-container">
+<div id="plot_id491526221" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id520366137_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id520366137" data-renderer="svg">SVG</a>
+<a id="plot_id491526221_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id491526221" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id520366137_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id520366137" data-renderer="canvas">Canvas</a>
+<a id="plot_id491526221_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id491526221" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id520366137_download" class="ggvis-download" data-plot-id="plot_id520366137">Download</a>
+<a id="plot_id491526221_download" class="ggvis-download" data-plot-id="plot_id491526221">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id520366137_spec = {
+var plot_id491526221_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1373,34 +1408,34 @@ var plot_id520366137_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id520366137").parseSpec(plot_id520366137_spec);
+ggvis.getPlot("plot_id491526221").parseSpec(plot_id491526221_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">More information on line graphs</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(cyl) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg, stroke <span class="op">:</span><span class="er">=</span><span class="st"> &quot;black&quot;</span>, <span class="dt">fill =</span> <span class="op">~</span><span class="kw">factor</span>(cyl), size <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="er">~</span>hp, opacity <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="fl">0.7</span>) </code></pre></div>
-<div id="plot_id314244796-container" class="ggvis-output-container">
-<div id="plot_id314244796" class="ggvis-output"></div>
+<div id="plot_id951062642-container" class="ggvis-output-container">
+<div id="plot_id951062642" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id314244796_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id314244796" data-renderer="svg">SVG</a>
+<a id="plot_id951062642_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id951062642" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id314244796_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id314244796" data-renderer="canvas">Canvas</a>
+<a id="plot_id951062642_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id951062642" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id314244796_download" class="ggvis-download" data-plot-id="plot_id314244796">Download</a>
+<a id="plot_id951062642_download" class="ggvis-download" data-plot-id="plot_id951062642">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id314244796_spec = {
+var plot_id951062642_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1676,7 +1711,7 @@ var plot_id314244796_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id314244796").parseSpec(plot_id314244796_spec);
+ggvis.getPlot("plot_id951062642").parseSpec(plot_id951062642_spec);
 </script>
 <div id="shareable-under-cc-by-nc-license" class="section level4">
 <h4>Shareable under CC BY-NC license</h4>
