@@ -3,12 +3,10 @@ title: "Intro to R by Data & Visualization Services"
 author: "Joel Herndon & John Little"
 date: "`r Sys.Date()`"
 output: 
-  html_document:
+  html_notebook:
     toc: true
     toc_float: true
     number_sections: false
-    theme: readable
-    highlight: pygments
 ---
 # Intro to R
 
@@ -24,7 +22,6 @@ output:
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(readr)
 library(ggvis)
 ```
 
@@ -54,61 +51,62 @@ cars <- read_csv("data/cars.csv")
 ```{r}
 View(cars)
 # Displays as a tab in the source-pane quadrant
-# Does not dipsplay in an Rmarkdown document
+# Does not dipsplay in an R Notebooks
 ```
 
 #### Other Data Loaders, a selective list
 
-- `readxl`  ^[There are several differen read-excel-file packages.  [See this video](https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/jailbreakr-Get-out-of-Excel-free) discussing readxl, openxlsx, XLConnect, xlsx, gdata, linen]
-
-- `View()` is an exploratory convenience; it's not "reproducible" in the sense of generating a report or leaving a trail of your work
-
-    - View output has sorting 
+- `View()` is an exploratory convenience; it's not "reproducible" in the sense of generating a report or leaving a trail of your work.  One of the advantages is on-board clickable sorting
 
 - Environment Pane has information about data objects
 
-- ENVIRONMENT PANE: **Import Dataset** (Read more:  [quick overview](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio))
 
+### Modern Data Frames: Tibbles
 
-
-### Tibble (modern Data Frames)
-
-#### tbl_df
 * "Table as data frame"", a modern tidyverse table
 ```{r Table-dataframe}
 cars 
 ```
 
-#### Data Structure
+&nbsp;
 
-##### Class
+### Data Structure
+
+#### Class
 
 ```{r}
 class(cars)
 ```
 
+&nbsp;
 
-##### Glimpse into a data frame
+#### Glimpse into a data frame
 
 ```{r}
 glimpse(cars)
 ```
 
-##### Older style works beyond data frames
+&nbsp;
+
+#### Older style 
+
+`str()` works on all data structures:  data frames, matricies, lists, etc.
 
 ```{r}
 str(cars)
 ```
 
+&nbsp;
 
 #### Useful Command
 
-List table variables (column headers)
+`tbl_vars` lists table variables (column headers) as a vector
 
 ```{r variables}
 tbl_vars(cars)
 ```
 
+&nbsp;
 
 ## EXERCISE, Part One: Loading Data  (Joel)
 
@@ -118,6 +116,8 @@ tbl_vars(cars)
 OR
 
 - Paste into Console:  `rmarkdown::run("assignment/part-one.Rmd")`
+
+&nbsp;
 
 ## Data Reshaping - dplyr (John)
 
