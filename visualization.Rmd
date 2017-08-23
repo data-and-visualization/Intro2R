@@ -1,7 +1,6 @@
 ---
 title: "Visualization"
 output:
-  html_document: default
   html_notebook:
     css: duke.css
 ---
