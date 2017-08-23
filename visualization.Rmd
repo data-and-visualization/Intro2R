@@ -1,6 +1,9 @@
 ---
 title: "Visualization"
-output: html_notebook
+output:
+  html_document: default
+  html_notebook:
+    css: duke.css
 ---
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE}

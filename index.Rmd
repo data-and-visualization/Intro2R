@@ -3,8 +3,6 @@ title: "Intro2R -- Workshop Home"
 output: html_document
 ---
 
-## Intro2R
-
 ### HouseKeeping
 
 Joel
@@ -59,12 +57,5 @@ John
 
 - ggvis
 
-## Supporting Materials
-
-
-## Cast
-
-- Joel Herndon
-- John Little
 
 
