@@ -1,7 +1,10 @@
 ---
-title: "Assignment Part 1: Intro2R"
-output: learnr::tutorial
+title: 'Assignment Part 1: Intro2R'
+resource_files:
+- data/cars.csv
+- images/import_data.png
 runtime: shiny_prerendered
+output: learnr::tutorial
 ---
 
 ```{r setup, include=FALSE}
@@ -14,12 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 *Load the file into a new variable called `westUnion`?*
 
-Hints:
-
 - The data are in a *CSV* file on your local workstation which needs to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/westUnion.csv`.
-
-- One option is to use the *Import Dataset* feature of RStudio from the *File* menubar. Code will be generated for you, which you can run immediately, or look to the bottom of the dialogue box and capture the code to run in your code chunk.
-
 
 Write the R code required to load csv data:
 
@@ -29,10 +27,14 @@ Write the R code required to load csv data:
 
 ```{r read_csv-solution}
 westUnion <- read_csv("data/westUnion.csv")
-# Note...  Your code will not run in this tutorial window
-# Use an R Notebook to practice exercise one.
+# Note...  Code will not run in this tutorial window
+# Use an R Notebook to practice this exercise.
 ```
 
+
+Hints:
+
+- One option is to use the *Import Dataset* feature of RStudio from the *File* menubar. Code will be generated for you -- which you can run immediately -- or look to the bottom of the dialogue box and copy the code you can run as a code chunk.
 
 ## Data Type
 

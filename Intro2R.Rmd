@@ -111,11 +111,8 @@ tbl_vars(cars)
 ## EXERCISE, Part One: Loading Data  (Joel)
 
 
-- Open File:  Student_Assignments.Rmd (Part One)
-
-OR
-
-- Paste into Console:  `rmarkdown::run("assignment/part-one.Rmd")`
+1. Take the [Quiz](https://libjohn.shinyapps.io/intro2r-assignments2/)
+1. Hands-on (in an R file):  File > Open File >  Student_Assignments.Rmd (Part One)
 
 &nbsp;
 
