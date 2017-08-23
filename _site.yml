@@ -1,0 +1,31 @@
+name: "Git & RStudio"
+output_dir: docs
+navbar:
+  title: "Intro to R"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Load Data"
+      href: data_management.html
+    - text: "Exercise One"
+      href: https://libjohn.shinyapps.io/intro2r-assignments2/
+    - text: "Data Wrangling"
+      href: data_wrangling.html
+    - text: "Exercise Two"
+      href: https://libjohn.shinyapps.io/intro2r-assignments2/
+    - text: "Visualization"
+      href: visualization.html
+  right:
+    - icon: fa-github
+#    - text: "GitHub"
+      href: https://github.com/data-and-visualization/Intro2R          
+output:
+  html_document:
+    theme: flatly
+    highlight: textmate
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+    css: ["duke.css"]
+    #css: ["flatly.min.css", "duke.css"]

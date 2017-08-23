@@ -1,0 +1,59 @@
+---
+title: "Visualization"
+output: html_document
+---
+
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(ggvis)
+```
+
+
+When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
+
+For this introductory section on visualization we use the `ggvis` package because it works seemlessly with pipes (i.e. `%>%`).  You can do a lot of [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
+
+## Scatter Plot
+Linear model and 95% confidence interval
+```{r ggvis-scatter}
+cars %>% 
+  ggvis(~wt, ~mpg) %>% 
+  layer_points() %>% 
+  layer_model_predictions(model = "lm", se=TRUE)
+```
+[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
+
+### Bar Graph
+```{r ggvis-bargraph}
+cars %>% 
+  mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
+  ggvis(~cyl) %>% 
+  layer_bars()
+```
+[More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
+
+### Histogram
+```{r ggvis-hist, message=FALSE}
+cars %>% 
+  ggvis(~mpg) %>% 
+  layer_histograms()
+```
+[More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
+
+### Line graph
+```{r ggvis-line, warning=FALSE}
+cars %>% 
+  ggvis(~wt, ~mpg) %>% 
+  group_by(cyl) %>% 
+  layer_lines(stroke = ~factor(cyl)) %>% 
+  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl))
+```
+[More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
+
+```{r ggvis-linesmooth, warning=FALSE, message=FALSE}
+cars %>% 
+  ggvis(~wt, ~mpg) %>% 
+  group_by(cyl) %>% 
+  layer_model_predictions(model="lm", se = TRUE) %>% 
+  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
+```

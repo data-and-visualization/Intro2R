@@ -2,23 +2,13 @@
 title: "Intro to R by Data & Visualization Services"
 author: "Joel Herndon & John Little"
 date: "`r Sys.Date()`"
-output: 
-  html_notebook:
-    toc: true
-    toc_float: true
-    number_sections: false
+output: html_document
 ---
 # Intro to R
 
 ## Housekeeping (Joel)
 
 #### Overview PPT 
-
-1. Welcome
-2. What is r
-3. What is [RStudio](https://www.rstudio.com/)
-4. What is a Project
-5. What is [Docker](https://vm-manage.oit.duke.edu/containers/rstudio)
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
