@@ -308,7 +308,7 @@ div.tocify {
   <a href="https://libjohn.shinyapps.io/intro2r-assignments2/">Exercise Two</a>
 </li>
 <li>
-  <a href="visualization.html">Visualization</a>
+  <a href="visualization.nb.html">Visualization</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -655,27 +655,27 @@ sixcyls    # display filtered data frame</code></pre>
   layer_points() %&gt;% 
   layer_model_predictions(model = &quot;lm&quot;, se=TRUE)</code></pre>
 <pre><code>## Guessing formula = mpg ~ wt</code></pre>
-<p><div id="plot_id162062861-container" class="ggvis-output-container">
-<div id="plot_id162062861" class="ggvis-output"></div>
+<p><div id="plot_id461784097-container" class="ggvis-output-container">
+<div id="plot_id461784097" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id162062861_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id162062861" data-renderer="svg">SVG</a>
+<a id="plot_id461784097_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id461784097" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id162062861_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id162062861" data-renderer="canvas">Canvas</a>
+<a id="plot_id461784097_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id461784097" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id162062861_download" class="ggvis-download" data-plot-id="plot_id162062861">Download</a>
+<a id="plot_id461784097_download" class="ggvis-download" data-plot-id="plot_id461784097">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id162062861_spec = {
+var plot_id461784097_spec = {
   "data": [
     {
       "name": ".0",
@@ -877,7 +877,7 @@ var plot_id162062861_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id162062861").parseSpec(plot_id162062861_spec);
+ggvis.getPlot("plot_id461784097").parseSpec(plot_id461784097_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a></p>
 </div>
 <div id="bar-graph" class="section level3">
@@ -886,27 +886,27 @@ ggvis.getPlot("plot_id162062861").parseSpec(plot_id162062861_spec);
   mutate(cyl = factor(cyl, labels = c(&quot;four&quot;,&quot;six&quot;,&quot;eight&quot;))) %&gt;% 
   ggvis(~cyl) %&gt;% 
   layer_bars()</code></pre>
-<p><div id="plot_id622644563-container" class="ggvis-output-container">
-<div id="plot_id622644563" class="ggvis-output"></div>
+<p><div id="plot_id998574603-container" class="ggvis-output-container">
+<div id="plot_id998574603" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id622644563_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id622644563" data-renderer="svg">SVG</a>
+<a id="plot_id998574603_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id998574603" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id622644563_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id622644563" data-renderer="canvas">Canvas</a>
+<a id="plot_id998574603_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id998574603" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id622644563_download" class="ggvis-download" data-plot-id="plot_id622644563">Download</a>
+<a id="plot_id998574603_download" class="ggvis-download" data-plot-id="plot_id998574603">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id622644563_spec = {
+var plot_id998574603_spec = {
   "data": [
     {
       "name": ".0/count1/stack2",
@@ -1034,7 +1034,7 @@ var plot_id622644563_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id622644563").parseSpec(plot_id622644563_spec);
+ggvis.getPlot("plot_id998574603").parseSpec(plot_id998574603_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#bar-graphs">More information on ggvis bar graphs</a></p>
 </div>
 <div id="histogram" class="section level3">
@@ -1042,27 +1042,27 @@ ggvis.getPlot("plot_id622644563").parseSpec(plot_id622644563_spec);
 <pre class="r"><code>cars %&gt;% 
   ggvis(~mpg) %&gt;% 
   layer_histograms()</code></pre>
-<p><div id="plot_id121063858-container" class="ggvis-output-container">
-<div id="plot_id121063858" class="ggvis-output"></div>
+<p><div id="plot_id561974933-container" class="ggvis-output-container">
+<div id="plot_id561974933" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id121063858_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id121063858" data-renderer="svg">SVG</a>
+<a id="plot_id561974933_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id561974933" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id121063858_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id121063858" data-renderer="canvas">Canvas</a>
+<a id="plot_id561974933_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id561974933" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id121063858_download" class="ggvis-download" data-plot-id="plot_id121063858">Download</a>
+<a id="plot_id561974933_download" class="ggvis-download" data-plot-id="plot_id561974933">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id121063858_spec = {
+var plot_id561974933_spec = {
   "data": [
     {
       "name": ".0/bin1/stack2",
@@ -1193,7 +1193,7 @@ var plot_id121063858_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id121063858").parseSpec(plot_id121063858_spec);
+ggvis.getPlot("plot_id561974933").parseSpec(plot_id561974933_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#histograms">More information on ggvis histograms</a></p>
 </div>
 <div id="line-graph" class="section level3">
@@ -1203,27 +1203,27 @@ ggvis.getPlot("plot_id121063858").parseSpec(plot_id121063858_spec);
   group_by(cyl) %&gt;% 
   layer_lines(stroke = ~factor(cyl)) %&gt;% 
   layer_points(~wt, ~mpg, stroke := &quot;black&quot;, fill = ~factor(cyl))</code></pre>
-<p><div id="plot_id942812738-container" class="ggvis-output-container">
-<div id="plot_id942812738" class="ggvis-output"></div>
+<p><div id="plot_id968796648-container" class="ggvis-output-container">
+<div id="plot_id968796648" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id942812738_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id942812738" data-renderer="svg">SVG</a>
+<a id="plot_id968796648_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id968796648" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id942812738_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id942812738" data-renderer="canvas">Canvas</a>
+<a id="plot_id968796648_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id968796648" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id942812738_download" class="ggvis-download" data-plot-id="plot_id942812738">Download</a>
+<a id="plot_id968796648_download" class="ggvis-download" data-plot-id="plot_id968796648">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id942812738_spec = {
+var plot_id968796648_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1471,34 +1471,34 @@ var plot_id942812738_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id942812738").parseSpec(plot_id942812738_spec);
+ggvis.getPlot("plot_id968796648").parseSpec(plot_id968796648_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">More information on line graphs</a></p>
 <pre class="r"><code>cars %&gt;% 
   ggvis(~wt, ~mpg) %&gt;% 
   group_by(cyl) %&gt;% 
   layer_model_predictions(model=&quot;lm&quot;, se = TRUE) %&gt;% 
   layer_points(~wt, ~mpg, stroke := &quot;black&quot;, fill = ~factor(cyl), size := ~hp, opacity := 0.7) </code></pre>
-<div id="plot_id896025681-container" class="ggvis-output-container">
-<div id="plot_id896025681" class="ggvis-output"></div>
+<div id="plot_id946029871-container" class="ggvis-output-container">
+<div id="plot_id946029871" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id896025681_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id896025681" data-renderer="svg">SVG</a>
+<a id="plot_id946029871_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id946029871" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id896025681_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id896025681" data-renderer="canvas">Canvas</a>
+<a id="plot_id946029871_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id946029871" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id896025681_download" class="ggvis-download" data-plot-id="plot_id896025681">Download</a>
+<a id="plot_id946029871_download" class="ggvis-download" data-plot-id="plot_id946029871">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id896025681_spec = {
+var plot_id946029871_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1774,7 +1774,7 @@ var plot_id896025681_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id896025681").parseSpec(plot_id896025681_spec);
+ggvis.getPlot("plot_id946029871").parseSpec(plot_id946029871_spec);
 </script>
 <div id="shareable-under-cc-by-nc-license" class="section level4">
 <h4>Shareable under CC BY-NC license</h4>

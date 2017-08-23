@@ -299,7 +299,7 @@ div.tocify {
   <a href="https://libjohn.shinyapps.io/intro2r-assignments2/">Exercise Two</a>
 </li>
 <li>
-  <a href="visualization.html">Visualization</a>
+  <a href="visualization.nb.html">Visualization</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -331,8 +331,22 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li>Using what we’ve you’ve seen in class, if <code>westUnion.csv</code> is a csv file, how would you load the file into a new variable called <code>westUnion</code>?</li>
 </ol>
-<pre class="r"><code>library(tidyverse)
-westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv&quot;)</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.3.3</code></pre>
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.3.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.3.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 3.3.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.3.3</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
+<pre class="r"><code>westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   name = col_character(),
@@ -450,6 +464,7 @@ westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visual
 <pre class="r"><code>westUnion %&gt;% 
   filter(cost == 8, menuType == &quot;entree&quot;) %&gt;% 
   select(name, menuType, itemName, cost)</code></pre>
+<pre><code>## Warning: package &#39;bindrcpp&#39; was built under R version 3.3.3</code></pre>
 <pre><code>## # A tibble: 8 x 4
 ##                name menuType            itemName  cost
 ##               &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt; &lt;int&gt;

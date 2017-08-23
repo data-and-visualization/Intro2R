@@ -14,7 +14,7 @@ navbar:
     - text: "Exercise Two"
       href: https://libjohn.shinyapps.io/intro2r-assignments2/
     - text: "Visualization"
-      href: visualization.html
+      href: visualization.nb.html
   right:
     - icon: fa-github
 #    - text: "GitHub"

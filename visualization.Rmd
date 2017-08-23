@@ -1,6 +1,6 @@
 ---
 title: "Visualization"
-output: html_document
+output: html_notebook
 ---
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE}
