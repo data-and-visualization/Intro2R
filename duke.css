@@ -3,8 +3,9 @@ a, a > code {
   text-decoration: none;
 }
 
-h1, h2, h3 {
+h1, h2, h3{
   color: #0736A4;
+  clear: both;
 }
  
 .orange {
@@ -73,4 +74,30 @@ h1, h2, h3 {
 h4 {
   font-family: 'Yanone Kaffeesatz';
   font-weight: normal;
+}
+
+figure {
+  float: left;
+  clear: left;
+  width: 50%;
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+  border: thin silver solid;
+  border-radius: 15px;
+  margin: 1% 10%; 
+  padding: 0.5em;
+}
+
+.r{
+  clear: both;
+}
+
+.right{
+    position: absolute;
+    right: 0px;
+    width: 60px;
+    border: 3px solid #73AD21;
+    padding: 10px;
 }

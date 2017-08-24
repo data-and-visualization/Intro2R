@@ -27,5 +27,5 @@ output:
     toc_depth: 2
     toc_float:
       collapsed: false
-    css: ["duke.css"]
-    #css: ["flatly.min.css", "duke.css"]
+    css: duke.css
+    df_print: paged

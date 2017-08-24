@@ -17,7 +17,9 @@ library(tidyverse)
 RStudio has an on-board data loading wizard which uses the `readr()` package for data loading.  
 See Menubar `File > Import Dataset`
 
-> ![RStudio Environment Pane](images/import_data.png "Environment Pane")
+<figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure>
+
+&nbsp;
 
 &nbsp;
 
@@ -59,6 +61,38 @@ cars
 ```{r}
 class(cars)
 ```
+
+### Most Common Data Structures
+
+- Vector
+- Data Frame
+- Tibble
+- List
+- Matrix
+
+## Data Type
+
+### Class
+
+```{r}
+class(cars$makeModel)
+class(cars$mpg)
+
+
+```
+
+### Most Common Data Types
+
+- character
+- numeric
+
+    - integer (e.g. `30L`, `as.integer(30)`)
+    - double (approximation with floating points and multiple special values)
+    
+- logical (True or False)
+- factor
+
+
 
 &nbsp;
 

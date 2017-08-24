@@ -1,11 +1,14 @@
 ---
-title: "Intro2R -- Workshop Home"
+title: ""
 output: html_document
 ---
 
+&nbsp;
+
+## Intro2R -- Workshop Home
 ### HouseKeeping
 
-Joel
+<p class="right">Joel</p>
 
 1. Welcome  
 2. What is r 
@@ -15,7 +18,7 @@ Joel
 
 ### Data Management
 
-John
+<p class="right">John</p>
 
 1. Load Data
 1. View Data
@@ -25,14 +28,14 @@ John
 
 ### Exercise One
 
-Joel
+<p class="right">Joel</p>
 
 - Exercise
 - Quiz
 
 ### Data Wrangling
 
-John
+<p class="right">John</p>
 
 #### Dplyr
 
@@ -46,14 +49,14 @@ John
 
 ### Exercise Two
 
-Joel
+<p class="right">Joel</p>
 
 - Exercise
 - Quiz
 
 ### Visualization
 
-John
+<p class="right">John</p>
 
 - ggvis
 
