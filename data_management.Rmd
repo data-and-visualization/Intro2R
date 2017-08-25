@@ -3,6 +3,8 @@ title: "Data Management"
 output: html_document
 ---
 
+FOO foo foo -- Tidyverse beee good fer ya. it do.
+
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```

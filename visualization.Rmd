@@ -1,9 +1,8 @@
 ---
 title: "Visualization"
-output:
+output: 
   html_notebook:
     css: duke.css
-    toc: yes
 ---
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE}

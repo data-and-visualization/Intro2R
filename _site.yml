@@ -1,5 +1,6 @@
-name: "Git & RStudio"
+name: "Git-RStudio"
 output_dir: docs
+skip_files: ["README.md", "license.md", "intro2R.Rmd", "answers.Rmd"]
 navbar:
   title: "Intro to R"
   left:
