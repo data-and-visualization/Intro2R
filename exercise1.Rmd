@@ -1,0 +1,34 @@
+---
+title: "Exercise 1"
+output: html_document
+---
+
+## Quiz
+
+Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r-assignments2/)
+
+
+## Directions
+
+Now you try.  For the workshop, we've prebuilt a data set that has information about menus in Duke's new West Union from three restaurants.  
+
+1. From the File menu, open a New R Notebook:  `File > New File > R Notebook`
+1. Reading the preloaded directions in your new script, add a code chunk at line 18.  (Hint: *Ctrl+Alt+I*)
+1. Load the `tidyverse` package.  In that code-chunk, type: `library(tidyverse)` and run the code chunk.
+1. Now you are ready to make new code chunks and follow the steps in Exercise 1 (below).
+
+
+## Exercise 1: Loading Data
+
+1. Using what we've you've seen in class, if `data/westUnion.csv` is a csv file, how would you load the file into a new variable called `westUnion`?
+
+2. What data type is `westUnion`?
+
+3. Take a look at the structure of the `westUnion` variable.
+    - How many observations (rows) are there?
+    - How many variables (columns) are there?
+    - How many of the variables are numeric data?
+    
+## Answers
+
+See [the answers](answers.html#part_one:_loading_data) to the above section

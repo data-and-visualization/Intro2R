@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Joel Herndon" />
+
+<meta name="date" content="2017-08-25" />
+
+<title>Answers</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="duke.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Intro to R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="data_management.html">Load Data</a>
+</li>
+<li>
+  <a href="exercise1.html">Exercise One</a>
+</li>
+<li>
+  <a href="data_wrangling.html">Data Wrangling</a>
+</li>
+<li>
+  <a href="exercise2.html">Exercise Two</a>
+</li>
+<li>
+  <a href="visualization.nb.html">Visualization</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/data-and-visualization/Intro2R">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Answers</h1>
+<h4 class="author"><em>Joel Herndon</em></h4>
+<h4 class="date"><em>2017-08-25</em></h4>
+
+</div>
+
+
+<div id="part-one-loading-data" class="section level2">
+<h2>PART ONE: Loading Data</h2>
+<p>For the workshop, we’ve prebuilt a data set that has information about menus in Duke’s new West Union from three restaurants.</p>
+<ol style="list-style-type: decimal">
+<li>Using what we’ve you’ve seen in class, if <code>westUnion.csv</code> is a csv file, how would you load the file into a new variable called <code>westUnion</code>?</li>
+</ol>
+<pre class="r"><code>library(tidyverse)
+westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   name = col_character(),
+##   type = col_character(),
+##   menuType = col_character(),
+##   itemType = col_character(),
+##   itemName = col_character(),
+##   cost = col_integer(),
+##   rating = col_integer()
+## )</code></pre>
+<pre class="r"><code># or 
+# westUnion &lt;- read_csv(&quot;data/westUnion.csv&quot;)  # if you cloned the repository</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What data type is <code>westUnion</code>?</li>
+</ol>
+<pre class="r"><code>tbl_df(westUnion)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["menuType"],"name":[3],"type":["chr"],"align":["left"]},{"label":["itemType"],"name":[4],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[5],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[6],"type":["int"],"align":["right"]},{"label":["rating"],"name":[7],"type":["int"],"align":["right"]}],"data":[{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"sweet potato tots","6":"4","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"french fries","6":"4","7":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"quesadillas","6":"6","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"southwest chili wings","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"chicken tenders","6":"7","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"nachos","6":"8","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"peel and eat shrimp","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"tortilla chips and salsa","6":"4","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"turkey club double decker","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"fried chicken sandwich","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"philly cheese steak","6":"9","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"grilled cheese","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"soup","5":"black bean tortilla soup","6":"4","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"soup","5":"texas style beef chili","6":"7","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"salad","5":"southwest chopped salad","6":"7","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"salad","5":"ceasar salad","6":"7","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"salad","5":"spinach salad","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"devil's classic","6":"8","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"sloppy","6":"9","7":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"southwestern","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"french","6":"9","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"krafthouse krazy burger","6":"10","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sausage","5":"italian sausage","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sausage","5":"bratwurst","6":"8","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sausage","5":"chili dog","6":"7","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"dessert","4":"dessert","5":"chocolate brownie","6":"8","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"dessert","4":"dessert","5":"banana split","6":"6","7":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"dessert","4":"dessert","5":"key lime pie","6":"6","7":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"grilled fish","6":"10","7":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"pork carnitas","6":"8","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"grilled chicken","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"ground beef","6":"8","7":"7"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"vegetable samosa","6":"4","7":"8"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"lamb samosa","6":"5","7":"6"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"gobi pakora","6":"4","7":"NA"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"aloo bhonda","6":"4","7":"NA"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"vegetable pakora","6":"4","7":"9"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"madala dosai","6":"8","7":"10"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"chicken tikka dosai","6":"10","7":"8"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"sada dosai","6":"6","7":"NA"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"vegetable dosai","6":"8","7":"7"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"chicken","5":"chicken korma","6":"10","7":"8"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"lamb","5":"lamb korma","6":"12","7":"7"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"beef","5":"beef bhunas","6":"12","7":"6"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"shrimp","5":"shrimp bhunas","6":"12","7":"5"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"naan","6":"2","7":"10"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"onion kulcha","6":"3","7":"8"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"garlic naan","6":"3","7":"10"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"peswari naan","6":"4","7":"7"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"chicken tikka naan","6":"5","7":"6"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"panir kulcha","6":"4","7":"7"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"croque monsieur","6":"7","7":"8"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"truffled hummus crepe","6":"7","7":"7"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"chicken pesto crepe","6":"8","7":"6"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"apple and brie crepe","6":"7","7":"9"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"cinnamon sugar","6":"5","7":"9"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"nutella","6":"6","7":"8"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"banana foster","6":"6","7":"7"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"crepe suzette","6":"6","7":"8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Take a look at the structure of the <code>westUnion</code> variable.
+<ul>
+<li>How many observations (rows) are there?</li>
+<li>How many variables (columns) are there?</li>
+<li>How many of the variables are numeric data?</li>
+</ul></li>
+</ol>
+<pre class="r"><code>str(westUnion)</code></pre>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    59 obs. of  7 variables:
+##  $ name    : chr  &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; ...
+##  $ type    : chr  &quot;bar and grill&quot; &quot;bar and grill&quot; &quot;bar and grill&quot; &quot;bar and grill&quot; ...
+##  $ menuType: chr  &quot;appetizer&quot; &quot;appetizer&quot; &quot;appetizer&quot; &quot;appetizer&quot; ...
+##  $ itemType: chr  &quot;snack&quot; &quot;snack&quot; &quot;snack&quot; &quot;snack&quot; ...
+##  $ itemName: chr  &quot;sweet potato tots&quot; &quot;french fries&quot; &quot;quesadillas&quot; &quot;southwest chili wings&quot; ...
+##  $ cost    : int  4 4 6 8 7 8 9 4 9 9 ...
+##  $ rating  : int  8 10 5 6 7 8 5 6 5 5 ...
+##  - attr(*, &quot;spec&quot;)=List of 2
+##   ..$ cols   :List of 7
+##   .. ..$ name    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ type    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ menuType: list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ itemType: list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ itemName: list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+##   .. ..$ cost    : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
+##   .. ..$ rating  : list()
+##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
+##   ..$ default: list()
+##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
+##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
+</div>
+<div id="part-two-data-management" class="section level2">
+<h2>PART TWO: Data Management</h2>
+<p>All of the following questions are based on the sample of restaurants represented in the dataset which is accurate as of September 2, 2016.</p>
+<ol style="list-style-type: decimal">
+<li>Which restaurant has the lowest cost item and what is the item?</li>
+</ol>
+<pre class="r"><code>westUnion %&gt;% 
+  arrange(cost) %&gt;% 
+  select(name, type, itemName, cost)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Tandoor","2":"restaurant","3":"naan","4":"2"},{"1":"Tandoor","2":"restaurant","3":"onion kulcha","4":"3"},{"1":"Tandoor","2":"restaurant","3":"garlic naan","4":"3"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sweet potato tots","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french fries","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"tortilla chips and salsa","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"black bean tortilla soup","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable samosa","4":"4"},{"1":"Tandoor","2":"restaurant","3":"gobi pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"aloo bhonda","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"peswari naan","4":"4"},{"1":"Tandoor","2":"restaurant","3":"panir kulcha","4":"4"},{"1":"Tandoor","2":"restaurant","3":"lamb samosa","4":"5"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka naan","4":"5"},{"1":"Cafe","2":"cafe","3":"cinnamon sugar","4":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"quesadillas","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"banana split","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"key lime pie","4":"6"},{"1":"Tandoor","2":"restaurant","3":"sada dosai","4":"6"},{"1":"Cafe","2":"cafe","3":"nutella","4":"6"},{"1":"Cafe","2":"cafe","3":"banana foster","4":"6"},{"1":"Cafe","2":"cafe","3":"crepe suzette","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chicken tenders","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"texas style beef chili","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chopped salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ceasar salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chili dog","4":"7"},{"1":"Cafe","2":"cafe","3":"croque monsieur","4":"7"},{"1":"Cafe","2":"cafe","3":"truffled hummus crepe","4":"7"},{"1":"Cafe","2":"cafe","3":"apple and brie crepe","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chili wings","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"nachos","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled cheese","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"spinach salad","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"devil's classic","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"italian sausage","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"bratwurst","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chocolate brownie","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"pork carnitas","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled chicken","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ground beef","4":"8"},{"1":"Tandoor","2":"restaurant","3":"madala dosai","4":"8"},{"1":"Tandoor","2":"restaurant","3":"vegetable dosai","4":"8"},{"1":"Cafe","2":"cafe","3":"chicken pesto crepe","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"peel and eat shrimp","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"turkey club double decker","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"fried chicken sandwich","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"philly cheese steak","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sloppy","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwestern","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"krafthouse krazy burger","4":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled fish","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka dosai","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken korma","4":"10"},{"1":"Tandoor","2":"restaurant","3":"lamb korma","4":"12"},{"1":"Tandoor","2":"restaurant","3":"beef bhunas","4":"12"},{"1":"Tandoor","2":"restaurant","3":"shrimp bhunas","4":"12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Which restaurant has the most expensive item(s)? What are those item(s)?</li>
+</ol>
+<pre class="r"><code>westUnion %&gt;% 
+  arrange(desc(cost)) %&gt;% 
+  select(name, type, itemName, cost)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Tandoor","2":"restaurant","3":"lamb korma","4":"12"},{"1":"Tandoor","2":"restaurant","3":"beef bhunas","4":"12"},{"1":"Tandoor","2":"restaurant","3":"shrimp bhunas","4":"12"},{"1":"Devils Krafthouse","2":"bar and grill","3":"krafthouse krazy burger","4":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled fish","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka dosai","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken korma","4":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"peel and eat shrimp","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"turkey club double decker","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"fried chicken sandwich","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"philly cheese steak","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sloppy","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwestern","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chili wings","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"nachos","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled cheese","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"spinach salad","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"devil's classic","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"italian sausage","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"bratwurst","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chocolate brownie","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"pork carnitas","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled chicken","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ground beef","4":"8"},{"1":"Tandoor","2":"restaurant","3":"madala dosai","4":"8"},{"1":"Tandoor","2":"restaurant","3":"vegetable dosai","4":"8"},{"1":"Cafe","2":"cafe","3":"chicken pesto crepe","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chicken tenders","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"texas style beef chili","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chopped salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ceasar salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chili dog","4":"7"},{"1":"Cafe","2":"cafe","3":"croque monsieur","4":"7"},{"1":"Cafe","2":"cafe","3":"truffled hummus crepe","4":"7"},{"1":"Cafe","2":"cafe","3":"apple and brie crepe","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"quesadillas","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"banana split","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"key lime pie","4":"6"},{"1":"Tandoor","2":"restaurant","3":"sada dosai","4":"6"},{"1":"Cafe","2":"cafe","3":"nutella","4":"6"},{"1":"Cafe","2":"cafe","3":"banana foster","4":"6"},{"1":"Cafe","2":"cafe","3":"crepe suzette","4":"6"},{"1":"Tandoor","2":"restaurant","3":"lamb samosa","4":"5"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka naan","4":"5"},{"1":"Cafe","2":"cafe","3":"cinnamon sugar","4":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sweet potato tots","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french fries","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"tortilla chips and salsa","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"black bean tortilla soup","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable samosa","4":"4"},{"1":"Tandoor","2":"restaurant","3":"gobi pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"aloo bhonda","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"peswari naan","4":"4"},{"1":"Tandoor","2":"restaurant","3":"panir kulcha","4":"4"},{"1":"Tandoor","2":"restaurant","3":"onion kulcha","4":"3"},{"1":"Tandoor","2":"restaurant","3":"garlic naan","4":"3"},{"1":"Tandoor","2":"restaurant","3":"naan","4":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>At the West Union, how many of the entrees (found in the <code>menuType</code> variable) cost eight dollars?</li>
+</ol>
+<pre class="r"><code>westUnion %&gt;% 
+  filter(cost == 8, menuType == &quot;entree&quot;) %&gt;% 
+  select(name, menuType, itemName, cost)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["menuType"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Devils Krafthouse","2":"entree","3":"grilled cheese","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"devil's classic","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"italian sausage","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"bratwurst","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"pork carnitas","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"grilled chicken","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"ground beef","4":"8"},{"1":"Cafe","2":"entree","3":"chicken pesto crepe","4":"8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>The head of Duke dining is considering reducing prices at the West Union. Using what we’ve learned in class, write a line of code that will calculate a new variable (<code>halfPrice</code>) that contains items at half price.</li>
+</ol>
+<pre class="r"><code>westUnion %&gt;% 
+  mutate(halfPrice = cost / 2) %&gt;% 
+  select(name, itemName, cost, halfPrice)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[2],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[3],"type":["int"],"align":["right"]},{"label":["halfPrice"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Devils Krafthouse","2":"sweet potato tots","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"french fries","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"quesadillas","3":"6","4":"3.0"},{"1":"Devils Krafthouse","2":"southwest chili wings","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"chicken tenders","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"nachos","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"peel and eat shrimp","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"tortilla chips and salsa","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"turkey club double decker","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"fried chicken sandwich","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"philly cheese steak","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"grilled cheese","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"black bean tortilla soup","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"texas style beef chili","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"southwest chopped salad","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"ceasar salad","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"spinach salad","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"devil's classic","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"sloppy","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"southwestern","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"french","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"krafthouse krazy burger","3":"10","4":"5.0"},{"1":"Devils Krafthouse","2":"italian sausage","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"bratwurst","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"chili dog","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"chocolate brownie","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"banana split","3":"6","4":"3.0"},{"1":"Devils Krafthouse","2":"key lime pie","3":"6","4":"3.0"},{"1":"Devils Krafthouse","2":"grilled fish","3":"10","4":"5.0"},{"1":"Devils Krafthouse","2":"pork carnitas","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"grilled chicken","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"ground beef","3":"8","4":"4.0"},{"1":"Tandoor","2":"vegetable samosa","3":"4","4":"2.0"},{"1":"Tandoor","2":"lamb samosa","3":"5","4":"2.5"},{"1":"Tandoor","2":"gobi pakora","3":"4","4":"2.0"},{"1":"Tandoor","2":"aloo bhonda","3":"4","4":"2.0"},{"1":"Tandoor","2":"vegetable pakora","3":"4","4":"2.0"},{"1":"Tandoor","2":"madala dosai","3":"8","4":"4.0"},{"1":"Tandoor","2":"chicken tikka dosai","3":"10","4":"5.0"},{"1":"Tandoor","2":"sada dosai","3":"6","4":"3.0"},{"1":"Tandoor","2":"vegetable dosai","3":"8","4":"4.0"},{"1":"Tandoor","2":"chicken korma","3":"10","4":"5.0"},{"1":"Tandoor","2":"lamb korma","3":"12","4":"6.0"},{"1":"Tandoor","2":"beef bhunas","3":"12","4":"6.0"},{"1":"Tandoor","2":"shrimp bhunas","3":"12","4":"6.0"},{"1":"Tandoor","2":"naan","3":"2","4":"1.0"},{"1":"Tandoor","2":"onion kulcha","3":"3","4":"1.5"},{"1":"Tandoor","2":"garlic naan","3":"3","4":"1.5"},{"1":"Tandoor","2":"peswari naan","3":"4","4":"2.0"},{"1":"Tandoor","2":"chicken tikka naan","3":"5","4":"2.5"},{"1":"Tandoor","2":"panir kulcha","3":"4","4":"2.0"},{"1":"Cafe","2":"croque monsieur","3":"7","4":"3.5"},{"1":"Cafe","2":"truffled hummus crepe","3":"7","4":"3.5"},{"1":"Cafe","2":"chicken pesto crepe","3":"8","4":"4.0"},{"1":"Cafe","2":"apple and brie crepe","3":"7","4":"3.5"},{"1":"Cafe","2":"cinnamon sugar","3":"5","4":"2.5"},{"1":"Cafe","2":"nutella","3":"6","4":"3.0"},{"1":"Cafe","2":"banana foster","3":"6","4":"3.0"},{"1":"Cafe","2":"crepe suzette","3":"6","4":"3.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>How many entrees are in the dataset (<code>menuType</code> variable)? How many desserts</li>
+</ol>
+<pre class="r"><code>westUnion %&gt;% 
+  count(menuType)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["menuType"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"appetizer","2":"23"},{"1":"dessert","2":"7"},{"1":"entree","2":"24"},{"1":"side","2":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

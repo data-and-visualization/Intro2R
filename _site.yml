@@ -8,11 +8,11 @@ navbar:
     - text: "Load Data"
       href: data_management.html
     - text: "Exercise One"
-      href: https://libjohn.shinyapps.io/intro2r-assignments2/
+      href: exercise1.html
     - text: "Data Wrangling"
       href: data_wrangling.html
     - text: "Exercise Two"
-      href: https://libjohn.shinyapps.io/intro2r-assignments2/
+      href: exercise2.html
     - text: "Visualization"
       href: visualization.nb.html
   right:

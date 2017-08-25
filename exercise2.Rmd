@@ -1,0 +1,38 @@
+---
+title: "Exercise 2"
+output: html_document
+---
+
+## Quiz
+
+Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r-assignments2/)
+
+
+## Directions
+
+Now you try.  You data should already be loaded.  (Look in the Environment tab. If there are no variables, you'll have to rerun exercise one.)  In this exercise you'll practice the `dplyr` verbs mentioned in the lecture:
+
+- `arrange()`
+- `filter()`
+- `mutate()`
+- `select()`
+- `count()`
+
+
+## Exercise 2:  Data Wrangling
+
+All of the following questions are based on the sample of restaurants represented in the dataset which is accurate as of September 2, 2016.
+
+1. Which restaurant has the lowest cost item and what is the item?
+
+2. Which restaurant has the most expensive item(s)?  What are those item(s)?
+
+3. At the West Union, how many of the entrees (found in the `menuType` variable) cost eight dollars?
+
+4. The head of Duke dining is considering reducing prices at the West Union. Using what we've learned in class, write a line of code that will calculate a new variable (`halfPrice`) that contains items at half price.
+
+5. How many entrees are in the dataset (`menuType` variable)? How many desserts 
+    
+## Answers
+
+See [the answers](answers.html#part_two:_data_management) to the above section
