@@ -1,12 +1,11 @@
 ---
-title: ""
+title: "Intro2R -- Workshop Home"
 output: html_document
 ---
 
 &nbsp;
 
-## Intro2R -- Workshop Home
-### HouseKeeping
+## HouseKeeping
 
 <p class="right">Joel</p>
 
@@ -16,7 +15,7 @@ output: html_document
 4. What is a Project
 5. What is [Docker](https://vm-manage.oit.duke.edu/containers/rstudio)
 
-### Data Management
+## Data Management
 
 <p class="right">John</p>
 
@@ -26,18 +25,18 @@ output: html_document
 1. Data Structures
 1. Data Types
 
-### Exercise One
+## Exercise One
 
 <p class="right">Joel</p>
 
 - Exercise
 - Quiz
 
-### Data Wrangling
+## Data Wrangling
 
 <p class="right">John</p>
 
-#### Dplyr
+### Dplyr
 
 - Arrange
 - Select
@@ -47,14 +46,14 @@ output: html_document
 - Summarize
 - Putting it All Together
 
-### Exercise Two
+## Exercise Two
 
 <p class="right">Joel</p>
 
 - Exercise
 - Quiz
 
-### Visualization
+## Visualization
 
 <p class="right">John</p>
 
