@@ -5,12 +5,12 @@ output: html_document
 
 ## Quiz
 
-Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r-assignments2/)
+Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r_quizzes/#section-data-wrangling-with-dplyr)
 
 
 ## Directions
 
-Now you try.  You data should already be loaded.  (Look in the Environment tab. If there are no variables, you'll have to rerun exercise one.)  In this exercise you'll practice the `dplyr` verbs mentioned in the lecture:
+Now you try.  Your data should already be loaded.  (Look in the Environment tab. If there are no variables, you'll have to rerun exercise one.)  In this exercise you'll practice the `dplyr` verbs mentioned in the lecture:
 
 - `arrange()`
 - `filter()`

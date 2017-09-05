@@ -5,10 +5,6 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## PART ONE: Loading Data
 
 For the workshop, we've prebuilt a data set that has information about menus in Duke's new West Union from three restaurants.  
@@ -22,10 +18,10 @@ westUnion <- read_csv("https://raw.githubusercontent.com/data-and-visualization/
 # westUnion <- read_csv("data/westUnion.csv")  # if you cloned the repository
 ```
 
-2. What data type is `westUnion`?
+2. What data structure is `westUnion`?
 
 ```{r}
-tbl_df(westUnion)
+class(westUnion)
 ```
 
 
