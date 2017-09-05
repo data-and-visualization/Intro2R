@@ -5,15 +5,15 @@ output:
     css: duke.css
 ---
 
-```{r, message=FALSE, warning=FALSE, include=FALSE}
+When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
+
+For this introductory section on visualization we use the `ggvis` package because it works seemlessly with pipes (i.e. `%>%`).  You can do a lot of [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggvis)
 ```
 
-
-When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
-
-For this introductory section on visualization we use the `ggvis` package because it works seemlessly with pipes (i.e. `%>%`).  You can do a lot of [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
 
 ## Scatter Plot
 Linear model and 95% confidence interval

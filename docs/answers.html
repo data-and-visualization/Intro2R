@@ -11,7 +11,7 @@
 
 <meta name="author" content="Joel Herndon" />
 
-<meta name="date" content="2017-08-25" />
+<meta name="date" content="2017-09-05" />
 
 <title>Answers</title>
 
@@ -322,7 +322,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Answers</h1>
 <h4 class="author"><em>Joel Herndon</em></h4>
-<h4 class="date"><em>2017-08-25</em></h4>
+<h4 class="date"><em>2017-09-05</em></h4>
 
 </div>
 
@@ -333,8 +333,17 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li>Using what we’ve you’ve seen in class, if <code>westUnion.csv</code> is a csv file, how would you load the file into a new variable called <code>westUnion</code>?</li>
 </ol>
-<pre class="r"><code>library(tidyverse)
-westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv&quot;)</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
+<pre class="r"><code>westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   name = col_character(),

@@ -64,12 +64,6 @@ cars
 
 ## Data Structure
 
-### Class
-
-```{r}
-class(cars)
-```
-
 ### Most Common Data Structures
 
 - Vector
@@ -78,16 +72,13 @@ class(cars)
 - List
 - Matrix
 
-## Data Type
-
 ### Class
 
 ```{r}
-class(cars$makeModel)
-class(cars$mpg)
-
-
+class(cars)
 ```
+
+## Data Type
 
 ### Most Common Data Types
 
@@ -100,7 +91,14 @@ class(cars$mpg)
 - logical (True or False)
 - factor
 
+### Class
 
+```{r}
+class(cars$makeModel)
+class(cars$mpg)
+
+
+```
 
 &nbsp;
 

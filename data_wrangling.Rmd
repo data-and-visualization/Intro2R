@@ -5,6 +5,10 @@ output: html_document
 
 **dplyr** is a widely adopted r package, part of tidyverse, which uses **five English verbs** to reshape data
 
+```{r load-packages, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
 ## Arrange
 
 **Arrange** to sort rows by column

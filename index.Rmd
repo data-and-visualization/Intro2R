@@ -42,7 +42,7 @@ output: html_document
 - Select
 - Filter
 - Mutate
-- Count / Tally
+- Count 
 - Summarize
 - Putting it All Together
 
