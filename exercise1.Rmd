@@ -5,7 +5,7 @@ output: html_document
 
 ## Quiz
 
-Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r-assignments2/)
+Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r_quizzes/)
 
 
 ## Directions
