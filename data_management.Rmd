@@ -17,7 +17,7 @@ library(tidyverse)
 
 ## Data Set
 
-- We'll use a derivitive of the `mtcars` dataset.  
+- We'll use a derivative of the `mtcars` dataset.  
 - Use the `?mtcars` to get the codebook.
 
 ## Load Data
@@ -112,7 +112,7 @@ glimpse(cars)
 
 ### Older style 
 
-`str()` works on all data structures:  data frames, matricies, lists, etc.
+`str()` works on all data structures:  data frames, matrices, lists, etc.
 
 ```{r}
 str(cars)

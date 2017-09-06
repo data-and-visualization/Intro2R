@@ -11,8 +11,22 @@ library(tidyverse)
 
 ## Arrange
 
+
+```{r transform-cars, message=FALSE, warning=FALSE, include=FALSE}
+# There is some crazy data conversion problem with the cars dataFrame.  But since I only did that to show people how to load data  (see data_management.Rmd,)  I'm transforming 'cars' in a more robust fashion with `rownames_to_column`
+cars <- rownames_to_column(mtcars, "makeModel")
+
+makeModel_temp <- cars$makeModel
+
+cars$makeModel <- NULL
+
+cars$makeModel <- makeModel_temp
+  
+```
+
+
 **Arrange** to sort rows by column
-```{r arrange}
+```{r arrange, message=FALSE, warning=FALSE}
 cars %>% 
   arrange(cyl, desc(mpg), desc(hp))
 ```
@@ -52,13 +66,15 @@ sixcyls %>%
   count(hp)
 ```
 
+Note:  `count()` is not part of the five dplyr verbs.  It's often used with `summarize` and included for it's the brevity of functionality.  The example below will demonstrate the flexibility of the `summarize()` function which is a dplyr verb.
+
 ## Summarize
 Summarize to collapse values into a summary
 
 ```{r}
 sixcyls %>% 
   group_by(hp) %>% 
-  summarize(Count = n())
+  summarize(Count = n(), mean_wt = mean(wt), min_wt = min(wt), max_wt = max(wt))
 ```
 
 

@@ -383,16 +383,17 @@ sixcyls    # display filtered data frame</code></pre>
 {"columns":[{"label":["hp"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"105","2":"1"},{"1":"110","2":"3"},{"1":"123","2":"2"},{"1":"175","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<p>Note: <code>count()</code> is not part of the five dplyr verbs. It’s often used with <code>summarize</code> and included for it’s the brevity of functionality. The example below will demonstrate the flexibility of the <code>summarize()</code> function which is a dplyr verb.</p>
 </div>
 <div id="summarize" class="section level2">
 <h2>Summarize</h2>
 <p>Summarize to collapse values into a summary</p>
 <pre class="r"><code>sixcyls %&gt;% 
   group_by(hp) %&gt;% 
-  summarize(Count = n())</code></pre>
+  summarize(Count = n(), mean_wt = mean(wt), min_wt = min(wt), max_wt = max(wt))</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["hp"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Count"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"105","2":"1"},{"1":"110","2":"3"},{"1":"123","2":"2"},{"1":"175","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["hp"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Count"],"name":[2],"type":["int"],"align":["right"]},{"label":["mean_wt"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["min_wt"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["max_wt"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"105","2":"1","3":"3.460000","4":"3.46","5":"3.460"},{"1":"110","2":"3","3":"2.903333","4":"2.62","5":"3.215"},{"1":"123","2":"2","3":"3.440000","4":"3.44","5":"3.440"},{"1":"175","2":"1","3":"2.770000","4":"2.77","5":"2.770"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
