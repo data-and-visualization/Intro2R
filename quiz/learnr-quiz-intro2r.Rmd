@@ -95,7 +95,7 @@ quiz(
   )
 ```
 
-You have completed the quizzes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.netlify.com/intro2r/), resume at "Data Wrangling".  The quiz below is part of Exercise Two.
+You have completed the quizzes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.library.duke.edu/intro2r/), resume at "Data Wrangling".  The quiz below is part of Exercise Two.
 
 ## Data Wrangling with dplyr
 
@@ -142,4 +142,4 @@ quiz(
 )
 ```
 
-You have completed the quiz for Exercise Two.  Return to the [Intro2R learning materials](https://rfun.netlify.com/intro2r/), resume at "Visualization".  
+You have completed the quiz for Exercise Two.  Return to the [Intro2R learning materials](https://rfun.library.duke.edu/intro2r/), resume at "Visualization".  
