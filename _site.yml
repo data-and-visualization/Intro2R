@@ -15,7 +15,7 @@ navbar:
     - text: "Exercise Two"
       href: exercise2.html
     - text: "Visualization"
-      href: visualization.nb.html
+      href: visualization.html
   right:
     - icon: fa-github
 #    - text: "GitHub"

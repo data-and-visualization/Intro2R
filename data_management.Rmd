@@ -3,7 +3,7 @@ title: "Data Management"
 output: html_document
 ---
 
-Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together within a common tidy-data framework.^[https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/]  These packages modernize R and enable an efficient workflow.  Although this method is not the only way to use R, you may work for a long time before you need to explore beyond the tidyverse.  This framework is great for to learning R and being productive when using R.  Let's get started.
+Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together within a common tidy-data framework.^[https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/]  These packages modernize R and enable an efficient workflow.  Although this method is not the only way to use R, you may work for a long time before you need to explore beyond the tidyverse.  This tidy framework is great for learning R and being productive when using R.  Let's get started.
 
 ![](https://rviews.rstudio.com/post/2017-06-09-What-is-the-tidyverse_files/tidyverse1.png)
 

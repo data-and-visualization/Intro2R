@@ -9,11 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Joel Herndon &amp; John Little" />
 
-<meta name="date" content="2017-09-06" />
 
-<title>Intro to R by Data &amp; Visualization Services</title>
+<title>Visualization</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -329,297 +327,44 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Intro to R by Data &amp; Visualization Services</h1>
-<h4 class="author"><em>Joel Herndon &amp; John Little</em></h4>
-<h4 class="date"><em>2017-09-06</em></h4>
+<h1 class="title toc-ignore">Visualization</h1>
 
 </div>
 
 
-<div id="intro-to-r" class="section level1">
-<h1>Intro to R</h1>
-<div id="housekeeping-joel" class="section level2">
-<h2>Housekeeping (Joel)</h2>
-<div id="overview-ppt" class="section level4">
-<h4>Overview PPT</h4>
+<p>When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort. Your visualizations then appear in the Viewer Pane.</p>
+<p>For this introductory section on visualization we use the <code>ggvis</code> package because it works seemlessly with pipes (i.e. <code>%&gt;%</code>). You can do a lot of <a href="http://ggvis.rstudio.com/">ggvis</a>. You can do even more with <a href="http://ggplot2.tidyverse.org/">ggplot2</a>. We offer a separate workshop on ggplot2.</p>
 <pre class="r"><code>library(tidyverse)
 library(ggvis)</code></pre>
-</div>
-</div>
-<div id="data-management-john" class="section level2">
-<h2>Data Management (John)</h2>
-<ul>
-<li>We’ll use a derivitive of the <code>mtcars</code> dataset.<br />
-</li>
-<li>Use the <code>?mtcars</code> to get the codebook.</li>
-</ul>
-<div id="load-data" class="section level3">
-<h3>Load Data</h3>
-<p>RStudio has an on-board data loading wizard which uses the <code>readr()</code> package for data loading.<br />
-See Menubar <code>File &gt; Import Dataset</code></p>
-<blockquote>
-<div class="figure">
-<img src="images/import_data.png" title="Environment Pane" alt="RStudio Environment Pane" />
-<p class="caption">RStudio Environment Pane</p>
-</div>
-</blockquote>
-<p> </p>
-<pre class="r"><code># readr::read_csv
-# &#39;read_csv()&#39; is part of the &#39;readr&#39; package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
-
-cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
-</div>
-<div id="view-your-data-in-a-grid" class="section level3">
-<h3>View your data in a grid</h3>
-<pre class="r"><code>View(cars)
-# Displays as a tab in the source-pane quadrant
-# Does not dipsplay in an R Notebooks</code></pre>
-<div id="other-data-loaders-a-selective-list" class="section level4">
-<h4>Other Data Loaders, a selective list</h4>
-<ul>
-<li><p><code>View()</code> is an exploratory convenience; it’s not “reproducible” in the sense of generating a report or leaving a trail of your work. One of the advantages is on-board clickable sorting</p></li>
-<li><p>Environment Pane has information about data objects</p></li>
-</ul>
-</div>
-</div>
-<div id="modern-data-frames-tibbles" class="section level3">
-<h3>Modern Data Frames: Tibbles</h3>
-<ul>
-<li>“Table as data frame”“, a modern tidyverse table</li>
-</ul>
-<pre class="r"><code>cars </code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["makeModel"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","12":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","12":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","12":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","12":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","12":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","12":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","12":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","12":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","12":"Merc 280C"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SE"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SL"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SLC"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","12":"Cadillac Fleetwood"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","12":"Lincoln Continental"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","12":"Chrysler Imperial"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","12":"Fiat 128"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","12":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","12":"Toyota Corolla"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","12":"Toyota Corona"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","12":"Dodge Challenger"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","12":"AMC Javelin"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","12":"Camaro Z28"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","12":"Pontiac Firebird"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","12":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","12":"Porsche 914-2"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","12":"Lotus Europa"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","12":"Ford Pantera L"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","12":"Ferrari Dino"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","12":"Maserati Bora"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","12":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p> </p>
-</div>
-<div id="data-structure" class="section level3">
-<h3>Data Structure</h3>
-<div id="class" class="section level4">
-<h4>Class</h4>
-<pre class="r"><code>class(cars)</code></pre>
-<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<p> </p>
-</div>
-<div id="glimpse-into-a-data-frame" class="section level4">
-<h4>Glimpse into a data frame</h4>
-<pre class="r"><code>glimpse(cars)</code></pre>
-<pre><code>## Observations: 32
-## Variables: 12
-## $ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8...
-## $ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4...
-## $ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146...
-## $ hp        &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, ...
-## $ drat      &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92...
-## $ wt        &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.1...
-## $ qsec      &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20....
-## $ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1...
-## $ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1...
-## $ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4...
-## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...
-## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...</code></pre>
-<p> </p>
-</div>
-<div id="older-style" class="section level4">
-<h4>Older style</h4>
-<p><code>str()</code> works on all data structures: data frames, matricies, lists, etc.</p>
-<pre class="r"><code>str(cars)</code></pre>
-<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    32 obs. of  12 variables:
-##  $ mpg      : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
-##  $ cyl      : num  6 6 4 6 8 6 8 4 4 6 ...
-##  $ disp     : num  160 160 108 258 360 ...
-##  $ hp       : num  110 110 93 110 175 105 245 62 95 123 ...
-##  $ drat     : num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
-##  $ wt       : num  2.62 2.88 2.32 3.21 3.44 ...
-##  $ qsec     : num  16.5 17 18.6 19.4 17 ...
-##  $ vs       : num  0 0 1 1 0 1 0 1 1 1 ...
-##  $ am       : num  1 1 1 0 0 0 0 0 0 0 ...
-##  $ gear     : num  4 4 4 3 3 3 3 4 4 4 ...
-##  $ carb     : num  4 4 1 1 2 1 4 2 2 4 ...
-##  $ makeModel: chr  &quot;Mazda RX4&quot; &quot;Mazda RX4 Wag&quot; &quot;Datsun 710&quot; &quot;Hornet 4 Drive&quot; ...
-##  - attr(*, &quot;spec&quot;)=List of 2
-##   ..$ cols   :List of 12
-##   .. ..$ mpg      : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ cyl      : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ disp     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ hp       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ drat     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ wt       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ qsec     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ vs       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ am       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ gear     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ carb     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ makeModel: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   ..$ default: list()
-##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
-##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
-<p> </p>
-</div>
-<div id="useful-command" class="section level4">
-<h4>Useful Command</h4>
-<p><code>tbl_vars</code> lists table variables (column headers) as a vector</p>
-<pre class="r"><code>tbl_vars(cars)</code></pre>
-<pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
-##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
-## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
-<p> </p>
-</div>
-</div>
-</div>
-<div id="exercise-part-one-loading-data-joel" class="section level2">
-<h2>EXERCISE, Part One: Loading Data (Joel)</h2>
-<ol style="list-style-type: decimal">
-<li>Take the <a href="https://libjohn.shinyapps.io/intro2r-assignments2/">Quiz</a></li>
-<li>Hands-on (in an R file): File &gt; Open File &gt; Student_Assignments.Rmd (Part One)</li>
-</ol>
-<p> </p>
-</div>
-<div id="data-reshaping---dplyr-john" class="section level2">
-<h2>Data Reshaping - dplyr (John)</h2>
-<p><strong>dplyr</strong> is a widely adopted r package, part of tidyverse, which uses <strong>five English verbs</strong> to reshape data</p>
-<div id="arrange" class="section level3">
-<h3>Arrange</h3>
-<p><strong>Arrange</strong> to sort rows by column</p>
-<pre class="r"><code>cars %&gt;% 
-  arrange(cyl, desc(mpg), desc(hp))</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["makeModel"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","12":"Toyota Corolla"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","12":"Fiat 128"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","12":"Lotus Europa"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","12":"Honda Civic"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","12":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","12":"Porsche 914-2"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","12":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","12":"Merc 230"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","12":"Datsun 710"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","12":"Toyota Corona"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","12":"Volvo 142E"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","12":"Hornet 4 Drive"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4 Wag"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","12":"Ferrari Dino"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","12":"Merc 280"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","12":"Valiant"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","12":"Merc 280C"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","12":"Pontiac Firebird"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","12":"Hornet Sportabout"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SL"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SE"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","12":"Ford Pantera L"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","12":"Dodge Challenger"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SLC"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","12":"AMC Javelin"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","12":"Maserati Bora"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","12":"Chrysler Imperial"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","12":"Duster 360"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","12":"Camaro Z28"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","12":"Lincoln Continental"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","12":"Cadillac Fleetwood"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="select" class="section level3">
-<h3>Select</h3>
-<p><strong>Select</strong> to choose columns (variables)</p>
-<pre class="r"><code>cars %&gt;% 
-    arrange(cyl, desc(mpg), desc(hp)) %&gt;% 
-    select(makeModel, cyl, mpg, hp)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["makeModel"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mpg"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Toyota Corolla","2":"4","3":"33.9","4":"65"},{"1":"Fiat 128","2":"4","3":"32.4","4":"66"},{"1":"Lotus Europa","2":"4","3":"30.4","4":"113"},{"1":"Honda Civic","2":"4","3":"30.4","4":"52"},{"1":"Fiat X1-9","2":"4","3":"27.3","4":"66"},{"1":"Porsche 914-2","2":"4","3":"26.0","4":"91"},{"1":"Merc 240D","2":"4","3":"24.4","4":"62"},{"1":"Merc 230","2":"4","3":"22.8","4":"95"},{"1":"Datsun 710","2":"4","3":"22.8","4":"93"},{"1":"Toyota Corona","2":"4","3":"21.5","4":"97"},{"1":"Volvo 142E","2":"4","3":"21.4","4":"109"},{"1":"Hornet 4 Drive","2":"6","3":"21.4","4":"110"},{"1":"Mazda RX4","2":"6","3":"21.0","4":"110"},{"1":"Mazda RX4 Wag","2":"6","3":"21.0","4":"110"},{"1":"Ferrari Dino","2":"6","3":"19.7","4":"175"},{"1":"Merc 280","2":"6","3":"19.2","4":"123"},{"1":"Valiant","2":"6","3":"18.1","4":"105"},{"1":"Merc 280C","2":"6","3":"17.8","4":"123"},{"1":"Pontiac Firebird","2":"8","3":"19.2","4":"175"},{"1":"Hornet Sportabout","2":"8","3":"18.7","4":"175"},{"1":"Merc 450SL","2":"8","3":"17.3","4":"180"},{"1":"Merc 450SE","2":"8","3":"16.4","4":"180"},{"1":"Ford Pantera L","2":"8","3":"15.8","4":"264"},{"1":"Dodge Challenger","2":"8","3":"15.5","4":"150"},{"1":"Merc 450SLC","2":"8","3":"15.2","4":"180"},{"1":"AMC Javelin","2":"8","3":"15.2","4":"150"},{"1":"Maserati Bora","2":"8","3":"15.0","4":"335"},{"1":"Chrysler Imperial","2":"8","3":"14.7","4":"230"},{"1":"Duster 360","2":"8","3":"14.3","4":"245"},{"1":"Camaro Z28","2":"8","3":"13.3","4":"245"},{"1":"Lincoln Continental","2":"8","3":"10.4","4":"215"},{"1":"Cadillac Fleetwood","2":"8","3":"10.4","4":"205"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="filter" class="section level3">
-<h3>Filter</h3>
-<p><strong>Filter</strong> to select rows</p>
-<pre class="r"><code>sixcyls &lt;- cars %&gt;% 
-  filter(cyl == 6)
-
-sixcyls    # display filtered data frame</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["makeModel"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4 Wag"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","12":"Hornet 4 Drive"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","12":"Valiant"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","12":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","12":"Merc 280C"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","12":"Ferrari Dino"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="mutate" class="section level3">
-<h3>Mutate</h3>
-<p><strong>Mutate</strong> to create new variables (add columns)</p>
-<pre class="r"><code>sixcyls %&gt;% 
-  mutate(dispWt = disp / wt) %&gt;% 
-  select(makeModel, cyl, mpg, hp, dispWt)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["makeModel"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mpg"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["dispWt"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Mazda RX4","2":"6","3":"21.0","4":"110","5":"61.06870"},{"1":"Mazda RX4 Wag","2":"6","3":"21.0","4":"110","5":"55.65217"},{"1":"Hornet 4 Drive","2":"6","3":"21.4","4":"110","5":"80.24883"},{"1":"Valiant","2":"6","3":"18.1","4":"105","5":"65.02890"},{"1":"Merc 280","2":"6","3":"19.2","4":"123","5":"48.72093"},{"1":"Merc 280C","2":"6","3":"17.8","4":"123","5":"48.72093"},{"1":"Ferrari Dino","2":"6","3":"19.7","4":"175","5":"52.34657"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="count" class="section level3">
-<h3>Count</h3>
-<p><strong>Count</strong> to summarize observations (or rows)</p>
-<pre class="r"><code>sixcyls %&gt;% 
-  count(hp)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["hp"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"105","2":"1"},{"1":"110","2":"3"},{"1":"123","2":"2"},{"1":"175","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="summarize" class="section level3">
-<h3>Summarize</h3>
-<p>Summarize to collapse values into a summary</p>
-<pre class="r"><code>sixcyls %&gt;% 
-  group_by(hp) %&gt;% 
-  summarize(Count = n())</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["hp"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Count"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"105","2":"1"},{"1":"110","2":"3"},{"1":"123","2":"2"},{"1":"175","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="put-it-all-together" class="section level3">
-<h3>Put it all together</h3>
-<pre class="r"><code>cars %&gt;% 
-  filter(cyl &gt;= 4, cyl &lt;= 6) %&gt;% 
-  select(makeModel, mpg:wt) %&gt;%
-  mutate(dispWt = disp / wt) %&gt;% 
-  arrange(desc(mpg), wt)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["makeModel"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mpg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["dispWt"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"Toyota Corolla","2":"33.9","3":"4","4":"71.1","5":"65","6":"4.22","7":"1.835","8":"38.74659"},{"1":"Fiat 128","2":"32.4","3":"4","4":"78.7","5":"66","6":"4.08","7":"2.200","8":"35.77273"},{"1":"Lotus Europa","2":"30.4","3":"4","4":"95.1","5":"113","6":"3.77","7":"1.513","8":"62.85525"},{"1":"Honda Civic","2":"30.4","3":"4","4":"75.7","5":"52","6":"4.93","7":"1.615","8":"46.87307"},{"1":"Fiat X1-9","2":"27.3","3":"4","4":"79.0","5":"66","6":"4.08","7":"1.935","8":"40.82687"},{"1":"Porsche 914-2","2":"26.0","3":"4","4":"120.3","5":"91","6":"4.43","7":"2.140","8":"56.21495"},{"1":"Merc 240D","2":"24.4","3":"4","4":"146.7","5":"62","6":"3.69","7":"3.190","8":"45.98746"},{"1":"Datsun 710","2":"22.8","3":"4","4":"108.0","5":"93","6":"3.85","7":"2.320","8":"46.55172"},{"1":"Merc 230","2":"22.8","3":"4","4":"140.8","5":"95","6":"3.92","7":"3.150","8":"44.69841"},{"1":"Toyota Corona","2":"21.5","3":"4","4":"120.1","5":"97","6":"3.70","7":"2.465","8":"48.72211"},{"1":"Volvo 142E","2":"21.4","3":"4","4":"121.0","5":"109","6":"4.11","7":"2.780","8":"43.52518"},{"1":"Hornet 4 Drive","2":"21.4","3":"6","4":"258.0","5":"110","6":"3.08","7":"3.215","8":"80.24883"},{"1":"Mazda RX4","2":"21.0","3":"6","4":"160.0","5":"110","6":"3.90","7":"2.620","8":"61.06870"},{"1":"Mazda RX4 Wag","2":"21.0","3":"6","4":"160.0","5":"110","6":"3.90","7":"2.875","8":"55.65217"},{"1":"Ferrari Dino","2":"19.7","3":"6","4":"145.0","5":"175","6":"3.62","7":"2.770","8":"52.34657"},{"1":"Merc 280","2":"19.2","3":"6","4":"167.6","5":"123","6":"3.92","7":"3.440","8":"48.72093"},{"1":"Valiant","2":"18.1","3":"6","4":"225.0","5":"105","6":"2.76","7":"3.460","8":"65.02890"},{"1":"Merc 280C","2":"17.8","3":"6","4":"167.6","5":"123","6":"3.92","7":"3.440","8":"48.72093"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<div id="exercise-part-2-joel" class="section level2">
-<h2>EXERCISE, Part 2 (Joel)</h2>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Student_Assignments.Rmd::PART TWO <strong>Data Management</strong></p></li>
-<li><code>arrange()</code></li>
-<li><code>filter()</code></li>
-<li><code>mutate()</code></li>
-<li><code>select()</code></li>
-<li><p><code>count()</code></p></li>
-</ol>
-</div>
-<div id="visualization-with-ggvis-john" class="section level2">
-<h2>Visualization with ggvis (John)</h2>
-<p>When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort. Your visualizations then appear in the Viewer Pane.</p>
-<div id="scatter-plot" class="section level3">
-<h3>Scatter Plot</h3>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter Plot</h2>
 <p>Linear model and 95% confidence interval</p>
 <pre class="r"><code>cars %&gt;% 
   ggvis(~wt, ~mpg) %&gt;% 
   layer_points() %&gt;% 
   layer_model_predictions(model = &quot;lm&quot;, se=TRUE)</code></pre>
 <pre><code>## Guessing formula = mpg ~ wt</code></pre>
-<p><div id="plot_id802212239-container" class="ggvis-output-container">
-<div id="plot_id802212239" class="ggvis-output"></div>
+<p><div id="plot_id108348541-container" class="ggvis-output-container">
+<div id="plot_id108348541" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id802212239_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id802212239" data-renderer="svg">SVG</a>
+<a id="plot_id108348541_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id108348541" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id802212239_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id802212239" data-renderer="canvas">Canvas</a>
+<a id="plot_id108348541_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id108348541" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id802212239_download" class="ggvis-download" data-plot-id="plot_id802212239">Download</a>
+<a id="plot_id108348541_download" class="ggvis-download" data-plot-id="plot_id108348541">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id802212239_spec = {
+var plot_id108348541_spec = {
   "data": [
     {
       "name": ".0",
@@ -821,36 +566,36 @@ var plot_id802212239_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id802212239").parseSpec(plot_id802212239_spec);
+ggvis.getPlot("plot_id108348541").parseSpec(plot_id108348541_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a></p>
 </div>
-<div id="bar-graph" class="section level3">
-<h3>Bar Graph</h3>
+<div id="bar-graph" class="section level2">
+<h2>Bar Graph</h2>
 <pre class="r"><code>cars %&gt;% 
   mutate(cyl = factor(cyl, labels = c(&quot;four&quot;,&quot;six&quot;,&quot;eight&quot;))) %&gt;% 
   ggvis(~cyl) %&gt;% 
   layer_bars()</code></pre>
-<p><div id="plot_id322678556-container" class="ggvis-output-container">
-<div id="plot_id322678556" class="ggvis-output"></div>
+<p><div id="plot_id272703677-container" class="ggvis-output-container">
+<div id="plot_id272703677" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id322678556_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id322678556" data-renderer="svg">SVG</a>
+<a id="plot_id272703677_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id272703677" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id322678556_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id322678556" data-renderer="canvas">Canvas</a>
+<a id="plot_id272703677_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id272703677" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id322678556_download" class="ggvis-download" data-plot-id="plot_id322678556">Download</a>
+<a id="plot_id272703677_download" class="ggvis-download" data-plot-id="plot_id272703677">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id322678556_spec = {
+var plot_id272703677_spec = {
   "data": [
     {
       "name": ".0/count1/stack2",
@@ -978,35 +723,35 @@ var plot_id322678556_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id322678556").parseSpec(plot_id322678556_spec);
+ggvis.getPlot("plot_id272703677").parseSpec(plot_id272703677_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#bar-graphs">More information on ggvis bar graphs</a></p>
 </div>
-<div id="histogram" class="section level3">
-<h3>Histogram</h3>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
 <pre class="r"><code>cars %&gt;% 
   ggvis(~mpg) %&gt;% 
   layer_histograms()</code></pre>
-<p><div id="plot_id779239055-container" class="ggvis-output-container">
-<div id="plot_id779239055" class="ggvis-output"></div>
+<p><div id="plot_id230200204-container" class="ggvis-output-container">
+<div id="plot_id230200204" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id779239055_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id779239055" data-renderer="svg">SVG</a>
+<a id="plot_id230200204_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id230200204" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id779239055_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id779239055" data-renderer="canvas">Canvas</a>
+<a id="plot_id230200204_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id230200204" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id779239055_download" class="ggvis-download" data-plot-id="plot_id779239055">Download</a>
+<a id="plot_id230200204_download" class="ggvis-download" data-plot-id="plot_id230200204">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id779239055_spec = {
+var plot_id230200204_spec = {
   "data": [
     {
       "name": ".0/bin1/stack2",
@@ -1137,37 +882,37 @@ var plot_id779239055_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id779239055").parseSpec(plot_id779239055_spec);
+ggvis.getPlot("plot_id230200204").parseSpec(plot_id230200204_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#histograms">More information on ggvis histograms</a></p>
 </div>
-<div id="line-graph" class="section level3">
-<h3>Line graph</h3>
+<div id="line-graph" class="section level2">
+<h2>Line graph</h2>
 <pre class="r"><code>cars %&gt;% 
-  ggvis( ~wt, ~mpg) %&gt;% 
+  ggvis(~wt, ~mpg) %&gt;% 
   group_by(cyl) %&gt;% 
   layer_lines(stroke = ~factor(cyl)) %&gt;% 
   layer_points(~wt, ~mpg, stroke := &quot;black&quot;, fill = ~factor(cyl))</code></pre>
-<p><div id="plot_id178117777-container" class="ggvis-output-container">
-<div id="plot_id178117777" class="ggvis-output"></div>
+<p><div id="plot_id801989137-container" class="ggvis-output-container">
+<div id="plot_id801989137" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id178117777_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id178117777" data-renderer="svg">SVG</a>
+<a id="plot_id801989137_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id801989137" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id178117777_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id178117777" data-renderer="canvas">Canvas</a>
+<a id="plot_id801989137_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id801989137" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id178117777_download" class="ggvis-download" data-plot-id="plot_id178117777">Download</a>
+<a id="plot_id801989137_download" class="ggvis-download" data-plot-id="plot_id801989137">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id178117777_spec = {
+var plot_id801989137_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1415,34 +1160,34 @@ var plot_id178117777_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id178117777").parseSpec(plot_id178117777_spec);
+ggvis.getPlot("plot_id801989137").parseSpec(plot_id801989137_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">More information on line graphs</a></p>
 <pre class="r"><code>cars %&gt;% 
   ggvis(~wt, ~mpg) %&gt;% 
   group_by(cyl) %&gt;% 
   layer_model_predictions(model=&quot;lm&quot;, se = TRUE) %&gt;% 
   layer_points(~wt, ~mpg, stroke := &quot;black&quot;, fill = ~factor(cyl), size := ~hp, opacity := 0.7) </code></pre>
-<div id="plot_id837902007-container" class="ggvis-output-container">
-<div id="plot_id837902007" class="ggvis-output"></div>
+<div id="plot_id730075161-container" class="ggvis-output-container">
+<div id="plot_id730075161" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id837902007_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id837902007" data-renderer="svg">SVG</a>
+<a id="plot_id730075161_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id730075161" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id837902007_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id837902007" data-renderer="canvas">Canvas</a>
+<a id="plot_id730075161_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id730075161" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id837902007_download" class="ggvis-download" data-plot-id="plot_id837902007">Download</a>
+<a id="plot_id730075161_download" class="ggvis-download" data-plot-id="plot_id730075161">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id837902007_spec = {
+var plot_id730075161_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1718,18 +1463,8 @@ var plot_id837902007_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id837902007").parseSpec(plot_id837902007_spec);
+ggvis.getPlot("plot_id730075161").parseSpec(plot_id730075161_spec);
 </script>
-<div id="shareable-under-cc-by-nc-license" class="section level4">
-<h4>Shareable under CC BY-NC license</h4>
-<p>Data, presentation, and handouts are shareable under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC license</a></p>
-<div class="figure">
-<img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License" alt="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License." />
-<p class="caption">This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
-</div>
-</div>
-</div>
-</div>
 </div>
 
 

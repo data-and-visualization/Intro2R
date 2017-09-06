@@ -11,7 +11,7 @@
 
 <meta name="author" content="Joel Herndon" />
 
-<meta name="date" content="2017-09-05" />
+<meta name="date" content="2017-09-06" />
 
 <title>Answers</title>
 
@@ -301,7 +301,7 @@ div.tocify {
   <a href="exercise2.html">Exercise Two</a>
 </li>
 <li>
-  <a href="visualization.nb.html">Visualization</a>
+  <a href="visualization.html">Visualization</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -322,7 +322,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Answers</h1>
 <h4 class="author"><em>Joel Herndon</em></h4>
-<h4 class="date"><em>2017-09-05</em></h4>
+<h4 class="date"><em>2017-09-06</em></h4>
 
 </div>
 
@@ -357,14 +357,10 @@ div.tocify {
 <pre class="r"><code># or 
 # westUnion &lt;- read_csv(&quot;data/westUnion.csv&quot;)  # if you cloned the repository</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>What data type is <code>westUnion</code>?</li>
+<li>What data structure is <code>westUnion</code>?</li>
 </ol>
-<pre class="r"><code>tbl_df(westUnion)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["menuType"],"name":[3],"type":["chr"],"align":["left"]},{"label":["itemType"],"name":[4],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[5],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[6],"type":["int"],"align":["right"]},{"label":["rating"],"name":[7],"type":["int"],"align":["right"]}],"data":[{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"sweet potato tots","6":"4","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"french fries","6":"4","7":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"quesadillas","6":"6","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"southwest chili wings","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"chicken tenders","6":"7","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"nachos","6":"8","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"peel and eat shrimp","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"appetizer","4":"snack","5":"tortilla chips and salsa","6":"4","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"turkey club double decker","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"fried chicken sandwich","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"philly cheese steak","6":"9","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sandwich","5":"grilled cheese","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"soup","5":"black bean tortilla soup","6":"4","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"soup","5":"texas style beef chili","6":"7","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"salad","5":"southwest chopped salad","6":"7","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"salad","5":"ceasar salad","6":"7","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"side","4":"salad","5":"spinach salad","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"devil's classic","6":"8","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"sloppy","6":"9","7":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"southwestern","6":"9","7":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"french","6":"9","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"burger","5":"krafthouse krazy burger","6":"10","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sausage","5":"italian sausage","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sausage","5":"bratwurst","6":"8","7":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"sausage","5":"chili dog","6":"7","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"dessert","4":"dessert","5":"chocolate brownie","6":"8","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"dessert","4":"dessert","5":"banana split","6":"6","7":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"dessert","4":"dessert","5":"key lime pie","6":"6","7":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"grilled fish","6":"10","7":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"pork carnitas","6":"8","7":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"grilled chicken","6":"8","7":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"entree","4":"tacos","5":"ground beef","6":"8","7":"7"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"vegetable samosa","6":"4","7":"8"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"lamb samosa","6":"5","7":"6"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"gobi pakora","6":"4","7":"NA"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"aloo bhonda","6":"4","7":"NA"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"vegetable pakora","6":"4","7":"9"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"madala dosai","6":"8","7":"10"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"chicken tikka dosai","6":"10","7":"8"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"sada dosai","6":"6","7":"NA"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"appetizer","5":"vegetable dosai","6":"8","7":"7"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"chicken","5":"chicken korma","6":"10","7":"8"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"lamb","5":"lamb korma","6":"12","7":"7"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"beef","5":"beef bhunas","6":"12","7":"6"},{"1":"Tandoor","2":"restaurant","3":"entree","4":"shrimp","5":"shrimp bhunas","6":"12","7":"5"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"naan","6":"2","7":"10"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"onion kulcha","6":"3","7":"8"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"garlic naan","6":"3","7":"10"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"peswari naan","6":"4","7":"7"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"chicken tikka naan","6":"5","7":"6"},{"1":"Tandoor","2":"restaurant","3":"appetizer","4":"bread","5":"panir kulcha","6":"4","7":"7"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"croque monsieur","6":"7","7":"8"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"truffled hummus crepe","6":"7","7":"7"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"chicken pesto crepe","6":"8","7":"6"},{"1":"Cafe","2":"cafe","3":"entree","4":"sandwich","5":"apple and brie crepe","6":"7","7":"9"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"cinnamon sugar","6":"5","7":"9"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"nutella","6":"6","7":"8"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"banana foster","6":"6","7":"7"},{"1":"Cafe","2":"cafe","3":"dessert","4":"dessert","5":"crepe suzette","6":"6","7":"8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre class="r"><code>class(westUnion)</code></pre>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Take a look at the structure of the <code>westUnion</code> variable.
 <ul>

@@ -1,8 +1,8 @@
 ---
 title: "Visualization"
-output: 
-  html_notebook:
-    css: duke.css
+output: html_document
+#  html_notebook:
+#    css: duke.css
 ---
 
 When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
@@ -12,6 +12,19 @@ For this introductory section on visualization we use the `ggvis` package becaus
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggvis)
+```
+
+
+```{r transform-cars, message=FALSE, warning=FALSE, include=FALSE}
+# There is some crazy data conversion problem with the cars dataFrame.  But since I only did that to show people how to load data  (see data_management.Rmd,)  I'm transforming 'cars' in a more robust fashion with `rownames_to_column`
+cars <- rownames_to_column(mtcars, "makeModel")
+
+makeModel_temp <- cars$makeModel
+
+cars$makeModel <- NULL
+
+cars$makeModel <- makeModel_temp
+  
 ```
 
 
@@ -25,7 +38,7 @@ cars %>%
 ```
 [More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
 
-### Bar Graph
+## Bar Graph
 ```{r ggvis-bargraph}
 cars %>% 
   mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
@@ -34,7 +47,7 @@ cars %>%
 ```
 [More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
 
-### Histogram
+## Histogram
 ```{r ggvis-hist, message=FALSE}
 cars %>% 
   ggvis(~mpg) %>% 
@@ -42,7 +55,7 @@ cars %>%
 ```
 [More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
 
-### Line graph
+## Line graph
 ```{r ggvis-line, warning=FALSE}
 cars %>% 
   ggvis(~wt, ~mpg) %>% 
