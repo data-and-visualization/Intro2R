@@ -95,7 +95,7 @@ quiz(
   )
 ```
 
-You have complted the quizes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.netlify.com/intro2r/), resume at "Data Wrangling".  The quiz below is part of Exercise Two.
+You have completed the quizzes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.netlify.com/intro2r/), resume at "Data Wrangling".  The quiz below is part of Exercise Two.
 
 ## Data Wrangling with dplyr
 
@@ -116,7 +116,28 @@ quiz(
            answer("Make R into a kitchy horror movie"),
            answer("Transform values in a row of data"),
            answer("Create a new row from other rows"),
-           answer("Create a new column")
+           answer("Create a new column", correct = TRUE)
+           ),
+  
+  question("summarize()",
+           answer("Tallies a column"),
+           answer("Reduces multiple values to a single summary", correct = TRUE),
+           answer("Converts an existing table and converts it into a grouped table", message = "'summarize()' is typically used with 'group_by()'"),
+           answer("All of the Above")
+           ),
+  
+  question("filter",
+           answer("Removes impurities in the data"),
+           answer("Pick variables based on the column name"),
+           answer("Adds new variables that are functions of existing variables"),
+           answer("Used to limit rows based on values", correct = TRUE)
+           ),
+  
+  question("select",
+           answer("Pick variables based on the column name", correct = TRUE),
+           answer("Used to limit rows based on values"),
+           answer("Highlights a column variable status for post processing"),
+           answer("Changes the ordering of the rows")
            )
 )
 ```
