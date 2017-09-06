@@ -101,9 +101,9 @@ You have completed the quizzes for Exercise One.  Return to the [Intro2R learnin
 
 Pick the best answer for the following questions about dplyr functions
 
-```{r}
+```{r dplyr-quiz}
 quiz(
-  question("'arrange()",
+  question("arrange()",
            answer("Sort your data frame rows by an observation", correct = TRUE),
            answer("Make your data frame tidy"),
            answer("Find a perfect match for your data frame"),
@@ -126,14 +126,14 @@ quiz(
            answer("All of the Above")
            ),
   
-  question("filter",
+  question("filter()",
            answer("Removes impurities in the data"),
            answer("Pick variables based on the column name"),
            answer("Adds new variables that are functions of existing variables"),
            answer("Used to limit rows based on values", correct = TRUE)
            ),
   
-  question("select",
+  question("select()",
            answer("Pick variables based on the column name", correct = TRUE),
            answer("Used to limit rows based on values"),
            answer("Highlights a column variable status for post processing"),
@@ -142,4 +142,4 @@ quiz(
 )
 ```
 
-
+You have completed the quiz for Exercise Two.  Return to the [Intro2R learning materials](https://rfun.netlify.com/intro2r/), resume at "Visualization".  
