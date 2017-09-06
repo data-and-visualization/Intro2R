@@ -46,6 +46,7 @@ quiz(
     answer("class(westUnion)", correct = TRUE),
     answer("str(westUnion)")
   ),
+  
   question("The data type for westUnion is?",
     answer("Data Frame", message = "A modern data frame is known as a Tibble"),
     answer("List"),
@@ -63,29 +64,28 @@ Take a look at the structure of the `westUnion` variable.
 
 ```{r dataStructure}
 quiz(
-    question("What is the best command to concisely learn more about 
-             the variables, observations, and data types 
-             within a Tibble",
+    question("What is the best command to concisely learn more about the variables, observations, and data types within a Tibble",
              answer("class(westUnion)"),
              answer("glimpse(westUnion)", correct = TRUE),
              answer("tbl_vars(westUnion)"),
-             answer("str(westUnion)", message = "This works but is 
-                    not a conscise report"),
-             answer("westUnion", message = "This will work but 
-                    require a lot of mouse-clicking on your part")
+             answer("str(westUnion)", message = "This works but is not a conscise report"),
+             answer("westUnion", message = "This will work but require a lot of mouse-clicking on your part")
            ),
+    
   question("How many observations (rows) are there?",
            answer("59", correct = TRUE),
            answer("4, 4, 6, 8, 7, 8, 9, 4,..."),
            answer("7"),
            answer("None of the Above")
            ),
+  
   question("How many variables (columns) are there?",
            answer("59"),
            answer("4 4 6 8 7 8 9 4 9 9 ..."),
            answer("7", correct = TRUE),
            answer("All of the above")
            ),
+  
   question("How many of the variables are numeric data?",
            answer("59"),
            answer("7"),
@@ -95,5 +95,30 @@ quiz(
   )
 ```
 
+You have complted the quizes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.netlify.com/intro2r/), resume at "Data Wrangling".  The quiz below is part of Exercise Two.
+
+## Data Wrangling with dplyr
+
+Pick the best answer for the following questions about dplyr functions
+
+```{r}
+quiz(
+  question("'arrange()",
+           answer("Sort your data frame rows by an observation", correct = TRUE),
+           answer("Make your data frame tidy"),
+           answer("Find a perfect match for your data frame"),
+           answer("'arrange()' is not a dplyr function"),
+           answer("Sort your data frame columns by rows")
+    
+  ),
+  
+  question("mutate()",
+           answer("Make R into a kitchy horror movie"),
+           answer("Transform values in a row of data"),
+           answer("Create a new row from other rows"),
+           answer("Create a new column")
+           )
+)
+```
 
 
