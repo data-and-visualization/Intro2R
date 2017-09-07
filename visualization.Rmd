@@ -77,7 +77,7 @@ cars %>%
 
 ## BoxPlot
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 cars %>% 
   ggvis(~factor(cyl), ~mpg) %>% 
   layer_boxplots()
