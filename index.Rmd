@@ -1,0 +1,63 @@
+---
+title: "Intro2R -- Workshop Home"
+output: html_document
+---
+
+&nbsp;
+
+## HouseKeeping
+
+<p class="right">Joel</p>
+
+1. Welcome  
+2. What is r 
+3. What is [RStudio](https://www.rstudio.com/) 
+4. What is a Project
+5. What is [Docker](https://vm-manage.oit.duke.edu/containers/rstudio)
+
+## Data Management
+
+<p class="right">John</p>
+
+1. Load Data
+1. View Data
+1. Tidyverse:  Tibbles and Data Frames
+1. Data Structures
+1. Data Types
+
+## Exercise One
+
+<p class="right">Joel</p>
+
+- Exercise
+- Quiz
+
+## Data Wrangling
+
+<p class="right">John</p>
+
+### Dplyr
+
+- Arrange
+- Select
+- Filter
+- Mutate
+- Count 
+- Summarize
+- Putting it All Together
+
+## Exercise Two
+
+<p class="right">Joel</p>
+
+- Exercise
+- Quiz
+
+## Visualization
+
+<p class="right">John</p>
+
+- ggvis
+
+
+
