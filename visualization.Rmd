@@ -72,3 +72,16 @@ cars %>%
   layer_model_predictions(model="lm", se = TRUE) %>% 
   layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
 ```
+
+&nbps;
+
+## BoxPlot
+
+```{r}
+cars %>% 
+  ggvis(~factor(cyl), ~mpg) %>% 
+  layer_boxplots()
+  
+  
+```
+
