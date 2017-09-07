@@ -10,7 +10,7 @@ Take the [interactive quiz](https://libjohn.shinyapps.io/intro2r_quizzes/)
 
 ## Directions
 
-Now you try.  For the workshop, we've prebuilt a data set that has information about menus in Duke's new West Union from three restaurants.  
+Now you try.  For the workshop, we've prebuilt a data set that has information about menus in Duke's Brodhead Center from three restaurants.  
 
 1. From the File menu, open a New R Notebook:  `File > New File > R Notebook`
 1. Reading the preloaded directions in your new script, add a code chunk at line 18.  (Hint: *Ctrl+Alt+I*)
@@ -20,11 +20,11 @@ Now you try.  For the workshop, we've prebuilt a data set that has information a
 
 ## Exercise 1: Loading Data
 
-1. Using what we've you've seen in class, if `data/westUnion.csv` is a csv file, how would you load the file into a new variable called `westUnion`?
+1. Using what we've you've seen in class, if `data/brodheadCenter.csv` is a csv file, how would you load the file into a new variable called `brodhead`?
 
-2. What data type is `westUnion`?
+2. What data type is `brodhead`?
 
-3. Take a look at the structure of the `westUnion` variable.
+3. Take a look at the structure of the `brodhead` variable.
     - How many observations (rows) are there?
     - How many variables (columns) are there?
     - How many of the variables are numeric data?

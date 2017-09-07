@@ -27,9 +27,9 @@ All of the following questions are based on the sample of restaurants represente
 
 2. Which restaurant has the most expensive item(s)?  What are those item(s)?
 
-3. At the West Union, how many of the entrees (found in the `menuType` variable) cost eight dollars?
+3. At the Brodhead Center, how many of the entrees (found in the `menuType` variable) cost eight dollars?
 
-4. The head of Duke dining is considering reducing prices at the West Union. Using what we've learned in class, write a line of code that will calculate a new variable (`halfPrice`) that contains items at half price.
+4. The head of Duke dining is considering reducing prices at the Brodhead Center. Using what we've learned in class, write a line of code that will calculate a new variable (`halfPrice`) that contains items at half price.
 
 5. How many entrees are in the dataset (`menuType` variable)? How many desserts 
     
