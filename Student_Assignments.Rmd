@@ -10,13 +10,13 @@ fontsize: 25pt
 
 ## PART ONE: Loading Data
 
-For the workshop, we've prebuilt a data set that has information about menus in Duke's new West Union from three restaurants.  
+For the workshop, we've prebuilt a data set that has information about menus in Duke's new Brodhead Center from three restaurants.  
 
-1. Using what we've you've seen in class, if `data/westUnion.csv` is a csv file, how would you load the file into a new variable called `westUnion`?
+1. Using what we've you've seen in class, if `data/brodheadCenter.csv` is a csv file, how would you load the file into a new variable called `brodhead`?
 
-2. What data type is `westUnion`?
+2. What data type is `brodhead`?
 
-3. Take a look at the structure of the `westUnion` variable.
+3. Take a look at the structure of the `brodhead` variable.
     - How many observations (rows) are there?
     - How many variables (columns) are there?
     - How many of the variables are numeric data?
@@ -31,9 +31,9 @@ All of the following questions are based on the sample of restaurants represente
 
 2. Which restaurant has the most expensive item(s)?  What are those item(s)?
 
-3. At the West Union, how many of the entrees (found in the `menuType` variable) cost eight dollars?
+3. At the Brodhead Center, how many of the entrees (found in the `menuType` variable) cost eight dollars?
 
-4. The head of Duke dining is considering reducing prices at the West Union. Using what we've learned in class, write a line of code that will calculate a new variable (`halfPrice`) that contains items at half price.
+4. The head of Duke dining is considering reducing prices at the Brodhead Center. Using what we've learned in class, write a line of code that will calculate a new variable (`halfPrice`) that contains items at half price.
 
 5. How many entrees are in the dataset (`menuType` variable)? How many desserts 
     
