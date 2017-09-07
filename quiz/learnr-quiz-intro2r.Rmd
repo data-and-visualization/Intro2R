@@ -15,9 +15,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Loading Data
 
-*Load the file into a new variable called `broadhead`?*
+*Load the file into a new variable called `brodhead`?*
 
-- The data are in a *CSV* file on your local workstation which needs to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/broadhead.csv`.
+- The data are in a *CSV* file on your local workstation which needs to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/brodhead.csv`.
 
 Write the R code required to load csv data:
 
@@ -26,7 +26,7 @@ Write the R code required to load csv data:
 ```
 
 ```{r read_csv-solution}
-broadhead <- read_csv("data/broadhead.csv")
+brodhead <- read_csv("data/brodhead.csv")
 # Note...  Code will not run in this tutorial window
 # Use an R Notebook to practice this exercise.
 ```
@@ -40,14 +40,14 @@ Hints:
 
 ```{r datastruct}
 quiz(
-  question("What function will tell you the data type for the 'menuItem' variable inside the broadhead tibble?",
-    answer("glimpse(broadhead$menuItem)"),
-    answer("tbl_vars(broadhead)"),
-    answer("class(broadhead$menuItem)", correct = TRUE),
-    answer("str(broadhead)")
+  question("What function will tell you the data type for the 'menuItem' variable inside the brodhead tibble?",
+    answer("glimpse(brodhead$menuItem)"),
+    answer("tbl_vars(brodhead)"),
+    answer("class(brodhead$menuItem)", correct = TRUE),
+    answer("str(brodhead)")
   ),
   
-  question("The data structure for broadhead is?",
+  question("The data structure for brodhead is?",
     answer("Data Frame", message = "A modern data frame is known as a Tibble"),
     answer("List"),
     answer("Character"),
@@ -58,16 +58,16 @@ quiz(
 ```
 
 
-Take a look at the structure of the `broadhead` variable.
+Take a look at the structure of the `brodhead` variable.
 
 ```{r dataStructure}
 quiz(
     question("What is the best command to concisely learn more about the variables, observations, and data types within a Tibble",
-             answer("class(broadhead)"),
-             answer("glimpse(broadhead)", correct = TRUE),
-             answer("tbl_vars(broadhead)"),
-             answer("str(broadhead)", message = "This works but is not a conscise report"),
-             answer("broadhead", message = "This will work but require a lot of mouse-clicking on your part")
+             answer("class(brodhead)"),
+             answer("glimpse(brodhead)", correct = TRUE),
+             answer("tbl_vars(brodhead)"),
+             answer("str(brodhead)", message = "This works but is not a conscise report"),
+             answer("brodhead", message = "This will work but require a lot of mouse-clicking on your part")
            ),
     
   question("How many observations (rows) are there?",
