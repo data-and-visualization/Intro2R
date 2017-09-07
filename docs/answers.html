@@ -11,7 +11,7 @@
 
 <meta name="author" content="Joel Herndon" />
 
-<meta name="date" content="2017-09-06" />
+<meta name="date" content="2017-09-07" />
 
 <title>Answers</title>
 
@@ -322,28 +322,32 @@ div.tocify {
 
 <h1 class="title toc-ignore">Answers</h1>
 <h4 class="author"><em>Joel Herndon</em></h4>
-<h4 class="date"><em>2017-09-06</em></h4>
+<h4 class="date"><em>2017-09-07</em></h4>
 
 </div>
 
 
 <div id="part-one-loading-data" class="section level2">
 <h2>PART ONE: Loading Data</h2>
-<p>For the workshop, we’ve prebuilt a data set that has information about menus in Duke’s new West Union from three restaurants.</p>
+<p>For the workshop, we’ve prebuilt a data set that has information about menus from three restaurants in Duke’s Brodhead Center.</p>
 <ol style="list-style-type: decimal">
-<li>Using what we’ve you’ve seen in class, if <code>westUnion.csv</code> is a csv file, how would you load the file into a new variable called <code>westUnion</code>?</li>
+<li>Using what we’ve you’ve seen in class, if <code>brodheadCenter.csv</code> is a csv file, how would you load the file into a new variable called <code>brodhead</code>?</li>
 </ol>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
+<pre><code>## Loading tidyverse: tibble
 ## Loading tidyverse: tidyr
 ## Loading tidyverse: readr
 ## Loading tidyverse: purrr
 ## Loading tidyverse: dplyr</code></pre>
 <pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
-<pre class="r"><code>westUnion &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/westUnion.csv&quot;)</code></pre>
+<pre><code>## as.difftime(): lubridate, base
+## date():        lubridate, base
+## filter():      dplyr, stats
+## intersect():   lubridate, base
+## lag():         dplyr, stats
+## setdiff():     lubridate, base
+## union():       lubridate, base</code></pre>
+<pre class="r"><code>brodhead &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   name = col_character(),
@@ -355,21 +359,21 @@ div.tocify {
 ##   rating = col_integer()
 ## )</code></pre>
 <pre class="r"><code># or 
-# westUnion &lt;- read_csv(&quot;data/westUnion.csv&quot;)  # if you cloned the repository</code></pre>
+# brodhead &lt;- read_csv(&quot;data/brodheadCenter.csv&quot;)  # if you cloned the repository</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>What data structure is <code>westUnion</code>?</li>
+<li>What data structure is <code>brodhead</code>?</li>
 </ol>
-<pre class="r"><code>class(westUnion)</code></pre>
+<pre class="r"><code>class(brodhead)</code></pre>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Take a look at the structure of the <code>westUnion</code> variable.
+<li>Take a look at the structure of the <code>brodhead</code> variable.
 <ul>
 <li>How many observations (rows) are there?</li>
 <li>How many variables (columns) are there?</li>
 <li>How many of the variables are numeric data?</li>
 </ul></li>
 </ol>
-<pre class="r"><code>str(westUnion)</code></pre>
+<pre class="r"><code>str(brodhead)</code></pre>
 <pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    59 obs. of  7 variables:
 ##  $ name    : chr  &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; ...
 ##  $ type    : chr  &quot;bar and grill&quot; &quot;bar and grill&quot; &quot;bar and grill&quot; &quot;bar and grill&quot; ...
@@ -404,7 +408,7 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li>Which restaurant has the lowest cost item and what is the item?</li>
 </ol>
-<pre class="r"><code>westUnion %&gt;% 
+<pre class="r"><code>brodhead %&gt;% 
   arrange(cost) %&gt;% 
   select(name, type, itemName, cost)</code></pre>
 <div data-pagedtable="false">
@@ -415,7 +419,7 @@ div.tocify {
 <ol start="2" style="list-style-type: decimal">
 <li>Which restaurant has the most expensive item(s)? What are those item(s)?</li>
 </ol>
-<pre class="r"><code>westUnion %&gt;% 
+<pre class="r"><code>brodhead %&gt;% 
   arrange(desc(cost)) %&gt;% 
   select(name, type, itemName, cost)</code></pre>
 <div data-pagedtable="false">
@@ -424,9 +428,9 @@ div.tocify {
   </script>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>At the West Union, how many of the entrees (found in the <code>menuType</code> variable) cost eight dollars?</li>
+<li>At the Brodheat Center, how many of the entrees (found in the <code>menuType</code> variable) cost eight dollars?</li>
 </ol>
-<pre class="r"><code>westUnion %&gt;% 
+<pre class="r"><code>brodhead %&gt;% 
   filter(cost == 8, menuType == &quot;entree&quot;) %&gt;% 
   select(name, menuType, itemName, cost)</code></pre>
 <div data-pagedtable="false">
@@ -435,9 +439,9 @@ div.tocify {
   </script>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>The head of Duke dining is considering reducing prices at the West Union. Using what we’ve learned in class, write a line of code that will calculate a new variable (<code>halfPrice</code>) that contains items at half price.</li>
+<li>The head of Duke dining is considering reducing prices at the Brodhead Center. Using what we’ve learned in class, write a line of code that will calculate a new variable (<code>halfPrice</code>) that contains items at half price.</li>
 </ol>
-<pre class="r"><code>westUnion %&gt;% 
+<pre class="r"><code>brodhead %&gt;% 
   mutate(halfPrice = cost / 2) %&gt;% 
   select(name, itemName, cost, halfPrice)</code></pre>
 <div data-pagedtable="false">
@@ -448,7 +452,7 @@ div.tocify {
 <ol start="5" style="list-style-type: decimal">
 <li>How many entrees are in the dataset (<code>menuType</code> variable)? How many desserts</li>
 </ol>
-<pre class="r"><code>westUnion %&gt;% 
+<pre class="r"><code>brodhead %&gt;% 
   count(menuType)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
