@@ -46,16 +46,16 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="section-loading-data" class="section level2">
 <h2>Loading Data</h2>
-<p><em>Load the file into a new variable called <code>westUnion</code>?</em></p>
+<p><em>Load the file into a new variable called <code>broadhead</code>?</em></p>
 <ul>
-<li>The data are in a <em>CSV</em> file on your local workstation which needs to be loaded into R. The data file is in a directory relative to your Rmd script: <code>data/westUnion.csv</code>.</li>
+<li>The data are in a <em>CSV</em> file on your local workstation which needs to be loaded into R. The data file is in a directory relative to your Rmd script: <code>data/broadhead.csv</code>.</li>
 </ul>
 <p>Write the R code required to load csv data:</p>
 <div class="tutorial-exercise" data-label="read_csv" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="read_csv-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>westUnion &lt;- read_csv(&quot;data/westUnion.csv&quot;)
+<pre class="text"><code>broadhead &lt;- read_csv(&quot;data/broadhead.csv&quot;)
 # Note...  Code will not run in this tutorial window
 # Use an R Notebook to practice this exercise.</code></pre>
 </div>
@@ -64,101 +64,99 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>One option is to use the <em>Import Dataset</em> feature of RStudio from the <em>File</em> menubar. Code will be generated for you – which you can run immediately – or look to the bottom of the dialogue box and copy the code you can run as a code chunk.</li>
 </ul>
 </div>
-<div id="section-data-type" class="section level2">
-<h2>Data Type</h2>
-<div class="panel panel-default">
-<div class="panel-heading tutorial-panel-heading">Quiz</div>
-<table class="table quiz-table">
-<tr>
-<td>
-
-<div id="htmlwidget-f40af4173bf33c1c6bea" style="width:100%;height:auto;", class = "quiz html-widget">
-<div class="panel panel-default">
-<div class="panel-body quizArea">
-</div>
-</div>
-</div>
-
-<script type="application/json" data-for="htmlwidget-f40af4173bf33c1c6bea">{"x":{"question":"What function will tell you the data type for westUnion?","answers":[{"option":"glimpse(westUnion)","correct":false,"message":null},{"option":"tbl_vars(westUnion)","correct":false,"message":null},{"option":"class(westUnion)","correct":true,"message":null},{"option":"str(westUnion)","correct":false,"message":null}],"label":"datatype-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"What function will tell you the data type for westUnion?","a":[{"option":"glimpse(westUnion)","correct":false,"message":null},{"option":"tbl_vars(westUnion)","correct":false,"message":null},{"option":"class(westUnion)","correct":true,"message":null},{"option":"str(westUnion)","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
-</td>
-</tr>
-<tr>
-<td>
-
-<div id="htmlwidget-0ec928ffa79741cbc6f9" style="width:100%;height:auto;", class = "quiz html-widget">
-<div class="panel panel-default">
-<div class="panel-body quizArea">
-</div>
-</div>
-</div>
-
-<script type="application/json" data-for="htmlwidget-0ec928ffa79741cbc6f9">{"x":{"question":"The data type for westUnion is?","answers":[{"option":"Data Frame","correct":false,"message":"A modern data frame is known as a Tibble"},{"option":"List","correct":false,"message":null},{"option":"Character","correct":false,"message":null},{"option":"Tibble","correct":true,"message":null},{"option":"Matrix","correct":false,"message":null}],"label":"datatype-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"The data type for westUnion is?","a":[{"option":"Data Frame","correct":false,"message":"A modern data frame is known as a Tibble"},{"option":"List","correct":false,"message":null},{"option":"Character","correct":false,"message":null},{"option":"Tibble","correct":true,"message":null},{"option":"Matrix","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
-</td>
-</tr>
-</table>
-</div>
-</div>
 <div id="section-data-structure" class="section level2">
 <h2>Data Structure</h2>
-<p>Take a look at the structure of the <code>westUnion</code> variable.</p>
 <div class="panel panel-default">
 <div class="panel-heading tutorial-panel-heading">Quiz</div>
 <table class="table quiz-table">
 <tr>
 <td>
 
-<div id="htmlwidget-791b86918928bbdcfa41" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-02cc8d4c5f5d4e6fb787" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-791b86918928bbdcfa41">{"x":{"question":"What is the best command to concisely learn more about the variables, observations, and data types within a Tibble","answers":[{"option":"class(westUnion)","correct":false,"message":null},{"option":"glimpse(westUnion)","correct":true,"message":null},{"option":"tbl_vars(westUnion)","correct":false,"message":null},{"option":"str(westUnion)","correct":false,"message":"This works but is not a conscise report"},{"option":"westUnion","correct":false,"message":"This will work but require a lot of mouse-clicking on your part"}],"label":"dataStructure-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"What is the best command to concisely learn more about the variables, observations, and data types within a Tibble","a":[{"option":"class(westUnion)","correct":false,"message":null},{"option":"glimpse(westUnion)","correct":true,"message":null},{"option":"tbl_vars(westUnion)","correct":false,"message":null},{"option":"str(westUnion)","correct":false,"message":"This works but is not a conscise report"},{"option":"westUnion","correct":false,"message":"This will work but require a lot of mouse-clicking on your part"}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-02cc8d4c5f5d4e6fb787">{"x":{"question":"What function will tell you the data type for the &#39;menuItem&#39; variable inside the broadhead tibble?","answers":[{"option":"glimpse(broadhead$menuItem)","correct":false,"message":null},{"option":"tbl_vars(broadhead)","correct":false,"message":null},{"option":"class(broadhead$menuItem)","correct":true,"message":null},{"option":"str(broadhead)","correct":false,"message":null}],"label":"datastruct-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"What function will tell you the data type for the &#39;menuItem&#39; variable inside the broadhead tibble?","a":[{"option":"glimpse(broadhead$menuItem)","correct":false,"message":null},{"option":"tbl_vars(broadhead)","correct":false,"message":null},{"option":"class(broadhead$menuItem)","correct":true,"message":null},{"option":"str(broadhead)","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 <tr>
 <td>
 
-<div id="htmlwidget-9b99058da881fe47f9ac" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-0614e97ab47b52dea65e" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-9b99058da881fe47f9ac">{"x":{"question":"How many observations (rows) are there?","answers":[{"option":"59","correct":true,"message":null},{"option":"4, 4, 6, 8, 7, 8, 9, 4,...","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"None of the Above","correct":false,"message":null}],"label":"dataStructure-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"How many observations (rows) are there?","a":[{"option":"59","correct":true,"message":null},{"option":"4, 4, 6, 8, 7, 8, 9, 4,...","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"None of the Above","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
-</td>
-</tr>
-<tr>
-<td>
-
-<div id="htmlwidget-add8cdaa41580dd83ea9" style="width:100%;height:auto;", class = "quiz html-widget">
-<div class="panel panel-default">
-<div class="panel-body quizArea">
-</div>
-</div>
-</div>
-
-<script type="application/json" data-for="htmlwidget-add8cdaa41580dd83ea9">{"x":{"question":"How many variables (columns) are there?","answers":[{"option":"59","correct":false,"message":null},{"option":"4 4 6 8 7 8 9 4 9 9 ...","correct":false,"message":null},{"option":"7","correct":true,"message":null},{"option":"All of the above","correct":false,"message":null}],"label":"dataStructure-3","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"How many variables (columns) are there?","a":[{"option":"59","correct":false,"message":null},{"option":"4 4 6 8 7 8 9 4 9 9 ...","correct":false,"message":null},{"option":"7","correct":true,"message":null},{"option":"All of the above","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
-</td>
-</tr>
-<tr>
-<td>
-
-<div id="htmlwidget-3780559d3dd296075857" style="width:100%;height:auto;", class = "quiz html-widget">
-<div class="panel panel-default">
-<div class="panel-body quizArea">
-</div>
-</div>
-</div>
-
-<script type="application/json" data-for="htmlwidget-3780559d3dd296075857">{"x":{"question":"How many of the variables are numeric data?","answers":[{"option":"59","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"5","correct":false,"message":null},{"option":"2","correct":true,"message":null}],"label":"dataStructure-4","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"How many of the variables are numeric data?","a":[{"option":"59","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"5","correct":false,"message":null},{"option":"2","correct":true,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-0614e97ab47b52dea65e">{"x":{"question":"The data structure for broadhead is?","answers":[{"option":"Data Frame","correct":false,"message":"A modern data frame is known as a Tibble"},{"option":"List","correct":false,"message":null},{"option":"Character","correct":false,"message":null},{"option":"Tibble","correct":true,"message":null},{"option":"Matrix","correct":false,"message":null}],"label":"datastruct-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"The data structure for broadhead is?","a":[{"option":"Data Frame","correct":false,"message":"A modern data frame is known as a Tibble"},{"option":"List","correct":false,"message":null},{"option":"Character","correct":false,"message":null},{"option":"Tibble","correct":true,"message":null},{"option":"Matrix","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 </table>
 </div>
-<p>You have completed the quizzes for Exercise One. Return to the <a href="https://rfun.library.duke.edu/intro2r/">Intro2R learning materials</a>, resume at “Data Wrangling”. The quiz below is part of Exercise Two.</p>
+<p>Take a look at the structure of the <code>broadhead</code> variable.</p>
+<div class="panel panel-default">
+<div class="panel-heading tutorial-panel-heading">Quiz</div>
+<table class="table quiz-table">
+<tr>
+<td>
+
+<div id="htmlwidget-d990caa7dc10c03a87b9" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-d990caa7dc10c03a87b9">{"x":{"question":"What is the best command to concisely learn more about the variables, observations, and data types within a Tibble","answers":[{"option":"class(broadhead)","correct":false,"message":null},{"option":"glimpse(broadhead)","correct":true,"message":null},{"option":"tbl_vars(broadhead)","correct":false,"message":null},{"option":"str(broadhead)","correct":false,"message":"This works but is not a conscise report"},{"option":"broadhead","correct":false,"message":"This will work but require a lot of mouse-clicking on your part"}],"label":"dataStructure-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"What is the best command to concisely learn more about the variables, observations, and data types within a Tibble","a":[{"option":"class(broadhead)","correct":false,"message":null},{"option":"glimpse(broadhead)","correct":true,"message":null},{"option":"tbl_vars(broadhead)","correct":false,"message":null},{"option":"str(broadhead)","correct":false,"message":"This works but is not a conscise report"},{"option":"broadhead","correct":false,"message":"This will work but require a lot of mouse-clicking on your part"}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+<tr>
+<td>
+
+<div id="htmlwidget-5160a8a2b5cdd14a4e87" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-5160a8a2b5cdd14a4e87">{"x":{"question":"How many observations (rows) are there?","answers":[{"option":"59","correct":true,"message":null},{"option":"4, 4, 6, 8, 7, 8, 9, 4,...","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"None of the Above","correct":false,"message":null}],"label":"dataStructure-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"How many observations (rows) are there?","a":[{"option":"59","correct":true,"message":null},{"option":"4, 4, 6, 8, 7, 8, 9, 4,...","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"None of the Above","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+<tr>
+<td>
+
+<div id="htmlwidget-8b02afb671242ff113cb" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-8b02afb671242ff113cb">{"x":{"question":"How many variables (columns) are there?","answers":[{"option":"59","correct":false,"message":null},{"option":"4 4 6 8 7 8 9 4 9 9 ...","correct":false,"message":null},{"option":"7","correct":true,"message":null},{"option":"All of the above","correct":false,"message":null}],"label":"dataStructure-3","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"How many variables (columns) are there?","a":[{"option":"59","correct":false,"message":null},{"option":"4 4 6 8 7 8 9 4 9 9 ...","correct":false,"message":null},{"option":"7","correct":true,"message":null},{"option":"All of the above","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+<tr>
+<td>
+
+<div id="htmlwidget-f8baf2eff3237237b05a" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-f8baf2eff3237237b05a">{"x":{"question":"How many of the variables are numeric data?","answers":[{"option":"59","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"5","correct":false,"message":null},{"option":"2","correct":true,"message":null}],"label":"dataStructure-4","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"How many of the variables are numeric data?","a":[{"option":"59","correct":false,"message":null},{"option":"7","correct":false,"message":null},{"option":"5","correct":false,"message":null},{"option":"2","correct":true,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+</table>
+</div>
+<p>You have completed the quizzes for Exercise One. Return to the <a href="https://rfun.library.duke.edu/intro2r/">Intro2R learning materials</a>, resume at “Data Wrangling”.</p>
+<p>Below you’ll find the quiz for Exercise Two.</p>
 </div>
 <div id="section-data-wrangling-with-dplyr" class="section level2">
 <h2>Data Wrangling with dplyr</h2>
@@ -169,66 +167,66 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <tr>
 <td>
 
-<div id="htmlwidget-52083b04d698e889baaa" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-54f7b7ea5690f1c325ba" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-52083b04d698e889baaa">{"x":{"question":"arrange()","answers":[{"option":"Sort your data frame rows by an observation","correct":true,"message":null},{"option":"Make your data frame tidy","correct":false,"message":null},{"option":"Find a perfect match for your data frame","correct":false,"message":null},{"option":"&#39;arrange()&#39; is not a dplyr function","correct":false,"message":null},{"option":"Sort your data frame columns by rows","correct":false,"message":null}],"label":"dplyr-quiz-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"arrange()","a":[{"option":"Sort your data frame rows by an observation","correct":true,"message":null},{"option":"Make your data frame tidy","correct":false,"message":null},{"option":"Find a perfect match for your data frame","correct":false,"message":null},{"option":"&#39;arrange()&#39; is not a dplyr function","correct":false,"message":null},{"option":"Sort your data frame columns by rows","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-54f7b7ea5690f1c325ba">{"x":{"question":"arrange()","answers":[{"option":"Sort your data frame rows by a variable","correct":true,"message":null},{"option":"Make your data frame tidy","correct":false,"message":null},{"option":"Find a perfect match for your data frame","correct":false,"message":null},{"option":"&#39;arrange()&#39; is not a dplyr function","correct":false,"message":null},{"option":"Sort your data frame columns by rows","correct":false,"message":null}],"label":"dplyr-quiz-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"arrange()","a":[{"option":"Sort your data frame rows by a variable","correct":true,"message":null},{"option":"Make your data frame tidy","correct":false,"message":null},{"option":"Find a perfect match for your data frame","correct":false,"message":null},{"option":"&#39;arrange()&#39; is not a dplyr function","correct":false,"message":null},{"option":"Sort your data frame columns by rows","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 <tr>
 <td>
 
-<div id="htmlwidget-147aeb28bcd8fbc18f4a" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-b3255f5f9403a74e21a6" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-147aeb28bcd8fbc18f4a">{"x":{"question":"mutate()","answers":[{"option":"Make R into a kitchy horror movie","correct":false,"message":null},{"option":"Transform values in a row of data","correct":false,"message":null},{"option":"Create a new row from other rows","correct":false,"message":null},{"option":"Create a new column","correct":true,"message":null}],"label":"dplyr-quiz-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"mutate()","a":[{"option":"Make R into a kitchy horror movie","correct":false,"message":null},{"option":"Transform values in a row of data","correct":false,"message":null},{"option":"Create a new row from other rows","correct":false,"message":null},{"option":"Create a new column","correct":true,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-b3255f5f9403a74e21a6">{"x":{"question":"mutate()","answers":[{"option":"Make R into a kitchy horror movie","correct":false,"message":null},{"option":"Transform values in a row of data","correct":false,"message":null},{"option":"Create a new row from other rows","correct":false,"message":null},{"option":"Create a new column","correct":true,"message":null}],"label":"dplyr-quiz-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"mutate()","a":[{"option":"Make R into a kitchy horror movie","correct":false,"message":null},{"option":"Transform values in a row of data","correct":false,"message":null},{"option":"Create a new row from other rows","correct":false,"message":null},{"option":"Create a new column","correct":true,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 <tr>
 <td>
 
-<div id="htmlwidget-ee5a2e5fc7c9d6c366c1" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-0264670a0a261c4b9824" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-ee5a2e5fc7c9d6c366c1">{"x":{"question":"summarize()","answers":[{"option":"Tallies a column","correct":false,"message":null},{"option":"Reduces multiple values to a single summary","correct":true,"message":null},{"option":"Converts an existing table and converts it into a grouped table","correct":false,"message":"&#39;summarize()&#39; is typically used with &#39;group_by()&#39;"},{"option":"All of the Above","correct":false,"message":null}],"label":"dplyr-quiz-3","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"summarize()","a":[{"option":"Tallies a column","correct":false,"message":null},{"option":"Reduces multiple values to a single summary","correct":true,"message":null},{"option":"Converts an existing table and converts it into a grouped table","correct":false,"message":"&#39;summarize()&#39; is typically used with &#39;group_by()&#39;"},{"option":"All of the Above","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-0264670a0a261c4b9824">{"x":{"question":"summarize()","answers":[{"option":"Tallies a column","correct":false,"message":null},{"option":"Reduces multiple values to a single summary","correct":true,"message":null},{"option":"Converts an existing table and converts it into a grouped table","correct":false,"message":"&#39;summarize()&#39; is typically used with &#39;group_by()&#39;"},{"option":"All of the Above","correct":false,"message":null}],"label":"dplyr-quiz-3","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"summarize()","a":[{"option":"Tallies a column","correct":false,"message":null},{"option":"Reduces multiple values to a single summary","correct":true,"message":null},{"option":"Converts an existing table and converts it into a grouped table","correct":false,"message":"&#39;summarize()&#39; is typically used with &#39;group_by()&#39;"},{"option":"All of the Above","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 <tr>
 <td>
 
-<div id="htmlwidget-74093634d56cce56ff0e" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-65fcdb50451a1c7f914b" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-74093634d56cce56ff0e">{"x":{"question":"filter()","answers":[{"option":"Removes impurities in the data","correct":false,"message":null},{"option":"Pick variables based on the column name","correct":false,"message":null},{"option":"Adds new variables that are functions of existing variables","correct":false,"message":null},{"option":"Used to limit rows based on values","correct":true,"message":null}],"label":"dplyr-quiz-4","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"filter()","a":[{"option":"Removes impurities in the data","correct":false,"message":null},{"option":"Pick variables based on the column name","correct":false,"message":null},{"option":"Adds new variables that are functions of existing variables","correct":false,"message":null},{"option":"Used to limit rows based on values","correct":true,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-65fcdb50451a1c7f914b">{"x":{"question":"filter()","answers":[{"option":"Removes impurities in the data","correct":false,"message":null},{"option":"Pick variables based on the column name","correct":false,"message":null},{"option":"Adds new variables that are functions of existing variables","correct":false,"message":null},{"option":"Used to limit rows based on values","correct":true,"message":null}],"label":"dplyr-quiz-4","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"filter()","a":[{"option":"Removes impurities in the data","correct":false,"message":null},{"option":"Pick variables based on the column name","correct":false,"message":null},{"option":"Adds new variables that are functions of existing variables","correct":false,"message":null},{"option":"Used to limit rows based on values","correct":true,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 <tr>
 <td>
 
-<div id="htmlwidget-be39b6440164fddb0dcc" style="width:100%;height:auto;", class = "quiz html-widget">
+<div id="htmlwidget-c8681f8d7c2424d88c09" style="width:100%;height:auto;", class = "quiz html-widget">
 <div class="panel panel-default">
 <div class="panel-body quizArea">
 </div>
 </div>
 </div>
 
-<script type="application/json" data-for="htmlwidget-be39b6440164fddb0dcc">{"x":{"question":"select()","answers":[{"option":"Pick variables based on the column name","correct":true,"message":null},{"option":"Used to limit rows based on values","correct":false,"message":null},{"option":"Highlights a column variable status for post processing","correct":false,"message":null},{"option":"Changes the ordering of the rows","correct":false,"message":null}],"label":"dplyr-quiz-5","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"select()","a":[{"option":"Pick variables based on the column name","correct":true,"message":null},{"option":"Used to limit rows based on values","correct":false,"message":null},{"option":"Highlights a column variable status for post processing","correct":false,"message":null},{"option":"Changes the ordering of the rows","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-c8681f8d7c2424d88c09">{"x":{"question":"select()","answers":[{"option":"Pick variables based on the column name","correct":true,"message":null},{"option":"Used to limit rows based on values","correct":false,"message":null},{"option":"Highlights a column variable status for post processing","correct":false,"message":null},{"option":"Changes the ordering of the rows","correct":false,"message":null}],"label":"dplyr-quiz-5","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"select()","a":[{"option":"Pick variables based on the column name","correct":true,"message":null},{"option":"Used to limit rows based on values","correct":false,"message":null},{"option":"Highlights a column variable status for post processing","correct":false,"message":null},{"option":"Changes the ordering of the rows","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
 </td>
 </tr>
 </table>

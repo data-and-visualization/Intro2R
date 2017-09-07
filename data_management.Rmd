@@ -55,7 +55,8 @@ View(cars)
 
 ## Modern Data Frames: Tibbles
 
-* "Table as data frame"", a modern tidyverse table
+A tible (tbl) is a "Table as data frame", a modern tidyverse table.
+
 ```{r Table-dataframe}
 cars 
 ```
@@ -74,9 +75,21 @@ cars
 
 ### Class
 
+`class()` identifies the class of an object revealing the data structure or the data type.
+
 ```{r}
 class(cars)
 ```
+
+### Glimpse into a data frame
+
+`glimpse()` reveals the structure of an object
+
+```{r}
+glimpse(cars)
+```
+
+&nbsp;
 
 ## Data Type
 
@@ -100,27 +113,8 @@ class(cars$mpg)
 
 ```
 
-&nbsp;
 
-### Glimpse into a data frame
-
-```{r}
-glimpse(cars)
-```
-
-&nbsp;
-
-### Older style 
-
-`str()` works on all data structures:  data frames, matrices, lists, etc.
-
-```{r}
-str(cars)
-```
-
-&nbsp;
-
-### Useful Command
+## Other Useful Functions
 
 `tbl_vars` lists table variables (column headers) as a vector
 
@@ -129,3 +123,12 @@ tbl_vars(cars)
 ```
 
 &nbsp;
+
+### Older style 
+
+`str()` identifies the data structure:  data frames, matrices, lists, etc.
+
+```{r}
+str(cars)
+```
+

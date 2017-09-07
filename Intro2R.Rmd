@@ -2,22 +2,25 @@
 title: "Intro to R by Data & Visualization Services"
 author: "Joel Herndon & John Little"
 date: "`r Sys.Date()`"
-output: html_document
+output: html_notebook
 ---
-# Intro to R
+## Data Management
 
-## Housekeeping (Joel)
+Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together within a common tidy-data framework.^[https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/]  These packages modernize R and enable an efficient workflow.  Although this method is not the only way to use R, you may work for a long time before you need to explore beyond the tidyverse.  This tidy framework is great for learning R and being productive when using R.  Let's get started.
 
-#### Overview PPT 
+![](https://rviews.rstudio.com/post/2017-06-09-What-is-the-tidyverse_files/tidyverse1.png)
+
+&nbsp; 
+
+Load the library:  
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(ggvis)
 ```
 
-## Data Management (John)
+### Data Set
 
-- We'll use a derivitive of the `mtcars` dataset.  
+- We'll use a derivative of the `mtcars` dataset.  
 - Use the `?mtcars` to get the codebook.
 
 ### Load Data
@@ -25,7 +28,9 @@ library(ggvis)
 RStudio has an on-board data loading wizard which uses the `readr()` package for data loading.  
 See Menubar `File > Import Dataset`
 
-> ![RStudio Environment Pane](images/import_data.png "Environment Pane")
+<figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure>
+
+&nbsp;
 
 &nbsp;
 
@@ -44,33 +49,44 @@ View(cars)
 # Does not dipsplay in an R Notebooks
 ```
 
-#### Other Data Loaders, a selective list
+### Other Data Loaders, a selective list
 
 - `View()` is an exploratory convenience; it's not "reproducible" in the sense of generating a report or leaving a trail of your work.  One of the advantages is on-board clickable sorting
 
 - Environment Pane has information about data objects
 
 
-### Modern Data Frames: Tibbles
+### Tibbles: Modern Data Frames
 
-* "Table as data frame"", a modern tidyverse table
+A tible (tbl) is a "Table as data frame", a modern tidyverse table.
+
 ```{r Table-dataframe}
 cars 
 ```
 
 &nbsp;
 
-### Data Structure
+## Data Structure
 
-#### Class
+### Most Common Data Structures
+
+- Vector
+- Data Frame
+- Tibble
+- List
+- Matrix
+
+### Class
+
+`class()` identifies the class of an object revealing the data structure or the data type.
 
 ```{r}
 class(cars)
 ```
 
-&nbsp;
+### Glimpse into a data frame
 
-#### Glimpse into a data frame
+`glimpse()` reveals the structure of an object
 
 ```{r}
 glimpse(cars)
@@ -78,17 +94,30 @@ glimpse(cars)
 
 &nbsp;
 
-#### Older style 
+## Data Type
 
-`str()` works on all data structures:  data frames, matricies, lists, etc.
+### Most Common Data Types
+
+- character
+- numeric
+
+    - integer (e.g. `30L`, `as.integer(30)`)
+    - double (approximation with floating points and multiple special values)
+    
+- logical (True or False)
+- factor
+
+### Class
 
 ```{r}
-str(cars)
+class(cars$makeModel)
+class(cars$mpg)
+
+
 ```
 
-&nbsp;
 
-#### Useful Command
+## Other Useful Functions
 
 `tbl_vars` lists table variables (column headers) as a vector
 
@@ -98,28 +127,30 @@ tbl_vars(cars)
 
 &nbsp;
 
-## EXERCISE, Part One: Loading Data  (Joel)
+### str():   
+
+`str()` identifies the data structure:  data frames, matrices, lists, etc.
+
+```{r}
+str(cars)
+```
 
 
-1. Take the [Quiz](https://libjohn.shinyapps.io/intro2r-assignments2/)
-1. Hands-on (in an R file):  File > Open File >  Student_Assignments.Rmd (Part One)
-
-&nbsp;
-
-## Data Reshaping - dplyr (John)
-
-**dplyr** is a widely adopted r package, part of tidyverse, which uses **five English verbs** to reshape data
+## Data Wrangling with Dplyr
 
 ### Arrange
 
-**Arrange** to sort rows by column
-```{r arrange}
+**Arrange** to sort rows (observations) by column headers (variables)
+
+```{r arrange, message=FALSE, warning=FALSE}
 cars %>% 
   arrange(cyl, desc(mpg), desc(hp))
 ```
 
 ### Select
+
 **Select** to choose columns (variables)
+
 ```{r select}
 cars %>% 
     arrange(cyl, desc(mpg), desc(hp)) %>% 
@@ -129,7 +160,8 @@ cars %>%
 
 ### Filter
 
-**Filter** to select rows
+**Filter** to select rows (observations)
+
 ```{r filter}
 sixcyls <- cars %>% 
   filter(cyl == 6)
@@ -139,7 +171,8 @@ sixcyls    # display filtered data frame
 
 ### Mutate
 
-**Mutate** to create new variables (add columns) 
+**Mutate** to create new variables (columns) 
+
 ```{r mutate}
 sixcyls %>% 
   mutate(dispWt = disp / wt) %>% 
@@ -147,11 +180,15 @@ sixcyls %>%
 ```
 
 ### Count
-**Count** to summarize observations (or rows)
+
+**Count** to summarize observations (rows)
+
 ```{r count}
 sixcyls %>% 
   count(hp)
 ```
+
+Note:  `count()` is not part of the five dplyr verbs.  It's often used with `summarize` and included for it's the brevity of functionality.  The example below will demonstrate the flexibility of the `summarize()` function which is a dplyr verb.
 
 ### Summarize
 Summarize to collapse values into a summary
@@ -159,11 +196,13 @@ Summarize to collapse values into a summary
 ```{r}
 sixcyls %>% 
   group_by(hp) %>% 
-  summarize(Count = n())
+  summarize(Count = n(), mean_wt = mean(wt), min_wt = min(wt), max_wt = max(wt))
 ```
 
 
-### Put it all together
+## Put it all together
+
+We can pipe commands together.  Think of a pipe (i.e. `%>%`) as a conjunction.  Any time you see a pipe, think "and then."  You can insert a pipe with 'Ctrl+Shift+M' (Help > Keyboard Shortcts)
 
 ```{r alltogether}
 
@@ -174,67 +213,7 @@ cars %>%
   arrange(desc(mpg), wt)
 ```
 
-## EXERCISE, Part 2 (Joel)
-
-2. Student_Assignments.Rmd::PART TWO
-**Data Management**
-
-1. `arrange()`
-2. `filter()`
-3. `mutate()`
-4. `select()`
-5. `count()`
-
-## Visualization with ggvis (John)
-
-When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
-
-### Scatter Plot
-Linear model and 95% confidence interval
-```{r ggvis-scatter}
-cars %>% 
-  ggvis(~wt, ~mpg) %>% 
-  layer_points() %>% 
-  layer_model_predictions(model = "lm", se=TRUE)
-```
-[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
-
-### Bar Graph
-```{r ggvis-bargraph}
-cars %>% 
-  mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
-  ggvis(~cyl) %>% 
-  layer_bars()
-```
-[More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
-
-### Histogram
-```{r ggvis-hist, message=FALSE}
-cars %>% 
-  ggvis(~mpg) %>% 
-  layer_histograms()
-```
-[More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
-
-### Line graph
-```{r ggvis-line, warning=FALSE}
-cars %>% 
-  ggvis( ~wt, ~mpg) %>% 
-  group_by(cyl) %>% 
-  layer_lines(stroke = ~factor(cyl)) %>% 
-  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl))
-```
-[More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
-
-```{r ggvis-linesmooth, warning=FALSE, message=FALSE}
-cars %>% 
-  ggvis(~wt, ~mpg) %>% 
-  group_by(cyl) %>% 
-  layer_model_predictions(model="lm", se = TRUE) %>% 
-  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
-```
-
-
+&nbs;
 
 #### Shareable under CC BY-NC license 
 

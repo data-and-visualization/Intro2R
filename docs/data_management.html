@@ -371,9 +371,7 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </div>
 <div id="modern-data-frames-tibbles" class="section level2">
 <h2>Modern Data Frames: Tibbles</h2>
-<ul>
-<li>“Table as data frame”“, a modern tidyverse table</li>
-</ul>
+<p>A tible (tbl) is a “Table as data frame”, a modern tidyverse table.</p>
 <pre class="r"><code>cars </code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -396,8 +394,29 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </div>
 <div id="class" class="section level3">
 <h3>Class</h3>
+<p><code>class()</code> identifies the class of an object revealing the data structure or the data type.</p>
 <pre class="r"><code>class(cars)</code></pre>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+</div>
+<div id="glimpse-into-a-data-frame" class="section level3">
+<h3>Glimpse into a data frame</h3>
+<p><code>glimpse()</code> reveals the structure of an object</p>
+<pre class="r"><code>glimpse(cars)</code></pre>
+<pre><code>## Observations: 32
+## Variables: 12
+## $ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8...
+## $ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4...
+## $ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146...
+## $ hp        &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, ...
+## $ drat      &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92...
+## $ wt        &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.1...
+## $ qsec      &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20....
+## $ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1...
+## $ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1...
+## $ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4...
+## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...
+## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...</code></pre>
+<p> </p>
 </div>
 </div>
 <div id="data-type" class="section level2">
@@ -421,30 +440,19 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>class(cars$mpg)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<p> </p>
 </div>
-<div id="glimpse-into-a-data-frame" class="section level3">
-<h3>Glimpse into a data frame</h3>
-<pre class="r"><code>glimpse(cars)</code></pre>
-<pre><code>## Observations: 32
-## Variables: 12
-## $ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8...
-## $ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4...
-## $ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146...
-## $ hp        &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, ...
-## $ drat      &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92...
-## $ wt        &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.1...
-## $ qsec      &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20....
-## $ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1...
-## $ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1...
-## $ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4...
-## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...
-## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...</code></pre>
-<p> </p>
 </div>
+<div id="other-useful-functions" class="section level2">
+<h2>Other Useful Functions</h2>
+<p><code>tbl_vars</code> lists table variables (column headers) as a vector</p>
+<pre class="r"><code>tbl_vars(cars)</code></pre>
+<pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
+##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
+## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
+<p> </p>
 <div id="older-style" class="section level3">
 <h3>Older style</h3>
-<p><code>str()</code> works on all data structures: data frames, matrices, lists, etc.</p>
+<p><code>str()</code> identifies the data structure: data frames, matrices, lists, etc.</p>
 <pre class="r"><code>str(cars)</code></pre>
 <pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    32 obs. of  12 variables:
 ##  $ mpg      : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
@@ -488,16 +496,6 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 ##   ..$ default: list()
 ##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
 ##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
-<p> </p>
-</div>
-<div id="useful-command" class="section level3">
-<h3>Useful Command</h3>
-<p><code>tbl_vars</code> lists table variables (column headers) as a vector</p>
-<pre class="r"><code>tbl_vars(cars)</code></pre>
-<pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
-##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
-## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
-<p> </p>
 </div>
 </div>
 <div class="footnotes">

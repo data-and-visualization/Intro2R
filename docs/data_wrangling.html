@@ -327,7 +327,7 @@ div.tocify {
 <pre class="r"><code>library(tidyverse)</code></pre>
 <div id="arrange" class="section level2">
 <h2>Arrange</h2>
-<p><strong>Arrange</strong> to sort rows by column</p>
+<p><strong>Arrange</strong> to sort rows (observations) by column headers (variables)</p>
 <pre class="r"><code>cars %&gt;% 
   arrange(cyl, desc(mpg), desc(hp))</code></pre>
 <div data-pagedtable="false">
@@ -350,7 +350,7 @@ div.tocify {
 </div>
 <div id="filter" class="section level2">
 <h2>Filter</h2>
-<p><strong>Filter</strong> to select rows</p>
+<p><strong>Filter</strong> to select rows (observations)</p>
 <pre class="r"><code>sixcyls &lt;- cars %&gt;% 
   filter(cyl == 6)
 
@@ -363,7 +363,7 @@ sixcyls    # display filtered data frame</code></pre>
 </div>
 <div id="mutate" class="section level2">
 <h2>Mutate</h2>
-<p><strong>Mutate</strong> to create new variables (add columns)</p>
+<p><strong>Mutate</strong> to create new variables (columns)</p>
 <pre class="r"><code>sixcyls %&gt;% 
   mutate(dispWt = disp / wt) %&gt;% 
   select(makeModel, cyl, mpg, hp, dispWt)</code></pre>
@@ -375,7 +375,7 @@ sixcyls    # display filtered data frame</code></pre>
 </div>
 <div id="count" class="section level2">
 <h2>Count</h2>
-<p><strong>Count</strong> to summarize observations (or rows)</p>
+<p><strong>Count</strong> to summarize observations (rows)</p>
 <pre class="r"><code>sixcyls %&gt;% 
   count(hp)</code></pre>
 <div data-pagedtable="false">
@@ -399,7 +399,7 @@ sixcyls    # display filtered data frame</code></pre>
 </div>
 <div id="put-it-all-together" class="section level2">
 <h2>Put it all together</h2>
-<p>We can pipe commands together. Think of a pipe (i.e. <code>%&gt;%</code>) as a conjunction. Any time you see a pipe, think “and then.”</p>
+<p>We can pipe commands together. Think of a pipe (i.e. <code>%&gt;%</code>) as a conjunction. Any time you see a pipe, think “and then.” You can insert a pipe with ‘Ctrl+Shift+M’ (Help &gt; Keyboard Shortcts)</p>
 <pre class="r"><code>cars %&gt;% 
   filter(cyl &gt;= 4, cyl &lt;= 6) %&gt;% 
   select(makeModel, mpg:wt) %&gt;%

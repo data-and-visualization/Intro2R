@@ -334,19 +334,15 @@ div.tocify {
 <li>Using what we’ve you’ve seen in class, if <code>brodheadCenter.csv</code> is a csv file, how would you load the file into a new variable called <code>brodhead</code>?</li>
 </ol>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Loading tidyverse: tibble
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
 ## Loading tidyverse: tidyr
 ## Loading tidyverse: readr
 ## Loading tidyverse: purrr
 ## Loading tidyverse: dplyr</code></pre>
 <pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## as.difftime(): lubridate, base
-## date():        lubridate, base
-## filter():      dplyr, stats
-## intersect():   lubridate, base
-## lag():         dplyr, stats
-## setdiff():     lubridate, base
-## union():       lubridate, base</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
 <pre class="r"><code>brodhead &lt;- read_csv(&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -373,34 +369,16 @@ div.tocify {
 <li>How many of the variables are numeric data?</li>
 </ul></li>
 </ol>
-<pre class="r"><code>str(brodhead)</code></pre>
-<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    59 obs. of  7 variables:
-##  $ name    : chr  &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; &quot;Devils Krafthouse&quot; ...
-##  $ type    : chr  &quot;bar and grill&quot; &quot;bar and grill&quot; &quot;bar and grill&quot; &quot;bar and grill&quot; ...
-##  $ menuType: chr  &quot;appetizer&quot; &quot;appetizer&quot; &quot;appetizer&quot; &quot;appetizer&quot; ...
-##  $ itemType: chr  &quot;snack&quot; &quot;snack&quot; &quot;snack&quot; &quot;snack&quot; ...
-##  $ itemName: chr  &quot;sweet potato tots&quot; &quot;french fries&quot; &quot;quesadillas&quot; &quot;southwest chili wings&quot; ...
-##  $ cost    : int  4 4 6 8 7 8 9 4 9 9 ...
-##  $ rating  : int  8 10 5 6 7 8 5 6 5 5 ...
-##  - attr(*, &quot;spec&quot;)=List of 2
-##   ..$ cols   :List of 7
-##   .. ..$ name    : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   .. ..$ type    : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   .. ..$ menuType: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   .. ..$ itemType: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   .. ..$ itemName: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   .. ..$ cost    : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
-##   .. ..$ rating  : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_integer&quot; &quot;collector&quot;
-##   ..$ default: list()
-##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
-##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
+<pre class="r"><code>glimpse(brodhead)</code></pre>
+<pre><code>## Observations: 59
+## Variables: 7
+## $ name     &lt;chr&gt; &quot;Devils Krafthouse&quot;, &quot;Devils Krafthouse&quot;, &quot;Devils Kra...
+## $ type     &lt;chr&gt; &quot;bar and grill&quot;, &quot;bar and grill&quot;, &quot;bar and grill&quot;, &quot;b...
+## $ menuType &lt;chr&gt; &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;...
+## $ itemType &lt;chr&gt; &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;,...
+## $ itemName &lt;chr&gt; &quot;sweet potato tots&quot;, &quot;french fries&quot;, &quot;quesadillas&quot;, &quot;...
+## $ cost     &lt;int&gt; 4, 4, 6, 8, 7, 8, 9, 4, 9, 9, 9, 8, 4, 7, 7, 7, 8, 8,...
+## $ rating   &lt;int&gt; 8, 10, 5, 6, 7, 8, 5, 6, 5, 5, 6, 6, 8, 6, 7, 5, 6, 5...</code></pre>
 </div>
 <div id="part-two-data-management" class="section level2">
 <h2>PART TWO: Data Management</h2>

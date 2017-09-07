@@ -25,14 +25,17 @@ cars$makeModel <- makeModel_temp
 ```
 
 
-**Arrange** to sort rows by column
+**Arrange** to sort rows (observations) by column headers (variables)
+
 ```{r arrange, message=FALSE, warning=FALSE}
 cars %>% 
   arrange(cyl, desc(mpg), desc(hp))
 ```
 
 ## Select
+
 **Select** to choose columns (variables)
+
 ```{r select}
 cars %>% 
     arrange(cyl, desc(mpg), desc(hp)) %>% 
@@ -42,7 +45,8 @@ cars %>%
 
 ## Filter
 
-**Filter** to select rows
+**Filter** to select rows (observations)
+
 ```{r filter}
 sixcyls <- cars %>% 
   filter(cyl == 6)
@@ -52,7 +56,8 @@ sixcyls    # display filtered data frame
 
 ## Mutate
 
-**Mutate** to create new variables (add columns) 
+**Mutate** to create new variables (columns) 
+
 ```{r mutate}
 sixcyls %>% 
   mutate(dispWt = disp / wt) %>% 
@@ -60,7 +65,9 @@ sixcyls %>%
 ```
 
 ## Count
-**Count** to summarize observations (or rows)
+
+**Count** to summarize observations (rows)
+
 ```{r count}
 sixcyls %>% 
   count(hp)
@@ -80,7 +87,7 @@ sixcyls %>%
 
 ## Put it all together
 
-We can pipe commands together.  Think of a pipe (i.e. `%>%`) as a conjunction.  Any time you see a pipe, think "and then."
+We can pipe commands together.  Think of a pipe (i.e. `%>%`) as a conjunction.  Any time you see a pipe, think "and then."  You can insert a pipe with 'Ctrl+Shift+M' (Help > Keyboard Shortcts)
 
 ```{r alltogether}
 

@@ -31,7 +31,7 @@ class(brodhead)
     - How many of the variables are numeric data?
     
 ```{r}
-str(brodhead)
+glimpse(brodhead)
 ```
 
 

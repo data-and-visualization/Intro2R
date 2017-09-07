@@ -15,9 +15,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Loading Data
 
-*Load the file into a new variable called `westUnion`?*
+*Load the file into a new variable called `broadhead`?*
 
-- The data are in a *CSV* file on your local workstation which needs to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/westUnion.csv`.
+- The data are in a *CSV* file on your local workstation which needs to be loaded into R.  The data file is in a directory relative to your Rmd script: `data/broadhead.csv`.
 
 Write the R code required to load csv data:
 
@@ -26,7 +26,7 @@ Write the R code required to load csv data:
 ```
 
 ```{r read_csv-solution}
-westUnion <- read_csv("data/westUnion.csv")
+broadhead <- read_csv("data/broadhead.csv")
 # Note...  Code will not run in this tutorial window
 # Use an R Notebook to practice this exercise.
 ```
@@ -36,18 +36,18 @@ Hints:
 
 - One option is to use the *Import Dataset* feature of RStudio from the *File* menubar. Code will be generated for you -- which you can run immediately -- or look to the bottom of the dialogue box and copy the code you can run as a code chunk.
 
-## Data Type
+## Data Structure
 
-```{r datatype}
+```{r datastruct}
 quiz(
-  question("What function will tell you the data type for westUnion?",
-    answer("glimpse(westUnion)"),
-    answer("tbl_vars(westUnion)"),
-    answer("class(westUnion)", correct = TRUE),
-    answer("str(westUnion)")
+  question("What function will tell you the data type for the 'menuItem' variable inside the broadhead tibble?",
+    answer("glimpse(broadhead$menuItem)"),
+    answer("tbl_vars(broadhead)"),
+    answer("class(broadhead$menuItem)", correct = TRUE),
+    answer("str(broadhead)")
   ),
   
-  question("The data type for westUnion is?",
+  question("The data structure for broadhead is?",
     answer("Data Frame", message = "A modern data frame is known as a Tibble"),
     answer("List"),
     answer("Character"),
@@ -58,18 +58,16 @@ quiz(
 ```
 
 
-## Data Structure
-
-Take a look at the structure of the `westUnion` variable.
+Take a look at the structure of the `broadhead` variable.
 
 ```{r dataStructure}
 quiz(
     question("What is the best command to concisely learn more about the variables, observations, and data types within a Tibble",
-             answer("class(westUnion)"),
-             answer("glimpse(westUnion)", correct = TRUE),
-             answer("tbl_vars(westUnion)"),
-             answer("str(westUnion)", message = "This works but is not a conscise report"),
-             answer("westUnion", message = "This will work but require a lot of mouse-clicking on your part")
+             answer("class(broadhead)"),
+             answer("glimpse(broadhead)", correct = TRUE),
+             answer("tbl_vars(broadhead)"),
+             answer("str(broadhead)", message = "This works but is not a conscise report"),
+             answer("broadhead", message = "This will work but require a lot of mouse-clicking on your part")
            ),
     
   question("How many observations (rows) are there?",
@@ -95,7 +93,9 @@ quiz(
   )
 ```
 
-You have completed the quizzes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.library.duke.edu/intro2r/), resume at "Data Wrangling".  The quiz below is part of Exercise Two.
+You have completed the quizzes for Exercise One.  Return to the [Intro2R learning materials](https://rfun.library.duke.edu/intro2r/), resume at "Data Wrangling".  
+
+Below you'll find the quiz for Exercise Two.
 
 ## Data Wrangling with dplyr
 
@@ -104,7 +104,7 @@ Pick the best answer for the following questions about dplyr functions
 ```{r dplyr-quiz}
 quiz(
   question("arrange()",
-           answer("Sort your data frame rows by an observation", correct = TRUE),
+           answer("Sort your data frame rows by a variable", correct = TRUE),
            answer("Make your data frame tidy"),
            answer("Find a perfect match for your data frame"),
            answer("'arrange()' is not a dplyr function"),
