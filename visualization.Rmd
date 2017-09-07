@@ -7,7 +7,7 @@ output: html_document
 
 When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
 
-For this introductory section on visualization we use the `ggvis` package because it works seemlessly with pipes (i.e. `%>%`).  You can do a lot of [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
+For this introductory section on visualization we use the `ggvis` package because it works seemlessly with pipes (i.e. `%>%`).  You can do a lot with [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
