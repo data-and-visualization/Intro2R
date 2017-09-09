@@ -20,7 +20,7 @@ Now you try.  For the workshop, we've prebuilt a data set that has information a
 
 ## Exercise 1: Loading Data
 
-1. Using what we've you've seen in class, if `data/brodheadCenter.csv` is a csv file, how would you load the file into a new variable called `brodhead`?
+1. Using what we've you've seen in class, if `data/brodheadCenter.csv` is a csv file, how would you load the file into a new object called `brodhead`?
 
 2. What data type is `brodhead`?
 
