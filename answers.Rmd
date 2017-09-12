@@ -1,6 +1,5 @@
 ---
 title: "Answers"
-author: "Joel Herndon"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -35,7 +34,7 @@ glimpse(brodhead)
 ```
 
 
-## PART TWO: Data Management
+## PART TWO: Data Wrangling
 
 All of the following questions are based on the sample of restaurants represented in the dataset which is accurate as of September 2, 2016.
 
