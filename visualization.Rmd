@@ -9,23 +9,21 @@ When in the data exploratory phase, you can quickly generate very basic visualiz
 
 For this introductory section on visualization we use the `ggvis` package because it works seemlessly with pipes (i.e. `%>%`).  You can do a lot with [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
+```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggvis)
+library(datasets)
+library(leaflet)
+
 ```
 
 
-```{r transform-cars, message=FALSE, warning=FALSE, include=FALSE}
-# There is some crazy data conversion problem with the cars dataFrame.  But since I only did that to show people how to load data  (see data_management.Rmd,)  I'm transforming 'cars' in a more robust fashion with `rownames_to_column`
-cars <- rownames_to_column(mtcars, "makeModel")
+```{r loadData, message=FALSE, warning=FALSE}
 
-makeModel_temp <- cars$makeModel
-
-cars$makeModel <- NULL
-
-cars$makeModel <- makeModel_temp
-  
+cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
+starbucks <- read_csv("https://github.com/data-and-visualization/Intro2R/raw/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv")
 ```
+
 
 
 ## Scatter Plot
@@ -73,7 +71,7 @@ cars %>%
   layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
 ```
 
-&nbps;
+&nbsp;
 
 ## BoxPlot
 
@@ -84,4 +82,4 @@ cars %>%
   
   
 ```
-
+[More information on box plots](http://ggvis.rstudio.com/cookbook.html)

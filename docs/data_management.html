@@ -23,26 +23,54 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
-}
-</script>
-
 
 
 <style type="text/css">
@@ -301,6 +329,9 @@ div.tocify {
 <li>
   <a href="visualization.html">Visualization</a>
 </li>
+<li>
+  <a href="gis.html">GIS/Mapping</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -330,7 +361,8 @@ div.tocify {
 </div>
 <p> </p>
 <p>Load the library:</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(datasets)</code></pre></div>
 <div id="data-set" class="section level2">
 <h2>Data Set</h2>
 <ul>
@@ -349,18 +381,16 @@ See Menubar <code>File &gt; Import Dataset</code></p>
 RStudio Environment Pane
 </figcaption>
 </figure>
-<p> </p>
-<p> </p>
-<pre class="r"><code># readr::read_csv
-# &#39;read_csv()&#39; is part of the &#39;readr&#39; package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># readr::read_csv</span>
+<span class="co"># &#39;read_csv()&#39; is part of the tidyverse &#39;readr&#39; package.  &#39;read_csv()&#39; helpfully overrides the &quot;base R&quot; default readr package, which converts characters as factors.  https://cran.r-project.org/web/packages/readr/README.html</span>
 
-cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
+cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cars.csv&quot;</span>)</code></pre></div>
+<p>Above shows the standard way to read in data. But now that you’ve learned that, run the command below – a more syntactically useful tidyverse approach to creating the Tibble (data frame) we need for this whole introductory learning series.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">rownames_to_column</span>(mtcars, <span class="dt">var =</span> <span class="st">&quot;makeModel&quot;</span>))</code></pre></div>
 </div>
 <div id="view-your-data-in-a-grid" class="section level2">
 <h2>View your data in a grid</h2>
-<pre class="r"><code>View(cars)
-# Displays as a tab in the source-pane quadrant
-# Does not dipsplay in an R Notebooks</code></pre>
 <div id="other-data-loaders-a-selective-list" class="section level3">
 <h3>Other Data Loaders, a selective list</h3>
 <ul>
@@ -372,10 +402,10 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 <div id="modern-data-frames-tibbles" class="section level2">
 <h2>Modern Data Frames: Tibbles</h2>
 <p>A tible (tbl) is a “Table as data frame”, a modern tidyverse table.</p>
-<pre class="r"><code>cars </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars </code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["makeModel"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","12":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","12":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","12":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","12":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","12":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","12":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","12":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","12":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","12":"Merc 280C"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SE"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SL"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SLC"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","12":"Cadillac Fleetwood"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","12":"Lincoln Continental"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","12":"Chrysler Imperial"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","12":"Fiat 128"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","12":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","12":"Toyota Corolla"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","12":"Toyota Corona"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","12":"Dodge Challenger"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","12":"AMC Javelin"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","12":"Camaro Z28"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","12":"Pontiac Firebird"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","12":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","12":"Porsche 914-2"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","12":"Lotus Europa"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","12":"Ford Pantera L"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","12":"Ferrari Dino"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","12":"Maserati Bora"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","12":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["makeModel"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mpg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[12],"type":["dbl"],"align":["right"]}],"data":[{"1":"Mazda RX4","2":"21.0","3":"6","4":"160.0","5":"110","6":"3.90","7":"2.620","8":"16.46","9":"0","10":"1","11":"4","12":"4"},{"1":"Mazda RX4 Wag","2":"21.0","3":"6","4":"160.0","5":"110","6":"3.90","7":"2.875","8":"17.02","9":"0","10":"1","11":"4","12":"4"},{"1":"Datsun 710","2":"22.8","3":"4","4":"108.0","5":"93","6":"3.85","7":"2.320","8":"18.61","9":"1","10":"1","11":"4","12":"1"},{"1":"Hornet 4 Drive","2":"21.4","3":"6","4":"258.0","5":"110","6":"3.08","7":"3.215","8":"19.44","9":"1","10":"0","11":"3","12":"1"},{"1":"Hornet Sportabout","2":"18.7","3":"8","4":"360.0","5":"175","6":"3.15","7":"3.440","8":"17.02","9":"0","10":"0","11":"3","12":"2"},{"1":"Valiant","2":"18.1","3":"6","4":"225.0","5":"105","6":"2.76","7":"3.460","8":"20.22","9":"1","10":"0","11":"3","12":"1"},{"1":"Duster 360","2":"14.3","3":"8","4":"360.0","5":"245","6":"3.21","7":"3.570","8":"15.84","9":"0","10":"0","11":"3","12":"4"},{"1":"Merc 240D","2":"24.4","3":"4","4":"146.7","5":"62","6":"3.69","7":"3.190","8":"20.00","9":"1","10":"0","11":"4","12":"2"},{"1":"Merc 230","2":"22.8","3":"4","4":"140.8","5":"95","6":"3.92","7":"3.150","8":"22.90","9":"1","10":"0","11":"4","12":"2"},{"1":"Merc 280","2":"19.2","3":"6","4":"167.6","5":"123","6":"3.92","7":"3.440","8":"18.30","9":"1","10":"0","11":"4","12":"4"},{"1":"Merc 280C","2":"17.8","3":"6","4":"167.6","5":"123","6":"3.92","7":"3.440","8":"18.90","9":"1","10":"0","11":"4","12":"4"},{"1":"Merc 450SE","2":"16.4","3":"8","4":"275.8","5":"180","6":"3.07","7":"4.070","8":"17.40","9":"0","10":"0","11":"3","12":"3"},{"1":"Merc 450SL","2":"17.3","3":"8","4":"275.8","5":"180","6":"3.07","7":"3.730","8":"17.60","9":"0","10":"0","11":"3","12":"3"},{"1":"Merc 450SLC","2":"15.2","3":"8","4":"275.8","5":"180","6":"3.07","7":"3.780","8":"18.00","9":"0","10":"0","11":"3","12":"3"},{"1":"Cadillac Fleetwood","2":"10.4","3":"8","4":"472.0","5":"205","6":"2.93","7":"5.250","8":"17.98","9":"0","10":"0","11":"3","12":"4"},{"1":"Lincoln Continental","2":"10.4","3":"8","4":"460.0","5":"215","6":"3.00","7":"5.424","8":"17.82","9":"0","10":"0","11":"3","12":"4"},{"1":"Chrysler Imperial","2":"14.7","3":"8","4":"440.0","5":"230","6":"3.23","7":"5.345","8":"17.42","9":"0","10":"0","11":"3","12":"4"},{"1":"Fiat 128","2":"32.4","3":"4","4":"78.7","5":"66","6":"4.08","7":"2.200","8":"19.47","9":"1","10":"1","11":"4","12":"1"},{"1":"Honda Civic","2":"30.4","3":"4","4":"75.7","5":"52","6":"4.93","7":"1.615","8":"18.52","9":"1","10":"1","11":"4","12":"2"},{"1":"Toyota Corolla","2":"33.9","3":"4","4":"71.1","5":"65","6":"4.22","7":"1.835","8":"19.90","9":"1","10":"1","11":"4","12":"1"},{"1":"Toyota Corona","2":"21.5","3":"4","4":"120.1","5":"97","6":"3.70","7":"2.465","8":"20.01","9":"1","10":"0","11":"3","12":"1"},{"1":"Dodge Challenger","2":"15.5","3":"8","4":"318.0","5":"150","6":"2.76","7":"3.520","8":"16.87","9":"0","10":"0","11":"3","12":"2"},{"1":"AMC Javelin","2":"15.2","3":"8","4":"304.0","5":"150","6":"3.15","7":"3.435","8":"17.30","9":"0","10":"0","11":"3","12":"2"},{"1":"Camaro Z28","2":"13.3","3":"8","4":"350.0","5":"245","6":"3.73","7":"3.840","8":"15.41","9":"0","10":"0","11":"3","12":"4"},{"1":"Pontiac Firebird","2":"19.2","3":"8","4":"400.0","5":"175","6":"3.08","7":"3.845","8":"17.05","9":"0","10":"0","11":"3","12":"2"},{"1":"Fiat X1-9","2":"27.3","3":"4","4":"79.0","5":"66","6":"4.08","7":"1.935","8":"18.90","9":"1","10":"1","11":"4","12":"1"},{"1":"Porsche 914-2","2":"26.0","3":"4","4":"120.3","5":"91","6":"4.43","7":"2.140","8":"16.70","9":"0","10":"1","11":"5","12":"2"},{"1":"Lotus Europa","2":"30.4","3":"4","4":"95.1","5":"113","6":"3.77","7":"1.513","8":"16.90","9":"1","10":"1","11":"5","12":"2"},{"1":"Ford Pantera L","2":"15.8","3":"8","4":"351.0","5":"264","6":"4.22","7":"3.170","8":"14.50","9":"0","10":"1","11":"5","12":"4"},{"1":"Ferrari Dino","2":"19.7","3":"6","4":"145.0","5":"175","6":"3.62","7":"2.770","8":"15.50","9":"0","10":"1","11":"5","12":"6"},{"1":"Maserati Bora","2":"15.0","3":"8","4":"301.0","5":"335","6":"3.54","7":"3.570","8":"14.60","9":"0","10":"1","11":"5","12":"8"},{"1":"Volvo 142E","2":"21.4","3":"4","4":"121.0","5":"109","6":"4.11","7":"2.780","8":"18.60","9":"1","10":"1","11":"4","12":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p> </p>
@@ -395,15 +425,16 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 <div id="class" class="section level3">
 <h3>Class</h3>
 <p><code>class()</code> identifies the class of an object revealing the data structure or the data type.</p>
-<pre class="r"><code>class(cars)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(cars)</code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 </div>
 <div id="glimpse-into-a-data-frame" class="section level3">
 <h3>Glimpse into a data frame</h3>
 <p><code>glimpse()</code> reveals the structure of an object</p>
-<pre class="r"><code>glimpse(cars)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(cars)</code></pre></div>
 <pre><code>## Observations: 32
 ## Variables: 12
+## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...
 ## $ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8...
 ## $ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4...
 ## $ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146...
@@ -414,8 +445,7 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 ## $ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1...
 ## $ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1...
 ## $ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4...
-## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...
-## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...</code></pre>
+## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...</code></pre>
 <p> </p>
 </div>
 </div>
@@ -436,25 +466,26 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </div>
 <div id="class-1" class="section level3">
 <h3>Class</h3>
-<pre class="r"><code>class(cars$makeModel)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(cars<span class="op">$</span>makeModel)</code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(cars$mpg)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(cars<span class="op">$</span>mpg)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
 </div>
 <div id="other-useful-functions" class="section level2">
 <h2>Other Useful Functions</h2>
 <p><code>tbl_vars</code> lists table variables (column headers) as a vector</p>
-<pre class="r"><code>tbl_vars(cars)</code></pre>
-<pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
-##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
-## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tbl_vars</span>(cars)</code></pre></div>
+<pre><code>##  [1] &quot;makeModel&quot; &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;       
+##  [6] &quot;drat&quot;      &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;       
+## [11] &quot;gear&quot;      &quot;carb&quot;</code></pre>
 <p> </p>
 <div id="older-style" class="section level3">
 <h3>Older style</h3>
 <p><code>str()</code> identifies the data structure: data frames, matrices, lists, etc.</p>
-<pre class="r"><code>str(cars)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cars)</code></pre></div>
 <pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    32 obs. of  12 variables:
+##  $ makeModel: chr  &quot;Mazda RX4&quot; &quot;Mazda RX4 Wag&quot; &quot;Datsun 710&quot; &quot;Hornet 4 Drive&quot; ...
 ##  $ mpg      : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 ##  $ cyl      : num  6 6 4 6 8 6 8 4 4 6 ...
 ##  $ disp     : num  160 160 108 258 360 ...
@@ -465,37 +496,7 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 ##  $ vs       : num  0 0 1 1 0 1 0 1 1 1 ...
 ##  $ am       : num  1 1 1 0 0 0 0 0 0 0 ...
 ##  $ gear     : num  4 4 4 3 3 3 3 4 4 4 ...
-##  $ carb     : num  4 4 1 1 2 1 4 2 2 4 ...
-##  $ makeModel: chr  &quot;Mazda RX4&quot; &quot;Mazda RX4 Wag&quot; &quot;Datsun 710&quot; &quot;Hornet 4 Drive&quot; ...
-##  - attr(*, &quot;spec&quot;)=List of 2
-##   ..$ cols   :List of 12
-##   .. ..$ mpg      : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ cyl      : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ disp     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ hp       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ drat     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ wt       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ qsec     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ vs       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ am       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ gear     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ carb     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ makeModel: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   ..$ default: list()
-##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
-##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
+##  $ carb     : num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
 </div>
 </div>
 <div class="footnotes">
@@ -505,6 +506,9 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </ol>
 </div>
 
+<h4>Footer</h4>
+
+Shareable:  CC: NC-By
 
 
 </div>

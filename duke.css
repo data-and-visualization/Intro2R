@@ -90,13 +90,18 @@ figure {
   padding: 0.5em;
 }
 
-.r{
+.r {
+  clear: both;
+}
+br {
   clear: both;
 }
 
-.right{
+
+
+.right {
     position: absolute;
-    right: 0px;
+    right: 50px;
     border-radius: 10px;
     border: 3px solid #73AD21;
     width: 60px;

@@ -13,6 +13,7 @@ Load the library:
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(datasets)
 ```
 
 ## Data Set
@@ -25,22 +26,24 @@ library(tidyverse)
 RStudio has an on-board data loading wizard which uses the `readr()` package for data loading.  
 See Menubar `File > Import Dataset`
 
-<figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure>
+<figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure><br>
 
-&nbsp;
-
-&nbsp;
-
-```{r get data, message=FALSE, warning=FALSE}
+```{r load-data, message=FALSE, warning=FALSE}
 # readr::read_csv
-# 'read_csv()' is part of the 'readr' package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+# 'read_csv()' is part of the tidyverse 'readr' package.  'read_csv()' helpfully overrides the "base R" default readr package, which converts characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
 
 cars <- read_csv("data/cars.csv")
 ```
 
+Above shows the standard way to read in data.  But now that you've learned that, run the command below -- a more syntactically useful tidyverse approach to creating the Tibble (data frame) we need for this whole introductory learning series.
+
+```{r load-data-2, message=FALSE, warning=FALSE}
+cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
+```
+
 ## View your data in a grid
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 View(cars)
 # Displays as a tab in the source-pane quadrant
 # Does not dipsplay in an R Notebooks

@@ -9,11 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Joel Herndon and John Little" />
 
-<meta name="date" content="2017-09-06" />
 
-<title>Assignments for Intro to R Class</title>
+<title></title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,25 +23,9 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
-}
-</script>
 
 
 
@@ -303,6 +285,9 @@ div.tocify {
 <li>
   <a href="visualization.html">Visualization</a>
 </li>
+<li>
+  <a href="gis.html">GIS/Mapping</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -320,39 +305,33 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assignments for Intro to R Class</h1>
-<h4 class="author"><em>Joel Herndon and John Little</em></h4>
-<h4 class="date"><em>2017-09-06</em></h4>
 
 </div>
 
 
-<div id="part-one-loading-data" class="section level2">
-<h2>PART ONE: Loading Data</h2>
-<p>For the workshop, we’ve prebuilt a data set that has information about menus in Duke’s new West Union from three restaurants.</p>
-<ol style="list-style-type: decimal">
-<li><p>Using what we’ve you’ve seen in class, if <code>data/westUnion.csv</code> is a csv file, how would you load the file into a new variable called <code>westUnion</code>?</p></li>
-<li><p>What data type is <code>westUnion</code>?</p></li>
-<li>Take a look at the structure of the <code>westUnion</code> variable.
+<div id="intro2r" class="section level1">
+<h1>Intro2R</h1>
+<p>Supporting datasets and files for our Intro to R workshop.</p>
+</div>
+<div id="readme" class="section level1">
+<h1>README</h1>
+<p>This repository contains supporting datasets and files for our <strong>Intro to R</strong> workshop by the <a href="http://library.duke.edu/data">Duke Data &amp; Visualization Services Department</a>. You can find more information about our future and past <a href="http://library.duke.edu/data/news">workshops</a></p>
 <ul>
-<li>How many observations (rows) are there?</li>
-<li>How many variables (columns) are there?</li>
-<li>How many of the variables are numeric data?</li>
-</ul></li>
-</ol>
+<li><p>slides and data are in the respective directories in this Repo</p></li>
+<li><p>Guide can be seen at <a href="http://rpubs.com/libjohn/intro2r-dvs">RPubs (htt://v.gd/duker)</a> or downloaded via this Repo.</p></li>
+</ul>
+<div id="project-update" class="section level2">
+<h2>Project Update:</h2>
+<ul>
+<li>Now using library(tidyverse) and ignoring base-r</li>
+<li>Now using library(ggvis) instead of library(ggplot2) – because of the magrittr consistency</li>
+</ul>
 </div>
-<div id="part-two-data-management" class="section level2">
-<h2>PART TWO: Data Management</h2>
-<p>All of the following questions are based on the sample of restaurants represented in the dataset which is accurate as of September 2, 2016.</p>
-<ol style="list-style-type: decimal">
-<li><p>Which restaurant has the lowest cost item and what is the item?</p></li>
-<li><p>Which restaurant has the most expensive item(s)? What are those item(s)?</p></li>
-<li><p>At the West Union, how many of the entrees (found in the <code>menuType</code> variable) cost eight dollars?</p></li>
-<li><p>The head of Duke dining is considering reducing prices at the West Union. Using what we’ve learned in class, write a line of code that will calculate a new variable (<code>halfPrice</code>) that contains items at half price.</p></li>
-<li><p>How many entrees are in the dataset (<code>menuType</code> variable)? How many desserts</p></li>
-</ol>
 </div>
 
+<h4>Footer</h4>
+
+Shareable:  CC: NC-By
 
 
 </div>

@@ -2,7 +2,6 @@
 title: "Intro to R by Data & Visualization Services"
 author: "Joel Herndon & John Little"
 date: "`r Sys.Date()`"
-output: html_notebook
 ---
 ## Data Management
 
@@ -10,12 +9,13 @@ Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together
 
 ![](https://rviews.rstudio.com/post/2017-06-09-What-is-the-tidyverse_files/tidyverse1.png)
 
-&nbsp; 
+ 
 
 Load the library:  
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(datasets)
 ```
 
 ### Data Set
@@ -30,21 +30,25 @@ See Menubar `File > Import Dataset`
 
 <figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure>
 
-&nbsp;
 
-&nbsp;
 
-```{r get data, message=FALSE, warning=FALSE}
+```{r getdata1, message=FALSE, warning=FALSE}
 # readr::read_csv
 # 'read_csv()' is part of the 'readr' package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
 
 cars <- read_csv("data/cars.csv")
 ```
 
+
+
+```{r getdata2}
+cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
+```
+
 ### View your data in a grid
 
-```{r}
-View(cars)
+```{r randmonName}
+#View(cars)
 # Displays as a tab in the source-pane quadrant
 # Does not dipsplay in an R Notebooks
 ```
@@ -64,7 +68,7 @@ A tible (tbl) is a "Table as data frame", a modern tidyverse table.
 cars 
 ```
 
-&nbsp;
+
 
 ## Data Structure
 
@@ -92,7 +96,7 @@ class(cars)
 glimpse(cars)
 ```
 
-&nbsp;
+
 
 ## Data Type
 
@@ -125,7 +129,7 @@ class(cars$mpg)
 tbl_vars(cars)
 ```
 
-&nbsp;
+
 
 ### str():   
 
@@ -213,10 +217,7 @@ cars %>%
   arrange(desc(mpg), wt)
 ```
 
-&nbs;
 
 #### Shareable under CC BY-NC license 
 
 Data, presentation, and handouts are shareable under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
-
-![This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://licensebuttons.net/l/by-nc/4.0/88x31.png "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License")

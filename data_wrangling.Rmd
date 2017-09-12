@@ -12,15 +12,19 @@ library(tidyverse)
 ## Arrange
 
 
-```{r transform-cars, message=FALSE, warning=FALSE, include=FALSE}
+```{r transform-cars, message=FALSE, warning=FALSE}
 # There is some crazy data conversion problem with the cars dataFrame.  But since I only did that to show people how to load data  (see data_management.Rmd,)  I'm transforming 'cars' in a more robust fashion with `rownames_to_column`
-cars <- rownames_to_column(mtcars, "makeModel")
+#cars <- rownames_to_column(mtcars, "makeModel")
 
-makeModel_temp <- cars$makeModel
+#makeModel_temp <- cars$makeModel
 
-cars$makeModel <- NULL
+#cars$makeModel <- NULL
 
-cars$makeModel <- makeModel_temp
+#cars$makeModel <- makeModel_temp
+library(datasets)
+
+cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
+
   
 ```
 
