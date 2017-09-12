@@ -22,9 +22,9 @@ Now you try.  For the workshop, we've prebuilt a data set that has information a
 
 1. Using what we've you've seen in class, if `data/brodheadCenter.csv` is a csv file, how would you load the file into a new object called `brodhead`?
 
-2. What data type is `brodhead`?
+2. What is the data structure of the `brodhead`?
 
-3. Take a look at the structure of the `brodhead` variable.
+3. Take a look at the structure of the `brodhead` object.
     - How many observations (rows) are there?
     - How many variables (columns) are there?
     - How many of the variables are numeric data?

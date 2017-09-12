@@ -27,10 +27,12 @@ output:
     theme: flatly
     highlight: tango
     include:
-      after_body: footer.html
+      after_body: libs-local/footer.html
     toc: TRUE
     toc_depth: 2
     toc_float:
       collapsed: false
-    css: duke.css
+    css: 
+      - libs-local/duke.css
+      - libs-local/cc-fonts.css
     df_print: paged

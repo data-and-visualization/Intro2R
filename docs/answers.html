@@ -11,7 +11,7 @@
 
 <meta name="author" content="Joel Herndon" />
 
-<meta name="date" content="2017-09-10" />
+<meta name="date" content="2017-09-12" />
 
 <title>Answers</title>
 
@@ -102,7 +102,8 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local\duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local\cc-fonts.css" type="text/css" />
 
 </head>
 
@@ -353,7 +354,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Answers</h1>
 <h4 class="author"><em>Joel Herndon</em></h4>
-<h4 class="date"><em>2017-09-10</em></h4>
+<h4 class="date"><em>2017-09-12</em></h4>
 
 </div>
 
@@ -362,10 +363,19 @@ div.tocify {
 <h2>PART ONE: Loading Data</h2>
 <p>For the workshop, we’ve prebuilt a data set that has information about menus from three restaurants in Duke’s Brodhead Center.</p>
 <ol style="list-style-type: decimal">
-<li>Using what we’ve you’ve seen in class, if <code>brodheadCenter.csv</code> is a csv file, how would you load the file into a new variable called <code>brodhead</code>?</li>
+<li>Using what we’ve you’ve seen in class, if <code>brodheadCenter.csv</code> is a csv file, how would you load the file into a new object called <code>brodhead</code>?</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-brodhead &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">brodhead &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   name = col_character(),
@@ -384,7 +394,7 @@ brodhead &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(brodhead)</code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Take a look at the structure of the <code>brodhead</code> variable.
+<li>Take a look at the structure of the <code>brodhead</code> object.
 <ul>
 <li>How many observations (rows) are there?</li>
 <li>How many variables (columns) are there?</li>
@@ -461,9 +471,18 @@ brodhead &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </div>
 </div>
 
-<h4>Footer</h4>
+&nbsp;
 
-Shareable:  CC: NC-By
+<hr>
+
+<span class="cc">
+<!-- Key: a: SA, b: BY, c: CC Circle, d: ND, n: NC, m: Sampling, s: Share, r: Remix, C: CC Full Logo -->
+C bn
+</span>
+
+<p>
+Shareable via Creative Commons:  CC <a href="https://creativecommons.org/licenses/by-nc/4.0/">By-NC</a>
+</p>
 
 
 </div>
