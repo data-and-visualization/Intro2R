@@ -359,17 +359,6 @@ div.tocify {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 <div id="arrange" class="section level2">
 <h2>Arrange</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># There is some crazy data conversion problem with the cars dataFrame.  But since I only did that to show people how to load data  (see data_management.Rmd,)  I&#39;m transforming &#39;cars&#39; in a more robust fashion with `rownames_to_column`</span>
-<span class="co">#cars &lt;- rownames_to_column(mtcars, &quot;makeModel&quot;)</span>
-
-<span class="co">#makeModel_temp &lt;- cars$makeModel</span>
-
-<span class="co">#cars$makeModel &lt;- NULL</span>
-
-<span class="co">#cars$makeModel &lt;- makeModel_temp</span>
-<span class="kw">library</span>(datasets)
-
-cars &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">rownames_to_column</span>(mtcars, <span class="dt">var =</span> <span class="st">&quot;makeModel&quot;</span>))</code></pre></div>
 <p><strong>Arrange</strong> to sort rows (observations) by column headers (variables)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">arrange</span>(cyl, <span class="kw">desc</span>(mpg), <span class="kw">desc</span>(hp))</code></pre></div>
