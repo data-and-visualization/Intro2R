@@ -9,12 +9,16 @@ Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together
 
 &nbsp; 
 
-Load the library:  
+Load the libraries:  
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(datasets)
 ```
+
+&nbsp; 
+
+> Note.  You must install a library-package before you load a library-package.  The above code chunk used the `library()` function to load the "*tidyverse*", and "*datasets*" packages.  You can install packages from the **Tools** menubar in the RStudio IDE.
 
 ## Data Set
 
