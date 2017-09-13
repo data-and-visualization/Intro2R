@@ -1,4 +1,4 @@
-name: "Git-RStudio"
+name: "Introduction to R"
 output_dir: docs
 exclude: ["README.md", "license.md", "intro2R.Rmd", "*.html"]
 navbar:

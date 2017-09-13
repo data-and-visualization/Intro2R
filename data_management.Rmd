@@ -62,7 +62,7 @@ View(cars)
 
 ## Modern Data Frames: Tibbles
 
-A tible (tbl) is a "Table as data frame", a modern tidyverse table.
+A tibble (tbl) is a "Table as data frame", a modern tidyverse table.
 
 ```{r Table-dataframe}
 cars 
