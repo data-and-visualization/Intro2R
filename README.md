@@ -7,8 +7,5 @@ This repository contains supporting datasets and files for our **Intro to R** wo
 
 - slides and data are in the respective directories in this Repo
 
-- Guide can be seen at [RPubs  (htt://v.gd/duker)](http://rpubs.com/libjohn/intro2r-dvs) or downloaded via this Repo.
+- our *guide* can be found at our [Rfun site](https://rfun.netlify.com/intro2r/).
 
-## Project Update:
-* Now using library(tidyverse) and ignoring base-r
-* Now using library(ggvis) instead of library(ggplot2) -- because of the magrittr consistency
