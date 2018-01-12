@@ -17,14 +17,19 @@ library(ggvis)
 ```
 
 
+```{r not_jabba}
+not_jabba <- starwars %>% 
+  filter(!is.na(mass),
+         !is.na(height),
+         mass < 400)
+```
+
+
 ## Scatter Plot
 Linear model and 95% confidence interval
 
 ```{r ggvis-scatter}
-starwars %>% 
-  filter(!is.na(mass),
-         !is.na(height),
-         mass < 400) %>% 
+not_jabba %>% 
   ggvis(~mass, ~height) %>% 
   layer_points() %>% 
   layer_model_predictions(model = "lm", se = TRUE)
@@ -35,19 +40,46 @@ starwars %>%
 ## Bar Graph
 
 ```{r ggvis_prepare_bargraph}
-starwars_species <- starwars %>% 
+
+starwars_species_as_fctr  <-  starwars %>% 
+  mutate(species = parse_factor(species, species))
+```
+
+
+
+starwars_levels <- starwars %>% 
   filter(!is.na(species)) %>% 
   group_by(species) %>% 
   count(species) %>% 
   arrange(-n) %>% 
-  filter(n > 1) 
+  filter(n > 1) %>% 
+  .[,1] %>% 
+  ungroup() %>% 
+  as_vector()
 
-species_levels <- starwars_species$species
-```
+starwars_levels <- parse_factor(starwars_levels, starwars_levels)
+
+class(starwars_levels)
+glimpse(starwars_levels)
+starwars_levels
+
+
+starwars2  <-  starwars %>% 
+  mutate(species = parse_factor(species, species))
+
+glimpse(starwars2)
+glimpse(starwars)
+
+
 
 ```{r ggvis_bargraph}
-starwars %>% 
+fooo %>% 
   mutate(species = parse_factor(species, species_levels)) %>% 
+  
+  
+  
+
+starwars_species_as_fctr %>%   
   ggvis(~species) %>% 
   layer_bars()
 ```
