@@ -369,7 +369,7 @@ div.tocify {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(ggvis)
 <span class="co">#library(datasets)</span>
-<span class="kw">library</span>(forcats)</code></pre></div>
+<span class="co">#library(forcats)</span></code></pre></div>
 <div id="scatter-plot" class="section level2">
 <h2>Scatter Plot</h2>
 <p>Linear model and 95% confidence interval</p>
@@ -613,7 +613,7 @@ ggvis.getPlot("plot_id346058993").parseSpec(plot_id346058993_spec);
 <span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">count</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>n) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)
+<span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) 
 
 species_levels &lt;-<span class="st"> </span>starwars_species<span class="op">$</span>species</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
