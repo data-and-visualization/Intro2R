@@ -3,7 +3,7 @@ title: "Data Wrangling"
 output: html_document
 ---
 
-**dplyr** is a widely adopted r package, part of tidyverse, which uses **five English verbs** to reshape data
+**dplyr** is a widely adopted r package, part of tidyverse, which uses **English verbs** to reshape data
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -12,28 +12,23 @@ library(tidyverse)
 ## Arrange
 
 
-```{r transform-cars, message=FALSE, warning=FALSE, include=FALSE}
-# There is some crazy data conversion problem with the cars dataFrame.  But since I only did that to show people how to load data  (see data_management.Rmd,)  I'm transforming 'cars' in a more robust fashion with `rownames_to_column`
-#cars <- rownames_to_column(mtcars, "makeModel")
+**Arrange** to sort rows (observations) by column headers (variables)
 
-#makeModel_temp <- cars$makeModel
+```{r makesmall_sw_dataframe, message=FALSE, warning=FALSE, include=FALSE}
 
-#cars$makeModel <- NULL
+small_sw <- starwars %>% 
+  select(species, mass, homeworld, name)
+```
 
-#cars$makeModel <- makeModel_temp
-library(datasets)
-
-cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
-
-  
+```{r}
+small_sw
 ```
 
 
-**Arrange** to sort rows (observations) by column headers (variables)
 
 ```{r arrange, message=FALSE, warning=FALSE}
-cars %>% 
-  arrange(cyl, desc(mpg), desc(hp))
+small_sw %>% 
+  arrange(species, desc(mass), homeworld)
 ```
 
 ## Select
@@ -41,9 +36,9 @@ cars %>%
 **Select** to choose columns (variables)
 
 ```{r select}
-cars %>% 
-    arrange(cyl, desc(mpg), desc(hp)) %>% 
-    select(makeModel, cyl, mpg, hp)
+starwars %>% 
+  arrange(species, desc(mass), homeworld) %>% 
+  select(species, mass, homeworld, name:starships)
 ```
 
 
@@ -52,10 +47,11 @@ cars %>%
 **Filter** to select rows (observations)
 
 ```{r filter}
-sixcyls <- cars %>% 
-  filter(cyl == 6)
+starwars_32_mass <- starwars %>% 
+  filter(mass == 80)
 
-sixcyls    # display filtered data frame
+starwars_32_mass    # display filtered data frame
+
 ```
 
 ## Mutate
@@ -63,9 +59,9 @@ sixcyls    # display filtered data frame
 **Mutate** to create new variables (columns) 
 
 ```{r mutate}
-sixcyls %>% 
-  mutate(dispWt = disp / wt) %>% 
-  select(makeModel, cyl, mpg, hp, dispWt)
+starwars_32_mass %>% 
+  mutate(BMI = height / mass) %>% 
+  select(name, BMI, height, mass, hair_color, 1:13)
 ```
 
 ## Count
@@ -73,19 +69,25 @@ sixcyls %>%
 **Count** to summarize observations (rows)
 
 ```{r count}
-sixcyls %>% 
-  count(hp)
+starwars %>% 
+  count(mass)
 ```
-
-Note:  `count()` is not part of the five dplyr verbs.  It's often used with `summarize` and included for it's the brevity of functionality.  The example below will demonstrate the flexibility of the `summarize()` function which is a dplyr verb.
 
 ## Summarize
 Summarize to collapse values into a summary
 
 ```{r}
-sixcyls %>% 
-  group_by(hp) %>% 
-  summarize(Count = n(), mean_wt = mean(wt), min_wt = min(wt), max_wt = max(wt))
+starwars %>% 
+  group_by(species) %>% 
+  summarize(Count = n(), 
+            mean_ht = mean(height), 
+            min_ht = min(height), 
+            max_ht = max(height)) %>% 
+  arrange(desc(Count))
+```
+
+```{r include=FALSE}
+ungroup(starwars)
 ```
 
 
@@ -94,10 +96,12 @@ sixcyls %>%
 We can pipe commands together.  Think of a pipe (i.e. `%>%`) as a conjunction.  Any time you see a pipe, think "and then."  You can insert a pipe with 'Ctrl+Shift+M' (Help > Keyboard Shortcts)
 
 ```{r alltogether}
-
-cars %>% 
-  filter(cyl >= 4, cyl <= 6) %>% 
-  select(makeModel, mpg:wt) %>%
-  mutate(dispWt = disp / wt) %>% 
-  arrange(desc(mpg), wt)
+starwars %>% 
+  group_by(species) %>% 
+  summarize(Count = n(), 
+            mean_ht = mean(height), 
+            min_ht = min(height), 
+            max_ht = max(height)) %>% 
+  arrange(desc(Count)) %>% 
+  filter(!is.na(mean_ht), Count > 1)
 ```

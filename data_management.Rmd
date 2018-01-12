@@ -32,6 +32,8 @@ See Menubar `File > Import Dataset`
 
 <figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure><br>
 
+Using the Import wizard, you can generate (and excute) the code necessary to read in the `cars.csv` file.
+
 ```{r load-data, message=FALSE, warning=FALSE}
 # readr::read_csv
 # 'read_csv()' is part of the tidyverse 'readr' package.  'read_csv()' helpfully overrides the "base R" default readr package, which converts characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
@@ -39,16 +41,14 @@ See Menubar `File > Import Dataset`
 cars <- read_csv("data/cars.csv")
 ```
 
-Above shows the standard way to read in data.  But now that you've learned that, run the command below -- a more syntactically useful tidyverse approach to creating the Tibble (data frame) we need for this whole introductory learning series.
+### Access onboard data
 
-```{r load-data-2, message=FALSE, warning=FALSE}
-cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
-```
+Now that you know how to load data from the file system, let's use some more interesting data.  The `dplyr` package has an onboard Star Wars dataset.  Let's use that.  We'll discus the `dplyr` package in the Data Wrangling module, next.
 
-## View your data in a grid
+## View your data in a grid.
 
 ```{r eval=FALSE, include=FALSE}
-View(cars)
+View(starwars)
 # Displays as a tab in the source-pane quadrant
 # Does not dipsplay in an R Notebooks
 ```
@@ -65,7 +65,8 @@ View(cars)
 A tibble (tbl) is a "Table as data frame", a modern tidyverse table.
 
 ```{r Table-dataframe}
-cars 
+class(starwars) 
+starwars
 ```
 
 &nbsp;
@@ -85,7 +86,7 @@ cars
 `class()` identifies the class of an object revealing the data structure or the data type.
 
 ```{r}
-class(cars)
+class(starwars)
 ```
 
 ### Glimpse into a data frame
@@ -93,7 +94,7 @@ class(cars)
 `glimpse()` reveals the structure of an object
 
 ```{r}
-glimpse(cars)
+glimpse(starwars)
 ```
 
 &nbsp;
@@ -114,10 +115,9 @@ glimpse(cars)
 ### Class
 
 ```{r}
-class(cars$makeModel)
-class(cars$mpg)
-
-
+class(starwars$name)
+class(starwars$height)
+class(starwars$mass)
 ```
 
 
@@ -126,7 +126,7 @@ class(cars$mpg)
 `tbl_vars` lists table variables (column headers) as a vector
 
 ```{r variables}
-tbl_vars(cars)
+tbl_vars(starwars)
 ```
 
 &nbsp;
@@ -136,6 +136,6 @@ tbl_vars(cars)
 `str()` identifies the data structure:  data frames, matrices, lists, etc.
 
 ```{r}
-str(cars)
+str(starwars)
 ```
 

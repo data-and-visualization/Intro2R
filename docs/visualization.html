@@ -368,18 +368,19 @@ div.tocify {
 <p>For this introductory section on visualization we use the <code>ggvis</code> package because it works seamlessly with pipes (i.e. <code>%&gt;%</code>). You can do a lot with <a href="http://ggvis.rstudio.com/">ggvis</a>. You can do even more with <a href="http://ggplot2.tidyverse.org/">ggplot2</a>. We offer a separate workshop on ggplot2.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(ggvis)
-<span class="kw">library</span>(datasets)
-<span class="kw">library</span>(leaflet)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">rownames_to_column</span>(mtcars, <span class="dt">var =</span> <span class="st">&quot;makeModel&quot;</span>))
-starbucks &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://github.com/data-and-visualization/Intro2R/raw/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv&quot;</span>)</code></pre></div>
+<span class="co">#library(datasets)</span>
+<span class="kw">library</span>(forcats)</code></pre></div>
 <div id="scatter-plot" class="section level2">
 <h2>Scatter Plot</h2>
 <p>Linear model and 95% confidence interval</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(mass),
+         <span class="op">!</span><span class="kw">is.na</span>(height),
+         mass <span class="op">&lt;</span><span class="st"> </span><span class="dv">400</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>mass, <span class="op">~</span>height) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## Guessing formula = mpg ~ wt</code></pre>
+<span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Guessing formula = height ~ mass</code></pre>
 <p><div id="plot_id346058993-container" class="ggvis-output-container">
 <div id="plot_id346058993" class="ggvis-output"></div>
 <div class="plot-gear-icon">
@@ -407,11 +408,11 @@ var plot_id346058993_spec = {
       "format": {
         "type": "csv",
         "parse": {
-          "wt": "number",
-          "mpg": "number"
+          "mass": "number",
+          "height": "number"
         }
       },
-      "values": "\"wt\",\"mpg\"\n2.62,21\n2.875,21\n2.32,22.8\n3.215,21.4\n3.44,18.7\n3.46,18.1\n3.57,14.3\n3.19,24.4\n3.15,22.8\n3.44,19.2\n3.44,17.8\n4.07,16.4\n3.73,17.3\n3.78,15.2\n5.25,10.4\n5.424,10.4\n5.345,14.7\n2.2,32.4\n1.615,30.4\n1.835,33.9\n2.465,21.5\n3.52,15.5\n3.435,15.2\n3.84,13.3\n3.845,19.2\n1.935,27.3\n2.14,26\n1.513,30.4\n3.17,15.8\n2.77,19.7\n3.57,15\n2.78,21.4"
+      "values": "\"mass\",\"height\"\n77,172\n75,167\n32,96\n136,202\n49,150\n120,178\n75,165\n32,97\n84,183\n77,182\n84,188\n112,228\n80,180\n74,173\n77,170\n110,180\n17,66\n75,170\n78.2,183\n140,200\n113,190\n79,177\n79,175\n83,180\n20,88\n68,160\n89,193\n90,191\n66,196\n82,224\n40,112\n80,175\n55,178\n45,94\n65,163\n84,188\n82,198\n87,196\n50,184\n80,188\n85,185\n80,183\n56.2,170\n50,166\n80,193\n79,183\n55,168\n102,198\n88,229\n15,79\n48,193\n57,178\n159,216\n136,234\n79,188\n48,178\n80,206\n45,165"
     },
     {
       "name": ".0/model_prediction1",
@@ -424,7 +425,7 @@ var plot_id346058993_spec = {
           "resp_": "number"
         }
       },
-      "values": "\"resp_upr_\",\"pred_\",\"resp_lwr_\",\"resp_\"\n31.4341217313206,1.513,26.9637596243046,29.1989406778126\n31.1204993874088,1.56250632911392,26.748211630978,28.9343555091934\n30.8072470380303,1.61201265822785,26.532293643118,28.6697703405742\n30.4943905399572,1.66151898734177,26.3159798039527,28.4051851719549\n30.1819579750846,1.7110253164557,26.0992420315869,28.1406000033357\n29.8699798618842,1.76053164556962,25.8820498075489,27.8760148347165\n29.5584893857579,1.81003797468354,25.6643699464367,27.6114296660973\n29.2475226490581,1.85954430379747,25.4461663458981,27.3468444974781\n28.9371189411946,1.90905063291139,25.2273997165231,27.0822593288588\n28.6273210287383,1.95855696202532,25.0080272917409,26.8176741602396\n28.3181754647066,2.00806329113924,24.7880025185342,26.5530889916204\n28.0097329152165,2.05756962025316,24.5672747307859,26.2885038230012\n27.7020485003464,2.10707594936709,24.3457888084175,26.023918654382\n27.3951821442752,2.15658227848101,24.1234848272503,25.7593334857627\n27.0891989274822,2.20608860759494,23.9002977068049,25.4947483171435\n26.7841694309033,2.25559493670886,23.6761568661453,25.2301631485243\n26.4801700583702,2.30510126582278,23.4509859014399,24.9655779799051\n26.1772833193625,2.35460759493671,23.2247023032092,24.7009928112859\n25.8755980490886,2.40411392405063,22.9972172362447,24.4364076426666\n25.5752095372801,2.45362025316456,22.7684354108148,24.1718224740474\n25.276219531088,2.50312658227848,22.5382550797684,23.9072373054282\n24.9787360715631,2.55263291139241,22.3065682020549,23.642652136809\n24.6828731181045,2.60213924050633,22.073260818275,23.3780669681898\n24.3887499120139,2.65164556962025,21.8382136871272,23.1134817995705\n24.096490030255,2.70115189873418,21.6013032316477,22.8488966309513\n23.8062200853351,2.7506582278481,21.3624028393291,22.5843114623321\n23.5180680386105,2.80016455696203,21.1213845488153,22.3197262937129\n23.2321611137817,2.84967088607595,20.8781211364057,22.0551411250937\n22.9486233256676,2.89917721518987,20.6324885872813,21.7905559564744\n22.6675726760022,2.9486835443038,20.3843688997083,21.5259707878552\n22.3891181105935,2.99818987341772,20.1336531278785,21.261385619236\n22.1133563760938,3.04769620253165,19.8802445251398,20.9968004506168\n21.8403689531932,3.09720253164557,19.624061610802,20.7322152819976\n21.5702192684414,3.14670886075949,19.3650409583153,20.4676301133783\n21.3029503917649,3.19621518987342,19.1031394977534,20.2030449447591\n21.0385834062175,3.24572151898734,18.8383361460623,19.9384597761399\n20.7771165901197,3.29522784810127,18.5706326249216,19.6738746075207\n20.5185254843377,3.34473417721519,18.3000533934652,19.4092894389015\n20.2627638386563,3.39424050632911,18.0266447019082,19.1447042702822\n20.0097653533643,3.44374683544304,17.7504728499618,18.880119101663\n19.7594460674074,3.49325316455696,17.4716217986802,18.6155339330438\n19.5117072017912,3.54275949367089,17.190190327058,18.3509487644246\n19.266438250352,3.59226582278481,16.9062889412588,18.0863635958054\n19.023520118358,3.64177215189873,16.6200367360143,17.8217784271861\n18.7828281372767,3.69127848101266,16.3315583798572,17.5571932585669\n18.5442348238948,3.74078481012658,16.0409813560006,17.2926080899477\n18.307612296075,3.79029113924051,15.748433546582,17.0280229213285\n18.0728342993708,3.83979746835443,15.4540412060478,16.7634377527093\n17.8397778342311,3.88930379746835,15.157927333949,16.49885258409\n17.6083244005099,3.93881012658228,14.8602104304317,16.2342674154708\n17.3783608941716,3.9883164556962,14.5610035995316,15.9696822468516\n17.1497802013801,4.03782278481013,14.2604139550846,15.7050970782324\n16.9224815391307,4.08732911392405,13.9585422800956,15.4405119096132\n16.6963705909696,4.13683544303798,13.6554828910183,15.1759267409939\n16.4713594827389,4.1863417721519,13.3513236620105,14.9113415723747\n16.2473666380091,4.23584810126582,13.0461461695019,14.6467564037555\n16.0243165469005,4.28535443037975,12.740025923372,14.3821712351363\n15.8021394760335,4.33486075949367,12.4330326570007,14.1175860665171\n15.5807711417929,4.3843670886076,12.1252306540028,13.8530008978978\n15.3601523641871,4.43387341772152,11.8166790943701,13.5884157292786\n15.1402287143902,4.48337974683544,11.5074324069286,13.3238305606594\n14.9209501655981,4.53288607594937,11.1975406184823,13.0592453920402\n14.7022707540356,4.58239240506329,10.8870496928064,12.794660223421\n14.4841482547477,4.63189873417722,10.5760018548558,12.5300750548017\n14.266543875108,4.68140506329114,10.2644358972571,12.2654898861825\n14.0494219676868,4.73091139240506,9.95238746743981,12.0009047175633\n13.8327497631713,4.78041772151899,9.6398893347169,11.7363195489441\n13.6164971233358,4.82992405063291,9.32697163731397,11.4717343803249\n13.400636313583,4.87943037974684,9.01366210982825,11.2071492117056\n13.185141794249,4.92893670886076,8.69998629192387,10.9425640430864\n12.96999002966,4.97844303797468,8.38596771927446,10.6779788744672\n12.7551593138153,5.02794936708861,8.07162809788066,10.413393705848\n12.5406296115153,5.07745569620253,7.75698746294225,10.1488085372288\n12.3263824137488,5.12696202531646,7.44206432347029,9.88422336860955\n12.1124006061819,5.17646835443038,7.1268757937988,9.61963819999033\n11.8986683496337,5.2259746835443,6.81143771310854,9.35505303137111\n11.685170971489,5.27548101265823,6.49576475401476,9.09046786275189\n11.4718948670624,5.32498734177215,6.17987052120298,8.82588269413267\n11.2588274100015,5.37449367088608,5.86376764102542,8.56129752551345\n11.0459568708893,5.424,5.5474678428992,8.29671235689423"
+      "values": "\"resp_upr_\",\"pred_\",\"resp_lwr_\",\"resp_\"\n131.785894190631,15,103.220509412923,117.503201801777\n133.137293660856,16.8227848101266,105.269193806441,119.203243733648\n134.490806998612,18.6455696202532,107.315764332428,120.90328566552\n135.846600141765,20.4683544303797,109.360055053018,122.603327597392\n137.20485558692,22.2911392405063,111.401883471607,124.303369529263\n138.565774312576,24.1139240506329,113.441048609693,126.003411461135\n139.929577939676,25.9367088607595,115.477328846336,127.703453393006\n141.296511155781,27.7594936708861,117.510479493975,129.403495324878\n142.66684442994,29.5822784810127,119.540230083559,131.103537256749\n144.040877045002,31.4050632911392,121.56628133224,132.803579188621\n145.418940472143,33.2278481012658,123.588301768841,134.503621120492\n146.801402107844,35.0506329113924,125.605923996884,136.203663052364\n148.18866938532,36.873417721519,127.618740583151,137.903704984235\n149.581194258947,38.6962025316456,129.626299573267,139.603746916107\n150.97947803949,40.5189873417722,131.628099656467,141.303788847978\n152.384076527502,42.3417721518987,133.623585032198,143.00383077985\n153.795605348902,44.1645569620253,135.612140074541,144.703872711721\n155.2147453371,45.9873417721519,137.593083950086,146.403914643593\n156.642247726352,47.8101265822785,139.565665424577,148.103956575465\n158.07893881824,49.6329113924051,141.529058196432,149.803998507336\n159.525723655637,51.4556962025316,143.482357222778,151.504040439208\n160.983588088315,53.2784810126582,145.424576653843,153.204082371079\n162.453598449425,55.1012658227848,147.354650156477,154.904124302951\n163.936897900176,56.9240506329114,149.271434569469,156.604166234822\n165.434698371995,58.746835443038,151.173717961392,158.304208166694\n166.948266988215,60.5696202531646,153.060233208915,160.004250098565\n168.47890594295,62.3924050632911,154.929678117924,161.704292030437\n170.027925123265,64.2151898734177,156.780742801352,163.404333962308\n171.596607342258,66.0379746835443,158.612144446101,165.10437589418\n173.186166926992,67.8607594936709,160.422668725111,166.804417826051\n174.797703524322,69.6835443037975,162.211215991524,168.504459757923\n176.432154194816,71.506329113924,163.976849184773,170.204501689794\n178.090247902289,73.3291139240506,165.718839341043,171.904543621666\n179.772467059804,75.1518987341772,167.436704047271,173.604585553538\n181.479020589788,76.9746835443038,169.13023438103,175.304627485409\n183.209831884411,78.7974683544304,170.799506950151,177.004669417281\n184.964543246542,80.620253164557,172.444879451762,178.704711349152\n186.742536223639,82.4430379746835,174.066970338408,180.404753281024\n188.542965214988,84.2658227848101,175.666625210802,182.104795212895\n190.364800287043,86.0886075949367,177.24487400249,183.804837144767\n192.206874524579,87.9113924050633,178.802883628697,185.504879076638\n194.067931473637,89.7341772151899,180.341910543383,187.20492100851\n195.946669083688,91.5569620253165,181.863256797075,188.904962940381\n197.84177772187,93.379746835443,183.368232022636,190.605004872253\n199.751971018136,95.2025316455696,184.858122590112,192.305046804124\n201.676009301714,97.0253164556962,186.334168170278,194.005088735996\n203.612716108815,98.8481012658228,187.79754522692,195.705130667867\n205.560988671123,100.670886075949,189.249356528355,197.405172599739\n207.519803480491,102.493670886076,190.69062558273,199.10521453161\n209.48821803607,104.316455696203,192.122294890894,200.805256463482\n211.465369782762,106.139240506329,193.545227007945,202.505298395354\n213.450473099009,107.962025316456,194.960207555441,204.205340327225\n215.442815025433,109.784810126582,196.36794949276,205.905382259097\n217.441750267349,111.607594936709,197.769098114587,207.605424190968\n219.4466958655,113.430379746835,199.16423638018,209.30546612284\n221.457125815133,115.253164556962,200.55389029429,211.005508054711\n223.472565823412,117.075949367089,201.938534149754,212.705549986583\n225.49258832664,118.898734177215,203.318595510269,214.405591918454\n227.516807838296,120.721518987342,204.694459862355,216.105633850326\n229.544876662853,122.544303797468,206.066474901542,217.805675782197\n231.576480985422,124.367088607595,207.434954442716,219.505717714069\n233.611337330745,126.189873417722,208.800181961136,221.20575964594\n235.649189374565,128.012658227848,210.162413781059,222.905801577812\n237.689805084343,129.835443037975,211.521881935024,224.605843509683\n239.732974163237,131.658227848101,212.878796719873,226.305885441555\n241.778505770252,133.481012658228,214.233348976601,228.005927373427\n243.826226489837,135.303797468354,215.58571212076,229.705969305298\n245.875978525396,137.126582278481,216.936043948943,231.40601123717\n247.927618092867,138.949367088608,218.284488245215,233.106053169041\n249.981013992428,140.772151898734,219.631176209398,234.806095100913\n252.03604633841,142.594936708861,220.976227727159,236.506137032784\n254.092605429468,144.417721518987,222.319752499844,238.206178964656\n256.150590742933,146.240506329114,223.661851050121,239.906220896527\n258.209910039051,148.063291139241,225.002615617747,241.606262828399\n260.270478562397,149.886075949367,226.342130958143,243.30630476027\n262.332218329257,151.708860759494,227.680475055027,245.006346692142\n264.395057491026,153.53164556962,229.017719757001,246.706388624013\n266.458929764911,155.354430379747,230.353931346859,248.406430555885\n268.523773924204,157.177215189873,231.689171051309,250.106472487756\n270.589533341358,159,233.023495497898,251.806514419628"
     },
     {
       "name": "scale/x",
@@ -434,7 +435,7 @@ var plot_id346058993_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n1.31745\n5.61955"
+      "values": "\"domain\"\n7.8\n166.2"
     },
     {
       "name": "scale/y",
@@ -444,7 +445,7 @@ var plot_id346058993_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n4.12984123504415\n35.317626607855"
+      "values": "\"domain\"\n55.7705233329321\n280.819010008426"
     }
   ],
   "scales": [
@@ -484,11 +485,11 @@ var plot_id346058993_spec = {
           },
           "x": {
             "scale": "x",
-            "field": "data.wt"
+            "field": "data.mass"
           },
           "y": {
             "scale": "y",
-            "field": "data.mpg"
+            "field": "data.height"
           }
         },
         "ggvis": {
@@ -578,7 +579,7 @@ var plot_id346058993_spec = {
       "orient": "bottom",
       "layer": "back",
       "grid": true,
-      "title": "wt"
+      "title": "mass"
     },
     {
       "type": "y",
@@ -586,7 +587,7 @@ var plot_id346058993_spec = {
       "orient": "left",
       "layer": "back",
       "grid": true,
-      "title": "mpg"
+      "title": "height"
     }
   ],
   "padding": null,
@@ -603,14 +604,26 @@ var plot_id346058993_spec = {
   "handlers": null
 };
 ggvis.getPlot("plot_id346058993").parseSpec(plot_id346058993_spec);
-</script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a></p>
+</script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a> | <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">line graphs</a></p>
 </div>
 <div id="bar-graph" class="section level2">
 <h2>Bar Graph</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cyl =</span> <span class="kw">factor</span>(cyl, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;four&quot;</span>,<span class="st">&quot;six&quot;</span>,<span class="st">&quot;eight&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>cyl) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(species)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">count</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>n) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)
+
+species_levels &lt;-<span class="st"> </span>starwars_species<span class="op">$</span>species</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">parse_factor</span>(species, species_levels)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>species) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_bars</span>()</code></pre></div>
+<pre><code>## Warning: 29 parsing failures.
+## row # A tibble: 5 x 4 col     row   col expected           actual         expected   &lt;int&gt; &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;          actual 1    15    NA value in level set Rodian         row 2    16    NA value in level set Hutt           col 3    19    NA value in level set Yoda&#39;s species expected 4    23    NA value in level set Trandoshan     actual 5    26    NA value in level set Mon Calamari  
+## ... ................. ... ............................................... ........ ............................................... ...... ............................................... ... ............................................... ... ............................................... ........ ............................................... ...... ...............................................
+## See problems(...) for more details.</code></pre>
 <p><div id="plot_id881762301-container" class="ggvis-output-container">
 <div id="plot_id881762301" class="ggvis-output"></div>
 <div class="plot-gear-icon">
@@ -642,7 +655,7 @@ var plot_id881762301_spec = {
           "stack_upr_": "number"
         }
       },
-      "values": "\"x_\",\"stack_lwr_\",\"stack_upr_\"\n\"four\",0,11\n\"six\",0,7\n\"eight\",0,14"
+      "values": "\"x_\",\"stack_lwr_\",\"stack_upr_\"\n\"Human\",0,35\n\"Droid\",0,5\n\"Gungan\",0,3\n\"Kaminoan\",0,2\n\"Mirialan\",0,2\n\"Twi'lek\",0,2\n\"Wookiee\",0,2\n\"Zabrak\",0,2\n\"NA\",0,5"
     },
     {
       "name": "scale/x",
@@ -650,7 +663,7 @@ var plot_id881762301_spec = {
         "type": "csv",
         "parse": {}
       },
-      "values": "\"domain\"\n\"four\"\n\"six\"\n\"eight\""
+      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Gungan\"\n\"Kaminoan\"\n\"Mirialan\"\n\"Twi'lek\"\n\"Wookiee\"\n\"Zabrak\""
     },
     {
       "name": "scale/y",
@@ -660,7 +673,7 @@ var plot_id881762301_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n0\n14.7"
+      "values": "\"domain\"\n0\n36.75"
     }
   ],
   "scales": [
@@ -735,7 +748,7 @@ var plot_id881762301_spec = {
       "orient": "bottom",
       "layer": "back",
       "grid": true,
-      "title": "cyl"
+      "title": "species"
     },
     {
       "type": "y",
@@ -764,8 +777,8 @@ ggvis.getPlot("plot_id881762301").parseSpec(plot_id881762301_spec);
 </div>
 <div id="histogram" class="section level2">
 <h2>Histogram</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>birth_year) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_histograms</span>()</code></pre></div>
 <p><div id="plot_id667648330-container" class="ggvis-output-container">
 <div id="plot_id667648330" class="ggvis-output"></div>
@@ -800,7 +813,7 @@ var plot_id667648330_spec = {
           "stack_lwr_": "number"
         }
       },
-      "values": "\"xmin_\",\"xmax_\",\"stack_upr_\",\"stack_lwr_\"\n9.5,10.5,2,0\n10.5,11.5,0,0\n11.5,12.5,0,0\n12.5,13.5,1,0\n13.5,14.5,1,0\n14.5,15.5,5,0\n15.5,16.5,2,0\n16.5,17.5,1,0\n17.5,18.5,2,0\n18.5,19.5,3,0\n19.5,20.5,1,0\n20.5,21.5,5,0\n21.5,22.5,0,0\n22.5,23.5,2,0\n23.5,24.5,1,0\n24.5,25.5,0,0\n25.5,26.5,1,0\n26.5,27.5,1,0\n27.5,28.5,0,0\n28.5,29.5,0,0\n29.5,30.5,2,0\n30.5,31.5,0,0\n31.5,32.5,1,0\n32.5,33.5,0,0\n33.5,34.5,1,0"
+      "values": "\"xmin_\",\"xmax_\",\"stack_upr_\",\"stack_lwr_\"\n-25,25,7,0\n25,75,26,0\n75,125,7,0\n125,175,0,0\n175,225,1,0\n225,275,0,0\n275,325,0,0\n325,375,0,0\n375,425,0,0\n425,475,0,0\n475,525,0,0\n525,575,0,0\n575,625,1,0\n625,675,0,0\n675,725,0,0\n725,775,0,0\n775,825,0,0\n825,875,0,0\n875,925,1,0\nNA,NA,44,0"
     },
     {
       "name": "scale/x",
@@ -810,7 +823,7 @@ var plot_id667648330_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n8.25\n35.75"
+      "values": "\"domain\"\n-72.5\n972.5"
     },
     {
       "name": "scale/y",
@@ -820,7 +833,7 @@ var plot_id667648330_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n0\n5.25"
+      "values": "\"domain\"\n0\n46.2"
     }
   ],
   "scales": [
@@ -894,7 +907,7 @@ var plot_id667648330_spec = {
       "orient": "bottom",
       "layer": "back",
       "grid": true,
-      "title": "mpg"
+      "title": "birth_year"
     },
     {
       "type": "y",
@@ -921,14 +934,24 @@ var plot_id667648330_spec = {
 ggvis.getPlot("plot_id667648330").parseSpec(plot_id667648330_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#histograms">More information on ggvis histograms</a></p>
 </div>
-<div id="line-graph" class="section level2">
-<h2>Line graph</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(cyl) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">layer_lines</span>(<span class="dt">stroke =</span> <span class="op">~</span><span class="kw">factor</span>(cyl)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">layer_points</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg, stroke <span class="op">:</span><span class="er">=</span><span class="st"> &quot;black&quot;</span>, <span class="dt">fill =</span> <span class="op">~</span><span class="kw">factor</span>(cyl))</code></pre></div>
-<p><div id="plot_id188069802-container" class="ggvis-output-container">
+<div id="grouping-data-points" class="section level2">
+<h2>Grouping data points</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(mass),
+         <span class="op">!</span><span class="kw">is.na</span>(height),
+         mass <span class="op">&lt;</span><span class="st"> </span><span class="dv">400</span>,
+         height <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>,
+         species <span class="op">==</span><span class="st"> &quot;Human&quot;</span> <span class="op">|</span><span class="st"> </span>
+<span class="st">           </span>species <span class="op">==</span><span class="st"> &quot;Droid&quot;</span> <span class="op">|</span><span class="st"> </span>
+<span class="st">           </span>species <span class="op">==</span><span class="st"> &quot;Gungan&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="co">#mutate(species = parse_factor(species, species)) %&gt;% </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>height, <span class="op">~</span>mass) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="co">#layer_points(~mass, ~height,</span>
+<span class="st">  </span><span class="kw">layer_points</span>(<span class="op">~</span>height, <span class="op">~</span>mass, 
+               stroke <span class="op">:</span><span class="er">=</span><span class="st"> &quot;black&quot;</span>, 
+               <span class="dt">fill =</span> <span class="op">~</span>species)</code></pre></div>
+<div id="plot_id188069802-container" class="ggvis-output-container">
 <div id="plot_id188069802" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
@@ -955,12 +978,11 @@ var plot_id188069802_spec = {
       "format": {
         "type": "csv",
         "parse": {
-          "cyl": "number",
-          "wt": "number",
-          "mpg": "number"
+          "height": "number",
+          "mass": "number"
         }
       },
-      "values": "\"cyl\",\"factor(cyl)\",\"wt\",\"mpg\"\n4,\"4\",2.32,22.8\n4,\"4\",3.19,24.4\n4,\"4\",3.15,22.8\n4,\"4\",2.2,32.4\n4,\"4\",1.615,30.4\n4,\"4\",1.835,33.9\n4,\"4\",2.465,21.5\n4,\"4\",1.935,27.3\n4,\"4\",2.14,26\n4,\"4\",1.513,30.4\n4,\"4\",2.78,21.4\n6,\"6\",2.62,21\n6,\"6\",2.875,21\n6,\"6\",3.215,21.4\n6,\"6\",3.46,18.1\n6,\"6\",3.44,19.2\n6,\"6\",3.44,17.8\n6,\"6\",2.77,19.7\n8,\"8\",3.44,18.7\n8,\"8\",3.57,14.3\n8,\"8\",4.07,16.4\n8,\"8\",3.73,17.3\n8,\"8\",3.78,15.2\n8,\"8\",5.25,10.4\n8,\"8\",5.424,10.4\n8,\"8\",5.345,14.7\n8,\"8\",3.52,15.5\n8,\"8\",3.435,15.2\n8,\"8\",3.84,13.3\n8,\"8\",3.845,19.2\n8,\"8\",3.17,15.8\n8,\"8\",3.57,15"
+      "values": "\"species\",\"height\",\"mass\"\n\"Droid\",167,75\n\"Droid\",200,140\n\"Gungan\",196,66\n\"Gungan\",224,82\n\"Human\",172,77\n\"Human\",202,136\n\"Human\",150,49\n\"Human\",178,120\n\"Human\",165,75\n\"Human\",183,84\n\"Human\",182,77\n\"Human\",188,84\n\"Human\",180,80\n\"Human\",170,77\n\"Human\",180,110\n\"Human\",170,75\n\"Human\",183,78.2\n\"Human\",177,79\n\"Human\",175,79\n\"Human\",193,89\n\"Human\",188,84\n\"Human\",185,85\n\"Human\",193,80\n\"Human\",183,79\n\"Human\",188,79\n\"Human\",165,45"
     },
     {
       "name": ".0/group_by1",
@@ -969,31 +991,7 @@ var plot_id188069802_spec = {
         {
           "type": "treefacet",
           "keys": [
-            "data.cyl"
-          ]
-        }
-      ]
-    },
-    {
-      "name": ".0/group_by1/arrange2_flat",
-      "format": {
-        "type": "csv",
-        "parse": {
-          "cyl": "number",
-          "wt": "number",
-          "mpg": "number"
-        }
-      },
-      "values": "\"cyl\",\"wt\",\"mpg\",\"factor(cyl)\"\n4,1.513,30.4,\"4\"\n4,1.615,30.4,\"4\"\n4,1.835,33.9,\"4\"\n4,1.935,27.3,\"4\"\n4,2.14,26,\"4\"\n4,2.2,32.4,\"4\"\n4,2.32,22.8,\"4\"\n4,2.465,21.5,\"4\"\n4,2.78,21.4,\"4\"\n4,3.15,22.8,\"4\"\n4,3.19,24.4,\"4\"\n6,2.62,21,\"6\"\n6,2.77,19.7,\"6\"\n6,2.875,21,\"6\"\n6,3.215,21.4,\"6\"\n6,3.44,19.2,\"6\"\n6,3.44,17.8,\"6\"\n6,3.46,18.1,\"6\"\n8,3.17,15.8,\"8\"\n8,3.435,15.2,\"8\"\n8,3.44,18.7,\"8\"\n8,3.52,15.5,\"8\"\n8,3.57,14.3,\"8\"\n8,3.57,15,\"8\"\n8,3.73,17.3,\"8\"\n8,3.78,15.2,\"8\"\n8,3.84,13.3,\"8\"\n8,3.845,19.2,\"8\"\n8,4.07,16.4,\"8\"\n8,5.25,10.4,\"8\"\n8,5.345,14.7,\"8\"\n8,5.424,10.4,\"8\""
-    },
-    {
-      "name": ".0/group_by1/arrange2",
-      "source": ".0/group_by1/arrange2_flat",
-      "transform": [
-        {
-          "type": "treefacet",
-          "keys": [
-            "data.cyl"
+            "data.species"
           ]
         }
       ]
@@ -1004,15 +1002,7 @@ var plot_id188069802_spec = {
         "type": "csv",
         "parse": {}
       },
-      "values": "\"domain\"\n\"4\"\n\"6\"\n\"8\""
-    },
-    {
-      "name": "scale/stroke",
-      "format": {
-        "type": "csv",
-        "parse": {}
-      },
-      "values": "\"domain\"\n\"4\"\n\"6\"\n\"8\""
+      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Gungan\""
     },
     {
       "name": "scale/x",
@@ -1022,7 +1012,7 @@ var plot_id188069802_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n1.31745\n5.61955"
+      "values": "\"domain\"\n146.3\n227.7"
     },
     {
       "name": "scale/y",
@@ -1032,7 +1022,7 @@ var plot_id188069802_spec = {
           "domain": "number"
         }
       },
-      "values": "\"domain\"\n9.225\n35.075"
+      "values": "\"domain\"\n40.25\n144.75"
     }
   ],
   "scales": [
@@ -1041,17 +1031,6 @@ var plot_id188069802_spec = {
       "type": "ordinal",
       "domain": {
         "data": "scale/fill",
-        "field": "data.domain"
-      },
-      "points": true,
-      "sort": false,
-      "range": "category10"
-    },
-    {
-      "name": "stroke",
-      "type": "ordinal",
-      "domain": {
-        "data": "scale/stroke",
         "field": "data.domain"
       },
       "points": true,
@@ -1085,38 +1064,6 @@ var plot_id188069802_spec = {
     {
       "type": "group",
       "from": {
-        "data": ".0/group_by1/arrange2"
-      },
-      "marks": [
-        {
-          "type": "line",
-          "properties": {
-            "update": {
-              "x": {
-                "scale": "x",
-                "field": "data.wt"
-              },
-              "y": {
-                "scale": "y",
-                "field": "data.mpg"
-              },
-              "stroke": {
-                "scale": "stroke",
-                "field": "data.factor(cyl)"
-              }
-            },
-            "ggvis": {
-              "data": {
-                "value": ".0/group_by1/arrange2"
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "from": {
         "data": ".0/group_by1"
       },
       "marks": [
@@ -1129,18 +1076,18 @@ var plot_id188069802_spec = {
               },
               "fill": {
                 "scale": "fill",
-                "field": "data.factor(cyl)"
+                "field": "data.species"
               },
               "stroke": {
                 "value": "black"
               },
               "x": {
                 "scale": "x",
-                "field": "data.wt"
+                "field": "data.height"
               },
               "y": {
                 "scale": "y",
-                "field": "data.mpg"
+                "field": "data.mass"
               }
             },
             "ggvis": {
@@ -1157,12 +1104,7 @@ var plot_id188069802_spec = {
     {
       "orient": "right",
       "fill": "fill",
-      "title": "factor(cyl)"
-    },
-    {
-      "orient": "right",
-      "stroke": "stroke",
-      "title": "factor(cyl)"
+      "title": "species"
     }
   ],
   "axes": [
@@ -1172,7 +1114,7 @@ var plot_id188069802_spec = {
       "orient": "bottom",
       "layer": "back",
       "grid": true,
-      "title": "wt"
+      "title": "height"
     },
     {
       "type": "y",
@@ -1180,7 +1122,7 @@ var plot_id188069802_spec = {
       "orient": "left",
       "layer": "back",
       "grid": true,
-      "title": "mpg"
+      "title": "mass"
     }
   ],
   "padding": null,
@@ -1197,12 +1139,22 @@ var plot_id188069802_spec = {
   "handlers": null
 };
 ggvis.getPlot("plot_id188069802").parseSpec(plot_id188069802_spec);
-</script> <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">More information on line graphs</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
+</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(cyl) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>(<span class="op">~</span>wt, <span class="op">~</span>mpg, stroke <span class="op">:</span><span class="er">=</span><span class="st"> &quot;black&quot;</span>, <span class="dt">fill =</span> <span class="op">~</span><span class="kw">factor</span>(cyl), size <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="er">~</span>hp, opacity <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="fl">0.7</span>) </code></pre></div>
+<pre><code>## Guessing formula = mpg ~ wt</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): Unequal factor levels: coercing to character</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector</code></pre>
 <div id="plot_id752014474-container" class="ggvis-output-container">
 <div id="plot_id752014474" class="ggvis-output"></div>
 <div class="plot-gear-icon">
@@ -1505,10 +1457,19 @@ ggvis.getPlot("plot_id752014474").parseSpec(plot_id752014474_spec);
 </div>
 <div id="boxplot" class="section level2">
 <h2>BoxPlot</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span><span class="kw">factor</span>(cyl), <span class="op">~</span>mpg) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_boxplots</span>()</code></pre></div>
-<p><div id="plot_id493927222-container" class="ggvis-output-container">
+<pre><code>## Warning in bind_rows_(x, .id): Unequal factor levels: coercing to character</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector</code></pre>
+<div id="plot_id493927222-container" class="ggvis-output-container">
 <div id="plot_id493927222" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
@@ -1835,7 +1796,345 @@ var plot_id493927222_spec = {
   "handlers": null
 };
 ggvis.getPlot("plot_id493927222").parseSpec(plot_id493927222_spec);
-</script> <a href="http://ggvis.rstudio.com/cookbook.html">More information on box plots</a></p>
+</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(mass),
+         <span class="op">!</span><span class="kw">is.na</span>(height),
+         species <span class="op">==</span><span class="st"> &quot;Human&quot;</span> <span class="op">|</span><span class="st"> </span>
+<span class="st">           </span>species <span class="op">==</span><span class="st"> &quot;Droid&quot;</span> <span class="op">|</span><span class="st"> </span>
+<span class="st">           </span>species <span class="op">==</span><span class="st"> &quot;Gungan&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">parse_factor</span>(species, species)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span><span class="kw">parse_factor</span>(species, species), <span class="op">~</span>mass) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">layer_boxplots</span>()</code></pre></div>
+<div id="plot_id752538748-container" class="ggvis-output-container">
+<div id="plot_id752538748" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id752538748_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id752538748" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id752538748_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id752538748" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id752538748_download" class="ggvis-download" data-plot-id="plot_id752538748">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id752538748_spec = {
+  "data": [
+    {
+      "name": ".0/group_by1/boxplot2_flat",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "min_": "number",
+          "max_": "number",
+          "lower_": "number",
+          "upper_": "number",
+          "median_": "number"
+        }
+      },
+      "values": "\"min_\",\"max_\",\"parse_factor(species, species)\",\"lower_\",\"upper_\",\"median_\"\n32,140,\"Droid\",32,91.25,53.5\n66,82,\"Gungan\",70,78,74\n75,89,\"Human\",77,84,79"
+    },
+    {
+      "name": ".0/group_by1/boxplot2",
+      "source": ".0/group_by1/boxplot2_flat",
+      "transform": [
+        {
+          "type": "treefacet",
+          "keys": [
+            "data.parse_factor(species, species)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": ".0/group_by1/boxplot2/boxplot_outliers3_flat",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "value_": "number"
+        }
+      },
+      "values": "\"value_\",\"parse_factor(species, species)\"\n136,\"Human\"\n49,\"Human\"\n120,\"Human\"\n110,\"Human\"\n45,\"Human\""
+    },
+    {
+      "name": ".0/group_by1/boxplot2/boxplot_outliers3",
+      "source": ".0/group_by1/boxplot2/boxplot_outliers3_flat",
+      "transform": [
+        {
+          "type": "treefacet",
+          "keys": [
+            "data.parse_factor(species, species)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {}
+      },
+      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Gungan\""
+    },
+    {
+      "name": "scale/xcenter",
+      "format": {
+        "type": "csv",
+        "parse": {}
+      },
+      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Gungan\""
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n26.6\n145.4"
+    }
+  ],
+  "scales": [
+    {
+      "padding": 0.1,
+      "type": "ordinal",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "name": "x",
+      "points": false,
+      "sort": false,
+      "range": "width"
+    },
+    {
+      "points": true,
+      "padding": 1.1,
+      "name": "xcenter",
+      "type": "ordinal",
+      "domain": {
+        "data": "scale/xcenter",
+        "field": "data.domain"
+      },
+      "sort": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "group",
+      "from": {
+        "data": ".0/group_by1/boxplot2"
+      },
+      "marks": [
+        {
+          "type": "rect",
+          "properties": {
+            "update": {
+              "stroke": {
+                "value": "#000000"
+              },
+              "fill": {
+                "value": "white"
+              },
+              "y": {
+                "scale": "y",
+                "field": "data.min_"
+              },
+              "y2": {
+                "scale": "y",
+                "field": "data.max_"
+              },
+              "x": {
+                "scale": "xcenter",
+                "field": "data.parse_factor(species, species)"
+              },
+              "width": {
+                "value": 0.5
+              }
+            },
+            "ggvis": {
+              "data": {
+                "value": ".0/group_by1/boxplot2"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "from": {
+        "data": ".0/group_by1/boxplot2"
+      },
+      "marks": [
+        {
+          "type": "rect",
+          "properties": {
+            "update": {
+              "stroke": {
+                "value": "#000000"
+              },
+              "fill": {
+                "value": "white"
+              },
+              "x": {
+                "scale": "x",
+                "field": "data.parse_factor(species, species)"
+              },
+              "y": {
+                "scale": "y",
+                "field": "data.lower_"
+              },
+              "y2": {
+                "scale": "y",
+                "field": "data.upper_"
+              },
+              "width": {
+                "scale": "x",
+                "band": true
+              }
+            },
+            "ggvis": {
+              "data": {
+                "value": ".0/group_by1/boxplot2"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "from": {
+        "data": ".0/group_by1/boxplot2"
+      },
+      "marks": [
+        {
+          "type": "rect",
+          "properties": {
+            "update": {
+              "stroke": {
+                "value": "#000000"
+              },
+              "fill": {
+                "value": "white"
+              },
+              "x": {
+                "scale": "x",
+                "field": "data.parse_factor(species, species)"
+              },
+              "y": {
+                "scale": "y",
+                "field": "data.median_"
+              },
+              "width": {
+                "scale": "x",
+                "band": true
+              },
+              "height": {
+                "value": 1
+              }
+            },
+            "ggvis": {
+              "data": {
+                "value": ".0/group_by1/boxplot2"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "from": {
+        "data": ".0/group_by1/boxplot2/boxplot_outliers3"
+      },
+      "marks": [
+        {
+          "type": "symbol",
+          "properties": {
+            "update": {
+              "size": {
+                "value": 50
+              },
+              "fill": {
+                "value": "black"
+              },
+              "y": {
+                "scale": "y",
+                "field": "data.value_"
+              },
+              "x": {
+                "scale": "xcenter",
+                "field": "data.parse_factor(species, species)"
+              }
+            },
+            "ggvis": {
+              "data": {
+                "value": ".0/group_by1/boxplot2/boxplot_outliers3"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "layer": "back",
+      "grid": true,
+      "title": "parse_factor(species, species)"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "layer": "back",
+      "grid": true,
+      "title": "mass"
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id752538748").parseSpec(plot_id752538748_spec);
+</script>
+<p><a href="http://ggvis.rstudio.com/cookbook.html">More information on box plots</a></p>
 </div>
 
 &nbsp;

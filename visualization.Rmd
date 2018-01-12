@@ -12,59 +12,81 @@ For this introductory section on visualization we use the `ggvis` package becaus
 ```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggvis)
-library(datasets)
-library(leaflet)
-
+#library(datasets)
+#library(forcats)
 ```
-
-
-```{r loadData, message=FALSE, warning=FALSE}
-
-cars <- as_tibble(rownames_to_column(mtcars, var = "makeModel"))
-starbucks <- read_csv("https://github.com/data-and-visualization/Intro2R/raw/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv")
-```
-
 
 
 ## Scatter Plot
 Linear model and 95% confidence interval
+
 ```{r ggvis-scatter}
-cars %>% 
-  ggvis(~wt, ~mpg) %>% 
+starwars %>% 
+  filter(!is.na(mass),
+         !is.na(height),
+         mass < 400) %>% 
+  ggvis(~mass, ~height) %>% 
   layer_points() %>% 
-  layer_model_predictions(model = "lm", se=TRUE)
+  layer_model_predictions(model = "lm", se = TRUE)
+
 ```
-[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
+[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots) | [line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
 
 ## Bar Graph
-```{r ggvis-bargraph}
-cars %>% 
-  mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
-  ggvis(~cyl) %>% 
+
+```{r ggvis_prepare_bargraph}
+starwars_species <- starwars %>% 
+  filter(!is.na(species)) %>% 
+  group_by(species) %>% 
+  count(species) %>% 
+  arrange(-n) %>% 
+  filter(n > 1) 
+
+species_levels <- starwars_species$species
+```
+
+```{r ggvis_bargraph}
+starwars %>% 
+  mutate(species = parse_factor(species, species_levels)) %>% 
+  ggvis(~species) %>% 
   layer_bars()
 ```
 [More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
 
 ## Histogram
+
 ```{r ggvis-hist, message=FALSE}
-cars %>% 
-  ggvis(~mpg) %>% 
+starwars %>% 
+  ggvis(~birth_year) %>% 
   layer_histograms()
 ```
 [More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
 
-## Line graph
-```{r ggvis-line, warning=FALSE}
-cars %>% 
-  ggvis(~wt, ~mpg) %>% 
-  group_by(cyl) %>% 
-  layer_lines(stroke = ~factor(cyl)) %>% 
-  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl))
-```
-[More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
+## Grouping data points
 
-```{r ggvis-linesmooth, warning=FALSE, message=FALSE}
-cars %>% 
+```{r ggvis-line, warning=FALSE}
+starwars %>% 
+  filter(!is.na(mass),
+         !is.na(height),
+         mass < 400,
+         height > 100,
+         species == "Human" | 
+           species == "Droid" | 
+           species == "Gungan") %>% 
+  #mutate(species = parse_factor(species, species)) %>% 
+  ggvis(~height, ~mass) %>% 
+  group_by(species) %>% 
+  #layer_points(~mass, ~height,
+  layer_points(~height, ~mass, 
+               stroke := "black", 
+               fill = ~species)
+
+```
+
+
+
+```{r}
+mtcars %>% 
   ggvis(~wt, ~mpg) %>% 
   group_by(cyl) %>% 
   layer_model_predictions(model="lm", se = TRUE) %>% 
@@ -75,11 +97,26 @@ cars %>%
 
 ## BoxPlot
 
-```{r, message=FALSE, warning=FALSE}
-cars %>% 
+```{r}
+mtcars %>% 
   ggvis(~factor(cyl), ~mpg) %>% 
   layer_boxplots()
   
   
 ```
+
+```{r, message=FALSE, warning=FALSE}
+starwars %>% 
+  filter(!is.na(mass),
+         !is.na(height),
+         species == "Human" | 
+           species == "Droid" | 
+           species == "Gungan") %>% 
+  mutate(species = parse_factor(species, species)) %>% 
+  ggvis(~parse_factor(species, species), ~mass) %>% 
+  layer_boxplots()
+  
+```
+
+
 [More information on box plots](http://ggvis.rstudio.com/cookbook.html)
