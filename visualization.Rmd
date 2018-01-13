@@ -5,18 +5,18 @@ output: html_document
 #    css: duke.css
 ---
 
-When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
+When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.   
 
-For this introductory section on visualization we use the `ggvis` package because it works seamlessly with pipes (i.e. `%>%`).  You can do a lot with [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a separate workshop on ggplot2.
+For this introductory section on visualization we use the `ggvis` package because it works seamlessly with pipes (i.e. `%>%`).  You can do a lot with [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a [separate workshop on ggplot2](https://rfun.library.duke.edu/2017/09/26/visualization-in-r-using-ggplot2-workshop-fall-2017/).
 
 ```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggvis)
-#library(datasets)
-#library(forcats)
 ```
 
+## Wrangle Data
 
+Create a data frame without Jabba
 ```{r not_jabba}
 not_jabba <- starwars %>% 
   filter(!is.na(mass),
@@ -24,6 +24,33 @@ not_jabba <- starwars %>%
          mass < 400)
 ```
 
+Subset the Species list to six species.
+
+```{r ggvis_prepare_bargraph}
+
+starwars_species_small <- starwars %>% 
+  filter(!is.na(mass),
+         !is.na(height),
+         !is.na(birth_year),
+         !is.na(species),
+         mass < 400,
+         species == "Human" | 
+           species == "Droid" | 
+           species == "Gungan" |
+           species == "Mirialan" |
+           species == "Ewok" |
+           species == "Wookiee")
+
+levels <- starwars_species_small %>%
+  group_by(species) %>% 
+  count() %>% 
+  arrange(-n) #%>% 
+  #.[1]
+
+starwars_species_small_as_fctr  <-  starwars_species_small %>% 
+  mutate(species = parse_factor(species, levels$species))
+
+```
 
 ## Scatter Plot
 Linear model and 95% confidence interval
@@ -39,72 +66,10 @@ not_jabba %>%
 
 ## Bar Graph
 
-```{r ggvis_prepare_bargraph}
-
-# unique(starwars$species)
-
-levels <- starwars %>%
-  group_by(species) %>% 
-  count() %>% 
-  arrange(-n) %>% 
-  .[1]
-
-#glimpse(foo)
-
-#length(foo$species)
-
-starwars_species_as_fctr  <-  starwars %>% 
-  mutate(species = parse_factor(species, levels$species))
-
-
-glimpse(starwars_species_as_fctr)
-glimpse(starwars$species)
-
-
-starwars_species_as_fctr_foo  <-  starwars %>% 
-  mutate(species2 = parse_factor(species, species))
-
-starwars_species_as_fctr_foo %>% 
-  select(species, species2, name)
-
-levels(starwars_species_as_fctr$species)
-```
-
-
-
-starwars_levels <- starwars %>% 
-  filter(!is.na(species)) %>% 
-  group_by(species) %>% 
-  count(species) %>% 
-  arrange(-n) %>% 
-  filter(n > 1) %>% 
-  .[,1] %>% 
-  ungroup() %>% 
-  as_vector()
-
-starwars_levels <- parse_factor(starwars_levels, starwars_levels)
-
-class(starwars_levels)
-glimpse(starwars_levels)
-starwars_levels
-
-
-starwars2  <-  starwars %>% 
-  mutate(species = parse_factor(species, species))
-
-glimpse(starwars2)
-glimpse(starwars)
-
-
 
 ```{r ggvis_bargraph}
-fooo %>% 
-  mutate(species = parse_factor(species, species_levels)) %>% 
-  
-  
-  
 
-starwars_species_as_fctr %>%   
+starwars_species_small_as_fctr %>%   
   ggvis(~species) %>% 
   layer_bars()
 ```
@@ -121,58 +86,28 @@ starwars %>%
 
 ## Grouping data points
 
-```{r ggvis-line, warning=FALSE}
-starwars %>% 
-  filter(!is.na(mass),
-         !is.na(height),
-         mass < 400,
-         height > 100,
-         species == "Human" | 
-           species == "Droid" | 
-           species == "Gungan") %>% 
-  #mutate(species = parse_factor(species, species)) %>% 
+```{r}
+starwars_species_small_as_fctr %>% 
   ggvis(~height, ~mass) %>% 
   group_by(species) %>% 
-  #layer_points(~mass, ~height,
   layer_points(~height, ~mass, 
                stroke := "black", 
-               fill = ~species)
-
-```
-
-
-
-```{r}
-mtcars %>% 
-  ggvis(~wt, ~mpg) %>% 
-  group_by(cyl) %>% 
-  layer_model_predictions(model="lm", se = TRUE) %>% 
-  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
+               fill = ~species,
+               size := ~birth_year, 
+               opacity := 0.7)
 ```
 
 &nbsp;
 
 ## BoxPlot
 
-```{r}
-mtcars %>% 
-  ggvis(~factor(cyl), ~mpg) %>% 
-  layer_boxplots()
-  
-  
-```
-
 ```{r, message=FALSE, warning=FALSE}
-starwars %>% 
-  filter(!is.na(mass),
-         !is.na(height),
-         species == "Human" | 
-           species == "Droid" | 
-           species == "Gungan") %>% 
-  mutate(species = parse_factor(species, species)) %>% 
+starwars_species_small_as_fctr %>% 
+  filter(species != "Ewok" &
+           species != "Wookiee" &
+           species != "Gungan") %>% 
   ggvis(~parse_factor(species, species), ~mass) %>% 
   layer_boxplots()
-  
 ```
 
 

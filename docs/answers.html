@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2018-01-12" />
+<meta name="date" content="2018-01-13" />
 
 <title>Answers</title>
 
@@ -352,7 +352,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Answers</h1>
-<h4 class="date"><em>2018-01-12</em></h4>
+<h4 class="date"><em>2018-01-13</em></h4>
 
 </div>
 
@@ -364,17 +364,12 @@ div.tocify {
 <li>Using what we’ve you’ve seen in class, if <code>brodheadCenter.csv</code> is a csv file, how would you load the file into a new object called <code>brodhead</code>?</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## -- Attaching packages ------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.4     
-## v tibble  1.4.1          v dplyr   0.7.4     
-## v tidyr   0.7.2          v stringr 1.2.0     
-## v readr   1.1.1          v forcats 0.2.0</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.4.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## -- Conflicts ---------- tidyverse_conflicts() --
+<pre><code>## -- Attaching packages ------------------ tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 2.2.1     v purrr   0.2.4
+## v tibble  1.4.1     v dplyr   0.7.4
+## v tidyr   0.7.2     v stringr 1.2.0
+## v readr   1.1.1     v forcats 0.2.0</code></pre>
+<pre><code>## -- Conflicts --------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">brodhead &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;</span>)</code></pre></div>
