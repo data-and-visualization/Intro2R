@@ -7,5 +7,5 @@ This repository contains supporting datasets and files for our **Intro to R** wo
 
 - slides and data are in the respective directories in this Repo
 
-- our *guide* can be found at our [Rfun site](https://rfun.netlify.com/intro2r/).
+- our *guide* can be found at our [Rfun site](https://rfun.library.duke.edu/intro2r/).
 
