@@ -30,7 +30,7 @@ Linear model and 95% confidence interval
 
 ```{r ggvis-scatter}
 not_jabba %>% 
-  ggvis(~mass, ~height) %>% 
+  ggvis(~height, ~mass) %>% 
   layer_points() %>% 
   layer_model_predictions(model = "lm", se = TRUE)
 
@@ -41,8 +41,33 @@ not_jabba %>%
 
 ```{r ggvis_prepare_bargraph}
 
+# unique(starwars$species)
+
+levels <- starwars %>%
+  group_by(species) %>% 
+  count() %>% 
+  arrange(-n) %>% 
+  .[1]
+
+#glimpse(foo)
+
+#length(foo$species)
+
 starwars_species_as_fctr  <-  starwars %>% 
-  mutate(species = parse_factor(species, species))
+  mutate(species = parse_factor(species, levels$species))
+
+
+glimpse(starwars_species_as_fctr)
+glimpse(starwars$species)
+
+
+starwars_species_as_fctr_foo  <-  starwars %>% 
+  mutate(species2 = parse_factor(species, species))
+
+starwars_species_as_fctr_foo %>% 
+  select(species, species2, name)
+
+levels(starwars_species_as_fctr$species)
 ```
 
 
