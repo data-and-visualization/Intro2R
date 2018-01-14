@@ -9,41 +9,48 @@ Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together
 
 &nbsp; 
 
-Load the libraries:  
+## Load library Packages:  
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(datasets)
 ```
 
 &nbsp; 
 
-> Note.  You must install a library-package before you load a library-package.  The above code chunk used the `library()` function to load the "*tidyverse*", and "*datasets*" packages.  You can install packages from the **Tools** menubar in the RStudio IDE.
+> Note.  You must install a library-package before you load a library-package.  The above code chunk engages the `library()` function to load the "*tidyverse*" packages.  
 
-## Data Set
+As you see from the image above, the *tidyverse* package is a super-package consisting of several more precise and focused packages.  You can install packages from the **Tools** menu-bar in the RStudio IDE.
 
-- We'll use a derivative of the `mtcars` dataset.  
-- Use the `?mtcars` to get the codebook.
+## Load Custom Data
 
-## Load Data
+Outside of this workshop, you'll likely want to load your own data.  R and RStudio support many methods of gathering and importing data.  Two common data import methods include importing data from the local file system or via a URL.  
 
-RStudio has an on-board data loading wizard which uses the `readr()` package for data loading.  
-See Menubar `File > Import Dataset`
+RStudio has an on-board data loading wizard which leverages the `readr()` package for data loading.  There are several ways to engage this import function:
+
+- `File > Import Dataset`
+- Or, via the *Import Dataset* "button" found in the *Environment* Pane.
 
 <figure>![RStudio Environment Pane](images/import_data.png "Environment Pane")<figcaption>RStudio Environment Pane</figcaption></figure><br>
 
-Using the Import wizard, you can generate (and excute) the code necessary to read in the `cars.csv` file.
+Using the Import wizard, you can generate (and execute) the code necessary to read in the `cars.csv` file.
 
 ```{r load-data, message=FALSE, warning=FALSE}
 # readr::read_csv
-# 'read_csv()' is part of the tidyverse 'readr' package.  'read_csv()' helpfully overrides the "base R" default readr package, which converts characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+# 'read_csv()' is part of the tidyverse 'readr' package.  
 
 cars <- read_csv("data/cars.csv")
 ```
 
-### Access onboard data
+'reader::read_csv()' helpfully overrides default behavior of the "base R" `read.csv()` function.  For example `read_csv()` does not automatically convert strings as factors.  You can read more about `readr`  http://readr.tidyverse.org/
 
-Now that you know how to load data from the file system, let's use some more interesting data.  The `dplyr` package has an onboard Star Wars dataset.  Let's use that.  We'll discus the `dplyr` package in the Data Wrangling module, next.
+## Workshop Data Set
+
+During this workshop demonstration, We'll use the *Starwars* characters dataset, `starwars`. The data, part of the `dplyr` package, come from SWAPI, the Star Wars API, http://swapi.co/. Since the data are integrated into `dplyr`, we don't need to load the data, but you may still want to find information about the dataset.  The codebood for the Starwars dataset is integrated into the `dplyr` documentation.  To view the *Starwars* codebook, first load the `library(dplyr)` package.  Then, via the *Help* pane, search *starwars*.  Alternatively, in the *Console* pane, type `?starwars`.
+
+Note:  `dplyr` is part of `tidyverse` which we loaded already.
+
+In the next module, Data Wrangling, we'll discus the `dplyr` package in greater detail.
+
 
 ## View your data in a grid.
 

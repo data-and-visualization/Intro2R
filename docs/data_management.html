@@ -361,25 +361,23 @@ div.tocify {
 
 </div>
 <p> </p>
-<p>Load the libraries:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(datasets)</code></pre></div>
+<div id="load-library-packages" class="section level2">
+<h2>Load library Packages:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 <p> </p>
 <blockquote>
-<p>Note. You must install a library-package before you load a library-package. The above code chunk used the <code>library()</code> function to load the “<em>tidyverse</em>”, and “<em>datasets</em>” packages. You can install packages from the <strong>Tools</strong> menubar in the RStudio IDE.</p>
+<p>Note. You must install a library-package before you load a library-package. The above code chunk engages the <code>library()</code> function to load the “<em>tidyverse</em>” packages.</p>
 </blockquote>
-<div id="data-set" class="section level2">
-<h2>Data Set</h2>
-<ul>
-<li>We’ll use a derivative of the <code>mtcars</code> dataset.<br />
-</li>
-<li>Use the <code>?mtcars</code> to get the codebook.</li>
-</ul>
+<p>As you see from the image above, the <em>tidyverse</em> package is a super-package consisting of several more precise and focused packages. You can install packages from the <strong>Tools</strong> menu-bar in the RStudio IDE.</p>
 </div>
-<div id="load-data" class="section level2">
-<h2>Load Data</h2>
-<p>RStudio has an on-board data loading wizard which uses the <code>readr()</code> package for data loading.<br />
-See Menubar <code>File &gt; Import Dataset</code></p>
+<div id="load-custom-data" class="section level2">
+<h2>Load Custom Data</h2>
+<p>Outside of this workshop, you’ll likely want to load your own data. R and RStudio support many methods of gathering and importing data. Two common data import methods include importing data from the local file system or via a URL.</p>
+<p>RStudio has an on-board data loading wizard which leverages the <code>readr()</code> package for data loading. There are several ways to engage this import function:</p>
+<ul>
+<li><code>File &gt; Import Dataset</code></li>
+<li>Or, via the <em>Import Dataset</em> “button” found in the <em>Environment</em> Pane.</li>
+</ul>
 <figure>
 <img src="images/import_data.png" title="Environment Pane" alt="RStudio Environment Pane" />
 <figcaption>
@@ -387,15 +385,18 @@ RStudio Environment Pane
 </figcaption>
 </figure>
 <p><br></p>
-<p>Using the Import wizard, you can generate (and excute) the code necessary to read in the <code>cars.csv</code> file.</p>
+<p>Using the Import wizard, you can generate (and execute) the code necessary to read in the <code>cars.csv</code> file.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># readr::read_csv</span>
-<span class="co"># &#39;read_csv()&#39; is part of the tidyverse &#39;readr&#39; package.  &#39;read_csv()&#39; helpfully overrides the &quot;base R&quot; default readr package, which converts characters as factors.  https://cran.r-project.org/web/packages/readr/README.html</span>
+<span class="co"># &#39;read_csv()&#39; is part of the tidyverse &#39;readr&#39; package.  </span>
 
 cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cars.csv&quot;</span>)</code></pre></div>
-<div id="access-onboard-data" class="section level3">
-<h3>Access onboard data</h3>
-<p>Now that you know how to load data from the file system, let’s use some more interesting data. The <code>dplyr</code> package has an onboard Star Wars dataset. Let’s use that. We’ll discus the <code>dplyr</code> package in the Data Wrangling module, next.</p>
+<p>‘reader::read_csv()’ helpfully overrides default behavior of the “base R” <code>read.csv()</code> function. For example <code>read_csv()</code> does not automatically convert strings as factors. You can read more about <code>readr</code> <a href="http://readr.tidyverse.org/" class="uri">http://readr.tidyverse.org/</a></p>
 </div>
+<div id="workshop-data-set" class="section level2">
+<h2>Workshop Data Set</h2>
+<p>During this workshop demonstration, We’ll use the <em>Starwars</em> characters dataset, <code>starwars</code>. The data, part of the <code>dplyr</code> package, come from SWAPI, the Star Wars API, <a href="http://swapi.co/" class="uri">http://swapi.co/</a>. Since the data are integrated into <code>dplyr</code>, we don’t need to load the data, but you may still want to find information about the dataset. The codebood for the Starwars dataset is integrated into the <code>dplyr</code> documentation. To view the <em>Starwars</em> codebook, first load the <code>library(dplyr)</code> package. Then, via the <em>Help</em> pane, search <em>starwars</em>. Alternatively, in the <em>Console</em> pane, type <code>?starwars</code>.</p>
+<p>Note: <code>dplyr</code> is part of <code>tidyverse</code> which we loaded already.</p>
+<p>In the next module, Data Wrangling, we’ll discus the <code>dplyr</code> package in greater detail.</p>
 </div>
 <div id="view-your-data-in-a-grid." class="section level2">
 <h2>View your data in a grid.</h2>

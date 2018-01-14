@@ -3,16 +3,13 @@ title: "Data Wrangling"
 output: html_document
 ---
 
-**dplyr** is a widely adopted r package, part of tidyverse, which uses **English verbs** to reshape data
+**[dplyr](http://dplyr.tidyverse.org/)** is a widely adopted r package, part of tidyverse, which uses **English verbs** to reshape data.
 
 ```{r load-packages, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
 
-## Arrange
-
-
-**Arrange** to sort rows (observations) by column headers (variables)
+I made a small subset of the `starwars` dataset:  `small_sw`
 
 ```{r makesmall_sw_dataframe, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -24,7 +21,10 @@ small_sw <- starwars %>%
 small_sw
 ```
 
+## Arrange
 
+
+**Arrange** to sort rows (observations) by column headers (variables)
 
 ```{r arrange, message=FALSE, warning=FALSE}
 small_sw %>% 
@@ -93,7 +93,7 @@ ungroup(starwars)
 
 ## Put it all together
 
-We can pipe commands together.  Think of a pipe (i.e. `%>%`) as a conjunction.  Any time you see a pipe, think "and then."  You can insert a pipe with 'Ctrl+Shift+M' (Help > Keyboard Shortcts)
+We can pipe commands together.  Think of a pipe (i.e. `%>%`) as a conjunction.  Any time you see a pipe, think "and then."  You can insert a pipe with 'Ctrl+Shift+M' (Help > Keyboard Shortcuts)
 
 ```{r alltogether}
 starwars %>% 
