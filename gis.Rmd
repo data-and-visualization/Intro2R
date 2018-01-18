@@ -1,0 +1,43 @@
+---
+title: "GIS"
+output: html_document
+#  html_notebook:
+#    css: duke.css
+---
+
+We offer a separate workshop on mapping in R.  Please see our [*Mapping with R* guide](/map/) for more information.  
+
+```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(leaflet)
+
+```
+
+
+```{r loadData, message=FALSE, warning=FALSE}
+starbucks <- read_csv("https://github.com/data-and-visualization/Intro2R/raw/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv")
+```
+
+
+## GIS Mapping
+
+Introducing the `library(leaflet)` we use 4 lines of code to make an interactive map.^[[5 Visualizations in 5 Minutes](http://www.computerworld.com/article/2893271/business-intelligence/5-data-visualizations-in-5-minutes-each-in-5-lines-or-less-of-r.html). ComputerWorld.com by Sharon Machlis]
+
+### Filter Data to NC
+```{r filter-dataset}
+starbucksNC <- starbucks  %>% 
+  filter(State == "NC")
+```
+
+
+### Make the Map
+```{r makemap}
+leaflet() %>% 
+  addTiles() %>% 
+  setView(-78.8310, 35.9867, zoom = 10) %>% 
+  addMarkers(data = starbucksNC, lat = ~ Latitude, lng = ~ Longitude, popup = starbucksNC$Name)
+```
+
+
+
+

@@ -23,26 +23,54 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
-}
-</script>
-
 
 
 <style type="text/css">
@@ -72,7 +100,8 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local\duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local\cc-fonts.css" type="text/css" />
 
 </head>
 
@@ -301,6 +330,9 @@ div.tocify {
 <li>
   <a href="visualization.html">Visualization</a>
 </li>
+<li>
+  <a href="gis.html">GIS/Mapping</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -329,38 +361,45 @@ div.tocify {
 
 </div>
 <p> </p>
-<p>Load the library:</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<div id="data-set" class="section level2">
-<h2>Data Set</h2>
-<ul>
-<li>We’ll use a derivative of the <code>mtcars</code> dataset.<br />
-</li>
-<li>Use the <code>?mtcars</code> to get the codebook.</li>
-</ul>
+<div id="load-library-packages" class="section level2">
+<h2>Load library Packages:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<p> </p>
+<blockquote>
+<p>Note. You must install a library-package before you load a library-package. The above code chunk engages the <code>library()</code> function to load the “<em>tidyverse</em>” packages.</p>
+</blockquote>
+<p>As you see from the image above, the <em>tidyverse</em> package is a super-package consisting of several more precise and focused packages. You can install packages from the <strong>Tools</strong> menu-bar in the RStudio IDE.</p>
 </div>
-<div id="load-data" class="section level2">
-<h2>Load Data</h2>
-<p>RStudio has an on-board data loading wizard which uses the <code>readr()</code> package for data loading.<br />
-See Menubar <code>File &gt; Import Dataset</code></p>
+<div id="load-custom-data" class="section level2">
+<h2>Load Custom Data</h2>
+<p>Outside of this workshop, you’ll likely want to load your own data. R and RStudio support many methods of gathering and importing data. Two common data import methods include importing data from the local file system or via a URL.</p>
+<p>RStudio has an on-board data loading wizard which leverages the <code>readr()</code> package for data loading. There are several ways to engage this import function:</p>
+<ul>
+<li><code>File &gt; Import Dataset</code></li>
+<li>Or, via the <em>Import Dataset</em> “button” found in the <em>Environment</em> Pane.</li>
+</ul>
 <figure>
 <img src="images/import_data.png" title="Environment Pane" alt="RStudio Environment Pane" />
 <figcaption>
 RStudio Environment Pane
 </figcaption>
 </figure>
-<p> </p>
-<p> </p>
-<pre class="r"><code># readr::read_csv
-# &#39;read_csv()&#39; is part of the &#39;readr&#39; package and will override the base-R default of converting characters as factors.  https://cran.r-project.org/web/packages/readr/README.html
+<p><br></p>
+<p>Using the Import wizard, you can generate (and execute) the code necessary to read in the <code>cars.csv</code> file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># readr::read_csv</span>
+<span class="co"># &#39;read_csv()&#39; is part of the tidyverse &#39;readr&#39; package.  </span>
 
-cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
+cars &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cars.csv&quot;</span>)</code></pre></div>
+<p>‘reader::read_csv()’ helpfully overrides default behavior of the “base R” <code>read.csv()</code> function. For example <code>read_csv()</code> does not automatically convert strings as factors. You can read more about <code>readr</code> <a href="http://readr.tidyverse.org/" class="uri">http://readr.tidyverse.org/</a></p>
 </div>
-<div id="view-your-data-in-a-grid" class="section level2">
-<h2>View your data in a grid</h2>
-<pre class="r"><code>View(cars)
-# Displays as a tab in the source-pane quadrant
-# Does not dipsplay in an R Notebooks</code></pre>
+<div id="workshop-data-set" class="section level2">
+<h2>Workshop Data Set</h2>
+<p>During this workshop demonstration, We’ll use the <em>Starwars</em> characters dataset, <code>starwars</code>. The data, part of the <code>dplyr</code> package, come from SWAPI, the Star Wars API, <a href="http://swapi.co/" class="uri">http://swapi.co/</a>. Since the data are integrated into <code>dplyr</code>, we don’t need to load the data, but you may still want to find information about the dataset. The codebood for the Starwars dataset is integrated into the <code>dplyr</code> documentation. To view the <em>Starwars</em> codebook, first load the <code>library(dplyr)</code> package. Then, via the <em>Help</em> pane, search <em>starwars</em>. Alternatively, in the <em>Console</em> pane, type <code>?starwars</code>.</p>
+<p>Note: <code>dplyr</code> is part of <code>tidyverse</code> which we loaded already.</p>
+<p>In the next module, Data Wrangling, we’ll discus the <code>dplyr</code> package in greater detail.</p>
+</div>
+<div id="view-your-data-in-a-grid." class="section level2">
+<h2>View your data in a grid.</h2>
 <div id="other-data-loaders-a-selective-list" class="section level3">
 <h3>Other Data Loaders, a selective list</h3>
 <ul>
@@ -371,13 +410,13 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </div>
 <div id="modern-data-frames-tibbles" class="section level2">
 <h2>Modern Data Frames: Tibbles</h2>
-<ul>
-<li>“Table as data frame”“, a modern tidyverse table</li>
-</ul>
-<pre class="r"><code>cars </code></pre>
+<p>A tibble (tbl) is a “Table as data frame”, a modern tidyverse table.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(starwars) </code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["makeModel"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","12":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","12":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","12":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","12":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","12":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","12":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","12":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","12":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","12":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","12":"Merc 280C"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SE"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SL"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","12":"Merc 450SLC"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","12":"Cadillac Fleetwood"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","12":"Lincoln Continental"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","12":"Chrysler Imperial"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","12":"Fiat 128"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","12":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","12":"Toyota Corolla"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","12":"Toyota Corona"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","12":"Dodge Challenger"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","12":"AMC Javelin"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","12":"Camaro Z28"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","12":"Pontiac Firebird"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","12":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","12":"Porsche 914-2"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","12":"Lotus Europa"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","12":"Ford Pantera L"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","12":"Ferrari Dino"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","12":"Maserati Bora"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","12":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["height"],"name":[2],"type":["int"],"align":["right"]},{"label":["mass"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hair_color"],"name":[4],"type":["chr"],"align":["left"]},{"label":["skin_color"],"name":[5],"type":["chr"],"align":["left"]},{"label":["eye_color"],"name":[6],"type":["chr"],"align":["left"]},{"label":["birth_year"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["gender"],"name":[8],"type":["chr"],"align":["left"]},{"label":["homeworld"],"name":[9],"type":["chr"],"align":["left"]},{"label":["species"],"name":[10],"type":["chr"],"align":["left"]},{"label":["films"],"name":[11],"type":["list"],"align":["right"]},{"label":["vehicles"],"name":[12],"type":["list"],"align":["right"]},{"label":["starships"],"name":[13],"type":["list"],"align":["right"]}],"data":[{"1":"Luke Skywalker","2":"172","3":"77.0","4":"blond","5":"fair","6":"blue","7":"19.0","8":"male","9":"Tatooine","10":"Human","11":"<chr [5]>","12":"<chr [2]>","13":"<chr [2]>"},{"1":"C-3PO","2":"167","3":"75.0","4":"NA","5":"gold","6":"yellow","7":"112.0","8":"NA","9":"Tatooine","10":"Droid","11":"<chr [6]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"R2-D2","2":"96","3":"32.0","4":"NA","5":"white, blue","6":"red","7":"33.0","8":"NA","9":"Naboo","10":"Droid","11":"<chr [7]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Darth Vader","2":"202","3":"136.0","4":"none","5":"white","6":"yellow","7":"41.9","8":"male","9":"Tatooine","10":"Human","11":"<chr [4]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Leia Organa","2":"150","3":"49.0","4":"brown","5":"light","6":"brown","7":"19.0","8":"female","9":"Alderaan","10":"Human","11":"<chr [5]>","12":"<chr [1]>","13":"<chr [0]>"},{"1":"Owen Lars","2":"178","3":"120.0","4":"brown, grey","5":"light","6":"blue","7":"52.0","8":"male","9":"Tatooine","10":"Human","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Beru Whitesun lars","2":"165","3":"75.0","4":"brown","5":"light","6":"blue","7":"47.0","8":"female","9":"Tatooine","10":"Human","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"R5-D4","2":"97","3":"32.0","4":"NA","5":"white, red","6":"red","7":"NA","8":"NA","9":"Tatooine","10":"Droid","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Biggs Darklighter","2":"183","3":"84.0","4":"black","5":"light","6":"brown","7":"24.0","8":"male","9":"Tatooine","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Obi-Wan Kenobi","2":"182","3":"77.0","4":"auburn, white","5":"fair","6":"blue-gray","7":"57.0","8":"male","9":"Stewjon","10":"Human","11":"<chr [6]>","12":"<chr [1]>","13":"<chr [5]>"},{"1":"Anakin Skywalker","2":"188","3":"84.0","4":"blond","5":"fair","6":"blue","7":"41.9","8":"male","9":"Tatooine","10":"Human","11":"<chr [3]>","12":"<chr [2]>","13":"<chr [3]>"},{"1":"Wilhuff Tarkin","2":"180","3":"NA","4":"auburn, grey","5":"fair","6":"blue","7":"64.0","8":"male","9":"Eriadu","10":"Human","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Chewbacca","2":"228","3":"112.0","4":"brown","5":"unknown","6":"blue","7":"200.0","8":"male","9":"Kashyyyk","10":"Wookiee","11":"<chr [5]>","12":"<chr [1]>","13":"<chr [2]>"},{"1":"Han Solo","2":"180","3":"80.0","4":"brown","5":"fair","6":"brown","7":"29.0","8":"male","9":"Corellia","10":"Human","11":"<chr [4]>","12":"<chr [0]>","13":"<chr [2]>"},{"1":"Greedo","2":"173","3":"74.0","4":"NA","5":"green","6":"black","7":"44.0","8":"male","9":"Rodia","10":"Rodian","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Jabba Desilijic Tiure","2":"175","3":"1358.0","4":"NA","5":"green-tan, brown","6":"orange","7":"600.0","8":"hermaphrodite","9":"Nal Hutta","10":"Hutt","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Wedge Antilles","2":"170","3":"77.0","4":"brown","5":"fair","6":"hazel","7":"21.0","8":"male","9":"Corellia","10":"Human","11":"<chr [3]>","12":"<chr [1]>","13":"<chr [1]>"},{"1":"Jek Tono Porkins","2":"180","3":"110.0","4":"brown","5":"fair","6":"blue","7":"NA","8":"male","9":"Bestine IV","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Yoda","2":"66","3":"17.0","4":"white","5":"green","6":"brown","7":"896.0","8":"male","9":"NA","10":"Yoda's species","11":"<chr [5]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Palpatine","2":"170","3":"75.0","4":"grey","5":"pale","6":"yellow","7":"82.0","8":"male","9":"Naboo","10":"Human","11":"<chr [5]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Boba Fett","2":"183","3":"78.2","4":"black","5":"fair","6":"brown","7":"31.5","8":"male","9":"Kamino","10":"Human","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"IG-88","2":"200","3":"140.0","4":"none","5":"metal","6":"red","7":"15.0","8":"none","9":"NA","10":"Droid","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Bossk","2":"190","3":"113.0","4":"none","5":"green","6":"red","7":"53.0","8":"male","9":"Trandosha","10":"Trandoshan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Lando Calrissian","2":"177","3":"79.0","4":"black","5":"dark","6":"brown","7":"31.0","8":"male","9":"Socorro","10":"Human","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Lobot","2":"175","3":"79.0","4":"none","5":"light","6":"blue","7":"37.0","8":"male","9":"Bespin","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Ackbar","2":"180","3":"83.0","4":"none","5":"brown mottle","6":"orange","7":"41.0","8":"male","9":"Mon Cala","10":"Mon Calamari","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Mon Mothma","2":"150","3":"NA","4":"auburn","5":"fair","6":"blue","7":"48.0","8":"female","9":"Chandrila","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Arvel Crynyd","2":"NA","3":"NA","4":"brown","5":"fair","6":"brown","7":"NA","8":"male","9":"NA","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Wicket Systri Warrick","2":"88","3":"20.0","4":"brown","5":"brown","6":"brown","7":"8.0","8":"male","9":"Endor","10":"Ewok","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Nien Nunb","2":"160","3":"68.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"Sullust","10":"Sullustan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Qui-Gon Jinn","2":"193","3":"89.0","4":"brown","5":"fair","6":"blue","7":"92.0","8":"male","9":"NA","10":"Human","11":"<chr [1]>","12":"<chr [1]>","13":"<chr [0]>"},{"1":"Nute Gunray","2":"191","3":"90.0","4":"none","5":"mottled green","6":"red","7":"NA","8":"male","9":"Cato Neimoidia","10":"Neimodian","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Finis Valorum","2":"170","3":"NA","4":"blond","5":"fair","6":"blue","7":"91.0","8":"male","9":"Coruscant","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Jar Jar Binks","2":"196","3":"66.0","4":"none","5":"orange","6":"orange","7":"52.0","8":"male","9":"Naboo","10":"Gungan","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Roos Tarpals","2":"224","3":"82.0","4":"none","5":"grey","6":"orange","7":"NA","8":"male","9":"Naboo","10":"Gungan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Rugor Nass","2":"206","3":"NA","4":"none","5":"green","6":"orange","7":"NA","8":"male","9":"Naboo","10":"Gungan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Ric Olié","2":"183","3":"NA","4":"brown","5":"fair","6":"blue","7":"NA","8":"male","9":"Naboo","10":"NA","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Watto","2":"137","3":"NA","4":"black","5":"blue, grey","6":"yellow","7":"NA","8":"male","9":"Toydaria","10":"Toydarian","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Sebulba","2":"112","3":"40.0","4":"none","5":"grey, red","6":"orange","7":"NA","8":"male","9":"Malastare","10":"Dug","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Quarsh Panaka","2":"183","3":"NA","4":"black","5":"dark","6":"brown","7":"62.0","8":"male","9":"Naboo","10":"NA","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Shmi Skywalker","2":"163","3":"NA","4":"black","5":"fair","6":"brown","7":"72.0","8":"female","9":"Tatooine","10":"Human","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Darth Maul","2":"175","3":"80.0","4":"none","5":"red","6":"yellow","7":"54.0","8":"male","9":"Dathomir","10":"Zabrak","11":"<chr [1]>","12":"<chr [1]>","13":"<chr [1]>"},{"1":"Bib Fortuna","2":"180","3":"NA","4":"none","5":"pale","6":"pink","7":"NA","8":"male","9":"Ryloth","10":"Twi'lek","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Ayla Secura","2":"178","3":"55.0","4":"none","5":"blue","6":"hazel","7":"48.0","8":"female","9":"Ryloth","10":"Twi'lek","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Dud Bolt","2":"94","3":"45.0","4":"none","5":"blue, grey","6":"yellow","7":"NA","8":"male","9":"Vulpter","10":"Vulptereen","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Gasgano","2":"122","3":"NA","4":"none","5":"white, blue","6":"black","7":"NA","8":"male","9":"Troiken","10":"Xexto","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Ben Quadinaros","2":"163","3":"65.0","4":"none","5":"grey, green, yellow","6":"orange","7":"NA","8":"male","9":"Tund","10":"Toong","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Mace Windu","2":"188","3":"84.0","4":"none","5":"dark","6":"brown","7":"72.0","8":"male","9":"Haruun Kal","10":"Human","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Ki-Adi-Mundi","2":"198","3":"82.0","4":"white","5":"pale","6":"yellow","7":"92.0","8":"male","9":"Cerea","10":"Cerean","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Kit Fisto","2":"196","3":"87.0","4":"none","5":"green","6":"black","7":"NA","8":"male","9":"Glee Anselm","10":"Nautolan","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Eeth Koth","2":"171","3":"NA","4":"black","5":"brown","6":"brown","7":"NA","8":"male","9":"Iridonia","10":"Zabrak","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Adi Gallia","2":"184","3":"50.0","4":"none","5":"dark","6":"blue","7":"NA","8":"female","9":"Coruscant","10":"Tholothian","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Saesee Tiin","2":"188","3":"NA","4":"none","5":"pale","6":"orange","7":"NA","8":"male","9":"Iktotch","10":"Iktotchi","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Yarael Poof","2":"264","3":"NA","4":"none","5":"white","6":"yellow","7":"NA","8":"male","9":"Quermia","10":"Quermian","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Plo Koon","2":"188","3":"80.0","4":"none","5":"orange","6":"black","7":"22.0","8":"male","9":"Dorin","10":"Kel Dor","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Mas Amedda","2":"196","3":"NA","4":"none","5":"blue","6":"blue","7":"NA","8":"male","9":"Champala","10":"Chagrian","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Gregar Typho","2":"185","3":"85.0","4":"black","5":"dark","6":"brown","7":"NA","8":"male","9":"Naboo","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"Cordé","2":"157","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"female","9":"Naboo","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Cliegg Lars","2":"183","3":"NA","4":"brown","5":"fair","6":"blue","7":"82.0","8":"male","9":"Tatooine","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Poggle the Lesser","2":"183","3":"80.0","4":"none","5":"green","6":"yellow","7":"NA","8":"male","9":"Geonosis","10":"Geonosian","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Luminara Unduli","2":"170","3":"56.2","4":"black","5":"yellow","6":"blue","7":"58.0","8":"female","9":"Mirial","10":"Mirialan","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Barriss Offee","2":"166","3":"50.0","4":"black","5":"yellow","6":"blue","7":"40.0","8":"female","9":"Mirial","10":"Mirialan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Dormé","2":"165","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"female","9":"Naboo","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Dooku","2":"193","3":"80.0","4":"white","5":"fair","6":"brown","7":"102.0","8":"male","9":"Serenno","10":"Human","11":"<chr [2]>","12":"<chr [1]>","13":"<chr [0]>"},{"1":"Bail Prestor Organa","2":"191","3":"NA","4":"black","5":"tan","6":"brown","7":"67.0","8":"male","9":"Alderaan","10":"Human","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Jango Fett","2":"183","3":"79.0","4":"black","5":"tan","6":"brown","7":"66.0","8":"male","9":"Concord Dawn","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Zam Wesell","2":"168","3":"55.0","4":"blonde","5":"fair, green, yellow","6":"yellow","7":"NA","8":"female","9":"Zolan","10":"Clawdite","11":"<chr [1]>","12":"<chr [1]>","13":"<chr [0]>"},{"1":"Dexter Jettster","2":"198","3":"102.0","4":"none","5":"brown","6":"yellow","7":"NA","8":"male","9":"Ojom","10":"Besalisk","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Lama Su","2":"229","3":"88.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"Kamino","10":"Kaminoan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Taun We","2":"213","3":"NA","4":"none","5":"grey","6":"black","7":"NA","8":"female","9":"Kamino","10":"Kaminoan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Jocasta Nu","2":"167","3":"NA","4":"white","5":"fair","6":"blue","7":"NA","8":"female","9":"Coruscant","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Ratts Tyerell","2":"79","3":"15.0","4":"none","5":"grey, blue","6":"unknown","7":"NA","8":"male","9":"Aleen Minor","10":"Aleena","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"R4-P17","2":"96","3":"NA","4":"none","5":"silver, red","6":"red, blue","7":"NA","8":"female","9":"NA","10":"NA","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Wat Tambor","2":"193","3":"48.0","4":"none","5":"green, grey","6":"unknown","7":"NA","8":"male","9":"Skako","10":"Skakoan","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"San Hill","2":"191","3":"NA","4":"none","5":"grey","6":"gold","7":"NA","8":"male","9":"Muunilinst","10":"Muun","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Shaak Ti","2":"178","3":"57.0","4":"none","5":"red, blue, white","6":"black","7":"NA","8":"female","9":"Shili","10":"Togruta","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Grievous","2":"216","3":"159.0","4":"none","5":"brown, white","6":"green, yellow","7":"NA","8":"male","9":"Kalee","10":"Kaleesh","11":"<chr [1]>","12":"<chr [1]>","13":"<chr [1]>"},{"1":"Tarfful","2":"234","3":"136.0","4":"brown","5":"brown","6":"blue","7":"NA","8":"male","9":"Kashyyyk","10":"Wookiee","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Raymus Antilles","2":"188","3":"79.0","4":"brown","5":"light","6":"brown","7":"NA","8":"male","9":"Alderaan","10":"Human","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Sly Moore","2":"178","3":"48.0","4":"none","5":"pale","6":"white","7":"NA","8":"female","9":"Umbara","10":"NA","11":"<chr [2]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Tion Medon","2":"206","3":"80.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"Utapau","10":"Pau'an","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Finn","2":"NA","3":"NA","4":"black","5":"dark","6":"dark","7":"NA","8":"male","9":"NA","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Rey","2":"NA","3":"NA","4":"brown","5":"light","6":"hazel","7":"NA","8":"female","9":"NA","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Poe Dameron","2":"NA","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"male","9":"NA","10":"Human","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [1]>"},{"1":"BB8","2":"NA","3":"NA","4":"none","5":"none","6":"black","7":"NA","8":"none","9":"NA","10":"Droid","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Captain Phasma","2":"NA","3":"NA","4":"unknown","5":"unknown","6":"unknown","7":"NA","8":"female","9":"NA","10":"NA","11":"<chr [1]>","12":"<chr [0]>","13":"<chr [0]>"},{"1":"Padmé Amidala","2":"165","3":"45.0","4":"brown","5":"light","6":"brown","7":"46.0","8":"female","9":"Naboo","10":"Human","11":"<chr [3]>","12":"<chr [0]>","13":"<chr [3]>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p> </p>
@@ -396,8 +435,30 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </div>
 <div id="class" class="section level3">
 <h3>Class</h3>
-<pre class="r"><code>class(cars)</code></pre>
+<p><code>class()</code> identifies the class of an object revealing the data structure or the data type.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(starwars)</code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+</div>
+<div id="glimpse-into-a-data-frame" class="section level3">
+<h3>Glimpse into a data frame</h3>
+<p><code>glimpse()</code> reveals the structure of an object</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(starwars)</code></pre></div>
+<pre><code>## Observations: 87
+## Variables: 13
+## $ name       &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;C-3PO&quot;, &quot;R2-D2&quot;, &quot;Darth Vader&quot;, ...
+## $ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188...
+## $ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 8...
+## $ hair_color &lt;chr&gt; &quot;blond&quot;, NA, NA, &quot;none&quot;, &quot;brown&quot;, &quot;brown, grey&quot;, &quot;b...
+## $ skin_color &lt;chr&gt; &quot;fair&quot;, &quot;gold&quot;, &quot;white, blue&quot;, &quot;white&quot;, &quot;light&quot;, &quot;l...
+## $ eye_color  &lt;chr&gt; &quot;blue&quot;, &quot;yellow&quot;, &quot;red&quot;, &quot;yellow&quot;, &quot;brown&quot;, &quot;blue&quot;,...
+## $ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0...
+## $ gender     &lt;chr&gt; &quot;male&quot;, NA, NA, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;,...
+## $ homeworld  &lt;chr&gt; &quot;Tatooine&quot;, &quot;Tatooine&quot;, &quot;Naboo&quot;, &quot;Tatooine&quot;, &quot;Alder...
+## $ species    &lt;chr&gt; &quot;Human&quot;, &quot;Droid&quot;, &quot;Droid&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human...
+## $ films      &lt;list&gt; [&lt;&quot;Revenge of the Sith&quot;, &quot;Return of the Jedi&quot;, &quot;Th...
+## $ vehicles   &lt;list&gt; [&lt;&quot;Snowspeeder&quot;, &quot;Imperial Speeder Bike&quot;&gt;, &lt;&gt;, &lt;&gt;,...
+## $ starships  &lt;list&gt; [&lt;&quot;X-wing&quot;, &quot;Imperial shuttle&quot;&gt;, &lt;&gt;, &lt;&gt;, &quot;TIE Adva...</code></pre>
+<p> </p>
 </div>
 </div>
 <div id="data-type" class="section level2">
@@ -417,87 +478,301 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </div>
 <div id="class-1" class="section level3">
 <h3>Class</h3>
-<pre class="r"><code>class(cars$makeModel)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(starwars<span class="op">$</span>name)</code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(cars$mpg)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(starwars<span class="op">$</span>height)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(starwars<span class="op">$</span>mass)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<p> </p>
 </div>
-<div id="glimpse-into-a-data-frame" class="section level3">
-<h3>Glimpse into a data frame</h3>
-<pre class="r"><code>glimpse(cars)</code></pre>
-<pre><code>## Observations: 32
-## Variables: 12
-## $ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8...
-## $ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4...
-## $ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146...
-## $ hp        &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, ...
-## $ drat      &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92...
-## $ wt        &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.1...
-## $ qsec      &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20....
-## $ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1...
-## $ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1...
-## $ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4...
-## $ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1...
-## $ makeModel &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet ...</code></pre>
-<p> </p>
 </div>
+<div id="other-useful-functions" class="section level2">
+<h2>Other Useful Functions</h2>
+<p><code>tbl_vars</code> lists table variables (column headers) as a vector</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tbl_vars</span>(starwars)</code></pre></div>
+<pre><code>##  [1] &quot;name&quot;       &quot;height&quot;     &quot;mass&quot;       &quot;hair_color&quot; &quot;skin_color&quot;
+##  [6] &quot;eye_color&quot;  &quot;birth_year&quot; &quot;gender&quot;     &quot;homeworld&quot;  &quot;species&quot;   
+## [11] &quot;films&quot;      &quot;vehicles&quot;   &quot;starships&quot;</code></pre>
+<p> </p>
 <div id="older-style" class="section level3">
 <h3>Older style</h3>
-<p><code>str()</code> works on all data structures: data frames, matrices, lists, etc.</p>
-<pre class="r"><code>str(cars)</code></pre>
-<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    32 obs. of  12 variables:
-##  $ mpg      : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
-##  $ cyl      : num  6 6 4 6 8 6 8 4 4 6 ...
-##  $ disp     : num  160 160 108 258 360 ...
-##  $ hp       : num  110 110 93 110 175 105 245 62 95 123 ...
-##  $ drat     : num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
-##  $ wt       : num  2.62 2.88 2.32 3.21 3.44 ...
-##  $ qsec     : num  16.5 17 18.6 19.4 17 ...
-##  $ vs       : num  0 0 1 1 0 1 0 1 1 1 ...
-##  $ am       : num  1 1 1 0 0 0 0 0 0 0 ...
-##  $ gear     : num  4 4 4 3 3 3 3 4 4 4 ...
-##  $ carb     : num  4 4 1 1 2 1 4 2 2 4 ...
-##  $ makeModel: chr  &quot;Mazda RX4&quot; &quot;Mazda RX4 Wag&quot; &quot;Datsun 710&quot; &quot;Hornet 4 Drive&quot; ...
-##  - attr(*, &quot;spec&quot;)=List of 2
-##   ..$ cols   :List of 12
-##   .. ..$ mpg      : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ cyl      : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ disp     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ hp       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ drat     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ wt       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ qsec     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ vs       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ am       : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ gear     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ carb     : list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_double&quot; &quot;collector&quot;
-##   .. ..$ makeModel: list()
-##   .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
-##   ..$ default: list()
-##   .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
-##   ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
-<p> </p>
-</div>
-<div id="useful-command" class="section level3">
-<h3>Useful Command</h3>
-<p><code>tbl_vars</code> lists table variables (column headers) as a vector</p>
-<pre class="r"><code>tbl_vars(cars)</code></pre>
-<pre><code>##  [1] &quot;mpg&quot;       &quot;cyl&quot;       &quot;disp&quot;      &quot;hp&quot;        &quot;drat&quot;     
-##  [6] &quot;wt&quot;        &quot;qsec&quot;      &quot;vs&quot;        &quot;am&quot;        &quot;gear&quot;     
-## [11] &quot;carb&quot;      &quot;makeModel&quot;</code></pre>
-<p> </p>
+<p><code>str()</code> identifies the data structure: data frames, matrices, lists, etc.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(starwars)</code></pre></div>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    87 obs. of  13 variables:
+##  $ name      : chr  &quot;Luke Skywalker&quot; &quot;C-3PO&quot; &quot;R2-D2&quot; &quot;Darth Vader&quot; ...
+##  $ height    : int  172 167 96 202 150 178 165 97 183 182 ...
+##  $ mass      : num  77 75 32 136 49 120 75 32 84 77 ...
+##  $ hair_color: chr  &quot;blond&quot; NA NA &quot;none&quot; ...
+##  $ skin_color: chr  &quot;fair&quot; &quot;gold&quot; &quot;white, blue&quot; &quot;white&quot; ...
+##  $ eye_color : chr  &quot;blue&quot; &quot;yellow&quot; &quot;red&quot; &quot;yellow&quot; ...
+##  $ birth_year: num  19 112 33 41.9 19 52 47 NA 24 57 ...
+##  $ gender    : chr  &quot;male&quot; NA NA &quot;male&quot; ...
+##  $ homeworld : chr  &quot;Tatooine&quot; &quot;Tatooine&quot; &quot;Naboo&quot; &quot;Tatooine&quot; ...
+##  $ species   : chr  &quot;Human&quot; &quot;Droid&quot; &quot;Droid&quot; &quot;Human&quot; ...
+##  $ films     :List of 87
+##   ..$ : chr  &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot; &quot;A New Hope&quot; ...
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; ...
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; ...
+##   ..$ : chr  &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot; &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot; &quot;A New Hope&quot; ...
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot; &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot; &quot;A New Hope&quot;
+##   ..$ : chr &quot;A New Hope&quot;
+##   ..$ : chr &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; ...
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Revenge of the Sith&quot; &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot; &quot;A New Hope&quot; ...
+##   ..$ : chr  &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot; &quot;A New Hope&quot; &quot;The Force Awakens&quot;
+##   ..$ : chr &quot;A New Hope&quot;
+##   ..$ : chr  &quot;The Phantom Menace&quot; &quot;Return of the Jedi&quot; &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot; &quot;A New Hope&quot;
+##   ..$ : chr &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; ...
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot; &quot;Return of the Jedi&quot; ...
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot;
+##   ..$ : chr &quot;The Empire Strikes Back&quot;
+##   ..$ : chr &quot;The Empire Strikes Back&quot;
+##   ..$ : chr  &quot;Return of the Jedi&quot; &quot;The Empire Strikes Back&quot;
+##   ..$ : chr &quot;The Empire Strikes Back&quot;
+##   ..$ : chr  &quot;Return of the Jedi&quot; &quot;The Force Awakens&quot;
+##   ..$ : chr &quot;Return of the Jedi&quot;
+##   ..$ : chr &quot;Return of the Jedi&quot;
+##   ..$ : chr &quot;Return of the Jedi&quot;
+##   ..$ : chr &quot;Return of the Jedi&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;Return of the Jedi&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;The Phantom Menace&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr &quot;Attack of the Clones&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;Revenge of the Sith&quot;
+##   ..$ : chr  &quot;Revenge of the Sith&quot; &quot;A New Hope&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;Revenge of the Sith&quot;
+##   ..$ : chr &quot;The Force Awakens&quot;
+##   ..$ : chr &quot;The Force Awakens&quot;
+##   ..$ : chr &quot;The Force Awakens&quot;
+##   ..$ : chr &quot;The Force Awakens&quot;
+##   ..$ : chr &quot;The Force Awakens&quot;
+##   ..$ : chr  &quot;Attack of the Clones&quot; &quot;The Phantom Menace&quot; &quot;Revenge of the Sith&quot;
+##  $ vehicles  :List of 87
+##   ..$ : chr  &quot;Snowspeeder&quot; &quot;Imperial Speeder Bike&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Imperial Speeder Bike&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Tribubble bongo&quot;
+##   ..$ : chr  &quot;Zephyr-G swoop bike&quot; &quot;XJ-6 airspeeder&quot;
+##   ..$ : chr 
+##   ..$ : chr &quot;AT-ST&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Snowspeeder&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Tribubble bongo&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Sith speeder&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Flitknot speeder&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Koro-2 Exodrive airspeeder&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Tsmeu-6 personal wheel bike&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##  $ starships :List of 87
+##   ..$ : chr  &quot;X-wing&quot; &quot;Imperial shuttle&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;TIE Advanced x1&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;X-wing&quot;
+##   ..$ : chr  &quot;Jedi starfighter&quot; &quot;Trade Federation cruiser&quot; &quot;Naboo star skiff&quot; &quot;Jedi Interceptor&quot; ...
+##   ..$ : chr  &quot;Trade Federation cruiser&quot; &quot;Jedi Interceptor&quot; &quot;Naboo fighter&quot;
+##   ..$ : chr 
+##   ..$ : chr  &quot;Millennium Falcon&quot; &quot;Imperial shuttle&quot;
+##   ..$ : chr  &quot;Millennium Falcon&quot; &quot;Imperial shuttle&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;X-wing&quot;
+##   ..$ : chr &quot;X-wing&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Slave 1&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Millennium Falcon&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;A-wing&quot;
+##   ..$ : chr 
+##   ..$ : chr &quot;Millennium Falcon&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Naboo Royal Starship&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Scimitar&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Jedi starfighter&quot;
+##   ..$ : chr 
+##   ..$ : chr &quot;Naboo fighter&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;Belbullab-22 starfighter&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr &quot;T-70 X-wing fighter&quot;
+##   ..$ : chr 
+##   ..$ : chr 
+##   ..$ : chr  &quot;H-type Nubian yacht&quot; &quot;Naboo star skiff&quot; &quot;Naboo fighter&quot;</code></pre>
 </div>
 </div>
 <div class="footnotes">
@@ -507,6 +782,29 @@ cars &lt;- read_csv(&quot;data/cars.csv&quot;)</code></pre>
 </ol>
 </div>
 
+&nbsp;
+
+<hr>
+<span class="footer">
+  
+  <span class="left-foot">
+    
+    <a href="https://rfun.library.duke.edu/">R We Having Fun Yet‽</a> -- Learning Series<br>
+    <a href="http://library.duke.edu/data/">Data & Visualization Services</a><br>
+    <a href="http://library.duke.edu/">Duke University Libraries</a>
+    
+  </span>
+
+  <span class="right-foot">
+  
+    <span class="cc">
+      <!-- Key: a: SA, b: BY, c: CC Circle, d: ND, n: NC, m: Sampling, s: Share, r: Remix, C: CC Full Logo -->
+    C bn</span><br>
+    Shareable via Creative Commons:  CC <a href="https://creativecommons.org/licenses/by-nc/4.0/">By-NC</a>
+
+  </span>
+
+</span>
 
 
 </div>

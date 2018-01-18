@@ -23,25 +23,10 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
-}
-</script>
 
 
 
@@ -72,7 +57,8 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local\duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local\cc-fonts.css" type="text/css" />
 
 </head>
 
@@ -301,6 +287,9 @@ div.tocify {
 <li>
   <a href="visualization.html">Visualization</a>
 </li>
+<li>
+  <a href="gis.html">GIS/Mapping</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -325,14 +314,14 @@ div.tocify {
 
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
-<p>Take the <a href="https://libjohn.shinyapps.io/intro2r_quizzes/">interactive quiz</a></p>
+<p>Take the <a href="https://libjohn.shinyapps.io/intro2r_quizzes/#section-loading-data">interactive quiz</a></p>
 </div>
 <div id="directions" class="section level2">
 <h2>Directions</h2>
-<p>Now you try. For the workshop, we’ve prebuilt a data set that has information about menus in Duke’s new West Union from three restaurants.</p>
+<p>Now you try. For the workshop, we’ve prebuilt a data set that has information about menus in Duke’s Brodhead Center from three restaurants.</p>
 <ol style="list-style-type: decimal">
 <li>From the File menu, open a New R Notebook: <code>File &gt; New File &gt; R Notebook</code></li>
-<li>Reading the preloaded directions in your new script, add a code chunk at line 18. (Hint: <em>Ctrl+Alt+I</em>)</li>
+<li>Reading the preloaded directions in your new script, add a code chunk at line 20. (Hint: <em>Ctrl+Alt+I</em>)</li>
 <li>Load the <code>tidyverse</code> package. In that code-chunk, type: <code>library(tidyverse)</code> and run the code chunk.</li>
 <li>Now you are ready to make new code chunks and follow the steps in Exercise 1 (below).</li>
 </ol>
@@ -340,9 +329,9 @@ div.tocify {
 <div id="exercise-1-loading-data" class="section level2">
 <h2>Exercise 1: Loading Data</h2>
 <ol style="list-style-type: decimal">
-<li><p>Using what we’ve you’ve seen in class, if <code>data/westUnion.csv</code> is a csv file, how would you load the file into a new variable called <code>westUnion</code>?</p></li>
-<li><p>What data type is <code>westUnion</code>?</p></li>
-<li>Take a look at the structure of the <code>westUnion</code> variable.
+<li><p>Using what we’ve you’ve seen in class, if <code>data/brodheadCenter.csv</code> is a csv file, how would you load the file into a new object called <code>brodhead</code>?</p></li>
+<li><p>What is the data structure of the <code>brodhead</code>?</p></li>
+<li>Take a look at the structure of the <code>brodhead</code> object.
 <ul>
 <li>How many observations (rows) are there?</li>
 <li>How many variables (columns) are there?</li>
@@ -355,6 +344,29 @@ div.tocify {
 <p>See <a href="answers.html#part_one:_loading_data">the answers</a> to the above section</p>
 </div>
 
+&nbsp;
+
+<hr>
+<span class="footer">
+  
+  <span class="left-foot">
+    
+    <a href="https://rfun.library.duke.edu/">R We Having Fun Yet‽</a> -- Learning Series<br>
+    <a href="http://library.duke.edu/data/">Data & Visualization Services</a><br>
+    <a href="http://library.duke.edu/">Duke University Libraries</a>
+    
+  </span>
+
+  <span class="right-foot">
+  
+    <span class="cc">
+      <!-- Key: a: SA, b: BY, c: CC Circle, d: ND, n: NC, m: Sampling, s: Share, r: Remix, C: CC Full Logo -->
+    C bn</span><br>
+    Shareable via Creative Commons:  CC <a href="https://creativecommons.org/licenses/by-nc/4.0/">By-NC</a>
+
+  </span>
+
+</span>
 
 
 </div>

@@ -1,6 +1,6 @@
-name: "Git-RStudio"
+name: "Introduction to R"
 output_dir: docs
-skip_files: ["README.md", "license.md", "intro2R.Rmd", "answers.Rmd"]
+exclude: ["README.md", "license.md", "intro2R.Rmd", "*.html"]
 navbar:
   title: "Intro to R"
   left:
@@ -16,6 +16,8 @@ navbar:
       href: exercise2.html
     - text: "Visualization"
       href: visualization.html
+    - text: "GIS/Mapping"
+      href: gis.html
   right:
     - icon: fa-github
 #    - text: "GitHub"
@@ -23,10 +25,14 @@ navbar:
 output:
   html_document:
     theme: flatly
-    highlight: textmate
-    toc: true
+    highlight: tango
+    include:
+      after_body: libs-local/footer.html
+    toc: TRUE
     toc_depth: 2
     toc_float:
       collapsed: false
-    css: duke.css
+    css: 
+      - libs-local/duke.css
+      - libs-local/cc-fonts.css
     df_print: paged
