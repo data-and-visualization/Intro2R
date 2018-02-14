@@ -9,9 +9,9 @@ The following learning materials support our *Introduction to R: Data Transforma
 
 This gentle introduction provides a hands-on experience to learn the basics of modern R using RStudio and the Tidyverse method.  Learn about managing your R projects, data types, variable assignments, data structures, and visualization packages such as `ggvis` and `leaflet`.  The focus of these learning resources is as a code demonstration supporting our in-person workshop.  Thus the explanatory prose is minimal.  If you wish to read more about R, we recommend [R for Data Science](http://r4ds.had.co.nz/) and [Data Visualization for Social Science](http://socviz.co/), or the interactive course made available at [DataCamp](https://www.datacamp.com/).  In fact, Attendees will be registered for the opportunity of supplementing this workshop with free academic access to [DataCamp's Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) course. 
 
-## HouseKeeping
+## Workshop Outline
 
-<p class="right">Joel</p>
+<!-- p class="right">Joel</p -->
 
 1. Welcome  
 2. What is r 
@@ -21,7 +21,7 @@ This gentle introduction provides a hands-on experience to learn the basics of m
 
 ## Data Management
 
-<p class="right">John</p>
+<!-- p class="right">John</p -->
 
 1. Load Data
 1. View Data
@@ -31,14 +31,14 @@ This gentle introduction provides a hands-on experience to learn the basics of m
 
 ## Exercise One
 
-<p class="right">Joel</p>
+<!--p class="right">Joel</p -->
 
 - Exercise
 - Quiz
 
 ## Data Wrangling
 
-<p class="right">John</p>
+<!-- p class="right">John</p -->
 
 ### Dplyr
 
@@ -52,14 +52,14 @@ This gentle introduction provides a hands-on experience to learn the basics of m
 
 ## Exercise Two
 
-<p class="right">Joel</p>
+<!-- p class="right">Joel</p -->
 
 - Exercise
 - Quiz
 
 ## Visualization
 
-<p class="right">John</p>
+<!-- p class="right">John</p -->
 
 - ggvis
 
