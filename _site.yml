@@ -8,12 +8,14 @@ navbar:
       href: index.html
     - text: "Load Data"
       href: data_management.html
-    - text: "Exercise One"
-      href: exercise1.html
+    - text: Exercises
+      menu:
+        - text: Loading Data
+          href: exercise1.html
+        - text: Wrangling Data
+          href: exercis2.html
     - text: "Data Wrangling"
       href: data_wrangling.html
-    - text: "Exercise Two"
-      href: exercise2.html
     - text: "Visualization"
       href: visualization.html
     - text: "GIS/Mapping"
@@ -21,7 +23,13 @@ navbar:
   right:
     - icon: fa-github
 #    - text: "GitHub"
-      href: https://github.com/data-and-visualization/Intro2R          
+      href: https://github.com/data-and-visualization/Intro2R
+    - icon: fa-home
+      menu:
+        - text: "Rfun Home"
+          href: "https://rfun.library.duke.edu/"
+        - text: "Data & Visualization Srvc"
+          href: https://library.duke.edu/data/
 output:
   html_document:
     theme: flatly
