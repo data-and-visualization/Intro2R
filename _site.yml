@@ -4,18 +4,16 @@ exclude: ["README.md", "license.md", "intro2R.Rmd", "*.html"]
 navbar:
   title: "Intro to R"
   left:
-    - text: "Home"
-      href: index.html
     - text: "Load Data"
       href: data_management.html
+    - text: "Data Wrangling"
+      href: data_wrangling.html
     - text: Exercises
       menu:
         - text: Loading Data
           href: exercise1.html
         - text: Wrangling Data
           href: exercis2.html
-    - text: "Data Wrangling"
-      href: data_wrangling.html
     - text: "Visualization"
       href: visualization.html
     - text: "GIS/Mapping"
