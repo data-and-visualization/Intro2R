@@ -32,8 +32,8 @@
 <script src="site_libs/vega-1.4.3/vega.min.js"></script>
 <script src="site_libs/lodash-2.2.1/lodash.min.js"></script>
 <script>var lodash = _.noConflict();</script>
-<link href="site_libs/ggvis-0.4.3/css/ggvis.css" rel="stylesheet" />
-<script src="site_libs/ggvis-0.4.3/js/ggvis.js"></script>
+<link href="site_libs/ggvis-0.4.4/css/ggvis.css" rel="stylesheet" />
+<script src="site_libs/ggvis-0.4.4/js/ggvis.js"></script>
 <link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
 <script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
 <script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
@@ -422,8 +422,8 @@ levels &lt;-<span class="st"> </span>starwars_species_small <span class="op">%&g
 <span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>n) <span class="co">#%&gt;% </span>
   <span class="co">#.[1]</span>
 
-starwars_species_small_as_fctr  &lt;-<span class="st">  </span>starwars_species_small <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">parse_factor</span>(species, levels<span class="op">$</span>species))</code></pre></div>
+<span class="co">#starwars_species_small_as_fctr  &lt;-  starwars_species_small %&gt;% </span>
+<span class="co">#  mutate(species = parse_factor(species, levels$species))</span></code></pre></div>
 </div>
 <div id="scatter-plot" class="section level2">
 <h2>Scatter Plot</h2>
@@ -433,27 +433,27 @@ starwars_species_small_as_fctr  &lt;-<span class="st">  </span>starwars_species_
 <span class="st">  </span><span class="kw">layer_points</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_model_predictions</span>(<span class="dt">model =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## Guessing formula = mass ~ height</code></pre>
-<p><div id="plot_id846032791-container" class="ggvis-output-container">
-<div id="plot_id846032791" class="ggvis-output"></div>
+<p><div id="plot_id495099058-container" class="ggvis-output-container">
+<div id="plot_id495099058" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id846032791_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id846032791" data-renderer="svg">SVG</a>
+<a id="plot_id495099058_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id495099058" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id846032791_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id846032791" data-renderer="canvas">Canvas</a>
+<a id="plot_id495099058_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id495099058" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id846032791_download" class="ggvis-download" data-plot-id="plot_id846032791">Download</a>
+<a id="plot_id495099058_download" class="ggvis-download" data-plot-id="plot_id495099058">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id846032791_spec = {
+var plot_id495099058_spec = {
   "data": [
     {
       "name": ".0",
@@ -655,35 +655,35 @@ var plot_id846032791_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id846032791").parseSpec(plot_id846032791_spec);
+ggvis.getPlot("plot_id495099058").parseSpec(plot_id495099058_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#scatterplots">More information on ggvis scatterplots</a> | <a href="http://ggvis.rstudio.com/cookbook.html#line-graphs">line graphs</a></p>
 </div>
 <div id="bar-graph" class="section level2">
 <h2>Bar Graph</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species_small_as_fctr <span class="op">%&gt;%</span><span class="st">   </span>
-<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>species) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species_small <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span><span class="kw">fct_infreq</span>(species)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_bars</span>()</code></pre></div>
-<p><div id="plot_id917395076-container" class="ggvis-output-container">
-<div id="plot_id917395076" class="ggvis-output"></div>
+<p><div id="plot_id435318001-container" class="ggvis-output-container">
+<div id="plot_id435318001" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id917395076_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id917395076" data-renderer="svg">SVG</a>
+<a id="plot_id435318001_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id435318001" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id917395076_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id917395076" data-renderer="canvas">Canvas</a>
+<a id="plot_id435318001_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id435318001" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id917395076_download" class="ggvis-download" data-plot-id="plot_id917395076">Download</a>
+<a id="plot_id435318001_download" class="ggvis-download" data-plot-id="plot_id435318001">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id917395076_spec = {
+var plot_id435318001_spec = {
   "data": [
     {
       "name": ".0/count1/stack2",
@@ -787,7 +787,7 @@ var plot_id917395076_spec = {
       "orient": "bottom",
       "layer": "back",
       "grid": true,
-      "title": "species"
+      "title": "fct_infreq(species)"
     },
     {
       "type": "y",
@@ -811,7 +811,7 @@ var plot_id917395076_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id917395076").parseSpec(plot_id917395076_spec);
+ggvis.getPlot("plot_id435318001").parseSpec(plot_id435318001_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#bar-graphs">More information on ggvis bar graphs</a></p>
 </div>
 <div id="histogram" class="section level2">
@@ -819,27 +819,27 @@ ggvis.getPlot("plot_id917395076").parseSpec(plot_id917395076_spec);
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>birth_year) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_histograms</span>()</code></pre></div>
-<p><div id="plot_id585895432-container" class="ggvis-output-container">
-<div id="plot_id585895432" class="ggvis-output"></div>
+<p><div id="plot_id857169387-container" class="ggvis-output-container">
+<div id="plot_id857169387" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id585895432_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id585895432" data-renderer="svg">SVG</a>
+<a id="plot_id857169387_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id857169387" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id585895432_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id585895432" data-renderer="canvas">Canvas</a>
+<a id="plot_id857169387_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id857169387" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id585895432_download" class="ggvis-download" data-plot-id="plot_id585895432">Download</a>
+<a id="plot_id857169387_download" class="ggvis-download" data-plot-id="plot_id857169387">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id585895432_spec = {
+var plot_id857169387_spec = {
   "data": [
     {
       "name": ".0/bin1/stack2",
@@ -970,12 +970,12 @@ var plot_id585895432_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id585895432").parseSpec(plot_id585895432_spec);
+ggvis.getPlot("plot_id857169387").parseSpec(plot_id857169387_spec);
 </script> <a href="http://ggvis.rstudio.com/cookbook.html#histograms">More information on ggvis histograms</a></p>
 </div>
 <div id="grouping-data-points" class="section level2">
 <h2>Grouping data points</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species_small_as_fctr <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species_small <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span>height, <span class="op">~</span>mass) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_points</span>(<span class="op">~</span>height, <span class="op">~</span>mass, 
@@ -983,27 +983,27 @@ ggvis.getPlot("plot_id585895432").parseSpec(plot_id585895432_spec);
                <span class="dt">fill =</span> <span class="op">~</span>species,
                size <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="er">~</span>birth_year, 
                opacity <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="fl">0.7</span>)</code></pre></div>
-<div id="plot_id680939536-container" class="ggvis-output-container">
-<div id="plot_id680939536" class="ggvis-output"></div>
+<div id="plot_id929996559-container" class="ggvis-output-container">
+<div id="plot_id929996559" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id680939536_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id680939536" data-renderer="svg">SVG</a>
+<a id="plot_id929996559_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id929996559" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id680939536_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id680939536" data-renderer="canvas">Canvas</a>
+<a id="plot_id929996559_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id929996559" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id680939536_download" class="ggvis-download" data-plot-id="plot_id680939536">Download</a>
+<a id="plot_id929996559_download" class="ggvis-download" data-plot-id="plot_id929996559">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id680939536_spec = {
+var plot_id929996559_spec = {
   "data": [
     {
       "name": ".0/group_by1_flat",
@@ -1015,7 +1015,7 @@ var plot_id680939536_spec = {
           "mass": "number"
         }
       },
-      "values": "\"species\",\"birth_year\",\"height\",\"mass\"\n\"Human\",19,172,77\n\"Human\",41.9,202,136\n\"Human\",19,150,49\n\"Human\",52,178,120\n\"Human\",47,165,75\n\"Human\",24,183,84\n\"Human\",57,182,77\n\"Human\",41.9,188,84\n\"Human\",29,180,80\n\"Human\",21,170,77\n\"Human\",82,170,75\n\"Human\",31.5,183,78.2\n\"Human\",31,177,79\n\"Human\",37,175,79\n\"Human\",92,193,89\n\"Human\",72,188,84\n\"Human\",102,193,80\n\"Human\",66,183,79\n\"Human\",46,165,45\n\"Droid\",112,167,75\n\"Droid\",33,96,32\n\"Droid\",15,200,140\n\"Mirialan\",58,170,56.2\n\"Mirialan\",40,166,50\n\"Ewok\",8,88,20\n\"Gungan\",52,196,66\n\"Wookiee\",200,228,112"
+      "values": "\"species\",\"birth_year\",\"height\",\"mass\"\n\"Droid\",112,167,75\n\"Droid\",33,96,32\n\"Droid\",15,200,140\n\"Ewok\",8,88,20\n\"Gungan\",52,196,66\n\"Human\",19,172,77\n\"Human\",41.9,202,136\n\"Human\",19,150,49\n\"Human\",52,178,120\n\"Human\",47,165,75\n\"Human\",24,183,84\n\"Human\",57,182,77\n\"Human\",41.9,188,84\n\"Human\",29,180,80\n\"Human\",21,170,77\n\"Human\",82,170,75\n\"Human\",31.5,183,78.2\n\"Human\",31,177,79\n\"Human\",37,175,79\n\"Human\",92,193,89\n\"Human\",72,188,84\n\"Human\",102,193,80\n\"Human\",66,183,79\n\"Human\",46,165,45\n\"Mirialan\",58,170,56.2\n\"Mirialan\",40,166,50\n\"Wookiee\",200,228,112"
     },
     {
       "name": ".0/group_by1",
@@ -1035,7 +1035,7 @@ var plot_id680939536_spec = {
         "type": "csv",
         "parse": {}
       },
-      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Mirialan\"\n\"Ewok\"\n\"Gungan\"\n\"Wookiee\""
+      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Wookiee\"\n\"Ewok\"\n\"Gungan\"\n\"Mirialan\""
     },
     {
       "name": "scale/x",
@@ -1174,39 +1174,39 @@ var plot_id680939536_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id680939536").parseSpec(plot_id680939536_spec);
+ggvis.getPlot("plot_id929996559").parseSpec(plot_id929996559_spec);
 </script>
 <p> </p>
 </div>
 <div id="boxplot" class="section level2">
 <h2>BoxPlot</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species_small_as_fctr <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(species <span class="op">!=</span><span class="st"> &quot;Ewok&quot;</span> <span class="op">&amp;</span>
-<span class="st">           </span>species <span class="op">!=</span><span class="st"> &quot;Wookiee&quot;</span> <span class="op">&amp;</span>
-<span class="st">           </span>species <span class="op">!=</span><span class="st"> &quot;Gungan&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span><span class="kw">parse_factor</span>(species, species), <span class="op">~</span>mass) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_species_small <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(species <span class="op">!=</span><span class="st"> &quot;Ewok&quot;</span>, 
+           species <span class="op">!=</span><span class="st"> &quot;Wookiee&quot;</span>,
+           species <span class="op">!=</span><span class="st"> &quot;Gungan&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggvis</span>(<span class="op">~</span><span class="kw">fct_infreq</span>(species), <span class="op">~</span>mass) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">layer_boxplots</span>()</code></pre></div>
-<div id="plot_id717618072-container" class="ggvis-output-container">
-<div id="plot_id717618072" class="ggvis-output"></div>
+<p><div id="plot_id778786175-container" class="ggvis-output-container">
+<div id="plot_id778786175" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id717618072_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id717618072" data-renderer="svg">SVG</a>
+<a id="plot_id778786175_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id778786175" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id717618072_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id717618072" data-renderer="canvas">Canvas</a>
+<a id="plot_id778786175_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id778786175" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id717618072_download" class="ggvis-download" data-plot-id="plot_id717618072">Download</a>
+<a id="plot_id778786175_download" class="ggvis-download" data-plot-id="plot_id778786175">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id717618072_spec = {
+var plot_id778786175_spec = {
   "data": [
     {
       "name": ".0/group_by1/boxplot2_flat",
@@ -1220,7 +1220,7 @@ var plot_id717618072_spec = {
           "median_": "number"
         }
       },
-      "values": "\"min_\",\"max_\",\"parse_factor(species, species)\",\"lower_\",\"upper_\",\"median_\"\n32,140,\"Droid\",53.5,107.5,75\n75,89,\"Human\",77,84,79\n50,56.2,\"Mirialan\",51.55,54.65,53.1"
+      "values": "\"min_\",\"max_\",\"fct_infreq(species)\",\"lower_\",\"upper_\",\"median_\"\n75,89,\"Human\",77,84,79\n32,140,\"Droid\",53.5,107.5,75\n50,56.2,\"Mirialan\",51.55,54.65,53.1"
     },
     {
       "name": ".0/group_by1/boxplot2",
@@ -1229,7 +1229,7 @@ var plot_id717618072_spec = {
         {
           "type": "treefacet",
           "keys": [
-            "data.parse_factor(species, species)"
+            "data.fct_infreq(species)"
           ]
         }
       ]
@@ -1242,7 +1242,7 @@ var plot_id717618072_spec = {
           "value_": "number"
         }
       },
-      "values": "\"value_\",\"parse_factor(species, species)\"\n136,\"Human\"\n49,\"Human\"\n120,\"Human\"\n45,\"Human\""
+      "values": "\"value_\",\"fct_infreq(species)\"\n136,\"Human\"\n49,\"Human\"\n120,\"Human\"\n45,\"Human\""
     },
     {
       "name": ".0/group_by1/boxplot2/boxplot_outliers3",
@@ -1251,7 +1251,7 @@ var plot_id717618072_spec = {
         {
           "type": "treefacet",
           "keys": [
-            "data.parse_factor(species, species)"
+            "data.fct_infreq(species)"
           ]
         }
       ]
@@ -1262,7 +1262,7 @@ var plot_id717618072_spec = {
         "type": "csv",
         "parse": {}
       },
-      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Mirialan\""
+      "values": "\"domain\"\n\"Droid\"\n\"Human\"\n\"Mirialan\""
     },
     {
       "name": "scale/xcenter",
@@ -1270,7 +1270,7 @@ var plot_id717618072_spec = {
         "type": "csv",
         "parse": {}
       },
-      "values": "\"domain\"\n\"Human\"\n\"Droid\"\n\"Mirialan\""
+      "values": "\"domain\"\n\"Droid\"\n\"Human\"\n\"Mirialan\""
     },
     {
       "name": "scale/y",
@@ -1347,7 +1347,7 @@ var plot_id717618072_spec = {
               },
               "x": {
                 "scale": "xcenter",
-                "field": "data.parse_factor(species, species)"
+                "field": "data.fct_infreq(species)"
               },
               "width": {
                 "value": 0.5
@@ -1380,7 +1380,7 @@ var plot_id717618072_spec = {
               },
               "x": {
                 "scale": "x",
-                "field": "data.parse_factor(species, species)"
+                "field": "data.fct_infreq(species)"
               },
               "y": {
                 "scale": "y",
@@ -1422,7 +1422,7 @@ var plot_id717618072_spec = {
               },
               "x": {
                 "scale": "x",
-                "field": "data.parse_factor(species, species)"
+                "field": "data.fct_infreq(species)"
               },
               "y": {
                 "scale": "y",
@@ -1467,7 +1467,7 @@ var plot_id717618072_spec = {
               },
               "x": {
                 "scale": "xcenter",
-                "field": "data.parse_factor(species, species)"
+                "field": "data.fct_infreq(species)"
               }
             },
             "ggvis": {
@@ -1488,7 +1488,7 @@ var plot_id717618072_spec = {
       "orient": "bottom",
       "layer": "back",
       "grid": true,
-      "title": "parse_factor(species, species)"
+      "title": "fct_infreq(species)"
     },
     {
       "type": "y",
@@ -1512,9 +1512,8 @@ var plot_id717618072_spec = {
   },
   "handlers": null
 };
-ggvis.getPlot("plot_id717618072").parseSpec(plot_id717618072_spec);
-</script>
-<p><a href="http://ggvis.rstudio.com/cookbook.html">More information on box plots</a></p>
+ggvis.getPlot("plot_id778786175").parseSpec(plot_id778786175_spec);
+</script> <a href="http://ggvis.rstudio.com/cookbook.html">More information on box plots</a></p>
 </div>
 
 &nbsp;

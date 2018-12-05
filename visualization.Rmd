@@ -47,8 +47,8 @@ levels <- starwars_species_small %>%
   arrange(-n) #%>% 
   #.[1]
 
-starwars_species_small_as_fctr  <-  starwars_species_small %>% 
-  mutate(species = parse_factor(species, levels$species))
+#starwars_species_small_as_fctr  <-  starwars_species_small %>% 
+#  mutate(species = parse_factor(species, levels$species))
 
 ```
 
@@ -66,14 +66,13 @@ not_jabba %>%
 
 ## Bar Graph
 
-
 ```{r ggvis_bargraph}
-
-starwars_species_small_as_fctr %>%   
-  ggvis(~species) %>% 
+starwars_species_small %>% 
+  ggvis(~fct_infreq(species)) %>% 
   layer_bars()
 ```
 [More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
+
 
 ## Histogram
 
@@ -86,8 +85,8 @@ starwars %>%
 
 ## Grouping data points
 
-```{r}
-starwars_species_small_as_fctr %>% 
+```{r poins-by-size}
+starwars_species_small %>% 
   ggvis(~height, ~mass) %>% 
   group_by(species) %>% 
   layer_points(~height, ~mass, 
@@ -97,18 +96,18 @@ starwars_species_small_as_fctr %>%
                opacity := 0.7)
 ```
 
+
 &nbsp;
 
 ## BoxPlot
 
-```{r, message=FALSE, warning=FALSE}
-starwars_species_small_as_fctr %>% 
-  filter(species != "Ewok" &
-           species != "Wookiee" &
+
+```{r boxplot, message=FALSE, warning=FALSE}
+starwars_species_small %>% 
+  filter(species != "Ewok", 
+           species != "Wookiee",
            species != "Gungan") %>% 
-  ggvis(~parse_factor(species, species), ~mass) %>% 
+  ggvis(~fct_infreq(species), ~mass) %>% 
   layer_boxplots()
 ```
-
-
 [More information on box plots](http://ggvis.rstudio.com/cookbook.html)

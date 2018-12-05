@@ -1,5 +1,6 @@
 a, a > code {
-  color: rgb(161,183,13);
+  /* color: rgb(161,183,13);   Daul fixed this */
+  color: rgb(94, 103, 33);
   text-decoration: none;
 }
 
@@ -107,4 +108,11 @@ br {
     width: 60px;
     padding: 3px;
     text-align: center;
+}
+
+/* Daul helped me with this image placement */
+.picture1 {
+  float: right;
+  margin: 0 0 30px 30px;
+  width: 450px;
 }
