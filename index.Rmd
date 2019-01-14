@@ -52,7 +52,7 @@ This gentle introduction provides a hands-on experience to learn the basics of m
 
 <!-- p class="right">John</p -->
 
-#### Dplyr
+#### dplyr
 
 - Arrange
 - Select
@@ -73,11 +73,11 @@ This gentle introduction provides a hands-on experience to learn the basics of m
 
 <!-- p class="right">John</p -->
 
-- ggvis
+- `ggplo2`
 
 ### GIS
 
-- leaflet
+- `leaflet`
 
 
 
