@@ -23,7 +23,7 @@ library(tidyverse)
 The grammar template for a ggplot2 plot can be seen below. The `ggplot` function takes a dataframe as the first primary input.  Variables can be defined within the aesthetics argument, and finally [various geometries](https://ggplot2.tidyverse.org/reference/index.html#section-layer-geoms) are defined. Unlike all other Tidyverse packages, ggplot2 **uses a plus operator `+` for a pipe**.  This is **different from `%>%`** but ultimately not that hard to implement. 
 
 ```r
-ggplot(data = starwars, aes(x = height, y = fav_rating)) +
+ggplot(data = starwars, aes(x = height, y = mass)) +
   geom_----()
 ```
 
