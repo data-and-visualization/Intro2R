@@ -7,107 +7,113 @@ output: html_document
 
 When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.   
 
-For this introductory section on visualization we use the `ggvis` package because it works seamlessly with pipes (i.e. `%>%`).  You can do a lot with [ggvis](http://ggvis.rstudio.com/).  You can do even more with [ggplot2](http://ggplot2.tidyverse.org/).  We offer a [separate workshop on ggplot2](https://rfun.library.duke.edu/2017/09/26/visualization-in-r-using-ggplot2-workshop-fall-2017/).
+For this introductory section on visualization we use the `ggplot2` package.  We offer a [separate workshop on ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/).    [Documentation for ggplot2](http://ggplot2.tidyverse.org/) is readily available.  
 
 ```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(ggvis)
 ```
 
-## Wrangle Data
+## Basic Grammar
 
-Create a data frame without Jabba
-```{r not_jabba}
-not_jabba <- starwars %>% 
-  filter(!is.na(mass),
-         !is.na(height),
-         mass < 400)
+The grammar template for a ggplot2 plot can be seen below. The `ggplot` function takes a dataframe as the first primary input.  Variables can be defined within the aesthetics argument, and finally [various geometries](https://ggplot2.tidyverse.org/reference/index.html#section-layer-geoms) are defined. Unlike all other Tidyverse packages, ggplot2 **uses a plus operator `+` for a pipe**.  This is **different from `%>%`** but ultimately not that hard to implement. 
+
+```r
+ggplot(data = starwars, aes(x = height, y = fav_rating)) +
+  geom_----()
 ```
 
-Subset the Species list to six species.
+You can learn more about ggplot with the following free resources
 
-```{r ggvis_prepare_bargraph}
+- Interactive Learning:  [Visualize Data Primers](https://rstudio.cloud/learn/primers/3)
+- [Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) Chapter in *R for Data Science* by Wickham & Grolemund.  See also the Chapter, "Graphics for Communication".
 
-starwars_species_small <- starwars %>% 
-  filter(!is.na(mass),
-         !is.na(height),
-         !is.na(birth_year),
-         !is.na(species),
-         mass < 400,
+
+**Some Example Visualizations and Geometries**
+
+## Scatter Plot
+
+Use [`geom_point`](https://ggplot2.tidyverse.org/reference/geom_point.html)
+
+```{r geompoint, warning=FALSE}
+ggplot(data = starwars, aes(x = mass, y = height)) +
+  geom_point()
+```
+
+
+## Bar Plot
+
+[`geom_bar`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - counts the cases and presents the bar heights are proportional to the number of cases.
+
+[`geom_col`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - bar heights represent the values in the data
+
+```{r}
+ggplot(data = starwars) +
+  geom_bar(aes(fct_infreq(eye_color)))
+```
+
+A more refine example that also demonstrates how to manipulate labels and colors
+```{r}
+ggplot(starwars) +
+  geom_bar(aes(fct_rev(fct_lump(fct_infreq(eye_color), n = 6))), 
+           fill = "grey") + 
+  coord_flip() +
+  geom_bar(data = starwars %>% filter(eye_color == "orange"),
+           aes(eye_color), fill = "orange") +
+  labs(x = "Eye Color", y = "",
+       title = "Eye Color of Starwars Characters",
+       subtitle = "Oranges eyes are uncommon.",
+       caption = "Data Source: dplyr::starwars")
+
+```
+
+
+## Histogram
+
+[`geom_histogram`](https://ggplot2.tidyverse.org/reference/geom_histogram.html)
+```{r hist, message=FALSE, warning=FALSE}
+ggplot(data = starwars, aes(x = birth_year)) + 
+geom_histogram()
+```
+
+Bins can be adjusted with `bindwidth` or `bins`.  See the documentation for arguments
+```{r binwidth, warning=FALSE}
+ggplot(data = starwars, aes(x = birth_year)) + 
+geom_histogram(binwidth = 10)
+```
+
+## BoxPlot
+
+[`geom_boxplot`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html)
+```{r boxplot, message=FALSE, warning=FALSE}
+starwars %>% 
+  filter(species == "Human" | species == "Droid" | species == "Gungan") %>% 
+  ggplot(aes(x = species, y = mass)) +
+    geom_boxplot()
+```
+
+## Grouping + Legends
+
+Variables can be mapped to exhibit different aesthetics.  In this case we map the `species` variable to the `color` aesthetic and `birth_year` variable to `size` aesthetic.  We also account for overplotting by adjusting the opacity as a fixed argument (outside the `aes()`) with the `alpha` argument.  Variables can be mapped inside the aesthetics function while other fixed characteristics are mapped outside the aesthetic function but inside the geom_.   **Legends** are added automatically by ggplot2.  
+
+```{r grouping}
+starwars %>% 
+  drop_na(mass, height, birth_year) %>% 
+  filter(mass < 400,
          species == "Human" | 
            species == "Droid" | 
            species == "Gungan" |
            species == "Mirialan" |
            species == "Ewok" |
-           species == "Wookiee")
-
-levels <- starwars_species_small %>%
-  group_by(species) %>% 
-  count() %>% 
-  arrange(-n) #%>% 
-  #.[1]
-
-#starwars_species_small_as_fctr  <-  starwars_species_small %>% 
-#  mutate(species = parse_factor(species, levels$species))
-
-```
-
-## Scatter Plot
-Linear model and 95% confidence interval
-
-```{r ggvis-scatter}
-not_jabba %>% 
-  ggvis(~height, ~mass) %>% 
-  layer_points() %>% 
-  layer_model_predictions(model = "lm", se = TRUE)
-
-```
-[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots) | [line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
-
-## Bar Graph
-
-```{r ggvis_bargraph}
-starwars_species_small %>% 
-  ggvis(~fct_infreq(species)) %>% 
-  layer_bars()
-```
-[More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
-
-
-## Histogram
-
-```{r ggvis-hist, message=FALSE}
-starwars %>% 
-  ggvis(~birth_year) %>% 
-  layer_histograms()
-```
-[More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
-
-## Grouping data points
-
-```{r poins-by-size}
-starwars_species_small %>% 
-  ggvis(~height, ~mass) %>% 
-  group_by(species) %>% 
-  layer_points(~height, ~mass, 
-               stroke := "black", 
-               fill = ~species,
-               size := ~birth_year, 
-               opacity := 0.7)
+           species == "Wookiee") %>% 
+  ggplot(aes(x = mass, y = height)) +
+    geom_point(aes(color = species, size = birth_year), alpha = 0.7)
 ```
 
 
-&nbsp;
 
-## BoxPlot
+Learn more about ggplot2.
 
-
-```{r boxplot, message=FALSE, warning=FALSE}
-starwars_species_small %>% 
-  filter(species != "Ewok", 
-           species != "Wookiee",
-           species != "Gungan") %>% 
-  ggvis(~fct_infreq(species), ~mass) %>% 
-  layer_boxplots()
-```
-[More information on box plots](http://ggvis.rstudio.com/cookbook.html)
+- [Our workshop on ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/) We offer free video streaming with shareable materials as well.  
+- Interactive Learning:  [Visualize Data Primers](https://rstudio.cloud/learn/primers/3)
+- [Documentation for ggplot2](http://ggplot2.tidyverse.org/) is readily available. 
+- [Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) Chapter in *R for Data Science* by Wickham & Grolemund.  See also the Chapter, "Graphics for Communication"
