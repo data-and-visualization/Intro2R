@@ -9,6 +9,11 @@ When in the data exploratory phase, you can quickly generate very basic visualiz
 
 For this introductory section on visualization we use the `ggplot2` package.  We offer a [separate workshop on ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/).    [Documentation for ggplot2](http://ggplot2.tidyverse.org/) is readily available.  
 
+You can learn more about ggplot with the following free resources
+
+- Interactive Learning:  [Visualize Data Primers](https://rstudio.cloud/learn/primers/3)
+- [Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) Chapter in *R for Data Science* by Wickham & Grolemund.  See also the Chapter, "Graphics for Communication".
+
 ```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
@@ -21,12 +26,6 @@ The grammar template for a ggplot2 plot can be seen below. The `ggplot` function
 ggplot(data = starwars, aes(x = height, y = fav_rating)) +
   geom_----()
 ```
-
-You can learn more about ggplot with the following free resources
-
-- Interactive Learning:  [Visualize Data Primers](https://rstudio.cloud/learn/primers/3)
-- [Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) Chapter in *R for Data Science* by Wickham & Grolemund.  See also the Chapter, "Graphics for Communication".
-
 
 **Some Example Visualizations and Geometries**
 

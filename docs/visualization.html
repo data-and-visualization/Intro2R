@@ -503,17 +503,17 @@ div.tocify {
 
 <p>When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.</p>
 <p>For this introductory section on visualization we use the <code>ggplot2</code> package. We offer a <a href="https://rfun.library.duke.edu/portfolio/ggplot_workshop/">separate workshop on ggplot2</a>. <a href="http://ggplot2.tidyverse.org/">Documentation for ggplot2</a> is readily available.</p>
+<p>You can learn more about ggplot with the following free resources</p>
+<ul>
+<li>Interactive Learning: <a href="https://rstudio.cloud/learn/primers/3">Visualize Data Primers</a></li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html">Data Visualization</a> Chapter in <em>R for Data Science</em> by Wickham &amp; Grolemund. See also the Chapter, “Graphics for Communication”.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 <div id="basic-grammar" class="section level2">
 <h2>Basic Grammar</h2>
 <p>The grammar template for a ggplot2 plot can be seen below. The <code>ggplot</code> function takes a dataframe as the first primary input. Variables can be defined within the aesthetics argument, and finally <a href="https://ggplot2.tidyverse.org/reference/index.html#section-layer-geoms">various geometries</a> are defined. Unlike all other Tidyverse packages, ggplot2 <strong>uses a plus operator <code>+</code> for a pipe</strong>. This is <strong>different from <code>%&gt;%</code></strong> but ultimately not that hard to implement.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> starwars, <span class="kw">aes</span>(<span class="dt">x =</span> height, <span class="dt">y =</span> fav_rating)) <span class="op">+</span>
 <span class="st">  </span>geom_<span class="op">----</span>()</code></pre></div>
-<p>You can learn more about ggplot with the following free resources</p>
-<ul>
-<li>Interactive Learning: <a href="https://rstudio.cloud/learn/primers/3">Visualize Data Primers</a></li>
-<li><a href="https://r4ds.had.co.nz/data-visualisation.html">Data Visualization</a> Chapter in <em>R for Data Science</em> by Wickham &amp; Grolemund. See also the Chapter, “Graphics for Communication”.</li>
-</ul>
 <p><strong>Some Example Visualizations and Geometries</strong></p>
 </div>
 <div id="scatter-plot" class="section level2">
