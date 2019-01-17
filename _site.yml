@@ -13,7 +13,7 @@ navbar:
         - text: Loading Data
           href: exercise1.html
         - text: Wrangling Data
-          href: exercis2.html
+          href: exercise2.html
     - text: "Visualization"
       href: visualization.html
     - text: "GIS/Mapping"
