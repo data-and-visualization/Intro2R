@@ -47,13 +47,13 @@ ggplot(data = starwars, aes(x = mass, y = height)) +
 
 ```{r}
 ggplot(data = starwars) +
-  geom_bar(aes(fct_infreq(eye_color)))
+  geom_bar(aes(x = fct_infreq(eye_color)))
 ```
 
 A more refine example that also demonstrates how to manipulate labels and colors
 ```{r}
 ggplot(starwars) +
-  geom_bar(aes(fct_rev(fct_lump(fct_infreq(eye_color), n = 6))), 
+  geom_bar(aes(x = fct_rev(fct_lump(fct_infreq(eye_color), n = 6))), 
            fill = "grey") + 
   coord_flip() +
   geom_bar(data = starwars %>% filter(eye_color == "orange"),
