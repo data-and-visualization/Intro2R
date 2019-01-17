@@ -463,6 +463,9 @@ div.tocify {
 <li>
   <a href="gis.html">GIS/Mapping</a>
 </li>
+<li>
+  <a href="resources.html">Resources</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -528,11 +531,11 @@ div.tocify {
 <p><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html"><code>geom_bar</code></a> - counts the cases and presents the bar heights are proportional to the number of cases.</p>
 <p><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html"><code>geom_col</code></a> - bar heights represent the values in the data</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> starwars) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="kw">fct_infreq</span>(eye_color)))</code></pre></div>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(eye_color)))</code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>A more refine example that also demonstrates how to manipulate labels and colors</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(starwars) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="kw">fct_rev</span>(<span class="kw">fct_lump</span>(<span class="kw">fct_infreq</span>(eye_color), <span class="dt">n =</span> <span class="dv">6</span>))), 
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_rev</span>(<span class="kw">fct_lump</span>(<span class="kw">fct_infreq</span>(eye_color), <span class="dt">n =</span> <span class="dv">6</span>))), 
            <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">data =</span> starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(eye_color <span class="op">==</span><span class="st"> &quot;orange&quot;</span>),

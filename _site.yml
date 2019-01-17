@@ -18,6 +18,8 @@ navbar:
       href: visualization.html
     - text: "GIS/Mapping"
       href: gis.html
+    - text: Resources
+      href: resources.html
   right:
     - icon: fa-github
 #    - text: "GitHub"

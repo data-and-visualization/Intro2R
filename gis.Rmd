@@ -5,7 +5,7 @@ output: html_document
 #    css: duke.css
 ---
 
-We offer a separate workshop on mapping in R.  Please see our [*Mapping with R* guide](/map/) for more information.  
+We offer a separate workshop on mapping in R.  Please see our [*Mapping with R* guide](https://map-rfun.library.duke.edu/) for more information.  
 
 ```{r loadPackages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)

@@ -3,9 +3,13 @@ title: "Data Management"
 output: html_document
 ---
 
-Let's focus on the Tidyverse.  Tidyverse is a set of packages that work together within a common tidy-data framework.^[https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/]  These packages modernize R and enable an efficient workflow.  Although this method is not the only way to use R, you may work for a long time before you need to explore beyond the tidyverse.  This tidy framework is great for learning R and being productive when using R.  Let's get started.
+The [Tidyverse](https://tidyveres.org) is a set of packages that work together within a common tidy-data framework.^[https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/]  These packages modernize R and enable an efficient workflow.  This tidy framework is great for learning while being productive.
 
-![](https://rviews.rstudio.com/post/2017-06-09-What-is-the-tidyverse_files/tidyverse1.png)
+```{r tidyverseimage, echo=FALSE, message=FALSE, warning=FALSE, out.width = "100%", fig.align = "right", fig.cap = "Image Credit:  RStudio.com"}
+knitr::include_graphics("https://rviews.rstudio.com/post/2017-06-09-What-is-the-tidyverse_files/tidyverse1.png")
+
+```
+<!-- Image Credit: https://rviews.rstudio.com/post/2017-06-09-What-is-the-tidyverse_files/tidyverse1.png -->
 
 &nbsp; 
 
@@ -17,7 +21,7 @@ library(tidyverse)
 
 &nbsp; 
 
-> Note.  You must install a library-package before you load a library-package.  The above code chunk engages the `library()` function to load the "*tidyverse*" packages.  
+> Note:  You must install a library-package before you load a library-package.  The above code chunk engages the `library()` function to load the "*tidyverse*" packages.  ([Video Help: Install Pages](https://tutorials.shinyapps.io/00-setup/#section-install-packages))
 
 As you see from the image above, the *tidyverse* package is a super-package consisting of several more precise and focused packages.  You can install packages from the **Tools** menu-bar in the RStudio IDE.
 
@@ -47,24 +51,22 @@ cars <- read_csv("data/cars.csv")
 
 During this workshop demonstration, We'll use the *Starwars* characters dataset, `starwars`. The data, part of the `dplyr` package, come from SWAPI, the Star Wars API, http://swapi.co/. Since the data are integrated into `dplyr`, we don't need to load the data, but you may still want to find information about the dataset.  The codebood for the Starwars dataset is integrated into the `dplyr` documentation.  To view the *Starwars* codebook, first load the `library(dplyr)` package.  Then, via the *Help* pane, search *starwars*.  Alternatively, in the *Console* pane, type `?starwars`.
 
-Note:  `dplyr` is part of `tidyverse` which we loaded already.
+Note:  `dplyr` is part of `tidyverse` which we loaded with the command:  `library(tidyverse)`
 
 In the next module, Data Wrangling, we'll discus the `dplyr` package in greater detail.
 
 
 ## View your data in a grid.
 
-```{r eval=FALSE, include=FALSE}
-View(starwars)
-# Displays as a tab in the source-pane quadrant
-# Does not dipsplay in an R Notebooks
+```{r echo=TRUE}
+starwars
 ```
 
 ### Other Data Loaders, a selective list
 
-- `View()` is an exploratory convenience; it's not "reproducible" in the sense of generating a report or leaving a trail of your work.  One of the advantages is on-board clickable sorting
+- `View()` is an exploratory convenience while using RStudio.  `View()` will not generate output in your [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html) reports, but one advantage to `View()` is an on-board, clickable, sortable data-viewer used while computing within RStudio.
 
-- Environment Pane has information about data objects
+- The **Environment** Pane within RStudio presents information about data objects
 
 
 ## Modern Data Frames: Tibbles
@@ -83,25 +85,26 @@ starwars
 ### Most Common Data Structures
 
 - Vector
-- Data Frame
-- Tibble
+- Data Frame & Tibble
 - List
 - Matrix
 
-### Class
-
-`class()` identifies the class of an object revealing the data structure or the data type.
-
-```{r}
-class(starwars)
-```
+Read more about it in [R for Data Science](https://r4ds.had.co.nz/vectors.html)
 
 ### Glimpse into a data frame
+
+First, let's glimpse into a Tibble.  How do you know the object is a Tibble?  Read below about `class()`, but first ...
 
 `glimpse()` reveals the structure of an object
 
 ```{r}
 glimpse(starwars)
+```
+
+The old-school way to `glimpse` into the structure is via the `str()` function.  It's fine but not as pretty as `glimpse()`.  Sometimes it's necessary to `str()`, particularly when investigating the structure of lists -- but that's way beyond what we're talking about here.
+
+``` r
+str(starwars)  #example, not executed. Practice this in your RStudio console or R Notebook.  
 ```
 
 &nbsp;
@@ -117,13 +120,21 @@ glimpse(starwars)
     - double (approximation with floating points and multiple special values)
     
 - logical (True or False)
-- factor
+- factor (`[forcats](https://forcats.tidyverse.org/)` is especially used for for manipulating factor data)
 
 ### Class
 
+`class()` identifies the class of an object revealing the data structure or the data type.
+
+```{r}
+class(starwars)
+```
+
+You can reference a vector within a dataframe via the `$<<column_name>>` syntax.
+
 ```{r}
 class(starwars$name)
-class(starwars$height)
+class(starwars$height)  
 class(starwars$mass)
 ```
 
@@ -136,13 +147,4 @@ class(starwars$mass)
 tbl_vars(starwars)
 ```
 
-&nbsp;
-
-### Older style 
-
-`str()` identifies the data structure:  data frames, matrices, lists, etc.
-
-```{r}
-str(starwars)
-```
 
