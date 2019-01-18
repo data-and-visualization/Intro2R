@@ -41,9 +41,9 @@ ggplot(data = starwars, aes(x = mass, y = height)) +
 
 ## Bar Plot
 
-[`geom_bar`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - counts the cases and presents the bar heights are proportional to the number of cases.
+[`geom_bar`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - counts the cases (rows) in the dataframe variable and uses that count to display the bar heights.
 
-[`geom_col`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - bar heights represent the values in the data
+[`geom_col`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - use this geom_ when bar heights are already represent in the dataframe and should be displayed as the values represented.
 
 ```{r}
 ggplot(data = starwars) +
@@ -112,7 +112,7 @@ starwars %>%
 
 Learn more about ggplot2.
 
-- [Our workshop on ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/) We offer free video streaming with shareable materials as well.  
+- [Our workshop on ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/). We offer free video streaming with shareable materials as well.  
 - Interactive Learning:  [Visualize Data Primers](https://rstudio.cloud/learn/primers/3)
 - [Documentation for ggplot2](http://ggplot2.tidyverse.org/) is readily available. 
 - [Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) Chapter in *R for Data Science* by Wickham & Grolemund.  See also the Chapter, "Graphics for Communication"
