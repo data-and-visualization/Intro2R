@@ -31,20 +31,33 @@ starbucksNC <- starbucks  %>%
   filter(State == "NC")
 ```
 
-### Transform data to Spatial object
-```{r}
-starbucksNC <- st_as_sf(starbucksNC, coords = c("Longitude", "Latitude"),  crs=4326)
+### Make the Map
+
+In this example, set the map projection to a common projection standard, WGS84, via the argument `crs = 4326`.)
+
+```{r map1}
+mapview(starbucksNC, xcol = "Longitude", ycol = "Latitude", crs = 4269, grid = FALSE)
+```
+
+
+### Alternative: Transform data to Spatial object
+```{r map2}
+starbucksNC2 <- st_as_sf(starbucksNC, coords = c("Longitude", "Latitude"),  crs=4326)
 ```
 
 
 ### Make the Map
 ```{r makemap}
-mapview(starbucksNC)
+mapview(starbucksNC2)
 ```
 
 ## Save the Map
 
 You can save a map as an interactive HTML page or a static `.png, .pdf, or .jpeg` file with the [`mapshot` function](https://r-spatial.github.io/mapview/reference/mapshot.html).  For example:
+
+``` r
+starNCmap <- mapview(starbucksNC, xcol = "Longitude", ycol = "Latitude", crs = 4269, grid = FALSE)
+```
 
 - `mapshot(starNCmap, file = "map.png")`
 - `mapshot(starNCmap, url = "map.html")`
