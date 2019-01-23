@@ -43,7 +43,7 @@ ggplot(data = starwars, aes(x = mass, y = height)) +
 
 [`geom_bar`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - counts the cases (rows) in the dataframe variable and uses that count to display the bar heights.
 
-[`geom_col`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - use this geom_ when bar heights are already represent in the dataframe and should be displayed as the values represented.
+[`geom_col`](https://ggplot2.tidyverse.org/reference/geom_bar.html) - use `geom_col` when bar heights are already represented in the dataframe.  For example, summary counts shows represented values that should be used for the bar height.
 
 ```{r}
 ggplot(data = starwars) +
