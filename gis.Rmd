@@ -64,7 +64,7 @@ starNCmap <- mapview(starbucksNC, xcol = "Longitude", ycol = "Latitude", crs = 4
 
 Learn more about mapping in R
 
-- [Our workshop on ggplot2](https://rfun.library.duke.edu/portfolio/mapping_workshop/). We offer free video streaming with shareable materials as well.  
+- [Our workshop on mapping](https://rfun.library.duke.edu/portfolio/mapping_workshop/). We offer free video streaming with shareable materials as well.  
 - [Documentation for mapview](https://r-spatial.github.io/mapview/) 
 - [Documentation for sf](https://r-spatial.github.io/sf/)
 
