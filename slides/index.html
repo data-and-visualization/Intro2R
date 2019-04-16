@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>R, RStudio, and the Tidyverse</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Hosted by: Data &amp; Visualization Services Department" />
+    <meta name="date" content="2019-03-20" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/duke-blue.css" rel="stylesheet" />
+    <link href="libs/remark-css/hygge-duke.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs\cc-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs\figure-captions.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R, RStudio, and the Tidyverse
+## A Reproducible Data Savvy Toolkit
+### Hosted by: Data &amp; Visualization Services Department
+### 2019-03-20
+
+---
+
+
+class: middle
+
+- *Introduction to R* for **DataFest 2019**
+
+- Bathrooms
+
+- Instructors
+
+- Data &amp; Visualization Services Department
+
+- We're going to start very slowly
+
+
+---
+
+## Oultine
+
+- RStudio IDE / Importing Data
+- Part 1: dplyr -- data transformations
+- Part 2: ETD/Join -- exploratory data transformations &amp; skimr
+
+### As Time Allows
+
+See https://Rfun.library.duke.edu/
+
+- Part 3: **Brief** introduction to ggplot2
+- Part 4: Importing Large Files
+- Part 5: **Brief** GIS/Mapping
+
+---
+class: middle
+
+- https://is.gd/intro2r_2019spring
+
+- https://Rfun.library.duke.edu/intro2r
+
+- https://Rfun.Library.Duke.edu
+
+- https://Library.Duke.edu/data
+
+---
+class: middle, center, duke-softblue
+
+What is R
+
+---
+class: middle
+
+- A statistical programming language developed in the early 90s
+
+    - Derived from the S language (mid 70s)
+    
+- RStudio - a free IDE:  make it easier to program in R 
+
+- Tidyverse - An opinionated set of packages for data science
+
+    - Easiest to learn a consistent set of packages
+    - Good documentation:  https://www.tidyverse.org/
+
+---
+class: middle, center, duke-softblue
+
+# Why Tidyverse
+
+---
+class:  middle
+
+# Tidy data
+
+- Structured data sets are **easier** to manipulate, model, and visualize
+
+- Rows are observations
+- Columns are variables
+
+
+---
+class: middle
+
+# R/RStudio/Tidyverse
+
+- A Reproducible Scripting Ecosystem
+
+    - Projects are local folder-directories and can be Git repositories
+    - RMarkdown enables literate coding
+    - RMarkdown enables reproducible reporting (Word, PowerPoint, and **much, much** more)
+    
+---
+class: middle
+
+# Literate Programing
+
+- Separate code from prose
+- R Notebooks (just one example)
+
+---
+class: middle
+
+# Let's Get Started
+
+- Rstudio IDE
+
+    - Console
+    - Import Files
+    - Script Editor
+    - Packages
+    - Help
+    
+- Tidyverse Package
+
+
+---
+
+# John Little
+
+&amp;nbsp;
+
+.pull-left[.full-width[.content-box-green[
+### Data Science Librarian
+
+- [https://JohnLittle.info](https://johnlittle.info/)
+
+- https://github.com/libjohn
+]]
+
+### Rfun host...
+You can make **Rfun** with our resources for R and data science analytics.  See the [R we having fun yet‽](https://rfun.library.duke.edu/) resource pages.
+]
+
+.pull-right[.content-box-grey[
+### Duke University
+
+**Data &amp; Visualization Services**
+
+- https://library.duke.edu/data/
+- askData@Duke.edu
+- The /Edge, Bostock (1st Floor)
+- [Past Workshops](https://library.duke.edu/data/news/past-workshops)
+- [Guides &amp; Tutorials](https://library.duke.edu/data/tutorials)
+
+]]
+
+
+
+
+---
+class: center, middle
+## Shareable 
+
+Data, presentation, and handouts 
+
+&lt;span class="cc"&gt;
+&lt;!-- Key: a: SA, b: BY, c: CC Circle, d: ND, n: NC, m: Sampling, s: Share, r: Remix, C: CC Full Logo --&gt;
+C bn
+&lt;/span&gt;
+
+
+[CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
