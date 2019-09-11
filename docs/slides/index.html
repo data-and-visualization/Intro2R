@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>R, RStudio, and the Tidyverse</title>
-    <meta charset="utf-8">
-    <meta name="author" content="Hosted by: Data &amp; Visualization Services Department" />
-    <meta name="date" content="2019-04-17" />
+    <title>Introduction to R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Little" />
+    <meta name="date" content="2019-09-11" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link href="libs/remark-css/duke-blue.css" rel="stylesheet" />
@@ -16,121 +16,244 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# R, RStudio, and the Tidyverse
-## A Reproducible Data Savvy Toolkit
-### Hosted by: Data &amp; Visualization Services Department
-### 2019-04-17
+# Introduction to R
+## an Rfun event
+### John Little
+### 2019-09-11
 
 ---
 
 
-class: middle
+# Housekeeping
 
-- Bathrooms
+- Name of this Workshop
+    
+- Center for Data &amp; Visualization Sciences
 
-- Instructors
+    - https://library.duke.edu/data
 
-- Data &amp; Visualization Services Department
+- Rfun: R We Having Fun Yet‽
 
-    - https://library.duke.edu/data/
+    - https://rfun.library.duke.edu/
+        - Video recordings, shareable code, &amp; data 
+        - [R Open Labs](https://rfun.library.duke.edu/portfolio/r_open_labs/)
 
-- We're going to start very slowly
+
+- Today
+    - https://JohnLittle.info/
+    - Duration
+    - Bathrooms
+    - Workshop Approach: Explain, Demonstrate, Hands-on
+    - Further Help: Walk-in, Email, By Appointment
+    - Our/Your Computer Lab
 
 ---
 class: middle
-
 ## URLs for Today
-
-- Cloud -- https://is.gd/gentler
-
-- GitHub Repository - https://is.gd/intro2r_2019spring
 
 - Slide Deck -- https://rfun.library.duke.edu/intro2r/slides/
 
-- Our Guide -- https://rfun.library.duke.edu/intro2r
+- Shareable Code:  GitHub Repository - https://is.gd/intro2r_2019spring
 
+- Intro to R: Online Guide -- https://rfun.library.duke.edu/intro2r
 
-## Learning Resources
-
-- https://Rfun.library.duke.edu
-
-- [RStudio Primers](https://rstudio.cloud/learn/primers)
-
-- [R Ladies](https://rladies.org/)
-
----
-
-## Oultine
-
-- RStudio IDE / Importing Data
-- Part 1: dplyr -- data transformations
-- Part 2: **Brief** introduction to visualization with ggplot2
-
-### As Time Allows
-
-- Part 3: ETD/Join -- exploratory data transformations &amp; skimr
-- Part 4: Importing Large Files
-- Part 5: **Brief** GIS/Mapping
-
-
----
-class: middle, center, duke-softblue
-
-# What is R
-
----
-class: middle
-
-- A statistical programming language developed in the early 90s
-
-    - Derived from the S language (mid 70s)
-    
-- RStudio - a free IDE:  make it easier to program in R 
-
-- Tidyverse - An opinionated set of packages for data science
-
-    - Easiest to learn a consistent set of packages
-    - Good documentation:  https://www.tidyverse.org/
-
----
-class: middle, center, duke-softblue
-
-# Why Tidyverse
+- Cloud -- https://is.gd/gentler
 
 ---
 class:  middle
+## Goals for Today
 
-# Tidy data
+.pull-left[
+- Why R ; Why RStudio
 
-- Structured data sets are **easier** to manipulate, model, and visualize
+- Basic Rstudio navigation
 
-- Rows are observations
-- Columns are variables
+- Import Data
 
+- Tansform Data]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+class: duke-softblue, middle
+
+# Why R
+
+**Data-First** Programming Language
+
+- Statistical language developed in the early 90s 
+
+- Derived from the S language (mid 70s)
+    
+**Reproducibility** enabled
+
+- **Coding**: open and transparent
+- [Literate Programming](https://en.wikipedia.org/wiki/Literate_programming)
+
+    - Reports derived from code
+
+- **Version Control**
+
+Extremely helpful [RStudio Community](https://community.rstudio.com/)
 
 ---
 class: middle
+# R Packages
 
-# R/RStudio/Tidyverse
+Extends R into your domain of interest.  Choose from  thousands of R packages.
 
-- A Reproducible Scripting Ecosystem
+- [Tidyverse](https://www.tidyverse.org/packages/)
+- [Quick List of Useful Packagse](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages)
+- [CRAN](https://cran.r-project.org/)
+- [ROpenSci](https://ropensci.org/)
+- [BioConductor](https://www.bioconductor.org/)
 
-    - Projects are local folder-directories and can be Git repositories
-    - RMarkdown enables literate coding
-    - RMarkdown enables reproducible reporting (Word, PowerPoint, and **much, much** more)
+---
+class: middle
+# Why RStudio
+
+- Free Integrated **Development Environment** (IDE)
+- Supports Publishing through RStudio hosting
+
+    - [RPubs](https://rpubs.com/) (free) | [Getting Started](https://rpubs.com/about/getting-started)
+    - RStudio Connect (teams | $$)
+
+    - Or host your reports other places (free)
+        - Duke has many hosting options
+        - **Netlify.com**
+        - GitHub Pages
+
+---
+class: middle
+## Tidyverse
+
+An opinionated set of packages for data science
+
+- Consistent set of packages
+
+- Consistency extends across packages
+
+- Great documentation:  https://www.tidyverse.org/packages/
+
+- Community Support at [RStudio Community](https://community.rstudio.com/)
+
     
 ---
-class: middle
+# Base R v Tidyverse
 
-# Literate Programing
+.pull-left[.content-box-neutral[
 
-- Separate code from prose
-- R Notebooks (just one example)
+![Base R v Tidyverse](../images/expanding-brain_tidyverse.jpg)
+
+]]
+.pull-right[
+
+&amp;nbsp;
+
+&amp;nbsp; 
+
+
+&amp;nbsp; | Base R | Tidyverse
+:--- |:--- |:---
+Born | 1993 | [2007 - 2017?]
+Comment | Core language | Consistent [DS](https://en.wikipedia.org/wiki/Data_science) grammar and syntax
+Benefit | Necessary | Quick to learn: Consistent, Modern, [Documentation](https://www.tidyverse.org/packages/), [Community](https://community.rstudio.com/)
+Conference | [UserR!](https://www.r-project.org/conferences/) | [RStudio::Conf](https://www.rstudio.com/conference/)
+]
 
 ---
-class: middle, center, duke-softblue
+class: duke-orange
 
-# Common Questions
+# Let's Begin
+
+- Part 0: **Projects** &amp; importing data
+- Part 1: **dplyr** -- data transformations
+- Part 2: **ETD/join** -- exploratory data transformations &amp; skimr
+- ------
+- Part 3: **Brief** introduction to [ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/)
+- Part 4: [GIS/Mapping](https://rfun.library.duke.edu/portfolio/mapping_workshop/)
+- Part 5: Importing Large Files
+    
+---
+class: duke-softblue
+## Import data into a Project
+
+An [RStuido project](https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects) is a folder directory and can be a version control repository
+
+- Keep all files together
+
+- Paths are relative to the project
+
+- Optional Version Control. e.g. git repository
+
+- Reproducibility
+
+
+---
+### Literate Coding
+
+.pull-left[.content-box-grey[
+![](https://d33wubrfki0l68.cloudfront.net/9a23d664f0f49bc2ef8e78bed6277dd48bd2b96d/af132/diagrams/rstudio-console.png)&lt;!-- --&gt;
+.tiny[.right[Image Credit: [R for Data Science](https://r4ds.had.co.nz/introduction.html#rstudio)]]
+
+.pull-left[
+**RStudio Console**
+
+- Console
+]
+.pull-right[
+- Import Files
+- Script Editor
+- Packages
+- Help
+]]]
+.pull-right[.content-box-yellow[
+![](https://bookdown.org/yihui/rmarkdown/images/notebook-preview.png)&lt;!-- --&gt;
+.tiny[.right[Image Credit: [R Markdown: The Definitive Guide.](https://bookdown.org/yihui/rmarkdown/notebook.html#using-notebooks)]]
+
+**R Notebook**
+
+- YAML header
+- prose
+- code chunks
+]]
+
+.tiny[Implemented within the RStudio IDE: An [R Notebook](https://bookdown.org/yihui/rmarkdown/notebook.html) example of an [R Markdown](https://bookdown.org/yihui/rmarkdown/) document.]
+
+
+
+---
+class: duke-softblue
+# dplyr
+
+A grammar of data manipulation
+
+- consistent verbs to solve common data transforms
+
+- https://dplyr.tidyverse.org/
+
+---
+class: center
+## Learn Five dplyr Verbs
+
+Function | Usage
+:--- | :---
+`filter` | subset rows by variables
+`arrange` | sort rows by variables
+`select` | columns (variables)
+`mutate` | change cell values
+`count` |   
+.purple[`summarize`] |
+
+
+There are many [more dplyr functions](https://dplyr.tidyverse.org/reference/) 
+
+---
+class: middle, center, duke-green
+
+# Sidebar: Common Questions
 
 ---
 class: middle, center
@@ -161,19 +284,112 @@ Ctrl/Cmd-Shift-M
 `answer %&gt;% sqrt()`
 
 ---
-class: middle
+class: duke-softblue
+# `filter`
 
-# Let's Get Started
+Subset **Rows** by variables
 
-- RStudio IDE
+`starwars %&gt;% filter(eye_color == "orange")`
 
-    - Console
-    - Import Files
-    - Script Editor
-    - Packages
-    - Help
-    
-- Tidyverse Package
+![](../images/filter_by_rows.svg)&lt;!-- --&gt;
+
+---
+class: duke-softblue
+# `arrange` 
+
+Sort **Rows** by variables
+
+```
+starwars %&gt;% arrange(eye_color)
+
+starwars %&gt;% arrange(desc(eye_color))
+
+starwars %&gt;% arrange(desc(eye_color), hair_color)
+```
+
+![](../images/arrange_rows.svg)&lt;!-- --&gt;
+
+---
+class: duke-softblue
+# `select`
+
+subset by columns (variables)
+
+```
+starwars %&gt;% select(hair_color, eye_color)
+
+starwars %&gt;% select(2:4)
+
+starwars %&gt;% select(name:mass, 10, 7, 4:6)
+```
+
+![](../images/select.svg)&lt;!-- --&gt;
+
+---
+class: duke-softblue
+# `mutate` 
+
+Change cell values
+
+```
+starwars %&gt;% mutate(big_mass = mass * 100)
+starwars %&gt;% mutate(BMI = (mass / (height/100)^2))
+
+starwars %&gt;% mutate(
+       nickname = str_c("Big", str_to_upper(hair_color), 
+                        sep = " "))
+```
+![](../images/mutate.svg)&lt;!-- --&gt;
+
+---
+class: duke-softblue
+## `count`
+
+Count observations by group
+
+```r
+starwars %&gt;% count(gender)
+```
+
+## `summarize`
+
+Reduce multiple values down to a single line
+
+```r
+starwars %&gt;% 
+  drop_na(height) %&gt;% 
+  summarise(n(), n_distinct(height), 
+            min(height), max(height))
+
+starwars %&gt;% 
+  drop_na(height) %&gt;% 
+  group_by(gender) %&gt;% 
+  summarise(Total = n(), n_distinct(height), 
+            min(height), max(height)) %&gt;% 
+  ungroup()
+```
+
+
+
+---
+# Learning Resources
+
+- https://Rfun.library.duke.edu
+
+    - [R Open Labs](https://rfun.library.duke.edu/portfolio/r_open_labs/)
+
+- [RStudio Primers](https://rstudio.cloud/learn/primers)
+
+- [DataQuest.io](https://dataquest.io)
+
+- LinkedIn Learning ([via Duke](https://oit.duke.edu/what-we-do/applications/linkedin-learning))
+
+- [R Ladies](https://rladies.org/)
+
+## Installation Help
+
+- [Primers Help](https://tutorials.shinyapps.io/00-setup/): Brief, video based instruction
+- Use an **already installed version**:  in [our Lab](https://library.duke.edu/data/about/lab),[ RStudio.Cloud](https://rstudio.cloud/), [Duke Containers](https://vm-manage.oit.duke.edu/containers)
 
 
 ---
@@ -185,7 +401,7 @@ class: middle
 .pull-left[.full-width[.content-box-green[
 ### Data Science Librarian
 
-- [https://JohnLittle.info](https://johnlittle.info/)
+- https://JohnLittle.info/
 
 - https://github.com/libjohn
 ]]
@@ -197,7 +413,7 @@ You can make **Rfun** with our resources for R and data science analytics.  See 
 .pull-right[.content-box-grey[
 ### Duke University
 
-**Data &amp; Visualization Services**
+**Center for Data &amp; Visualization Sciences**
 
 - https://library.duke.edu/data/
 - askData@Duke.edu
@@ -224,6 +440,7 @@ C bn
 
 [CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -233,16 +450,57 @@ C bn
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
 })();</script>
 
 <script>
 (function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -256,7 +514,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
