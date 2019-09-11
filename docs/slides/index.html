@@ -145,7 +145,7 @@ An opinionated set of packages for data science
 
 .pull-left[.content-box-neutral[
 
-![Base R v Tidyverse](../images/expanding-brain_tidyverse.jpg)
+![Base R v Tidyverse](images/expanding-brain_tidyverse.jpg)
 
 ]]
 .pull-right[
@@ -291,7 +291,7 @@ Subset **Rows** by variables
 
 `starwars %&gt;% filter(eye_color == "orange")`
 
-![](../images/filter_by_rows.svg)&lt;!-- --&gt;
+![](images/filter_by_rows.svg)&lt;!-- --&gt;
 
 ---
 class: duke-softblue
@@ -307,7 +307,7 @@ starwars %&gt;% arrange(desc(eye_color))
 starwars %&gt;% arrange(desc(eye_color), hair_color)
 ```
 
-![](../images/arrange_rows.svg)&lt;!-- --&gt;
+![](images/arrange_rows.svg)&lt;!-- --&gt;
 
 ---
 class: duke-softblue
@@ -323,7 +323,7 @@ starwars %&gt;% select(2:4)
 starwars %&gt;% select(name:mass, 10, 7, 4:6)
 ```
 
-![](../images/select.svg)&lt;!-- --&gt;
+![](images/select.svg)&lt;!-- --&gt;
 
 ---
 class: duke-softblue
@@ -339,7 +339,7 @@ starwars %&gt;% mutate(
        nickname = str_c("Big", str_to_upper(hair_color), 
                         sep = " "))
 ```
-![](../images/mutate.svg)&lt;!-- --&gt;
+![](images/mutate.svg)&lt;!-- --&gt;
 
 ---
 class: duke-softblue
