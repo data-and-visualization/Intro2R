@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
-<meta name="date" content="2019-10-07" />
+<meta name="date" content="2022-08-25" />
 
 <title>Answers</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -30,29 +39,48 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
-<style type="text/css">code{white-space: pre;}</style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -61,9 +89,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,42 +144,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
-<link rel="stylesheet" href="libs-local\duke.css" type="text/css" />
-<link rel="stylesheet" href="libs-local\cc-fonts.css" type="text/css" />
+
+<link rel="stylesheet" href="libs-local/duke.css" type="text/css" />
+<link rel="stylesheet" href="libs-local/cc-fonts.css" type="text/css" />
 
 
 
@@ -160,10 +158,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -180,40 +174,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -241,7 +211,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -253,7 +223,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -264,10 +234,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -279,7 +262,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -315,6 +297,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -343,6 +326,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -404,7 +393,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -418,7 +407,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -434,7 +423,7 @@ div.tocify {
   <a href="data_wrangling.html">Data Wrangling</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Exercises
      
     <span class="caret"></span>
@@ -466,7 +455,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-home"></span>
      
      
@@ -486,48 +475,54 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">Answers</h1>
-<h4 class="date">2019-10-07</h4>
+<h4 class="date">2022-08-25</h4>
 
 </div>
 
 
 <div id="part-one-loading-data" class="section level2">
 <h2>PART ONE: Loading Data</h2>
-<p>For the workshop, we’ve prebuilt a data set that has information about menus from three restaurants in Duke’s Brodhead Center.</p>
+<p>For the workshop, we’ve prebuilt a data set that has information
+about menus from three restaurants in Duke’s Brodhead Center.</p>
 <ol style="list-style-type: decimal">
-<li>Using what we’ve you’ve seen in class, if <code>brodheadCenter.csv</code> is a csv file, how would you load the file into a new object called <code>brodhead</code>?</li>
+<li>Using what we’ve you’ve seen in class, if
+<code>brodheadCenter.csv</code> is a csv file, how would you load the
+file into a new object called <code>brodhead</code>?</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages -------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.2.1     v purrr   0.3.2
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.0.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0</code></pre>
-<pre><code>## -- Conflicts ----------- tidyverse_conflicts() --
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.2 --
+## v ggplot2 3.3.6     v purrr   0.3.4
+## v tibble  3.1.7     v dplyr   1.0.9
+## v tidyr   1.2.0     v stringr 1.4.0
+## v readr   2.1.2     v forcats 0.5.1</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">brodhead &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;</span>)</a></code></pre></div>
-<pre><code>## Parsed with column specification:
-## cols(
-##   name = col_character(),
-##   type = col_character(),
-##   menuType = col_character(),
-##   itemType = col_character(),
-##   itemName = col_character(),
-##   cost = col_double(),
-##   rating = col_double()
-## )</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># or </span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co"># brodhead &lt;- read_csv(&quot;data/brodheadCenter.csv&quot;)  # if you cloned the repository</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>brodhead <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/data-and-visualization/Intro2R/master/data/brodheadCenter.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 59 Columns: 7
+## -- Column specification --------------------------------------------------------
+## Delimiter: &quot;,&quot;
+## chr (5): name, type, menuType, itemType, itemName
+## dbl (2): cost, rating
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># brodhead &lt;- read_csv(&quot;data/brodheadCenter.csv&quot;)  # if you cloned the repository</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>What data structure is <code>brodhead</code>?</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span>(brodhead)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(brodhead)</span></code></pre></div>
 <pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Take a look at the structure of the <code>brodhead</code> object.
@@ -537,69 +532,77 @@ div.tocify {
 <li>How many of the variables are numeric data?</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">glimpse</span>(brodhead)</a></code></pre></div>
-<pre><code>## Observations: 59
-## Variables: 7
-## $ name     &lt;chr&gt; &quot;Devils Krafthouse&quot;, &quot;Devils Krafthouse&quot;, &quot;Devils Kra...
-## $ type     &lt;chr&gt; &quot;bar and grill&quot;, &quot;bar and grill&quot;, &quot;bar and grill&quot;, &quot;b...
-## $ menuType &lt;chr&gt; &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;...
-## $ itemType &lt;chr&gt; &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;,...
-## $ itemName &lt;chr&gt; &quot;sweet potato tots&quot;, &quot;french fries&quot;, &quot;quesadillas&quot;, &quot;...
-## $ cost     &lt;dbl&gt; 4, 4, 6, 8, 7, 8, 9, 4, 9, 9, 9, 8, 4, 7, 7, 7, 8, 8,...
-## $ rating   &lt;dbl&gt; 8, 10, 5, 6, 7, 8, 5, 6, 5, 5, 6, 6, 8, 6, 7, 5, 6, 5...</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(brodhead)</span></code></pre></div>
+<pre><code>## Rows: 59
+## Columns: 7
+## $ name     &lt;chr&gt; &quot;Devils Krafthouse&quot;, &quot;Devils Krafthouse&quot;, &quot;Devils Krafthouse&quot;~
+## $ type     &lt;chr&gt; &quot;bar and grill&quot;, &quot;bar and grill&quot;, &quot;bar and grill&quot;, &quot;bar and g~
+## $ menuType &lt;chr&gt; &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetizer&quot;, &quot;appetize~
+## $ itemType &lt;chr&gt; &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;, &quot;snack&quot;~
+## $ itemName &lt;chr&gt; &quot;sweet potato tots&quot;, &quot;french fries&quot;, &quot;quesadillas&quot;, &quot;southwes~
+## $ cost     &lt;dbl&gt; 4, 4, 6, 8, 7, 8, 9, 4, 9, 9, 9, 8, 4, 7, 7, 7, 8, 8, 9, 9, 9~
+## $ rating   &lt;dbl&gt; 8, 10, 5, 6, 7, 8, 5, 6, 5, 5, 6, 6, 8, 6, 7, 5, 6, 5, 4, 5, ~</code></pre>
 </div>
 <div id="part-two-data-wrangling" class="section level2">
 <h2>PART TWO: Data Wrangling</h2>
-<p>All of the following questions are based on the sample of restaurants represented in the dataset which is accurate as of September 2, 2016.</p>
+<p>All of the following questions are based on the sample of restaurants
+represented in the dataset which is accurate as of September 2,
+2016.</p>
 <ol style="list-style-type: decimal">
 <li>Which restaurant has the lowest cost item and what is the item?</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">brodhead <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(cost) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="st">  </span><span class="kw">select</span>(name, type, itemName, cost)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>brodhead <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(cost) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type, itemName, cost)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Tandoor","2":"restaurant","3":"naan","4":"2"},{"1":"Tandoor","2":"restaurant","3":"onion kulcha","4":"3"},{"1":"Tandoor","2":"restaurant","3":"garlic naan","4":"3"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sweet potato tots","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french fries","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"tortilla chips and salsa","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"black bean tortilla soup","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable samosa","4":"4"},{"1":"Tandoor","2":"restaurant","3":"gobi pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"aloo bhonda","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"peswari naan","4":"4"},{"1":"Tandoor","2":"restaurant","3":"panir kulcha","4":"4"},{"1":"Tandoor","2":"restaurant","3":"lamb samosa","4":"5"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka naan","4":"5"},{"1":"Cafe","2":"cafe","3":"cinnamon sugar","4":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"quesadillas","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"banana split","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"key lime pie","4":"6"},{"1":"Tandoor","2":"restaurant","3":"sada dosai","4":"6"},{"1":"Cafe","2":"cafe","3":"nutella","4":"6"},{"1":"Cafe","2":"cafe","3":"banana foster","4":"6"},{"1":"Cafe","2":"cafe","3":"crepe suzette","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chicken tenders","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"texas style beef chili","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chopped salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ceasar salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chili dog","4":"7"},{"1":"Cafe","2":"cafe","3":"croque monsieur","4":"7"},{"1":"Cafe","2":"cafe","3":"truffled hummus crepe","4":"7"},{"1":"Cafe","2":"cafe","3":"apple and brie crepe","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chili wings","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"nachos","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled cheese","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"spinach salad","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"devil's classic","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"italian sausage","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"bratwurst","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chocolate brownie","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"pork carnitas","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled chicken","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ground beef","4":"8"},{"1":"Tandoor","2":"restaurant","3":"madala dosai","4":"8"},{"1":"Tandoor","2":"restaurant","3":"vegetable dosai","4":"8"},{"1":"Cafe","2":"cafe","3":"chicken pesto crepe","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"peel and eat shrimp","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"turkey club double decker","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"fried chicken sandwich","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"philly cheese steak","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sloppy","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwestern","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"krafthouse krazy burger","4":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled fish","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka dosai","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken korma","4":"10"},{"1":"Tandoor","2":"restaurant","3":"lamb korma","4":"12"},{"1":"Tandoor","2":"restaurant","3":"beef bhunas","4":"12"},{"1":"Tandoor","2":"restaurant","3":"shrimp bhunas","4":"12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>Which restaurant has the most expensive item(s)? What are those item(s)?</li>
+<li>Which restaurant has the most expensive item(s)? What are those
+item(s)?</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">brodhead <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cost)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="st">  </span><span class="kw">select</span>(name, type, itemName, cost)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>brodhead <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(cost)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type, itemName, cost)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Tandoor","2":"restaurant","3":"lamb korma","4":"12"},{"1":"Tandoor","2":"restaurant","3":"beef bhunas","4":"12"},{"1":"Tandoor","2":"restaurant","3":"shrimp bhunas","4":"12"},{"1":"Devils Krafthouse","2":"bar and grill","3":"krafthouse krazy burger","4":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled fish","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka dosai","4":"10"},{"1":"Tandoor","2":"restaurant","3":"chicken korma","4":"10"},{"1":"Devils Krafthouse","2":"bar and grill","3":"peel and eat shrimp","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"turkey club double decker","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"fried chicken sandwich","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"philly cheese steak","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sloppy","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwestern","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french","4":"9"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chili wings","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"nachos","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled cheese","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"spinach salad","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"devil's classic","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"italian sausage","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"bratwurst","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chocolate brownie","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"pork carnitas","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"grilled chicken","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ground beef","4":"8"},{"1":"Tandoor","2":"restaurant","3":"madala dosai","4":"8"},{"1":"Tandoor","2":"restaurant","3":"vegetable dosai","4":"8"},{"1":"Cafe","2":"cafe","3":"chicken pesto crepe","4":"8"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chicken tenders","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"texas style beef chili","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"southwest chopped salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"ceasar salad","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"chili dog","4":"7"},{"1":"Cafe","2":"cafe","3":"croque monsieur","4":"7"},{"1":"Cafe","2":"cafe","3":"truffled hummus crepe","4":"7"},{"1":"Cafe","2":"cafe","3":"apple and brie crepe","4":"7"},{"1":"Devils Krafthouse","2":"bar and grill","3":"quesadillas","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"banana split","4":"6"},{"1":"Devils Krafthouse","2":"bar and grill","3":"key lime pie","4":"6"},{"1":"Tandoor","2":"restaurant","3":"sada dosai","4":"6"},{"1":"Cafe","2":"cafe","3":"nutella","4":"6"},{"1":"Cafe","2":"cafe","3":"banana foster","4":"6"},{"1":"Cafe","2":"cafe","3":"crepe suzette","4":"6"},{"1":"Tandoor","2":"restaurant","3":"lamb samosa","4":"5"},{"1":"Tandoor","2":"restaurant","3":"chicken tikka naan","4":"5"},{"1":"Cafe","2":"cafe","3":"cinnamon sugar","4":"5"},{"1":"Devils Krafthouse","2":"bar and grill","3":"sweet potato tots","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"french fries","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"tortilla chips and salsa","4":"4"},{"1":"Devils Krafthouse","2":"bar and grill","3":"black bean tortilla soup","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable samosa","4":"4"},{"1":"Tandoor","2":"restaurant","3":"gobi pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"aloo bhonda","4":"4"},{"1":"Tandoor","2":"restaurant","3":"vegetable pakora","4":"4"},{"1":"Tandoor","2":"restaurant","3":"peswari naan","4":"4"},{"1":"Tandoor","2":"restaurant","3":"panir kulcha","4":"4"},{"1":"Tandoor","2":"restaurant","3":"onion kulcha","4":"3"},{"1":"Tandoor","2":"restaurant","3":"garlic naan","4":"3"},{"1":"Tandoor","2":"restaurant","3":"naan","4":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>At the Brodheat Center, how many of the entrees (found in the <code>menuType</code> variable) cost eight dollars?</li>
+<li>At the Brodheat Center, how many of the entrees (found in the
+<code>menuType</code> variable) cost eight dollars?</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">brodhead <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="st">  </span><span class="kw">filter</span>(cost <span class="op">==</span><span class="st"> </span><span class="dv">8</span>, menuType <span class="op">==</span><span class="st"> &quot;entree&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-3" title="3"><span class="st">  </span><span class="kw">select</span>(name, menuType, itemName, cost)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>brodhead <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cost <span class="sc">==</span> <span class="dv">8</span>, menuType <span class="sc">==</span> <span class="st">&quot;entree&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, menuType, itemName, cost)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["menuType"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Devils Krafthouse","2":"entree","3":"grilled cheese","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"devil's classic","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"italian sausage","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"bratwurst","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"pork carnitas","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"grilled chicken","4":"8"},{"1":"Devils Krafthouse","2":"entree","3":"ground beef","4":"8"},{"1":"Cafe","2":"entree","3":"chicken pesto crepe","4":"8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>The head of Duke dining is considering reducing prices at the Brodhead Center. Using what we’ve learned in class, write a line of code that will calculate a new variable (<code>halfPrice</code>) that contains items at half price.</li>
+<li>The head of Duke dining is considering reducing prices at the
+Brodhead Center. Using what we’ve learned in class, write a line of code
+that will calculate a new variable (<code>halfPrice</code>) that
+contains items at half price.</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">brodhead <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">halfPrice =</span> cost <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">select</span>(name, itemName, cost, halfPrice)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>brodhead <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">halfPrice =</span> cost <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, itemName, cost, halfPrice)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["itemName"],"name":[2],"type":["chr"],"align":["left"]},{"label":["cost"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["halfPrice"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Devils Krafthouse","2":"sweet potato tots","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"french fries","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"quesadillas","3":"6","4":"3.0"},{"1":"Devils Krafthouse","2":"southwest chili wings","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"chicken tenders","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"nachos","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"peel and eat shrimp","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"tortilla chips and salsa","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"turkey club double decker","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"fried chicken sandwich","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"philly cheese steak","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"grilled cheese","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"black bean tortilla soup","3":"4","4":"2.0"},{"1":"Devils Krafthouse","2":"texas style beef chili","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"southwest chopped salad","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"ceasar salad","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"spinach salad","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"devil's classic","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"sloppy","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"southwestern","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"french","3":"9","4":"4.5"},{"1":"Devils Krafthouse","2":"krafthouse krazy burger","3":"10","4":"5.0"},{"1":"Devils Krafthouse","2":"italian sausage","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"bratwurst","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"chili dog","3":"7","4":"3.5"},{"1":"Devils Krafthouse","2":"chocolate brownie","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"banana split","3":"6","4":"3.0"},{"1":"Devils Krafthouse","2":"key lime pie","3":"6","4":"3.0"},{"1":"Devils Krafthouse","2":"grilled fish","3":"10","4":"5.0"},{"1":"Devils Krafthouse","2":"pork carnitas","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"grilled chicken","3":"8","4":"4.0"},{"1":"Devils Krafthouse","2":"ground beef","3":"8","4":"4.0"},{"1":"Tandoor","2":"vegetable samosa","3":"4","4":"2.0"},{"1":"Tandoor","2":"lamb samosa","3":"5","4":"2.5"},{"1":"Tandoor","2":"gobi pakora","3":"4","4":"2.0"},{"1":"Tandoor","2":"aloo bhonda","3":"4","4":"2.0"},{"1":"Tandoor","2":"vegetable pakora","3":"4","4":"2.0"},{"1":"Tandoor","2":"madala dosai","3":"8","4":"4.0"},{"1":"Tandoor","2":"chicken tikka dosai","3":"10","4":"5.0"},{"1":"Tandoor","2":"sada dosai","3":"6","4":"3.0"},{"1":"Tandoor","2":"vegetable dosai","3":"8","4":"4.0"},{"1":"Tandoor","2":"chicken korma","3":"10","4":"5.0"},{"1":"Tandoor","2":"lamb korma","3":"12","4":"6.0"},{"1":"Tandoor","2":"beef bhunas","3":"12","4":"6.0"},{"1":"Tandoor","2":"shrimp bhunas","3":"12","4":"6.0"},{"1":"Tandoor","2":"naan","3":"2","4":"1.0"},{"1":"Tandoor","2":"onion kulcha","3":"3","4":"1.5"},{"1":"Tandoor","2":"garlic naan","3":"3","4":"1.5"},{"1":"Tandoor","2":"peswari naan","3":"4","4":"2.0"},{"1":"Tandoor","2":"chicken tikka naan","3":"5","4":"2.5"},{"1":"Tandoor","2":"panir kulcha","3":"4","4":"2.0"},{"1":"Cafe","2":"croque monsieur","3":"7","4":"3.5"},{"1":"Cafe","2":"truffled hummus crepe","3":"7","4":"3.5"},{"1":"Cafe","2":"chicken pesto crepe","3":"8","4":"4.0"},{"1":"Cafe","2":"apple and brie crepe","3":"7","4":"3.5"},{"1":"Cafe","2":"cinnamon sugar","3":"5","4":"2.5"},{"1":"Cafe","2":"nutella","3":"6","4":"3.0"},{"1":"Cafe","2":"banana foster","3":"6","4":"3.0"},{"1":"Cafe","2":"crepe suzette","3":"6","4":"3.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li>How many entrees are in the dataset (<code>menuType</code> variable)? How many desserts</li>
+<li>How many entrees are in the dataset (<code>menuType</code>
+variable)? How many desserts</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">brodhead <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="st">  </span><span class="kw">count</span>(menuType)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>brodhead <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(menuType)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["menuType"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"appetizer","2":"23"},{"1":"dessert","2":"7"},{"1":"entree","2":"24"},{"1":"side","2":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -641,7 +644,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -659,7 +662,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -668,6 +671,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
@@ -680,7 +686,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
