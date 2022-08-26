@@ -4,8 +4,8 @@ title: "About"
 
 **Intro to R (Rfun)** is from *R We Having Fun Yet‽*, or [Rfun](https://rfun.library.duke.edu/), a learning series hosted by the [Center for Data & Visualization Sciences](https://library.duke.edu/data/). At the main Rfun page we host learning modules with shareable code, video recordings of workshops, YouTube video modules, slide decks, and data sets. Our goals is for you to become more fluent in R as you analyze data.\
 \
-This page host the quickStart materials to get started with R. We use these reources in our three-part introduction to R. Beyond getting started quickly, the next-level of materials and intermediate materials can all be found at [Rfun](https://rfun.library.duke.edu), where you will also find additional links to the Rfun [YouTube](https://www.youtube.com/johnlittle1) channel and [GitHub](https://github.com/libjohn) code.
+A highlight of our introductory series are the Rfun quickStart materials you need to get started with data science and R. We offer a three-part introduction to R with shareable learning resources. Beyond getting started quickly, the next-level of materials and intermediate materials are then found at [Rfun](https://rfun.library.duke.edu). You will also find links to additional resources like the Rfun [YouTube](https://www.youtube.com/johnlittle1) channel and [GitHub](https://github.com/libjohn) code.
 
 ### Publishing Note
 
-This website is produce in *RStudio* via *R Markdown* and the *Quarto* rendering engine. The files are versions with *git* and pushed to a remote shareable repository on *GitHub.* The GitHub repo is linked with Netlify so that each time a version is pushed to GitHub, the website is automatically updated and served via Netlify.com
+This website is produce in *RStudio* via *R Markdown* via the *Quarto* rendering engine. The files are version-controlled with *git* and pushed to a remote repository on *GitHub.* The GitHub repo is linked with Netlify so that each version is pushed to GitHub, them the website is automatically updated and served via Netlify.com.

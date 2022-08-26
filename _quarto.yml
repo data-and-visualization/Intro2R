@@ -35,6 +35,7 @@ format:
     theme: flatly
     css: styles.css
     toc: true
+    include-after-body: _footer.html
 
 editor: visual
 
