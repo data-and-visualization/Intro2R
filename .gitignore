@@ -39,3 +39,5 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+
+/.quarto/

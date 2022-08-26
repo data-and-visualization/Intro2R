@@ -1,0 +1,180 @@
+---
+title: "Mapping/Spatial-Analysis"
+---
+
+Packages such as `sf`, `tidycensus`, `tigris`, `tmap`, `mapview`, `leaflet`, and `terra` all bring different affordances to the areas of mapping visualizations and geospatial analysis.
+
+**Plot coordinates**
+
+```{r}
+#| eval: false
+starbucks <- read_csv(
+  "https://raw.githubusercontent.com/libjohn/mapping-with-R/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv")
+
+starbucksNC <- starbucks  |>  
+  filter(State == "NC")
+```
+
+
+## `library(mapview)`
+
+::: {layout-ncol="2"}
+
+### Syntax
+
+```{r}
+#| warning: false
+#| eval: false
+library(tidyverse)
+library(sf)
+library(mapview)
+
+mapview(starbucksNC, 
+        xcol = "Longitude", 
+        ycol = "Latitude", 
+        crs = 4269, 
+        grid = FALSE)
+```
+
+### example
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(sf)
+library(mapview)
+
+starbucks <- read_csv("https://raw.githubusercontent.com/libjohn/mapping-with-R/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv")
+
+starbucksNC <- starbucks  |>  
+  filter(State == "NC")
+
+mapview(starbucksNC, xcol = "Longitude", ycol = "Latitude", crs = 4269, grid = FALSE)
+```
+
+:::
+
+#### Alternative Syntax
+
+```{r}
+#| eval: false
+sbux_sf <- st_as_sf(starbucksNC, coords = c("Longitude", "Latitude"),  crs = 4326)
+mapview(sbux_sf)
+mapview(sbux_sf, map.types = "Stamen.Toner")
+```
+
+## `library(tidycensus)`
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: hide
+library(tidycensus)
+nc_pop <- get_acs(geography = "county",
+                  variables = "B01003_001",
+                  state = "NC",
+                  geometry = TRUE,
+                  cache_table = TRUE)
+```
+
+::: {layout-ncol="2"}
+
+###  Syntax
+
+```{r}
+#| eval: false
+library(tidycensus)
+
+census_api_key("YOUR API KEY GOES HERE")
+
+nc_pop <- get_acs(geography = "county",
+                  variables = "B01003_001",
+                  state = "NC",
+                  geometry = TRUE)
+
+mapview(nc_pop, zcol = "estimate")
+```
+
+
+### example
+
+```{r}
+#| echo: false
+mapview(nc_pop, zcol = "estimate")
+```
+
+
+:::
+
+## Thematic mapping choropleths
+
+::: {layout-ncol="2"}
+
+### `ggplot::geom_sf()` 
+
+```{r}
+#| eval: false
+nc_pop |>
+  ggplot() +
+  geom_sf(aes(fill = estimate, color = estimate)) + 
+  coord_sf(crs = 4326, datum = NA) +
+  scale_fill_viridis_c(label = scales::comma) +
+  scale_color_viridis_c(label = scales::comma) +
+  theme_classic()
+```
+
+### example
+
+```{r}
+#| echo: false
+nc_pop |>
+  ggplot() +
+  geom_sf(aes(fill = estimate, color = estimate)) + 
+  coord_sf(crs = 4326, datum = NA) +
+  scale_fill_viridis_c(label = scales::comma) +
+  scale_color_viridis_c(label = scales::comma) +
+  theme_classic()
+```
+
+### `library(tmap)`
+
+```{r}
+#| eval: false
+library(tmap)
+nc_pop |>
+  tm_shape() +
+  tm_polygons("estimate")
+```
+
+
+### example
+
+```{r}
+#| echo: false
+nc_pop |>
+  tmap::tm_shape() +
+  tmap::tm_polygons("estimate") 
+```
+
+
+:::
+
+## Geospatial analysis
+
+For more advanced [Geospatial Data in R](https://rfun.library.duke.edu/portfolio/mapping_workshop/), please see Rfun.
+
+<iframe height="315" width="560" src="https://warpwire.duke.edu/w/cUoFAA/" frameborder="0" scrolling="0" allow="autoplay *; encrypted-media *; fullscreen *; picture-in-picture *;" allowfullscreen></iframe>
+
+
+## More information
+
+Please see the introductory Rfun videos about mapping.  Check out [Rfun's shareable code, slides, datasets, and exercises](https://rfun.library.duke.edu/portfolio/mapping_workshop/).
+
+<!-- badges: start -->
+See Also [![Guide](https://img.shields.io/badge/%3F-ggplot2%20guide-informational "ggplot2 Guide")](https://ggplot.library.duke.edu/guide.html)
+
+
+<iframe height="315" width="500" src="https://warpwire.duke.edu/w/JZ8EAA/" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen>
+</iframe>

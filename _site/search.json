@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Publishing Note\nThis website is produce in RStudio via R Markdown and the Quarto rendering engine. The files are versions with git and pushed to a remote shareable repository on GitHub. The GitHub repo is linked with Netlify so that each time a version is pushed to GitHub, the website is automatically updated and served via Netlify.com"
+  },
+  {
+    "objectID": "data_management.html",
+    "href": "data_management.html",
+    "title": "Load/ingest data",
+    "section": "",
+    "text": "The Tidyverse is a set of packages that work together within a common tidy-data framework. These packages modernize R and enable an efficient workflow. This tidy framework is great for learning while being productive."
+  },
+  {
+    "objectID": "data_management.html#load-library-packages",
+    "href": "data_management.html#load-library-packages",
+    "title": "Load/ingest data",
+    "section": "Load library Packages:",
+    "text": "Load library Packages:\n\nlibrary(tidyverse)\n\n\nNote: You must install a library-package before you load a library-package. The above code chunk engages the library() function to load the “tidyverse” packages. (Video Help: Install Pages)\n\nAs you see from the image above, the tidyverse package is a super-package consisting of several more precise and focused packages. You can install packages from the Tools menu-bar in the RStudio IDE."
+  },
+  {
+    "objectID": "data_management.html#load-custom-data",
+    "href": "data_management.html#load-custom-data",
+    "title": "Load/ingest data",
+    "section": "Load Custom Data",
+    "text": "Load Custom Data\nOutside of this workshop, you’ll likely want to load your own data. R and RStudio support many methods of gathering and importing data. Two common data import methods include importing data from the local file system or via a URL.\nRStudio has an on-board data loading wizard which leverages the readr() package for data loading. There are several ways to engage this import function:\n\nFile > Import Dataset\nOr, via the Import Dataset “button” found in the Environment Pane.\n\n\n\n\n\n\nRStudio Environment Pane\n\n\nUsing the Import wizard, you can generate (and execute) the code necessary to read in the cars.csv file.\n\n# readr::read_csv\n# 'read_csv()' is part of the tidyverse 'readr' package.  \n\ncars <- read_csv(\"data/cars.csv\")\n\n‘reader::read_csv()’ helpfully overrides default behavior of the “base R” read.csv() function. For example read_csv() does not automatically convert strings as factors. You can read more about readr http://readr.tidyverse.org/"
+  },
+  {
+    "objectID": "data_management.html#workshop-data-set",
+    "href": "data_management.html#workshop-data-set",
+    "title": "Load/ingest data",
+    "section": "Workshop Data Set",
+    "text": "Workshop Data Set\nDuring Rfun workshops, We often use the Starwars characters dataset. The data, part of the dplyr package, come from SWAPI, the Star Wars API, http://swapi.co/. Since the data are integrated into dplyr, we don’t need to load the data, but you may still want to find information about the dataset. The codebood for the Starwars dataset is integrated into the dplyr documentation. To view the Starwars codebook, first load the library(dplyr) package. Then, via the Help pane, search starwars. Alternatively, in the Console pane, type ?starwars.\nThe Data Wrangling module covers dplyr in greater detail."
+  },
+  {
+    "objectID": "data_management.html#view-your-data-in-a-grid",
+    "href": "data_management.html#view-your-data-in-a-grid",
+    "title": "Load/ingest data",
+    "section": "View your data in a grid",
+    "text": "View your data in a grid\n\nstarwars"
+  },
+  {
+    "objectID": "data_management.html#modern-data-frames-tibbles",
+    "href": "data_management.html#modern-data-frames-tibbles",
+    "title": "Load/ingest data",
+    "section": "Modern Data Frames: Tibbles",
+    "text": "Modern Data Frames: Tibbles\nA tibble (tbl) is a “Table as data frame”, a modern tidyverse table.\n\nclass(starwars) \n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "data_management.html#data-structure",
+    "href": "data_management.html#data-structure",
+    "title": "Load/ingest data",
+    "section": "Data Structure",
+    "text": "Data Structure\n\nMost Common Data Structures\n\nVector\nData Frame & Tibble\nList\nMatrix\n\nRead more about it in R for Data Science\n\n\nGlimpse into a data frame\nFirst, let’s glimpse into a Tibble. How do you know the object is a Tibble? Read below about class(), but first …\nglimpse() reveals the structure of an object\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       <chr> \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or~\n$ height     <int> 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2~\n$ mass       <dbl> 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.~\n$ hair_color <chr> \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N~\n$ skin_color <chr> \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"~\n$ eye_color  <chr> \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",~\n$ birth_year <dbl> 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, ~\n$ sex        <chr> \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",~\n$ gender     <chr> \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini~\n$ homeworld  <chr> \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T~\n$ species    <chr> \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma~\n$ films      <list> <\"The Empire Strikes Back\", \"Revenge of the Sith\", \"Return~\n$ vehicles   <list> <\"Snowspeeder\", \"Imperial Speeder Bike\">, <>, <>, <>, \"Imp~\n$ starships  <list> <\"X-wing\", \"Imperial shuttle\">, <>, <>, \"TIE Advanced x1\",~"
+  },
+  {
+    "objectID": "data_management.html#data-type",
+    "href": "data_management.html#data-type",
+    "title": "Load/ingest data",
+    "section": "Data Type",
+    "text": "Data Type\n\nMost Common Data Types\n\ncharacter\nnumeric\n\ninteger (e.g. 30L, as.integer(30))\ndouble (approximation with floating points and multiple special values)\n\nlogical (True or False)\nfactor (forcats is especially used for for manipulating factor data)\n\n\n\nClass\nclass() identifies the class of an object revealing the data structure or the data type.\n\nclass(starwars)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\nYou can reference a vector within a dataframe via the my_df$<<column_name>> syntax."
+  },
+  {
+    "objectID": "data_wrangling.html",
+    "href": "data_wrangling.html",
+    "title": "Data Wrangling",
+    "section": "",
+    "text": "libary(dplyr) is invoked automatically when you invoke library(tidyverse). So you don’t have to load both. Loading tidyverse is a meta package that includes many other useful packages, e.g. ggplot2.\ndplyr is the data wrangling package that helps you subset and manipulate your data. The documentation is installed with the package. However, the online documentation is convenient and easy to read.\nUse this package most often for it’s five main verbs:\nHonorable mention:\nThe tidyr package help with critically useful data wrangling functions as well. Tall data is often easiest for iteration."
+  },
+  {
+    "objectID": "data_wrangling.html#quick-exmaples",
+    "href": "data_wrangling.html#quick-exmaples",
+    "title": "Data Wrangling",
+    "section": "Quick exmaples",
+    "text": "Quick exmaples\ndplyr is a widely adopted r package, part of tidyverse, which uses English verbs to reshape data.\n\nlibrary(tidyverse)\n# library(dplyr)\n\n\n\n\nI made a small subset of the starwars dataset: small_sw\n\nsmall_sw <- starwars |>  \n  select(species, mass, homeworld, name)\n\n\nsmall_sw"
+  },
+  {
+    "objectID": "data_wrangling.html#arrange",
+    "href": "data_wrangling.html#arrange",
+    "title": "Data Wrangling",
+    "section": "Arrange",
+    "text": "Arrange\nArrange to sort rows (observations) by column headers (variables)\n\nsmall_sw |>  \n  arrange(species, desc(mass), homeworld)"
+  },
+  {
+    "objectID": "data_wrangling.html#select",
+    "href": "data_wrangling.html#select",
+    "title": "Data Wrangling",
+    "section": "Select",
+    "text": "Select\nSelect to choose columns (variables)\n\nstarwars |> \n  arrange(species, desc(mass), homeworld)  |>  \n  select(species, mass, homeworld, name:starships)"
+  },
+  {
+    "objectID": "data_wrangling.html#filter",
+    "href": "data_wrangling.html#filter",
+    "title": "Data Wrangling",
+    "section": "Filter",
+    "text": "Filter\nFilter to select rows (observations)\n\nstarwars_32_mass <- starwars |> \n  filter(mass == 80)\n\nstarwars_32_mass    # display filtered data frame"
+  },
+  {
+    "objectID": "data_wrangling.html#mutate",
+    "href": "data_wrangling.html#mutate",
+    "title": "Data Wrangling",
+    "section": "Mutate",
+    "text": "Mutate\nMutate to create new variables (columns)\n\nstarwars_32_mass |> \n  mutate(BMI = height / mass) |> \n  select(name, BMI, height, mass, hair_color, 1:13)"
+  },
+  {
+    "objectID": "data_wrangling.html#count",
+    "href": "data_wrangling.html#count",
+    "title": "Data Wrangling",
+    "section": "Count",
+    "text": "Count\nCount to summarize observations (rows)\n\nstarwars |> \n  count(mass)"
+  },
+  {
+    "objectID": "data_wrangling.html#summarize",
+    "href": "data_wrangling.html#summarize",
+    "title": "Data Wrangling",
+    "section": "Summarize",
+    "text": "Summarize\nSummarize to collapse values into a summary\n\nstarwars |> \n  group_by(species) |> \n  summarize(Count = n(), \n            mean_ht = mean(height), \n            min_ht = min(height), \n            max_ht = max(height)) |> \n  arrange(desc(Count))\n\n\n\n\n  \n\n\n\n\nstarwars |> \n  ungroup()"
+  },
+  {
+    "objectID": "data_wrangling.html#put-it-all-together",
+    "href": "data_wrangling.html#put-it-all-together",
+    "title": "Data Wrangling",
+    "section": "Put it all together",
+    "text": "Put it all together\nWe can pipe commands together. Think of a pipe (i.e. |>) as a conjunction. Any time you see a pipe, think “and then.” You can insert a pipe with ‘Ctrl+Shift+M’ (Help > Keyboard Shortcuts)\n\nstarwars |> \n  group_by(species) |> \n  summarize(Count = n(), \n            mean_ht = mean(height), \n            min_ht = min(height), \n            max_ht = max(height)) |> \n  arrange(desc(Count)) |> \n  filter(!is.na(mean_ht), Count > 1)"
+  },
+  {
+    "objectID": "data_wrangling.html#more-information",
+    "href": "data_wrangling.html#more-information",
+    "title": "Data Wrangling",
+    "section": "More information",
+    "text": "More information\nPlease see the introductory Rfun video about dplyr. Check out Rfun’s shareable code, slides, datasets, and exercises"
+  },
+  {
+    "objectID": "gis.html",
+    "href": "gis.html",
+    "title": "Mapping/Spatial-Analysis",
+    "section": "",
+    "text": "Packages such as sf, tidycensus, tigris, tmap, mapview, leaflet, and terra all bring different affordances to the areas of mapping visualizations and geospatial analysis.\nPlot coordinates"
+  },
+  {
+    "objectID": "gis.html#librarymapview",
+    "href": "gis.html#librarymapview",
+    "title": "Mapping/Spatial-Analysis",
+    "section": "library(mapview)",
+    "text": "library(mapview)\n\n\n\nSyntax\nlibrary(tidyverse)\nlibrary(sf)\nlibrary(mapview)\n\nmapview(starbucksNC, \n        xcol = \"Longitude\", \n        ycol = \"Latitude\", \n        crs = 4269, \n        grid = FALSE)\n\n\nexample\n\n\n\n\n\n\n\n\nAlternative Syntax\n\nsbux_sf <- st_as_sf(starbucksNC, coords = c(\"Longitude\", \"Latitude\"),  crs = 4326)\nmapview(sbux_sf)\nmapview(sbux_sf, map.types = \"Stamen.Toner\")"
+  },
+  {
+    "objectID": "gis.html#librarytidycensus",
+    "href": "gis.html#librarytidycensus",
+    "title": "Mapping/Spatial-Analysis",
+    "section": "library(tidycensus)",
+    "text": "library(tidycensus)\n\n\n\n\n\n\nSyntax\nlibrary(tidycensus)\n\ncensus_api_key(\"YOUR API KEY GOES HERE\")\n\nnc_pop <- get_acs(geography = \"county\",\n                  variables = \"B01003_001\",\n                  state = \"NC\",\n                  geometry = TRUE)\n\nmapview(nc_pop, zcol = \"estimate\")\n\n\nexample"
+  },
+  {
+    "objectID": "gis.html#thematic-mapping-choropleths",
+    "href": "gis.html#thematic-mapping-choropleths",
+    "title": "Mapping/Spatial-Analysis",
+    "section": "Thematic mapping choropleths",
+    "text": "Thematic mapping choropleths\n\n\n\nggplot::geom_sf()\nnc_pop |>\n  ggplot() +\n  geom_sf(aes(fill = estimate, color = estimate)) + \n  coord_sf(crs = 4326, datum = NA) +\n  scale_fill_viridis_c(label = scales::comma) +\n  scale_color_viridis_c(label = scales::comma) +\n  theme_classic()\n\n\nexample\n\n\n\n\n\n\n\nlibrary(tmap)\nlibrary(tmap)\nnc_pop |>\n  tm_shape() +\n  tm_polygons(\"estimate\")\n\n\nexample"
+  },
+  {
+    "objectID": "gis.html#geospatial-analysis",
+    "href": "gis.html#geospatial-analysis",
+    "title": "Mapping/Spatial-Analysis",
+    "section": "Geospatial analysis",
+    "text": "Geospatial analysis\nFor more advanced Geospatial Data in R, please see Rfun."
+  },
+  {
+    "objectID": "gis.html#more-information",
+    "href": "gis.html#more-information",
+    "title": "Mapping/Spatial-Analysis",
+    "section": "More information",
+    "text": "More information\nPlease see the introductory Rfun videos about mapping. Check out Rfun’s shareable code, slides, datasets, and exercises.\n\nSee Also"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R: a quickstart to R and the Tidyverse for data science",
+    "section": "",
+    "text": "Please explore more at the Rfun site.\n\n\n\nFIRST: Introduction\n\n\n\nSECOND: Data Wrangling with dplyr\n\n\n\n\n\nquickStart ggplot2Intro ggplot2Advanced Viz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMappingGeospatial Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBasic/brief into to linear regression workflow \n\n\nIteration and Custom Functions\n- Shareable Code available now- YouTube modular videos coming soon.\n\n\n\n\nAdditional background and explanatory videos/materials are available from Rfun.library.duke.edu"
+  },
+  {
+    "objectID": "version_control.html",
+    "href": "version_control.html",
+    "title": "git/GitHub",
+    "section": "",
+    "text": "libary(usethis) is a wonderful package when using R to manage version control with git. usethis works with GitHub as the remote location for repository for file distribution. Repositories and RStudio projects (File > New Project...) are complimentary reproducible workflows.\nVersion control has a unique learning curve where frustration is a regular initial experience with git, especially steep for for people unfamiliar with CLI tools. At the same time, git is a very learnable and highly useful tool. git version control with GitHub, orchestrated via RStudio and library(usethis) makes an excellent combination for advancing your reproducible workflow.\n\n\nA competitive advantage of an RStudio/Tidyverse computational ecosystem (with R/RStudio/Tidyverse/R Markdown/Quarto/git) is the ease of creating, managing, and documenting reproducible workflows. Reproducibility has rapidly evolving best practices and the RStudio community is well poised to leverage the best practices. At the same time, reproducibility, is a conceptually broader topic than this ecosystem. The CDVS offers workshops on both the ecosystem and applied tool-suites such as mentioned on this page."
+  },
+  {
+    "objectID": "version_control.html#libraryusethis",
+    "href": "version_control.html#libraryusethis",
+    "title": "git/GitHub",
+    "section": "library(usethis)",
+    "text": "library(usethis)\nThis is an excellent package that simplifies RStudio project interactions with git repositories, especially when distributing files via GitHub.\n\nTips\n\nClone or fork from GitHub\n\nusethis::create_from_github(\"https://github.com/data-and-visualization/git-tutorial\")\n\n\n\nCreate the GitHub repo from local\n\nlibrary(usethis)\nuse_git()          # initialize a git repo\nuse_git_ignore()\nuse_readme.Rmd()\nuse_ccby_license()\n# Before next step  → stage & commit changes\nuse_github()       # Connect local repo to GitHub\n\n\n\nRename default branch\n\nlibrary(usethis)\ngit_default_branch()\ngit_default_branch_rename()\ngit_default_branch_rediscover()\n\n\n\nset-up git and manage GitHub credentials\n\n# Sign-in to your GitHub account\n# Read: https://usethis.r-lib.org/articles/articles/git-credentials.html\n# Read: https://usethis.r-lib.org/articles/articles/usethis-setup.html\nusethis::create_github_token()\ngitcreds::gitcreds_set()\ngh::gh_whoami()\nusethis::git_sitrep()\nusethis::use_git_config(user.name = \"Jane Doe\", user.email = \"jane@example.com\")\nusethis::git_sitrep()"
+  },
+  {
+    "objectID": "version_control.html#gitlab",
+    "href": "version_control.html#gitlab",
+    "title": "git/GitHub",
+    "section": "gitlab",
+    "text": "gitlab\nMany report that library(gitlabr) is useful for orchestrating GitLab remotes.\nSee Also: Configuring SSH Keys & Credentials"
+  },
+  {
+    "objectID": "version_control.html#more-resources",
+    "href": "version_control.html#more-resources",
+    "title": "git/GitHub",
+    "section": "More resources",
+    "text": "More resources\nPlease see the introductory Rfun videos about version control & reproducibility. Check out Rfun’s shareable code, slides, datasets, and exercises\nHappy Git and GitHub for the useR\n\n\n\ngit/GitHub/RSudio\n\n\n\nReproducibility"
+  },
+  {
+    "objectID": "visualization.html",
+    "href": "visualization.html",
+    "title": "Visualization",
+    "section": "",
+    "text": "libary(ggplot2) is invoked automatically when you invoke library(tidyverse). So you don’t have to load both. Loading tidyverse is a meta package that includes many other useful packages, e.g. dplyr.\nggplot2 is a visualizaton package that helps create stunning visualzations based on the grammar of graphics. The documentation is installed with the package. However, the online documentation is convenient and easy to read.\nYou can apply multiple layers to a gpplot2 object. There are many geoms to choose from enabling scatterplots, bar graphs, histograms, boxplots, etc. The grammar promotes reproducible workflows so you can generate visualizations consistently and transparently."
+  },
+  {
+    "objectID": "visualization.html#ggplot2-syntax",
+    "href": "visualization.html#ggplot2-syntax",
+    "title": "Visualization",
+    "section": "ggplot2 syntax",
+    "text": "ggplot2 syntax\nlibrary(tidyverse)\n# library(ggplot2)\nmy_df |> \n  ggplot(aes(x = my_x_var, y = my_y_var)) +\n  geom_point() +\n  geom_line()"
+  },
+  {
+    "objectID": "visualization.html#example",
+    "href": "visualization.html#example",
+    "title": "Visualization",
+    "section": "example",
+    "text": "example"
+  },
+  {
+    "objectID": "visualization.html#more-information",
+    "href": "visualization.html#more-information",
+    "title": "Visualization",
+    "section": "More information",
+    "text": "More information\nPlease see the introductory Rfun videos about ggplot2. Check out Rfun’s shareable code, slides, datasets, and exercises.\n\nSee Also  \n\n<div id=\"quarto-navigation-envelope\" class=\"hidden\">\n<p><span class=\"hidden\" data-render-id=\"quarto-int-sidebar-title\">Intro to R (Rfun)</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar-title\">Intro to R (Rfun)</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Home\">Home</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Load/ingest data\">Load/ingest data</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Data Wrangling\">Data Wrangling</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Visualization\">Visualization</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Mapping/Spatial-Analysis\">Mapping/Spatial-Analysis</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:git/GitHub\">git/GitHub</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:More Rfun!\">More Rfun!</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:About\">About</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Rfun|CDVS\">Rfun|CDVS</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Rfun Home\">Rfun Home</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Center for Data &amp; Visualization\">Center for Data &amp; Visualization</span></p>\n</div>\n<div id=\"quarto-meta-markdown\" class=\"hidden\">\n<p><span class=\"hidden\" data-render-id=\"quarto-metatitle\">Intro to R (Rfun) - Visualization</span> <span class=\"hidden\" data-render-id=\"quarto-metasitename\">Intro to R (Rfun)</span></p>\n</div>\n<div id=\"quarto-title-processor\" class=\"hidden\">\n\n</div>\n</section>\n</main> <!-- /main -->\n<script type=\"application/javascript\">\nwindow.document.addEventListener(\"DOMContentLoaded\", function (event) {\n  const icon = \"\";\n  const anchorJS = new window.AnchorJS();\n  anchorJS.options = {\n    placement: 'right',\n    icon: icon\n  };\n  anchorJS.add('.anchored');\n  const clipboard = new window.ClipboardJS('.code-copy-button', {\n    target: function(trigger) {\n      return trigger.previousElementSibling;\n    }\n  });\n  clipboard.on('success', function(e) {\n    // button target\n    const button = e.trigger;\n    // don't keep focus\n    button.blur();\n    // flash \"checked\"\n    button.classList.add('code-copy-button-checked');\n    setTimeout(function() {\n      button.classList.remove('code-copy-button-checked');\n    }, 1000);\n    // clear code selection\n    e.clearSelection();\n  });\n  function tippyHover(el, contentFn) {\n    const config = {\n      allowHTML: true,\n      content: contentFn,\n      maxWidth: 500,\n      delay: 100,\n      arrow: false,\n      appendTo: function(el) {\n          return el.parentElement;\n      },\n      interactive: true,\n      interactiveBorder: 10,\n      theme: 'quarto',\n      placement: 'bottom-start'\n    };\n    window.tippy(el, config); \n  }\n  const noterefs = window.document.querySelectorAll('a[role=\"doc-noteref\"]');\n  for (var i=0; i<noterefs.length; i++) {\n    const ref = noterefs[i];\n    tippyHover(ref, function() {\n      let href = ref.getAttribute('href');\n      try { href = new URL(href).hash; } catch {}\n      const id = href.replace(/^#\\/?/, \"\");\n      const note = window.document.getElementById(id);\n      return note.innerHTML;\n    });\n  }\n  var bibliorefs = window.document.querySelectorAll('a[role=\"doc-biblioref\"]');\n  for (var i=0; i<bibliorefs.length; i++) {\n    const ref = bibliorefs[i];\n    const cites = ref.parentNode.getAttribute('data-cites').split(' ');\n    tippyHover(ref, function() {\n      var popup = window.document.createElement('div');\n      cites.forEach(function(cite) {\n        var citeDiv = window.document.createElement('div');\n        citeDiv.classList.add('hanging-indent');\n        citeDiv.classList.add('csl-entry');\n        var biblioDiv = window.document.getElementById('ref-' + cite);\n        if (biblioDiv) {\n          citeDiv.innerHTML = biblioDiv.innerHTML;\n        }\n        popup.appendChild(citeDiv);\n      });\n      return popup.innerHTML;\n    });\n  }\n});\n</script>\n</div> <!-- /content -->\n</body>\n</html>"
+  }
+]

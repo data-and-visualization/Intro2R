@@ -1,0 +1,56 @@
+---
+title: "Introduction to R: _a quickstart to R and the Tidyverse for data science_"
+---
+
+Below are the introductory video streams hosted by the Rfun learning series. 
+
+Please **explore more** at the [**Rfun**](https://rfun.library.duke.edu) site.
+
+::: {layout-ncol="2"}
+**FIRST: Introduction**\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Wmozk2qEsL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**SECOND: Data Wrangling with `dplyr`**\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PGSXf-NMWVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+::: panel-tabset
+## quickStart `ggplot2`
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TIJzx5eQbgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Intro `ggplot2`
+
+<iframe height="315" width="560" src="https://warpwire.duke.edu/w/v4gFAA/" frameborder="0" scrolling="0" allow="autoplay *; encrypted-media *; fullscreen *; picture-in-picture *;" allowfullscreen>
+
+</iframe>
+
+## Advanced Viz
+
+<iframe src="https://library.capture.duke.edu/Panopto/Pages/Embed.aspx?id=b41df32a-cfa3-4e8c-b374-aab600f18fc7&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;start=0&amp;interactivity=all" width="560" height="315" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
+:::
+
+::: panel-tabset
+## Mapping
+<iframe height="315" width="500" src="https://warpwire.duke.edu/w/JZ8EAA/" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen>
+</iframe>
+
+## Geospatial Analysis
+
+<iframe height="315" width="560" src="https://warpwire.duke.edu/w/cUoFAA/" frameborder="0" scrolling="0" allow="autoplay *; encrypted-media *; fullscreen *; picture-in-picture *;" allowfullscreen>
+
+</iframe>
+:::
+
+**Basic/brief into to linear regression workflow** <iframe width="560" height="315" src="https://www.youtube.com/embed/Wmozk2qEsL0?start=1183" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Iteration and Custom Functions**\
+- [Shareable Code](https://github.com/libjohn/workshop_rfun_iterate) available now<br>- YouTube modular videos coming soon.
+:::
+
+------------------------------------------------------------------------
+
+Additional background and explanatory videos/materials are available from [Rfun.library.duke.edu](https://rfun.library.duke.edu)
