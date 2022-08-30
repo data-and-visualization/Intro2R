@@ -2,6 +2,13 @@ project:
   type: website
 
 website:
+  repo-url: https://github.com/data-and-visualization/Intro2R
+  repo-actions: [edit, issue]
+  page-footer:  "Text and figures are licensed under Creative Commons Attribution
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)<br>
+  [Rfun](https://rfun.library.duke.edu) · 
+  [Center for Data & Visualization Sciences](https://library.duke.edu/data) · 
+  [Duke University Libraries](https://library.duke.edu)"
   title: "Intro to R (Rfun)"
   navbar:
     background: primary
@@ -21,7 +28,7 @@ website:
       - icon: github
         href: https://github.com/data-and-visualization/Intro2R
         aria-label: GitHub
-      - icon: home
+      # - icon: home
       - text: Rfun|CDVS
         menu:
           - text: "Rfun Home"
@@ -35,7 +42,7 @@ format:
     theme: flatly
     css: styles.css
     toc: true
-    include-after-body: _footer.html
+    # include-after-body: _footer.html
 
 editor: visual
 

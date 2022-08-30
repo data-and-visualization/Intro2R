@@ -1,5 +1,5 @@
 ---
-title: "Load/ingest data"
+title: "Load/import data"
 ---
 
 The [Tidyverse](https://tidyveres.org) is a set of packages that work together within a common tidy-data framework. These packages modernize R and enable an efficient workflow. This tidy framework is great for learning while being productive.
@@ -25,11 +25,11 @@ knitr::include_graphics("https://rviews.rstudio.com/post/2017-06-09-What-is-the-
 library(tidyverse)
 ```
 
-> Note: You must install a library-package before you load a library-package. The above code chunk engages the `library()` function to load the "*tidyverse*" packages. ([Video Help: Install Pages](https://tutorials.shinyapps.io/00-setup/#section-install-packages))
+> Note: You must install a library-package before you load a library-package: `install.packages("tidyverse")`. You only need to install a package once. You must load the package with each R session. The above code chunk engages the `library()` function to load the "*tidyverse*" packages. ([Video Help: Install Pages](https://tutorials.shinyapps.io/00-setup/#section-install-packages))
 
 As you see from the image above, the *tidyverse* package is a super-package consisting of several more precise and focused packages. You can install packages from the **Tools** menu-bar in the RStudio IDE.
 
-## Load Custom Data  
+## Load Custom Data
 
 Outside of this workshop, you'll likely want to load your own data. R and RStudio support many methods of gathering and importing data. Two common data import methods include importing data from the local file system or via a URL.
 
@@ -51,13 +51,13 @@ cars <- read_csv("data/cars.csv")
 
 'reader::read_csv()' helpfully overrides default behavior of the "base R" `read.csv()` function. For example `read_csv()` does not automatically convert strings as factors. You can read more about `readr` http://readr.tidyverse.org/
 
-## Workshop Data Set  
+## Workshop Data Set
 
 During Rfun workshops, We often use the *`Starwars` characters* dataset. The data, part of the `dplyr` package, come from SWAPI, the Star Wars API, http://swapi.co/. Since the data are integrated into `dplyr`, we don't need to load the data, but you may still want to find information about the dataset. The codebood for the Starwars dataset is integrated into the `dplyr` documentation. To view the *Starwars* codebook, first load the `library(dplyr)` package. Then, via the *Help* pane, search *starwars*. Alternatively, in the *Console* pane, type `?starwars`.
 
 The Data Wrangling module covers `dplyr` in greater detail.
 
-## View your data in a grid  
+## View your data in a grid
 
 ```{r}
 #| eval: false
@@ -70,7 +70,7 @@ starwars
 rmarkdown::paged_table(starwars)
 ```
 
-## Modern Data Frames: Tibbles  
+## Modern Data Frames: Tibbles
 
 A tibble (tbl) is a "Table as data frame", a modern tidyverse table.
 
@@ -78,9 +78,9 @@ A tibble (tbl) is a "Table as data frame", a modern tidyverse table.
 class(starwars) 
 ```
 
-## Data Structure  
+## Data Structure
 
-### Most Common Data Structures  
+### Most Common Data Structures
 
 -   Vector
 -   Data Frame & Tibble
@@ -89,7 +89,7 @@ class(starwars)
 
 Read more about it in [R for Data Science](https://r4ds.had.co.nz/vectors.html)
 
-### Glimpse into a data frame  
+### Glimpse into a data frame
 
 First, let's glimpse into a Tibble. How do you know the object is a Tibble? Read below about `class()`, but first ...
 
@@ -99,9 +99,9 @@ First, let's glimpse into a Tibble. How do you know the object is a Tibble? Read
 glimpse(starwars)
 ```
 
-## Data Type  
+## Data Type
 
-### Most Common Data Types  
+### Most Common Data Types
 
 -   character
 
@@ -114,7 +114,7 @@ glimpse(starwars)
 
 -   factor ([`forcats`](https://forcats.tidyverse.org/) is especially used for for manipulating factor data)
 
-### Class  
+### Class
 
 `class()` identifies the class of an object revealing the data structure or the data type.
 

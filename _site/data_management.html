@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.230">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Intro to R (Rfun) - Load/ingest data</title>
+  <title>Intro to R (Rfun) - Load/import data</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -135,7 +135,7 @@
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./data_management.html" aria-current="page">Load/ingest data</a>
+    <a class="nav-link active" href="./data_management.html" aria-current="page">Load/import data</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./data_wrangling.html">Data Wrangling</a>
@@ -205,13 +205,13 @@
 <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">Class</a></li>
 </ul></li>
 </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/data-and-visualization/Intro2R/edit/main/data_management.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/data-and-visualization/Intro2R/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <header id="title-block-header" class="quarto-title-block default">
 
-<div class="quarto-title"><h1 class="title display-7">Load/ingest data</h1></div></header>
+<div class="quarto-title"><h1 class="title display-7">Load/import data</h1></div></header>
 
 <p>The <a href="https://tidyveres.org">Tidyverse</a> is a set of packages that work together within a common tidy-data framework. These packages modernize R and enable an efficient workflow. This tidy framework is great for learning while being productive.</p>
 <div class="cell caption-bottom">
@@ -239,7 +239,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<p>Note: You must install a library-package before you load a library-package. The above code chunk engages the <code>library()</code> function to load the “<em>tidyverse</em>” packages. (<a href="https://tutorials.shinyapps.io/00-setup/#section-install-packages">Video Help: Install Pages</a>)</p>
+<p>Note: You must install a library-package before you load a library-package: <code>install.packages("tidyverse")</code>. You only need to install a package once. You must load the package with each R session. The above code chunk engages the <code>library()</code> function to load the “<em>tidyverse</em>” packages. (<a href="https://tutorials.shinyapps.io/00-setup/#section-install-packages">Video Help: Install Pages</a>)</p>
 </blockquote>
 <p>As you see from the image above, the <em>tidyverse</em> package is a super-package consisting of several more precise and focused packages. You can install packages from the <strong>Tools</strong> menu-bar in the RStudio IDE.</p>
 </section>
@@ -368,13 +368,6 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 </section>
 </section>
 </main> <!-- /main -->
---------------------------------------------------------------------------  
-<small><a href="https://Rfun.library.duke.edu">Rfun</a> * 
-<a href="https://library.duke.edu/data">Center for Data &amp; Visualization Sciences</a> * <a href="https://library.duke.edu/">Duke University Libraries</a>
-</small>
-
-
-&nbsp; 
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
@@ -452,6 +445,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Text and figures are licensed under Creative Commons Attribution <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><br> <a href="https://JohnLittle.info">John Little</a> · <a href="https://rfun.library.duke.edu">Rfun</a> · <a href="https://library.duke.edu/data">Center for Data &amp; Visualization Sciences</a> · <a href="https://library.duke.edu">Duke University Libraries</a></div>
+  </div>
+</footer>
 
 
 </body></html>
