@@ -12,7 +12,7 @@ Below are the introductory video streams hosted by the Rfun learning series. Fol
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PGSXf-NMWVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ::: panel-tabset
-## quickStart `ggplot2`
+## `ggplot2`
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TIJzx5eQbgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
