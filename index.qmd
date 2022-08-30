@@ -2,9 +2,7 @@
 title: "Introduction to R: _a quickstart to R and the Tidyverse for data science_"
 ---
 
-Below are the introductory video streams hosted by the Rfun learning series. 
-
-Please **explore more** at the [**Rfun**](https://rfun.library.duke.edu) site.
+Below are the introductory video streams hosted by the Rfun learning series. Follow the quick reference pages linked from the page header and please **explore more** at the [**Rfun**](https://rfun.library.duke.edu) site.
 
 ::: {layout-ncol="2"}
 **FIRST: Introduction**\
@@ -35,7 +33,9 @@ Please **explore more** at the [**Rfun**](https://rfun.library.duke.edu) site.
 
 ::: panel-tabset
 ## Mapping
+
 <iframe height="315" width="500" src="https://warpwire.duke.edu/w/JZ8EAA/" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen>
+
 </iframe>
 
 ## Geospatial Analysis

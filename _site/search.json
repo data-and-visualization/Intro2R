@@ -179,7 +179,7 @@
     "href": "index.html",
     "title": "Introduction to R: a quickstart to R and the Tidyverse for data science",
     "section": "",
-    "text": "Please explore more at the Rfun site.\n\n\n\nFIRST: Introduction\n\n\n\nSECOND: Data Wrangling with dplyr\n\n\n\n\n\nquickStart ggplot2Intro ggplot2Advanced Viz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMappingGeospatial Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBasic/brief into to linear regression workflow \n\n\nIteration and Custom Functions\n- Shareable Code available now- YouTube modular videos coming soon.\n\n\n\n\nAdditional background and explanatory videos/materials are available from Rfun.library.duke.edu"
+    "text": "FIRST: Introduction\n\n\n\nSECOND: Data Wrangling with dplyr\n\n\n\n\n\nquickStart ggplot2Intro ggplot2Advanced Viz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMappingGeospatial Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBasic/brief into to linear regression workflow \n\n\nIteration and Custom Functions\n- Shareable Code available now- YouTube modular videos coming soon.\n\n\n\n\nAdditional background and explanatory videos/materials are available from Rfun.library.duke.edu"
   },
   {
     "objectID": "version_control.html",
