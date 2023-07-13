@@ -18,7 +18,7 @@ website:
       - text: About
         href: about.qmd
       - icon: github
-        href: https://github.com/libjohn/workshop_R-get-started
+        href: https://github.com/data-and-visualization/Intro2R
         aria-label: GitHub
   sidebar:
     style: "floating"
@@ -79,7 +79,7 @@ website:
       - section: Exercises
         contents:
           - text: link-to
-            href: https://github.com/libjohn/workshop_R-get-started/tree/main/_exercises
+            href: https://github.com/data-and-visualization/Intro2R/tree/main/_exercises
 
 format:
   html:

@@ -49,7 +49,7 @@ This is a [Quarto website](https://quarto.org/docs/websites "quarto website docu
     -   R / RStudio
     -   Clone code from GitHub
 2.  Start a new project by importing the github repository for this workshop
-    -   <https://github.com/libjohn/workshop_R-get-started.git>
+    -   <https://github.com/data-and-visualization/Intro2R.git>
 3.  Open the `import.qmd` notebook-file from the *Files* tab in the RStudio IDE
 
 ## Pipes and Assignment

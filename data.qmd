@@ -13,20 +13,20 @@ All data are readily available for this workshop.
 
 Whenever possible on-board datasets are used. This means you do not have to load any data, but you may have to load a library. For example the `starwars` dataset is part of the {dplyr} package. You may first have to load `library(dplyr)` to access the starwars data frame. Alternatively, you could access the data with the fully verbose *package::object* syntax: `dplyr::starwars`.
 
-Some data sets are imported via the `read_csv` function. You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Then you'll find a data folder with the CSV files used in this workshop. Refer to the [import](import.html) page for tips on importing data.
+Some data sets are imported via the `read_csv` function. You can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Then you'll find a data folder with the CSV files used in this workshop. Refer to the [import](import.html) page for tips on importing data.
 
 ## Code
 
-You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the workshop_R-get-started.Rproj file to launch all of the code directly into an RStudio project.
+You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.
 
 ::: column-margin
-![](images/github_download.jpg)
+[![Download zipped code from GitHub](images/github_download.jpg){fig-alt="download code"}](images/github_download.jpg)
 :::
 
 Or
 
-Use this link to [the GitHub repo](https://github.com/libjohn/workshop_R-get-started.git "github code repo"),
+Use this link to [the GitHub repo](https://github.com/data-and-visualization/Intro2R.git "github code repo"),
 
 1.  Click the green code button
 2.  Download ZIP
-3.  Unzip and double click the `workshop_R-get-started.Rproj` file
+3.  Unzip and double click the `Intro2R.Rproj` file

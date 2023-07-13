@@ -53,14 +53,14 @@
     "href": "data.html",
     "title": "Data and code",
     "section": "",
-    "text": "All data are readily available for this workshop.\nWhenever possible on-board datasets are used. This means you do not have to load any data, but you may have to load a library. For example the starwars dataset is part of the {dplyr} package. You may first have to load library(dplyr) to access the starwars data frame. Alternatively, you could access the data with the fully verbose package::object syntax: dplyr::starwars.\nSome data sets are imported via the read_csv function. You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Then you’ll find a data folder with the CSV files used in this workshop. Refer to the import page for tips on importing data."
+    "text": "All data are readily available for this workshop.\nWhenever possible on-board datasets are used. This means you do not have to load any data, but you may have to load a library. For example the starwars dataset is part of the {dplyr} package. You may first have to load library(dplyr) to access the starwars data frame. Alternatively, you could access the data with the fully verbose package::object syntax: dplyr::starwars.\nSome data sets are imported via the read_csv function. You can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Then you’ll find a data folder with the CSV files used in this workshop. Refer to the import page for tips on importing data."
   },
   {
     "objectID": "data.html#code",
     "href": "data.html#code",
     "title": "Data and code",
     "section": "Code",
-    "text": "Code\nYou an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the workshop_R-get-started.Rproj file to launch all of the code directly into an RStudio project.\n\n\n\nOr\nUse this link to the GitHub repo,\n\nClick the green code button\nDownload ZIP\nUnzip and double click the workshop_R-get-started.Rproj file"
+    "text": "Code\nYou an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.\n\n\n\n\n\nDownload zipped code from GitHub\n\n\nOr\nUse this link to the GitHub repo,\n\nClick the green code button\nDownload ZIP\nUnzip and double click the Intro2R.Rproj file"
   },
   {
     "objectID": "eda.html",
@@ -158,7 +158,7 @@
     "href": "index.html#first-steps",
     "title": "R workshop - get started",
     "section": "First steps",
-    "text": "First steps\n\nTour of your Local File System\n\nR / RStudio\nClone code from GitHub\n\nStart a new project by importing the github repository for this workshop\n\nhttps://github.com/libjohn/workshop_R-get-started.git\n\nOpen the import.qmd notebook-file from the Files tab in the RStudio IDE"
+    "text": "First steps\n\nTour of your Local File System\n\nR / RStudio\nClone code from GitHub\n\nStart a new project by importing the github repository for this workshop\n\nhttps://github.com/data-and-visualization/Intro2R.git\n\nOpen the import.qmd notebook-file from the Files tab in the RStudio IDE"
   },
   {
     "objectID": "index.html#pipes-and-assignment",
