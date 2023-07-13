@@ -6,7 +6,7 @@ execute:
 
 website:
   title: "R/Tidyverse/Quarto - get started"
-  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-url: https://github.com/data-and-visualization/Intro2R
   repo-actions: [edit, issue]
   page-footer: 
     background: light
