@@ -4,14 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This website is composed in the RStudio IDE, as R code authored as a Quarto notebooks. With Quarto it is easy to render multiple report formats such as a PDF document or this website. In this case the report format is a web site hosted at Quarto.pub. The code for this workshop and this webpage are all part of a single RStudio project that can be found in a GitHub repository. The code-along exercises for this workshop are in the GitHub repository but they are not part of the web site. You can work through the exercises by first downloading the GitHub repository. Then find the exercises within the _exercises directory.\nYou can find an outline for this workshop. For more information or resource on learning R, please also visit the Rfun learning series."
-  },
-  {
-    "objectID": "about.html#john-little",
-    "href": "about.html#john-little",
-    "title": "About",
-    "section": "John Little",
-    "text": "John Little\nJohn is a Data Science Librarian in the Center for Data & Visualization Sciences, Duke University Libraries. A self-identified data-geek, John likes helping researchers navigate practical data science challenges through workshops and consultation.  To that end, John developed the R we having fun yet‽ learning resource (https://Rfun.library.duke.edu).\n\n\n\n\n\n\n\nAt Duke University John strives to present workshops focused on revealing R as a data-first coding language; extolling the virtues of the Tidyverse dialect; and modeling Reproducibility as a meaningful way to generate transparent analysis."
+    "text": "This website is hosted by the Center for Data & Visualization Sciences, part of the Duke University Libraries. composed in the RStudio IDE, as R code authored as a Quarto notebooks. With Quarto it is easy to render multiple report formats such as a PDF document or this website. In this case the report format is a web site hosted at Quarto.pub.\nThe code for this workshop and this webpage are all part of a single RStudio project that can be found in a GitHub repository. The code-along exercises for this workshop are in the GitHub repository but they are not part of the web site. You can work through the exercises by first downloading the GitHub repository. Then find the exercises within the _exercises directory.\nYou can find an outline for this workshop. For more information or resource on learning R, please also visit the Rfun learning series."
   },
   {
     "objectID": "ai.html",

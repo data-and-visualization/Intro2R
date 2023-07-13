@@ -10,8 +10,8 @@ website:
   repo-actions: [edit, issue]
   page-footer: 
     background: light
-    left: "<a href='https://JohnLittle.info'>John Little</a>"
-    center: "<a href='https://rfun.library.duke.edu'>Rfun</a> ● <a href='https://library.duke.edu/data'>Center for Data & Visualization Sciences</a>"
+    left: "<a href='https://rfun.library.duke.edu'>Rfun</a>
+    center: <a href='https://library.duke.edu/data'>Center for Data & Visualization Sciences</a>"
     right: "<a href='https://library.duke.edu/'>Duke University Libraries</a>"
   navbar: 
     right:
