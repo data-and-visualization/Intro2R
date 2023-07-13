@@ -1,0 +1,105 @@
+---
+title: "Visualize Data in R with ggplot2"
+subtitle: "Exercises"
+abstract: "These exercises are adapted in whole or in part based on the <i>Master the Tidyverse</i> work by Garrett Grolemund at RStudio.  \nCC BY Garrett Grolemund, RStudio ; BY-NC John Little"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY   
+---
+
+These exercises support your learning after watching the [instructional video](https://warpwire.duke.edu/w/80YEAA/)
+
+```{r setup}
+#| echo: true
+#| warning: false
+#| message: false
+library(tidyverse)
+```
+
+The dataset, `mpg`, is an onboard dataset, part of the `ggplot2` package. You can learn more about it by searching the help tab for "mpg", or type `?mpg` in the console.
+
+```{r}
+mpg
+```
+
+## Your Turn 1
+
+IN THE code-chunk, **below**, manually type the following code:
+
+ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))
+
+Pay strict attention to spelling, capitalization, and parentheses! Try not to copy and paste, just this once.
+
+```{r}
+#| eval: false
+```
+
+## Your Turn 2
+
+Add `color`, `size`, `alpha`, and `shape` aesthetics to your graph. Experiment.
+
+```{r}
+mpg %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+## Your Turn 3
+
+Replace this scatter plot with one that draws box plots. Use the cheat sheet. Try your best guess.
+
+```{r}
+mpg %>% 
+  ggplot() + 
+  geom_point(aes(class, hwy))
+```
+
+## Your Turn 4
+
+Make a histogram of the `hwy` variable from `mpg`.
+
+```{r}
+
+```
+
+## Your Turn 5
+
+Make a density plot of `hwy` colored by `class`.
+
+```{r}
+
+```
+
+## Your Turn 6
+
+Make a bar chart `hwy` colored by `class`.
+
+```{r}
+
+```
+
+## Your Turn 7
+
+Predict what this code will do. Then run it.
+
+```{r}
+mpg %>% 
+  ggplot() + 
+  geom_point(aes(displ, hwy)) +
+  geom_smooth(aes(displ, hwy))
+```
+
+## Your Turn 8
+
+Save the last plot
+
+```{r}
+ggsave(_____)
+# or right-click the image
+```

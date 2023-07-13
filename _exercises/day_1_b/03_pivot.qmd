@@ -1,0 +1,53 @@
+---
+title: "03 pivot data"
+author: "John Little"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY    
+---
+
+```{r}
+library(tidyverse)
+```
+
+## data
+
+These exercisees use the following [`ggplot2` training datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
+
+-   ggplot2::economics
+
+## Pivot
+
+Below are two data frames. One is wide data, the other is long.
+
+```{r}
+economics
+economics_long %>% arrange(date)
+```
+
+## Goal
+
+Using one of the dplyr pivot functions, pivot the economics data to long format
+
+```{r}
+economics %>% 
+  pivot_------(cols = pce:unemploy, 
+               names_to = "variable", 
+               values_to = "value") 
+```
+
+Now that the data are long. Can you use the `facet_wrap()` function to make multiple line plots, one line plot for each `variable` category?
+
+```{r}
+economics |> 
+  pivot_longer(-date, names_to = "variable", values_to = "value") |> 
+  ggplot(aes(date, value)) +
+  geom____() + 
+  facet_wrap(vars(_______))
+```

@@ -1,0 +1,26 @@
+# These data are from https://github.com/fivethirtyeight/data/tree/master/star-wars-survey
+# They are transformed to keep only columns 16-29 
+# sw_characters_favorability <- read_csv(
+#  "https://raw.githubusercontent.com/fivethirtyeight/data/master/star-wars-survey/StarWars.csv", 
+#  skip = 1)[,16:29]
+# They are transformed in the following manner
+# favorability_popularity_rating <- sw_characters_favorability %>% 
+#  map_dfr(fct_count) %>% 
+#  filter(f == "Very favorably") %>% 
+#  add_column(name = colnames(sw_characters_favorability)) %>% 
+#  select(name, fav_rating = n)
+name,fav_rating
+Han Solo,610
+Luke Skywalker,552
+Princess Leia Organa,547
+Anakin Skywalker,245
+Obi Wan Kenobi,591
+Emperor Palpatine,110
+Darth Vader,310
+Lando Calrissian,142
+Boba Fett,138
+C-3P0,474
+R2 D2,562
+Jar Jar Binks,112
+Padme Amidala,168
+Yoda,605

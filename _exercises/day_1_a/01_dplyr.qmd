@@ -1,0 +1,102 @@
+---
+title: "Exercise 01 - dplyr -- data wrangling"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY    
+---
+
+## Goals:
+
+Use dplyr functions to wrangle data
+
+In this exercise you'll practice the `dplyr` verbs (i.e. *functions*) mentioned in the demonstration.
+
+-   `arrange()`
+-   `filter()`
+-   `mutate()`
+-   `select()`
+-   `count()`
+
+## Directions
+
+### Setup
+
+We've prebuilt a data set that has information about menus in Duke's Brodhead Center (dining hall) from three restaurants. Create a new R Notebook, load the *tidyverse* package, and **load the dining hall dataset**, *as a tibble*. The broadhead dataset is a CSV file in the `data` directory.
+
+a.  Add a code chunk and Load the `tidyverse` library package
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+```
+
+b.  Insert a code chunk and import (`read_csv()`) the brodhead practice data from the `data` directory. Assign the imported data to an object name, e.g. "brodhead"
+
+```{r}
+#| warning: false
+#| message: false
+brodhead <- read_csv("../data/brodhead_center.csv")
+```
+
+Now you are ready to make new code chunks and follow the steps in Exercise 1 (below).
+
+> Answers can be found in the exercise_01_answers.Rmd file
+
+### Exercise: Data Wrangling
+
+All of the following questions are based on the sample of restaurants represented in the dataset which is accurate as of September 2, 2016.
+
+1.  Which restaurant has the lowest cost item and what is the item?
+
+```{r}
+brodhead %>% 
+  _______(cost) %>% 
+  select(name, type, itemName, cost)
+```
+
+2.  Which restaurant has the most expensive item(s)? What are those item(s)?
+
+```{r}
+brodhead %>% 
+  ____(____(cost)) %>% 
+  select(name, type, itemName, cost)
+```
+
+3.  At the Brodhead Center, how many of the entrees (found in the `menuType` variable) cost eight dollars?
+
+```{r}
+brodhead %>% 
+  ______(cost == _, menuType == "______") %>% 
+  select(name, menuType, itemName, cost)
+```
+
+4.  The head of Duke dining is considering reducing prices at the Brodhead Center. Using what we've learned in class, write code that will calculate a new variable (`halfPrice`) that contains items at half price.
+
+```{r}
+brodhead %>% 
+  ______(halfPrice = (____ / 2)) %>% 
+  select(name, itemName, cost, halfPrice)
+```
+
+5.  How many entrees are in the dataset (`menuType` variable)? How many desserts
+
+```{r}
+brodhead %>% 
+  _____(menuType)
+# You can use `filter()` to limit by menuType
+```
+
+## Answers
+
+> Answers can be found in the `_exercise_01/answers/01_dplyr_answers.qmd` file
+
+## Optional
+
+[Interactive quiz](https://posit.cloud/learn/primers/2.2)

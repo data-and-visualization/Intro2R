@@ -1,0 +1,81 @@
+---
+title: "Exercise 04"
+subtitle: "nest a list column of data frames and iterate a function with `purrr::map()`"
+---
+
+```{r}
+library(tidyverse)
+library(lubridate)
+# library(gapminder)
+```
+
+Using one of the on-board data sets, nest data by a categorical element. Note: the data type you use for nesting does not have to be a factor data type. Feel free to use your own data set if you prefer, but the following are easily accessible, especially if you've previously loaded either the tidyverse or gapminder packages: `starwars`; `fish_encounters`; `mpg`; `mtcars`; `economics_long`; `lubridate::lakers`; `gapminder::gapminder`
+
+```{r}
+gapminder::gapminder |> 
+  nest(-________) 
+
+gapminder::gapminder |> 
+  group_by(_______) |> 
+  nest()
+```
+
+## A function
+
+Here's a function that you can use. Execute the code chunk below an move to the next section.
+
+```{r}
+my_first_plot_function <- function(my_df) {
+  my_df |> 
+    ggplot(aes(year, pop)) + 
+    geom_line(aes(color = country))
+}
+```
+
+## Practice iterating
+
+Use the above function, `my_first_plot_function`, with `purrr::map()`
+
+You many need to install the {`gapminder`} package. Make a nested data frame by `continent`. Use `purr::map()` to apply the custom function, `my_first_plot_function`, to the gapminder data set as a new variable: `my_plot`. Then, use the `pull()` function to view the new plots
+
+```{r}
+gapminder::gapminder |> 
+  nest(-continent) |> 
+  mutate(my_plot = map(data, ____________)) #|> pull(my_plot)
+```
+
+You can create the same outcome as above with an anonymous function.\
+a. What is `.x`?\
+b. what is `~`?
+
+```{r}
+gapminder::gapminder |> 
+  nest(-continent) |> 
+  mutate(my_plot = map(data, ~ .x |> ggplot(aes(year, pop)) + geom_line(aes(color = country)))) |> 
+  pull(my_plot)
+
+```
+
+Below is an artifact of troubleshooting. As time allows, I'll demonstrate this process in the workshop.
+
+```{r}
+make_my_plot <- function(my_df, my_name) { 
+  my_df |>   
+    ggplot(aes(year, total)) +
+    geom_point() +
+    geom_line(aes(group = {{my_name}})) +
+    labs(title = {{my_name}})
+}
+
+babynames::babynames |> 
+  filter(name == "John" | name == "Elizabeth") |> 
+  group_by(year, name) |> 
+  summarise(total = sum(n), .groups = "drop") |>
+  nest(-name) |>  # head(1) |> unnest() # |> 
+  # ggplot(aes(year, total)) +
+  # geom_point()
+  # mutate(my_plot = map(data, make_my_plot)) |>
+  mutate(my_plot = map2(data, name, make_my_plot)) |>
+  pull(my_plot)
+  
+```

@@ -1,0 +1,128 @@
+---
+title: "Wrangle Data with {dplyr}"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
+---
+
+{[`dplyr`](https://dplyr.tidyverse.org)} verbs help you wrangle, clean, and normalize your data
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/PGSXf-NMWVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
+| dplyr function | use for                                    |
+|----------------|--------------------------------------------|
+| `select()`     | subset columns                             |
+| `filter()`     | subset rows                                |
+| `arrange()`    | sort rows by column variable values        |
+| `group_by()`   | use with summarize for subtotals           |
+| `summarize()`  | generate column totals and subtotals, etc. |
+| `count()`      | a specialized `summarize()` function       |
+
+### Examples
+
+First we need to load the {dplyr} package for wrangling and the {readr} package for importing CSV data. In our case, we'll do that by loading the tidyverse which loads {dplyr}, {readr} and several other helpful packages. Then we need to load our data
+
+```{r}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+brodhead_center <- read_csv("data/brodhead_center.csv")
+```
+
+#### `select()`
+
+```{r}
+brodhead_center |> 
+  select(name, type)
+```
+
+::: column-margin
+[![Select columns](images/select.svg){fig-alt="Select columns"}](https://dplyr.tidyverse.org/reference/select.html)
+:::
+
+#### `filter()`
+
+```{r}
+brodhead_center |> 
+  filter(menuType == "dessert")
+```
+
+::: column-margin
+[![Filter by rows](images/filter_by_rows.svg){fig-alt="Filter by rows"}](https://dplyr.tidyverse.org/reference/filter.html)
+:::
+
+#### `arrange()`
+
+```{r}
+brodhead_center |> 
+  arrange(cost)
+```
+
+::: column-margin
+[![Arrange rows by the values in a column](images/arrange_rows.svg){fig-alt="Arrange rows by the values in a column"}](https://dplyr.tidyverse.org/reference/arrange.html)
+:::
+
+#### `mutate()`
+
+```{r}
+brodhead_center |> 
+  mutate(ratings_high = rating * 2)
+```
+
+::: column-margin
+[![Create new variable or modify variable with mutate()](images/mutate.svg){fig-alt="Create new variable or modify variable with mutate()"}](https://dplyr.tidyverse.org/reference/mutate.html)
+:::
+
+We can also mutate data by groups or categories
+
+```{r}
+brodhead_center |> 
+  mutate(avg_item_rating_rest = mean(rating, na.rm = TRUE), 
+         .by = name, 
+         .after = name)
+```
+
+#### `count()`
+
+```{r}
+#| label: margin-picture-count
+#| echo: false
+#| column: margin
+
+brodhead_center |> 
+  count(menuType) |> 
+  arrange(desc(n)) |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Count values in a group")
+```
+
+```{r}
+brodhead_center |> 
+  count(menuType)
+```
+
+#### `group_by()` & `summarise()`
+
+```{r}
+#| label: margin-picture-summarize
+#| echo: false
+#| column: margin
+
+brodhead_center |> 
+  summarise(Sum_of_cost = sum(cost)) |> 
+  gt::gt() |> 
+  gt::tab_header(title = "Summarise column")
+```
+
+```{r}
+brodhead_center |> 
+  group_by(name) |> 
+  summarise(min_cost = min(cost), mean_cost = mean(cost), max_cost = max(cost))
+```

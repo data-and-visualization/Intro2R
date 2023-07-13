@@ -1,0 +1,84 @@
+---
+title: "Answers - Excercise 00"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY    
+---
+
+## exercise 00:
+
+1.  Load the tidyverse libary package
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+```
+
+2.  Fill in the blanks. Using what you've seen in class, if `data/brodhead_center.csv` is a CSV (comma separated values) file, how would you load the file into a new object called `brodhead`?
+
+```{r}
+#| message: false
+#| warning: false
+brodhead  <- read_csv("../../data/brodhead_center.csv")
+```
+
+3.  Display your new `brodhead` data frame?
+
+```{r}
+brodhead
+```
+
+4.  `starwars` is an on-board dataset that comes with the tidyverse. Insert a new code chunk and display that data.
+
+```{r}
+starwars
+```
+
+5.  Copy and paste the following code into a new code chunk in your new file.
+
+```{r}
+starwars %>% 
+  ggplot(aes(fct_infreq(hair_color))) + 
+  geom_bar() + 
+  ggtitle("Hair Color Frequency of Star Wars Characters")
+```
+
+6.  Take a look at the structure of the `brodhead` object.
+    -   How many observations (rows) are there?
+    -   How many variables (columns) are there?
+    -   How many of the variables are numeric data?
+
+```{r}
+glimpse(brodhead)
+```
+
+## Bonus 2
+
+Importing labeled vectors from an spss file format. Import via the `haven::read_sav()` function
+
+```{r}
+library(haven)
+library(here)
+
+my_labeled_vectors_df <- 
+  read_sav(here("data", "student_satisfaction_test_data_from_qualtrics.sav"))
+
+my_labeled_vectors_df
+
+my_labeled_vectors_df |> 
+  select(Q2) |> 
+  mutate(Q2_labels = as_factor(Q2))
+
+my_labeled_vectors_df |> 
+  select(ResponseId, starts_with("Q")) |> 
+  mutate(across(is.labelled, ~ as_factor(.x), .names = "{.col}_label")) |> 
+  select(ResponseId, sort(tidyselect::peek_vars()))
+
+```

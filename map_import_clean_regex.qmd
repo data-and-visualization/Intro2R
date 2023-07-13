@@ -1,0 +1,16 @@
+---
+title: "Import multiple Excel files"
+subtitle: "Casestudy of purrr::map() to make one big data frame"
+---
+
+The [code](https://github.com/libjohn/workshop_rfun_iterate) and companion [youtube playlist](https://www.youtube.com/watch?v=QgasjZGhWlk&list=PLIUcX1JrVUNWW7RgPh9ysmJM3mBpIAlYG&index=1) show practical R/data-wrangling **tips** and **tricks**. This case study demonstrates custom *functions*, *regex* (regular expressions), and *iteration*. The workflow shows techniques for common needs such: data-scraping, ingesting multiple files, transforming messy data into tidy data, quickly cleaning column names, separating multivalue fields, uniting variable values, and nesting data.
+
+## Playlist
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIUcX1JrVUNWW7RgPh9ysmJM3mBpIAlYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+## Code and data
+
+Github ▶️ [libjohn/workshop_rfun/iterate](https://github.com/libjohn/workshop_rfun_iterate)

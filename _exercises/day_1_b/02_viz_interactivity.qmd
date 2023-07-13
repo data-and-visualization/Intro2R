@@ -1,0 +1,41 @@
+---
+title: "Visualization interactivity"
+---
+
+## Load library package
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+```
+
+Make a barplot of the `gender` of starwars charactesrs
+
+```{r}
+starwars |> 
+  ggplot(aes(gender)) +
+  geom_bar()
+  
+```
+
+Make a stacked bar plot, as above, using the `fill` argument. Stack the bars with the values of the `sex` variable. Assign the plot to an object name of `star_gender`.
+
+```{r}
+_________ <- starwars |> 
+  ggplot(aes(gender)) +
+  geom_bar(aes(____ = sex))
+star_gender
+```
+
+Using the {`plotly`} package
+
+```{r}
+library(plotly)
+```
+
+Make the `star_gender` object interactive
+
+```{r}
+ggplotly(star_gender)
+```

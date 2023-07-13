@@ -1,0 +1,123 @@
+---
+title: "Import Data"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
+---
+
+::: callout-warning
+## Did you start with a Project?
+
+Reproducibility starts at the [foundation](proj.html#reproducibility)! Always begin by opening a project. See [New Projects](proj.html) for tips.
+:::
+
+In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to learning and using R
+
+Below are some of the core [*tidyverse*](https://tidyverse.tidyverse.org/) packages. There are many more very handy tidyverse packages.
+
+| package   | use                               | package     | use                           |
+|------------------|--------------------|------------------|------------------|
+| `dplyr`   | data wrangling                    | `forcats`   | categorical data / factors    |
+| `ggplot2` | visualization                     | `lubridate` | dates and times               |
+| `readr`   | import CSV                        | `stringr`   | regular expressions / strings |
+| `purrr`   | iteration / functional programing | `tidyr`     | pivot data                    |
+| `readxl`  | import Excel files                | `haven`     | import SPSS/Stata/SAS         |
+
+## Data import wizard
+
+The data import wizard is a quick and easy way to import your data
+
+[![Import dataset](images/data_import.jpg){fig-alt="import dataset"}](images/data_import.jpg)
+
+But, it's actually **way better** and hardly any more effort to follow the **reproducible steps**, below...
+
+## Load library packages
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+```
+
+## Import data
+
+In RStudio,, in the Files quadrant and tab, click the `data` folder, then left-click the `brodhead_center.csv` file. Using the context menu, choose the *Import Dataset...* option. Once inside the data wizard, you can paste the necessary code into the code chunk below
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/BKDkj7I4L-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
+```{r}
+#| label: import-data
+#| warning: false
+#| message: false
+# library(readr)
+brodhead_center <- read_csv("data/brodhead_center.csv")
+# view(brodheadCenter)
+```
+
+::: callout-tip
+## Composing the data import code...
+
+Writing the import data function can be tricky. Try the import wizard pictured above. THEN, paste the code from the **Code Preview** section into your script.
+
+[![Easily write import data function](images/data_import_code.jpg){fig-alt="Easily write import data function" width="800"}](images/data_import_code.jpg)
+:::
+
+## Excel, SPSS, SAS, etc.
+
+The data import wizard will help you find the proper package for importing your data. For example, use...
+
+-   `library(readxl)` for Excel data
+-   `library(haven)` for SPSS, SAS, Stata
+-   `lirary(readr)` for CSV or other delimeters
+
+Just start with `File > Import Dataset` to get started composing that code, then paste your code into a script.
+
+## Look at the data object
+
+Now that you've [assigned](index.htm#pipes-and-assignment "Assign and object with <-") the output from the `read_csv` function to the name `brodhead_center`, simply call that object name in a code chunk.
+
+```{r}
+brodhead_center
+```
+
+## Visualize your data with {[ggplot2](https://ggplot2.tidyverse.org)}
+
+Here's a quick teaser on visualizing data. Read more in the [visualization chapter](viz.html).
+
+```{r}
+#| warning: false
+#| message: false
+brodhead_center |> 
+  ggplot(aes(x = name, y = cost)) +
+  geom_boxplot() 
+```
+
+```{r}
+brodhead_center |> 
+  ggplot(aes(x = rating, y = cost)) +
+  geom_point(aes(color = name))
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+brodhead_center |> 
+  drop_na(rating, cost, name) |> 
+  ggplot(aes(x = factor(rating), y = cost)) +
+  geom_tile(aes(fill = name)) +
+  scale_y_continuous(label = scales::dollar) +
+  scale_fill_brewer(palette = "Dark2") + 
+  labs(x = "rating", y = NULL, title = "Heatmap: cost over ratings", 
+       caption = "Source: https://github.com/libjohn/tutorial_intro2r_brain",
+       fill = "Restaurant name") +
+  theme_classic() +
+  theme(plot.title.position = "plot")
+  
+```

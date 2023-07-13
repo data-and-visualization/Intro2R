@@ -1,0 +1,192 @@
+---
+title: "Iteration with {purrr}"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
+---
+
+::: {.callout-warning collapse="true"}
+## Review the functions page!
+
+If you have not already read the [functions page](functions.html), do so before reading about {purrr}. The purrr package is about applying functions repetitively. You should have a good idea about what a function is and how to write a custom function.
+:::
+
+From the [functions page](functions.html) we learned scant definitions of *functional programming* and *functions*. We also learned about the special conditions of programming with {dplyr}, which demands a working understanding of *environment* and *data* variables.[^1] Now we want to apply our functions, row-by-row, to a data frame. We'll use the [purrr package](https://purrr.tidyverse.org/).
+
+[^1]: Links and footnotes on the [functions page](functions.html) will lead to more detailed information on those topics.
+
+::: callout-tip
+## Rule of thumb
+
+Never feel bad for using a FOR loop.
+:::
+
+Remember that in functional programming we're iterating, or recursing, without using FOR loops. For example, in the [regression page](regression.html#example-of-iterative-modeling-with-nested-categories-of-data), we saw an example of *nesting data frames* by category (i.e. by `gender`). After nesting, we have two subsetted data frames that are embeded within a parent-data-frame. The embedded data frames are contained within a *list-column*.
+
+### `nest()`
+
+We can subset by gender, creating two new subset data frames that we'll put in a new column with the variable name: *data*. This subsetting is accomplished with the `nest()` function.
+
+::: column-margin
+<iframe width="300" height="200" src="https://www.youtube.com/embed/kZf11zbVpr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+:::
+
+```{r}
+#| warning: false
+#| message: false
+
+library(moderndive)
+library(broom)
+library(tidyverse)
+
+evals |> 
+  janitor::clean_names() |> 
+  nest(data = -gender)
+```
+
+## `map()`
+
+Now, using {purrr} we can apply a function --- such as a linear model regression `lm()` --- over each row of the parent data frame. To do this, we use the `map_` class of functions. I say class of functions, because map allows us to define the returned data type. Sometimes we want to return a character data-type (`map_chr`), sometimes an integer (`map_int`), sometimes a data fram (`map_df`), etc. In the case of a linear model, which is a list data-type, we'll use the generic `map()` function to apply an ***anonymous** function*.
+
+::: column-margin
+<iframe width="300" height="200" src="https://www.youtube.com/embed/QgasjZGhWlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+:::
+
+::: callout-note
+## Anonymous functions
+
+Examples of an anonymous function:
+
+`\(x) x + 1`
+
+`function(x) x + 1`
+
+Unlike the `add_numbers()` function we composed on the [functions page](functions.html#definition), anonymous functions have no object name, hence they are anonymous. Anonymous functions, sometimes called lambda functions are a convenience for coders using functional programming languages.
+:::
+
+```{r}
+#| warning: false
+#| message: false
+
+my_subset_df <- evals |> 
+  janitor::clean_names() |> 
+  nest(my_data = -gender) |> 
+  mutate(my_fit_bty = map(my_data, function(my_data) 
+                                lm(score ~ bty_avg, data = my_data)
+                         )
+        )
+my_subset_df
+```
+
+### Look at the fitted object
+
+When we look at the resulting `my_fit_bty` data variable, we see the kind of output we get from `lm()`
+
+```{r}
+my_subset_df$my_fit_bty
+```
+
+Earlier, we learned to use the `broom::tidy()` function to transform a fitted model --- contained as a *list* data-type --- into a data frame[^2]. We can easily `tidy` just the first model.
+
+[^2]: Having our regression model wrapped as a data frame means we use other {dplyr} functions to more easily manipulate our model output.
+
+```{r}
+tidy(my_subset_df$my_fit_bty[[1]])
+```
+
+### Named functions
+
+To tidy all the models, we want to use the `map` function again. This time we **map** a named function, `tidy()`. We do this row-by-row, without writing a FOR loop.
+
+```{r}
+my_subset_df |> 
+  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy))
+```
+
+The only difference between `my_fit_bty` and `my_fit_bty_tidy` is that `my_fit_bty_tidy` is the model output for the former is a list, the later is a data frame. `my_subset_df$my_fit_bty_tidy` is a list-column of nested data frames, just like `my_subset_df$data`, which we nested in the first code-chunk of this page.
+
+To unnest the data frames, use the `unnest()` function.
+
+```{r}
+my_subset_df |> 
+  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy)) |> 
+  unnest(my_fit_bty_tidy)
+```
+
+Now we have fitted model data, contained within a data frame that we can manipulate further. For example, using dplyr functions it's easy to make a pipeline to look at the p-values of `bty_avg`, by `gender`.
+
+```{r}
+my_subset_df |> 
+  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy)) |> 
+  unnest(my_fit_bty_tidy) |> 
+  select(gender, term, p.value) |> 
+  filter(term == "bty_avg")
+```
+
+When we combine linear modeling with other broom functions such as `glance()` and `augment()`, then we can further our analysis and data manipulation.
+
+## Anonymous functions
+
+Anonymous functions have no name. Unlike a **named** function (e.g. `broom::tidy` above, or `make_scatterplot` from the [functions page](functions.html)). Below we **map** an anonymous function within `map()`. The first argument to map is a list or data frame. The next argument can be a named function or an anonymous function.
+
+```{r}
+my_subset_df_with_plots <- my_subset_df |> 
+  mutate(my_plot = map(my_data, function(my_data) 
+    my_data |> 
+      ggplot(aes(bty_avg, score)) + 
+      geom_point() +
+      geom_smooth(method = lm, se = FALSE, formula = y ~ x)
+                      )
+         )
+my_subset_df_with_plots
+```
+
+And now we can pull those plots
+
+```{r}
+#| eval: false
+#| echo: true
+my_subset_df_with_plots |> 
+  pull(my_plot)
+  
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Female"
+#|   - "Male"
+
+
+my_subset_df_with_plots$my_plot[[1]]
+
+my_subset_df_with_plots$my_plot[[2]]
+```
+
+## `map2()`
+
+If you have more than one argument to map, you can use functions such as `map2()` or `pmap()`. An example of `map2()` can be found on the [regression page](regression.html#example-of-iterative-modeling-with-nested-categories-of-data).
+
+```{r}}
+# Example of mapping a anonymous function with two variables.
+
+map2(my_df, my_plot, gender, function(x, y) { 
+                               x + labs(title = str_to_title(y))
+                             }          
+    )
+
+# x refers to the second argument of map2, 
+# y refers to the third argument, i.e. `gender`
+```
+
+\

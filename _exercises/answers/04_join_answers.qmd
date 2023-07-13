@@ -1,0 +1,46 @@
+---
+title: "join"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY    
+---
+
+```{r}
+library(tidyverse)
+```
+
+## Join
+
+There are a series of [join commands](https://dplyr.tidyverse.org/reference/index.html#section-two-table-verbs)
+
+-   left_join, inner_join, right_join, full_join,
+-   semi_join, anti_join
+
+![dplyr joins visualized](https://pbs.twimg.com/media/B6eUTTACUAAahLf.png)
+
+## data
+
+These exercises use the following [`dplyr` datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
+
+-   dplyr::band_instruments
+-   dplyr::band_members
+
+```{r}
+band_members
+band_instruments
+```
+
+## Goal
+
+Make one big data frame that joins `band_members` with `band_instruments`. Using the template below you need to identify what type of join to use and identify the join key.
+
+```{r}
+band_members |> 
+  left_join(band_instruments, by = "name")
+```

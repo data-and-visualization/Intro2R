@@ -1,0 +1,27 @@
+---
+title: "Exploratory Data Analysis packages"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
+---
+
+EDA, or Exploratory Data Analysis can take many forms. This brief section will recommend a few packages which can be used to explore your data, more or less, automagically. The packages can be complex and may take some effort to learn. However, if you're brand new to data mining, you may benefit from reading these package documentation pages, and then applying their functions to your data.
+
+Recommended EDA packages
+
+-   {skimr} - [https://docs.ropensci.org/skimr](https://docs.ropensci.org/skimrhttps://github.com/taiyun/corrplot/)\
+    a frictionless approach to summary statistics
+
+-   {corrplot} - [https://github.com/taiyun/corrplot](https://github.com/taiyun/corrplot/)\
+    a visual exploratory tool on correlation matrix that supports automatic variable reordering
+
+-   {summarytools} - [https://github.com/dcomtois/summarytools](https://github.com/dcomtois/summarytoolshttps://github.com/dcomtois/summarytools)\
+    or data cleaning, exploring, and simple reporting
+
+-   {tableone} - [https://github.com/kaz-yos/tableone](https://github.com/kaz-yos/tableonehttps://github.com/kaz-yos/tableone)\
+    create "Table 1", description of baseline characteristics
+
+-   {dtracker} - [https://terminological.github.io/dtrackr](https://terminological.github.io/dtrackr/)\
+    Accurate documentation of a data pipeline is a first step to reproducibility, and a flow chart describing the steps taken to prepare data

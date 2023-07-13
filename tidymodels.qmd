@@ -1,0 +1,20 @@
+---
+title: "Tidymodels and machine learning"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
+---
+
+The {tidymodels} concept [@kuhn2022] is a group of packages in support of modeling and machine learning. In the [last section](regression.html) we learned how to manipulate a basic linear model though a combination of the base-R `lm()` function and the tidyverse {broom} package along with the `nest()` function. However, modeling can be much more involved. This basic overview introduces tidymodels, a conceptual approach to integrating tidyverse principles with modeling, machine learning, feature selection and tuning.
+
+Beyond the core of integrating machine learning and modeling with the tidyverse, tidymodels supports a variety of useful analytical and computational approaches. A short list of examples includes **statistical analysis** (e.g. bootstrapping, hypothesis testing, k-means clustering, logistic regression, etc.), **robust modeling** (e.g. classification, least squares, resampling), creating **performance metrics**, **tuning, clustering, classification, text analysis, neural networks**, and more.
+
+## Get started
+
+Modelers and ML coders can approach tidymodels by
+
+1.  Engaging with the [five-step tutorial](https://www.tidymodels.org/start/) (build a model, use recipes to pre-process data, evaluate with resampling, tune, and predict.
+
+2.  [Dive deeper to find articles that help apply the tidymodels approach](https://www.tidymodels.org/learn/) to your needs.

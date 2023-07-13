@@ -1,48 +1,94 @@
 project:
   type: website
+  
+execute:
+  freeze: auto
 
 website:
-  repo-url: https://github.com/data-and-visualization/Intro2R
+  title: "R/Tidyverse/Quarto - get started"
+  repo-url: https://github.com/quarto-dev/quarto-demo
   repo-actions: [edit, issue]
-  page-footer:  "Text and figures are licensed under Creative Commons Attribution
-  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)<br>
-  [Rfun](https://rfun.library.duke.edu) · 
-  [Center for Data & Visualization Sciences](https://library.duke.edu/data) · 
-  [Duke University Libraries](https://library.duke.edu)"
-  title: "Intro to R (Rfun)"
-  navbar:
-    background: primary
-    search: true
-    left:
-      - href: index.qmd
-        text: Home
-      - data_management.qmd
-      - data_wrangling.qmd
-      - visualization.qmd
-      - gis.qmd
-      - version_control.qmd
-      - text: "More Rfun!"
-        href: "https://Rfun.library.duke.edu"
-      - about.qmd
+  page-footer: 
+    background: light
+    left: "<a href='https://JohnLittle.info'>John Little</a>"
+    center: "<a href='https://rfun.library.duke.edu'>Rfun</a> ● <a href='https://library.duke.edu/data'>Center for Data & Visualization Sciences</a>"
+    right: "<a href='https://library.duke.edu/'>Duke University Libraries</a>"
+  navbar: 
     right:
+      - text: About
+        href: about.qmd
       - icon: github
-        href: https://github.com/data-and-visualization/Intro2R
+        href: https://github.com/libjohn/workshop_R-get-started
         aria-label: GitHub
-      # - icon: home
-      - text: Rfun|CDVS
-        menu:
-          - text: "Rfun Home"
-            href: "https://rfun.library.duke.edu/"
-          - text: "Center for Data & Visualization"
-            href: https://library.duke.edu/data/
+  sidebar:
+    style: "floating"
+    collapse-level: 1
+    search: false
+    contents:
+      - section: Home
+        contents:
+          - href: index.qmd
+          - text: Data and code
+            href: data.qmd
+          - text: Download/install/packages
+            href: packages.qmd
+      - section: Get started
+        contents:
+          - text: Projects (Reproducibility)
+            href: proj.qmd
+          - text: Import data
+            href: import.qmd
+          - text: Wrangle {dplyr}
+            href: wrangle.qmd
+          - text: Pivot data (tall or wide)
+            href: longer_wider.qmd
+          - text: Join data frames
+            href: join.qmd
+          - text: EDA
+            href: eda.qmd
+      - section: Visualization
+        contents:
+          - text: ggplot2
+            href: viz.qmd
+          - text: plotly | HTML widgets
+            href: widgets.qmd
+          - text: More interactivity {ojs}
+            href: interactive.qmd            
+      - section: AI-assist code (ChatGPT)
+        contents:
+          - text: How to
+            href: ai.qmd
+      - section: Models/Regression
+        contents:
+          - text: Regression
+            href: regression.qmd
+          - text: Tidymodels
+            href: tidymodels.qmd
+      - section: Functions & iteration
+        contents:
+          - text: Custom functions
+            href: functions.qmd
+          - text: Iteration with {purrr}
+            href: purrr.qmd            
+      - section: Examples
+        contents:
+          - text: Exploratory Data Analysis (EDA)
+            href: tidy_tuesday_itra.qmd
+          - text: map() 10x Excel files
+            href: map_import_clean_regex.qmd
+      - section: Exercises
+        contents:
+          - text: link-to
+            href: https://github.com/libjohn/workshop_R-get-started/tree/main/_exercises
 
 format:
   html:
-    page-layout: full
-    theme: flatly
+    df-print: paged
+    theme: sandstone
     css: styles.css
     toc: true
-    # include-after-body: _footer.html
 
 editor: visual
+
+
 

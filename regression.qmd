@@ -1,0 +1,186 @@
+---
+title: "Regression"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY   
+bibliography: references.bib
+---
+
+## Load library packages
+
+```{r}
+#| message: false
+#| warning: false
+library(dplyr)
+library(ggplot2)
+library(moderndive)
+library(broom)
+library(skimr)
+```
+
+## Data
+
+Data are from the {`moderndive`} package[^1], [*Modern dive*](https://moderndive.com/) [@kim2021], and the {dplyr} package [@Wickham2023].
+
+[^1]: <https://moderndive.github.io/moderndive/>
+
+```{r}
+evals_ch5 <- evals %>% 
+  select(ID, score, bty_avg, age)
+
+evals
+
+evals_ch5
+```
+
+```{r}
+evals_ch5 %>% 
+  summary()
+```
+
+```{r}
+skimr::skim(evals_ch5)
+```
+
+## Correlation
+
+### strong correlation
+
+Using the `cor` function to show correlation. For example see the **strong correlation** between `starwars$mass` to `starwars$height`
+
+```{r}
+
+my_cor_df <- starwars %>% 
+  filter(mass < 500) %>% 
+  summarise(my_cor = cor(height, mass))
+my_cor_df
+```
+
+The `cor()` function shows a positive correlation of `r my_cor_df |> pull(my_cor)`. This indicates a positive correlation between height and mass.
+
+### weak correlation
+
+By contrast, see here a regression line that visualizes the weak correlation between `evals_ch5$score` and `evals_ch5$age`
+
+```{r}
+evals_ch5 %>% 
+  ggplot(aes(score, age)) +
+  geom_jitter() +
+  geom_smooth(method = lm, formula = y ~ x, se = FALSE)
+```
+
+## Linear model
+
+> For every increase of 1 unit increase in bty_avg, there is an associated increase of, on average, 0.067 units of score. from [*ModenDive*](https://moderndive.com/5-regression.html)
+
+```{r}
+# Fit regression model:
+score_model <- lm(score ~ bty_avg, data = evals_ch5)
+
+score_model
+```
+
+```{r}
+summary(score_model)
+```
+
+## Broom
+
+The {`broom`} package is useful for containing the outcomes of some models as data frames. A more holistic approach to tidy modeling is to use the {[`tidymodels`](https://tidymodels.org)} package/approach
+
+Tidy the model fit into a data frame with `broom::tidy()`, then we can use dplyr functions for data wrangling.
+
+```{r}
+broom::tidy(score_model)
+```
+
+get evaluative measure into a data frame
+
+```{r}
+broom::glance(score_model)
+```
+
+### More model data
+
+predicted scores can be found in the `.fitted` variable below
+
+```{r}
+broom::augment(score_model)
+```
+
+## Example of iterative modeling with nested categories of data
+
+In this next example we nest data by the `gender` category, then iterate over those categories using the {purrr} package to `map` [*anonymous functions*](purrr.html#anonymous-functions-1) over our data frames that is [nested](purrr.html#nest) by our category. Look closely and you'll see correlations, linear model regression, and visualizations --- iterated over the `gender` category. [purr::map](purrr.html#map) iteration methods are beyond what we've learned so far, but you can notice how tidy-data and tidyverse principles are leveraged in data wrangling and analysis. In future lessons we'll learn how to employ these techniques along with [writing custom functions](functions.html).
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+
+my_iterations <- evals |> 
+  janitor::clean_names() |> 
+  nest(data = -gender) |> 
+  mutate(cor_age = map_dbl(data, \(data) cor(data$score, data$age))) |> 
+  mutate(cor_bty = map_dbl(data, \(data) cor(data$score, data$bty_avg)))  |> 
+  mutate(my_fit_bty = map(data, \(data) lm(score ~ bty_avg, data = data) |> 
+                            broom::tidy())) |> 
+  mutate(my_plot = map(data, \(data) ggplot(data, aes(bty_avg, score)) + 
+                         geom_point(aes(color = age)) +
+                         geom_smooth(method = lm, 
+                                     se = FALSE,
+                                     formula = y ~ x))) |> 
+  mutate(my_plot = map2(my_plot, gender, \(my_plot, gender) my_plot +
+                          labs(title = str_to_title(gender))))
+```
+
+This generates a data frame consisting of lists columns such as `my_fit_bty` and `my_plot`
+
+```{{r}}
+my_iterations
+```
+
+```{r}
+#| echo: false
+my_iterations
+```
+
+`my_terations$my_fit_bty` is a list column consisting of tibble-style data frames. We can unnest those data frames.
+
+```{{r}}
+my_iterations |> 
+  unnest(my_fit_bty)
+```
+
+```{r}
+#| echo: false
+my_iterations |> 
+  unnest(my_fit_bty)
+```
+
+`my_iterations$my_plot` is a list column consisting of ggplot2 objects. We can pull those out of the data frame.
+
+```{{r}}
+my_iterations |> 
+  pull(my_plot)
+```
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Female"
+#|   - "Male"
+my_iterations$my_plot[[1]]  # or `my_iterations$my_plot`
+my_iterations$my_plot[[2]]
+```
+
+## Next steps
+
+The example above introduces how multiple models can be fitted through the nesting of data. Of course, modeling can be much more complex. A good next step is to gain basic introductions about [tidymodels](tidymodels.html). You'll gain tips on integrating tidyverse principles with modeling, machine learning, feature selection, and tuning. Alternatively, endeavor to increase your skills in iteration using the [purrr](purrr.html) package so you can leverage iteration with [custom functions](functions.html).

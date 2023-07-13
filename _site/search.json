@@ -4,237 +4,699 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Publishing Note\nThis website is produce in RStudio via R Markdown via the Quarto rendering engine. The files are version-controlled with git and pushed to a remote repository on GitHub. The GitHub repo is linked with Netlify so that each version is pushed to GitHub, them the website is automatically updated and served via Netlify.com."
+    "text": "This website is composed in the RStudio IDE, as R code authored as a Quarto notebooks. With Quarto it is easy to render multiple report formats such as a PDF document or this website. In this case the report format is a web site hosted at Quarto.pub. The code for this workshop and this webpage are all part of a single RStudio project that can be found in a GitHub repository. The code-along exercises for this workshop are in the GitHub repository but they are not part of the web site. You can work through the exercises by first downloading the GitHub repository. Then find the exercises within the _exercises directory.\nYou can find an outline for this workshop. For more information or resource on learning R, please also visit the Rfun learning series."
   },
   {
-    "objectID": "data_management.html",
-    "href": "data_management.html",
-    "title": "Load/import data",
+    "objectID": "about.html#john-little",
+    "href": "about.html#john-little",
+    "title": "About",
+    "section": "John Little",
+    "text": "John Little\nJohn is a Data Science Librarian in the Center for Data & Visualization Sciences, Duke University Libraries. A self-identified data-geek, John likes helping researchers navigate practical data science challenges through workshops and consultation.  To that end, John developed the R we having fun yet‽ learning resource (https://Rfun.library.duke.edu).\n\n\n\n\n\n\n\nAt Duke University John strives to present workshops focused on revealing R as a data-first coding language; extolling the virtues of the Tidyverse dialect; and modeling Reproducibility as a meaningful way to generate transparent analysis."
+  },
+  {
+    "objectID": "ai.html",
+    "href": "ai.html",
+    "title": "Getting started with ai-assisted LLMs",
     "section": "",
-    "text": "The Tidyverse is a set of packages that work together within a common tidy-data framework. These packages modernize R and enable an efficient workflow. This tidy framework is great for learning while being productive."
+    "text": "Ai-assisted coding tools such as OpenAI’s ChatGPT, Google’s Bard, and GitHub’s Copilot can be a used in code generation, code completion, and learning to code. R-specific approaches to assisted coding are convenient and available through RStudio addins such as {gptstudio}."
   },
   {
-    "objectID": "data_management.html#load-library-packages",
-    "href": "data_management.html#load-library-packages",
-    "title": "Load/import data",
-    "section": "Load library Packages:",
-    "text": "Load library Packages:\n\nlibrary(tidyverse)\n\n\nNote: You must install a library-package before you load a library-package: install.packages(\"tidyverse\"). You only need to install a package once. You must load the package with each R session. The above code chunk engages the library() function to load the “tidyverse” packages. (Video Help: Install Pages)\n\nAs you see from the image above, the tidyverse package is a super-package consisting of several more precise and focused packages. You can install packages from the Tools menu-bar in the RStudio IDE."
+    "objectID": "ai.html#quick-start",
+    "href": "ai.html#quick-start",
+    "title": "Getting started with ai-assisted LLMs",
+    "section": "Quick Start",
+    "text": "Quick Start\nBing Chat can access openAI’s ChatGPT where you must use the MSEdge browser. Google Bard works in any browser. Another option is poe.com. Poe is especially useful for experimenting with a variety of LLMs including ChatGPT, Google-PaLM (Bard), Sage, and Claude.\nBelow is from the Bard LLM when asked for advice on learning to code with ai-assited LLMs:\n\n\nBe specific in your requests\nUse clear and concise language\nProvide examples\nBe patient\nUse a variety of LLMs and experiment with different approaches\nUse LLMs as a supplement to other learning resources\nVerify your computational results\n\n\nSee Also: the warning, above, and the ethics section, below."
   },
   {
-    "objectID": "data_management.html#load-custom-data",
-    "href": "data_management.html#load-custom-data",
-    "title": "Load/import data",
-    "section": "Load Custom Data",
-    "text": "Load Custom Data\nOutside of this workshop, you’ll likely want to load your own data. R and RStudio support many methods of gathering and importing data. Two common data import methods include importing data from the local file system or via a URL.\nRStudio has an on-board data loading wizard which leverages the readr() package for data loading. There are several ways to engage this import function:\n\nFile > Import Dataset\nOr, via the Import Dataset “button” found in the Environment Pane.\n\n\n\n\n\n\nRStudio Environment Pane\n\n\nUsing the Import wizard, you can generate (and execute) the code necessary to read in the cars.csv file.\n\n# readr::read_csv\n# 'read_csv()' is part of the tidyverse 'readr' package.  \n\ncars <- read_csv(\"data/cars.csv\")\n\n‘reader::read_csv()’ helpfully overrides default behavior of the “base R” read.csv() function. For example read_csv() does not automatically convert strings as factors. You can read more about readr http://readr.tidyverse.org/"
+    "objectID": "ai.html#tools-or-packages",
+    "href": "ai.html#tools-or-packages",
+    "title": "Getting started with ai-assisted LLMs",
+    "section": "Tools or packages",
+    "text": "Tools or packages\nAside from the websites mentioned in the Quick Start section above, there are many approaches to integrating AI-assistance directly into an IDE such as RStudio or VSCode. These addins, or plugins, are highlighted for their seemless integration in a coding IDE.\n\ngptstudio\nThe gptstudio can reference a variety of LLMs defaulting to ChatGPT. A big advantage to {gptstudio} is the ability to stay within the RStudio IDE, interacting seemlessly with notebooks or plain script files. From the Addins menu, get assistance writing code, or checking spelling and grammar. A companion package {gpttools} can extend {gptstudio}.\n\nPreequisites\n\nOpenAI account\nOpenAI API key (requires a credit card but may not require payment)\nSet the API key in RStudio environment. For security, if using version control (such as GitHub), include the .Renviron in the .gitignore file\n\nSetup details are explained at gptstudio. Pricing seems exceedingly low as of this writing but there are no garauntees. The API allows coder to set cost limits.\n\n\n\nRTutor\nThere is a website or a package for integrating into RStudio. Does not require an API key, but paying your way is appreciated. This is a tutor designed to help teach about ai-assisted coding and learn about exploring datasets. A subsection of RTutor automatically runs datasets through various EDA packages.\n\n\nGithub Copilot\nDefaults to OpenAI’s codex LLM based on code found in GitHub. This tools is focused on code completion rather than conceptual computational thinking. Must use the VSCode IDE, an IDE with similarities to the RStudio IDE."
   },
   {
-    "objectID": "data_management.html#workshop-data-set",
-    "href": "data_management.html#workshop-data-set",
-    "title": "Load/import data",
-    "section": "Workshop Data Set",
-    "text": "Workshop Data Set\nDuring Rfun workshops, We often use the Starwars characters dataset. The data, part of the dplyr package, come from SWAPI, the Star Wars API, http://swapi.co/. Since the data are integrated into dplyr, we don’t need to load the data, but you may still want to find information about the dataset. The codebood for the Starwars dataset is integrated into the dplyr documentation. To view the Starwars codebook, first load the library(dplyr) package. Then, via the Help pane, search starwars. Alternatively, in the Console pane, type ?starwars.\nThe Data Wrangling module covers dplyr in greater detail."
+    "objectID": "ai.html#comparisons-of-models",
+    "href": "ai.html#comparisons-of-models",
+    "title": "Getting started with ai-assisted LLMs",
+    "section": "Comparisons of models",
+    "text": "Comparisons of models\ngptstudio: Great for its deep integration into RStudio and ability to work within code-chunks or prose. Setting up the API key is a necessary configuration. Be sure to protect any API-key linked to a credit card.\nBard/PaLM: Google’s LLM. Fast, efficient and familiar.\nPoe.com: Easy access to several LLM models: ChatGPT, PaLM, GPT-4, Claude, and Sage. Works well. Comparison of LLM responses is convenient. Log-out is found in the settings page.\nChatGPT: OpenAI’s LLM. This works well. Free website can slow down due to user congestion limits. Subscription models exist, presumably with less congestion.\nCopilot: OpenAI’s codex LLM focused on code completion. In my experience copilot is less useful in understanding conceptual questions about computational data analysis. Uses the VSCode IDE; a nice app that works with many coding languages including R. VSCode also works with Quarto. The R set-up in VSCode is a bit cranky. If you’re a Pythonite, VSCode set-up is more convenient than R. If you’re an R coder, you might be happy sticking with RStudio.\n\nSummary comparison\nBard/PaLM and ChatGPT (via addins, poe.com, bing.com, or openai.com) have worked well in my tests. There seem to be some usage-congession limitations, especially if you don’t subscribe. See also the tips at the top of this page about using using LLMs for assisted coding."
   },
   {
-    "objectID": "data_management.html#view-your-data-in-a-grid",
-    "href": "data_management.html#view-your-data-in-a-grid",
-    "title": "Load/import data",
-    "section": "View your data in a grid",
-    "text": "View your data in a grid\n\nstarwars"
+    "objectID": "ai.html#ethics",
+    "href": "ai.html#ethics",
+    "title": "Getting started with ai-assisted LLMs",
+    "section": "Ethics",
+    "text": "Ethics\nLLMs knowledge bases are private and lack transparency. There are important societal concerns about the fairness of equitable access to these tools. It’s unclear how developers or the users of these models can be held accountable."
   },
   {
-    "objectID": "data_management.html#modern-data-frames-tibbles",
-    "href": "data_management.html#modern-data-frames-tibbles",
-    "title": "Load/import data",
-    "section": "Modern Data Frames: Tibbles",
-    "text": "Modern Data Frames: Tibbles\nA tibble (tbl) is a “Table as data frame”, a modern tidyverse table.\n\nclass(starwars) \n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\""
-  },
-  {
-    "objectID": "data_management.html#data-structure",
-    "href": "data_management.html#data-structure",
-    "title": "Load/import data",
-    "section": "Data Structure",
-    "text": "Data Structure\n\nMost Common Data Structures\n\nVector\nData Frame & Tibble\nList\nMatrix\n\nRead more about it in R for Data Science\n\n\nGlimpse into a data frame\nFirst, let’s glimpse into a Tibble. How do you know the object is a Tibble? Read below about class(), but first …\nglimpse() reveals the structure of an object\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       <chr> \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or~\n$ height     <int> 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2~\n$ mass       <dbl> 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.~\n$ hair_color <chr> \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N~\n$ skin_color <chr> \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"~\n$ eye_color  <chr> \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",~\n$ birth_year <dbl> 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, ~\n$ sex        <chr> \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",~\n$ gender     <chr> \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini~\n$ homeworld  <chr> \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T~\n$ species    <chr> \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma~\n$ films      <list> <\"The Empire Strikes Back\", \"Revenge of the Sith\", \"Return~\n$ vehicles   <list> <\"Snowspeeder\", \"Imperial Speeder Bike\">, <>, <>, <>, \"Imp~\n$ starships  <list> <\"X-wing\", \"Imperial shuttle\">, <>, <>, \"TIE Advanced x1\",~"
-  },
-  {
-    "objectID": "data_management.html#data-type",
-    "href": "data_management.html#data-type",
-    "title": "Load/import data",
-    "section": "Data Type",
-    "text": "Data Type\n\nMost Common Data Types\n\ncharacter\nnumeric\n\ninteger (e.g. 30L, as.integer(30))\ndouble (approximation with floating points and multiple special values)\n\nlogical (True or False)\nfactor (forcats is especially used for for manipulating factor data)\n\n\n\nClass\nclass() identifies the class of an object revealing the data structure or the data type.\n\nclass(starwars)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\nYou can reference a vector within a dataframe via the my_df$<<column_name>> syntax."
-  },
-  {
-    "objectID": "data_wrangling.html",
-    "href": "data_wrangling.html",
-    "title": "Data Wrangling",
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Data and code",
     "section": "",
-    "text": "libary(dplyr) is invoked automatically when you invoke library(tidyverse). So you don’t have to load both. Loading tidyverse is a meta package that includes many other useful packages, e.g. ggplot2.\ndplyr is the data wrangling package that helps you subset and manipulate your data. The documentation is installed with the package. However, the online documentation is convenient and easy to read.\nUse this package most often for it’s five main verbs:\nHonorable mention:\nThe tidyr package help with critically useful data wrangling functions as well. Tall data is often easiest for iteration."
+    "text": "All data are readily available for this workshop.\nWhenever possible on-board datasets are used. This means you do not have to load any data, but you may have to load a library. For example the starwars dataset is part of the {dplyr} package. You may first have to load library(dplyr) to access the starwars data frame. Alternatively, you could access the data with the fully verbose package::object syntax: dplyr::starwars.\nSome data sets are imported via the read_csv function. You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Then you’ll find a data folder with the CSV files used in this workshop. Refer to the import page for tips on importing data."
   },
   {
-    "objectID": "data_wrangling.html#quick-exmaples",
-    "href": "data_wrangling.html#quick-exmaples",
-    "title": "Data Wrangling",
-    "section": "Quick exmaples",
-    "text": "Quick exmaples\ndplyr is a widely adopted r package, part of tidyverse, which uses English verbs to reshape data.\n\nlibrary(tidyverse)\n# library(dplyr)\n\n\n\n\nI made a small subset of the starwars dataset: small_sw\n\nsmall_sw <- starwars |>  \n  select(species, mass, homeworld, name)\n\n\nsmall_sw"
+    "objectID": "data.html#code",
+    "href": "data.html#code",
+    "title": "Data and code",
+    "section": "Code",
+    "text": "Code\nYou an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the workshop_R-get-started.Rproj file to launch all of the code directly into an RStudio project.\n\n\n\nOr\nUse this link to the GitHub repo,\n\nClick the green code button\nDownload ZIP\nUnzip and double click the workshop_R-get-started.Rproj file"
   },
   {
-    "objectID": "data_wrangling.html#arrange",
-    "href": "data_wrangling.html#arrange",
-    "title": "Data Wrangling",
-    "section": "Arrange",
-    "text": "Arrange\nArrange to sort rows (observations) by column headers (variables)\n\nsmall_sw |>  \n  arrange(species, desc(mass), homeworld)"
-  },
-  {
-    "objectID": "data_wrangling.html#select",
-    "href": "data_wrangling.html#select",
-    "title": "Data Wrangling",
-    "section": "Select",
-    "text": "Select\nSelect to choose columns (variables)\n\nstarwars |> \n  arrange(species, desc(mass), homeworld)  |>  \n  select(species, mass, homeworld, name:starships)"
-  },
-  {
-    "objectID": "data_wrangling.html#filter",
-    "href": "data_wrangling.html#filter",
-    "title": "Data Wrangling",
-    "section": "Filter",
-    "text": "Filter\nFilter to select rows (observations)\n\nstarwars_32_mass <- starwars |> \n  filter(mass == 80)\n\nstarwars_32_mass    # display filtered data frame"
-  },
-  {
-    "objectID": "data_wrangling.html#mutate",
-    "href": "data_wrangling.html#mutate",
-    "title": "Data Wrangling",
-    "section": "Mutate",
-    "text": "Mutate\nMutate to create new variables (columns)\n\nstarwars_32_mass |> \n  mutate(BMI = height / mass) |> \n  select(name, BMI, height, mass, hair_color, 1:13)"
-  },
-  {
-    "objectID": "data_wrangling.html#count",
-    "href": "data_wrangling.html#count",
-    "title": "Data Wrangling",
-    "section": "Count",
-    "text": "Count\nCount to summarize observations (rows)\n\nstarwars |> \n  count(mass)"
-  },
-  {
-    "objectID": "data_wrangling.html#summarize",
-    "href": "data_wrangling.html#summarize",
-    "title": "Data Wrangling",
-    "section": "Summarize",
-    "text": "Summarize\nSummarize to collapse values into a summary\n\nstarwars |> \n  group_by(species) |> \n  summarize(Count = n(), \n            mean_ht = mean(height), \n            min_ht = min(height), \n            max_ht = max(height)) |> \n  arrange(desc(Count))\n\n\n\n\n  \n\n\n\n\nstarwars |> \n  ungroup()"
-  },
-  {
-    "objectID": "data_wrangling.html#put-it-all-together",
-    "href": "data_wrangling.html#put-it-all-together",
-    "title": "Data Wrangling",
-    "section": "Put it all together",
-    "text": "Put it all together\nWe can pipe commands together. Think of a pipe (i.e. |>) as a conjunction. Any time you see a pipe, think “and then.” You can insert a pipe with ‘Ctrl+Shift+M’ (Help > Keyboard Shortcuts)\n\nstarwars |> \n  group_by(species) |> \n  summarize(Count = n(), \n            mean_ht = mean(height), \n            min_ht = min(height), \n            max_ht = max(height)) |> \n  arrange(desc(Count)) |> \n  filter(!is.na(mean_ht), Count > 1)"
-  },
-  {
-    "objectID": "data_wrangling.html#more-information",
-    "href": "data_wrangling.html#more-information",
-    "title": "Data Wrangling",
-    "section": "More information",
-    "text": "More information\nPlease see the introductory Rfun video about dplyr. Check out Rfun’s shareable code, slides, datasets, and exercises"
-  },
-  {
-    "objectID": "gis.html",
-    "href": "gis.html",
-    "title": "Mapping/Spatial-Analysis",
+    "objectID": "eda.html",
+    "href": "eda.html",
+    "title": "Exploratory Data Analysis packages",
     "section": "",
-    "text": "Packages such as sf, tidycensus, tigris, tmap, mapview, leaflet, and terra all bring different affordances to the areas of mapping visualizations and geospatial analysis.\nPlot coordinates"
+    "text": "EDA, or Exploratory Data Analysis can take many forms. This brief section will recommend a few packages which can be used to explore your data, more or less, automagically. The packages can be complex and may take some effort to learn. However, if you’re brand new to data mining, you may benefit from reading these package documentation pages, and then applying their functions to your data.\nRecommended EDA packages\n\n{skimr} - https://docs.ropensci.org/skimr\na frictionless approach to summary statistics\n{corrplot} - https://github.com/taiyun/corrplot\na visual exploratory tool on correlation matrix that supports automatic variable reordering\n{summarytools} - https://github.com/dcomtois/summarytools\nor data cleaning, exploring, and simple reporting\n{tableone} - https://github.com/kaz-yos/tableone\ncreate “Table 1”, description of baseline characteristics\n{dtracker} - https://terminological.github.io/dtrackr\nAccurate documentation of a data pipeline is a first step to reproducibility, and a flow chart describing the steps taken to prepare data\n\n\n\n\nReusehttps://creativecommons.org/licenses/by-nc/4.0/"
   },
   {
-    "objectID": "gis.html#librarymapview",
-    "href": "gis.html#librarymapview",
-    "title": "Mapping/Spatial-Analysis",
-    "section": "library(mapview)",
-    "text": "library(mapview)\n\n\n\nSyntax\nlibrary(tidyverse)\nlibrary(sf)\nlibrary(mapview)\n\nmapview(starbucksNC, \n        xcol = \"Longitude\", \n        ycol = \"Latitude\", \n        crs = 4269, \n        grid = FALSE)\n\n\nexample\n\n\n\n\n\n\n\n\nAlternative Syntax\n\nsbux_sf <- st_as_sf(starbucksNC, coords = c(\"Longitude\", \"Latitude\"),  crs = 4326)\nmapview(sbux_sf)\nmapview(sbux_sf, map.types = \"Stamen.Toner\")"
+    "objectID": "functions.html",
+    "href": "functions.html",
+    "title": "Functions in R",
+    "section": "",
+    "text": "R is a functional programming language1. This means repetitive execution is emphasized without using FOR loops2. No for loops? How is that possible? Basically coders focus on applying the same operation, row by row over a data frame without toiling over the syntax of For loops.\nIf you’re new to R, you may not realize that you’ve been using functions throughout this website. All the packages we introduced (dplyr, ggplot2, skimr, and even base-R, etc.) are made up collections of functions. For example, {dplyr} gives us the filter() and the select() functions. At the end of the section on regression, we saw an example of using the nest() function so our data frame is set for the repetition of our regression (the lm() function) row-by-row. We did this without ever writing a FOR loop."
   },
   {
-    "objectID": "gis.html#librarytidycensus",
-    "href": "gis.html#librarytidycensus",
-    "title": "Mapping/Spatial-Analysis",
-    "section": "library(tidycensus)",
-    "text": "library(tidycensus)\n\n\n\n\n\n\nSyntax\nlibrary(tidycensus)\n\ncensus_api_key(\"YOUR API KEY GOES HERE\")\n\nnc_pop <- get_acs(geography = \"county\",\n                  variables = \"B01003_001\",\n                  state = \"NC\",\n                  geometry = TRUE)\n\nmapview(nc_pop, zcol = \"estimate\")\n\n\nexample"
+    "objectID": "functions.html#definition",
+    "href": "functions.html#definition",
+    "title": "Functions in R",
+    "section": "Definition",
+    "text": "Definition\n\n\n\n\n\n\nFunctions\n\n\n\nBlocks of code that can be invoked by the coder to perform fundamental steps.\n\n\nFunctions can accept inputs and yield outputs. If we put a string of functions together we have a more complex function. We may want to apply this complex function to some group of data till we reach the end. In R the basic syntax of a function looks like this\n\n\n\n\n```{r}\n\n# Define function to add two numbers\nadd_numbers <- function(x, y) { x + y }\n\n```\nThen we can call that function like this\n```{r}\nadd_nubmers(8, 10)\n```\nThe console will return a response, or we can store that response in an object. Or we can can combine that function with the mutate function and iterate over all the rows in a data frame\n\nlibrary(tidyverse)\n\nadd_numbers <- function(x, y) {\n  x + y\n}\n\nstarwars |> \n  mutate(my_product = add_numbers(mass, height), .after = mass)\n\n\n\n  \n\n\n\nWhile the custom function, add_numbers, didn’t save us much time. We can create more sophisticated functions. For example, we can write a function that plots x and y.\nThe function, below, uses indirection syntax (i.e. double-braces) because there’s a difference between an environment variable and a data variable. An explanation of indirection is found in the enthusiastically recommended Programming with dplyrvignette. Essentially, an environment variable shows up in the RStudio environment tab. While a data variable is the name of a variable within an environment variable. For example, in a data frame, a column header variable name is a data variable. Data variables have to be called with the embrace operator {{so that they data can be referenced indirectly. This indirection overcomes a data masking feature which allows for more efficient coding in many cases, even though indirection has a syntactical costs when composing complex functions.\n\nmake_scatterplot <- function(my_df, my_x, my_y, my_color) {\n  my_df |>\n    drop_na() |>\n    ggplot(aes(x = {{my_x}}, y = {{my_y}})) +\n    geom_point(aes(color = {{my_color}})) +\n    geom_smooth(method = lm, se = FALSE, formula = y ~ x)\n}\n\nmake_scatterplot(starwars, height, mass, gender)\nmake_scatterplot(mpg, displ, hwy, class)\n\n\n\n\n\n\nPlot 1\n\n\n\n\n\n\n\nPlot 2\n\n\n\n\n\n\n\n\n\n\n\n\nRule of thumb\n\n\n\nIf you have to write the same code three times or more, write a function. Among the advantages, this prevents typographical errors."
   },
   {
-    "objectID": "gis.html#thematic-mapping-choropleths",
-    "href": "gis.html#thematic-mapping-choropleths",
-    "title": "Mapping/Spatial-Analysis",
-    "section": "Thematic mapping choropleths",
-    "text": "Thematic mapping choropleths\n\n\n\nggplot::geom_sf()\nnc_pop |>\n  ggplot() +\n  geom_sf(aes(fill = estimate, color = estimate)) + \n  coord_sf(crs = 4326, datum = NA) +\n  scale_fill_viridis_c(label = scales::comma) +\n  scale_color_viridis_c(label = scales::comma) +\n  theme_classic()\n\n\nexample\n\n\n\n\n\n\n\nlibrary(tmap)\nlibrary(tmap)\nnc_pop |>\n  tm_shape() +\n  tm_polygons(\"estimate\")\n\n\nexample"
+    "objectID": "functions.html#can-it-be-simpler",
+    "href": "functions.html#can-it-be-simpler",
+    "title": "Functions in R",
+    "section": "Can it be simpler?",
+    "text": "Can it be simpler?\nIn a word, yes, but there may be limitations. In the section on pivoting data, we saw how pivoting data to the tall format made it easier to generate multiple {ggplot2} plots. We combine pivoting with the facet_wrap() function to visualize multiple plots with minimal coding. While we didn’t write a special custom function, we did use the functional programming approach to iterate over rows of a data frame. Without pivoting the data and faceting the plots, this code might have taken ten-times as much code, most of it repetitive and all of it susceptible to typing mistakes.\n\ninc_levels = c(\"Don't know/refused\",\n               \"<$10k\", \"$10-20k\", \"$20-30k\", \"$30-40k\",\n               \"$40-50k\", \"$50-75k\", \"$75-100k\", \"$100-150k\",\n               \">150k\")\n\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\") %>% \n  mutate(religion = fct_lump_n(religion, 4, w = count)) %>% \n  mutate(income = fct_relevel(income, inc_levels)) %>% \n  summarise(sumcount = sum(count), .by = c(religion, income)) %>% \n  ggplot(aes(fct_reorder(religion, sumcount), \n             sumcount)) + \n  geom_col(fill = \"grey80\", show.legend = FALSE) +\n  geom_col(data = . %>% filter(income == \"$40-50k\"),\n           fill = \"firebrick\") +\n  geom_col(data = . %>% filter(income == \">150k\"),\n           fill = \"forestgreen\") +\n  coord_flip() +\n  facet_wrap(vars(income), nrow = 2)"
   },
   {
-    "objectID": "gis.html#geospatial-analysis",
-    "href": "gis.html#geospatial-analysis",
-    "title": "Mapping/Spatial-Analysis",
-    "section": "Geospatial analysis",
-    "text": "Geospatial analysis\nFor more advanced Geospatial Data in R, please see Rfun."
+    "objectID": "functions.html#mapping-over-a-data-frame",
+    "href": "functions.html#mapping-over-a-data-frame",
+    "title": "Functions in R",
+    "section": "Mapping over a data frame",
+    "text": "Mapping over a data frame\nBut how do we apply functions, row-by-row, over a data frame without using FOR loops? Move to the section on iteration with {purrr}"
   },
   {
-    "objectID": "gis.html#more-information",
-    "href": "gis.html#more-information",
-    "title": "Mapping/Spatial-Analysis",
-    "section": "More information",
-    "text": "More information\nPlease see the introductory Rfun videos about mapping. Check out Rfun’s shareable code, slides, datasets, and exercises.\n\nSee Also"
+    "objectID": "import.html",
+    "href": "import.html",
+    "title": "Import Data",
+    "section": "",
+    "text": "Did you start with a Project?\n\n\n\nReproducibility starts at the foundation! Always begin by opening a project. See New Projects for tips.\nIn this workshop we recommend the Tidyverse approach to learning and using R\nBelow are some of the core tidyverse packages. There are many more very handy tidyverse packages."
+  },
+  {
+    "objectID": "import.html#data-import-wizard",
+    "href": "import.html#data-import-wizard",
+    "title": "Import Data",
+    "section": "Data import wizard",
+    "text": "Data import wizard\nThe data import wizard is a quick and easy way to import your data\n\n\n\nImport dataset\n\n\nBut, it’s actually way better and hardly any more effort to follow the reproducible steps, below…"
+  },
+  {
+    "objectID": "import.html#load-library-packages",
+    "href": "import.html#load-library-packages",
+    "title": "Import Data",
+    "section": "Load library packages",
+    "text": "Load library packages\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "import.html#import-data",
+    "href": "import.html#import-data",
+    "title": "Import Data",
+    "section": "Import data",
+    "text": "Import data\nIn RStudio,, in the Files quadrant and tab, click the data folder, then left-click the brodhead_center.csv file. Using the context menu, choose the Import Dataset… option. Once inside the data wizard, you can paste the necessary code into the code chunk below\n\n\n\n\n# library(readr)\nbrodhead_center <- read_csv(\"data/brodhead_center.csv\")\n# view(brodheadCenter)\n\n\n\n\n\n\n\nComposing the data import code…\n\n\n\nWriting the import data function can be tricky. Try the import wizard pictured above. THEN, paste the code from the Code Preview section into your script.\n\n\n\nEasily write import data function"
+  },
+  {
+    "objectID": "import.html#excel-spss-sas-etc.",
+    "href": "import.html#excel-spss-sas-etc.",
+    "title": "Import Data",
+    "section": "Excel, SPSS, SAS, etc.",
+    "text": "Excel, SPSS, SAS, etc.\nThe data import wizard will help you find the proper package for importing your data. For example, use…\n\nlibrary(readxl) for Excel data\nlibrary(haven) for SPSS, SAS, Stata\nlirary(readr) for CSV or other delimeters\n\nJust start with File > Import Dataset to get started composing that code, then paste your code into a script."
+  },
+  {
+    "objectID": "import.html#look-at-the-data-object",
+    "href": "import.html#look-at-the-data-object",
+    "title": "Import Data",
+    "section": "Look at the data object",
+    "text": "Look at the data object\nNow that you’ve assigned the output from the read_csv function to the name brodhead_center, simply call that object name in a code chunk.\n\nbrodhead_center"
+  },
+  {
+    "objectID": "import.html#visualize-your-data-with-ggplot2",
+    "href": "import.html#visualize-your-data-with-ggplot2",
+    "title": "Import Data",
+    "section": "Visualize your data with {ggplot2}",
+    "text": "Visualize your data with {ggplot2}\nHere’s a quick teaser on visualizing data. Read more in the visualization chapter.\n\nbrodhead_center |> \n  ggplot(aes(x = name, y = cost)) +\n  geom_boxplot() \n\n\n\n\n\nbrodhead_center |> \n  ggplot(aes(x = rating, y = cost)) +\n  geom_point(aes(color = name))\n\nWarning: Removed 3 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\nShow the code\nbrodhead_center |> \n  drop_na(rating, cost, name) |> \n  ggplot(aes(x = factor(rating), y = cost)) +\n  geom_tile(aes(fill = name)) +\n  scale_y_continuous(label = scales::dollar) +\n  scale_fill_brewer(palette = \"Dark2\") + \n  labs(x = \"rating\", y = NULL, title = \"Heatmap: cost over ratings\", \n       caption = \"Source: https://github.com/libjohn/tutorial_intro2r_brain\",\n       fill = \"Restaurant name\") +\n  theme_classic() +\n  theme(plot.title.position = \"plot\")"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introduction to R: a quickstart to R and the Tidyverse for data science",
+    "title": "R workshop - get started",
     "section": "",
-    "text": "FIRST: Introduction\n\n\n\nSECOND: Data Wrangling with dplyr\n\n\n\n\n\nggplot2Intro ggplot2Advanced Viz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMappingGeospatial Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBasic/brief into to linear regression workflow \n\n\nIteration and Custom Functions\n- Shareable Code available now- YouTube modular videos coming soon.\n\n\n\n\nAdditional background and explanatory videos/materials are available from Rfun.library.duke.edu"
+    "text": "Let’s learn R"
   },
   {
-    "objectID": "version_control.html",
-    "href": "version_control.html",
-    "title": "git/GitHub",
+    "objectID": "index.html#first-steps",
+    "href": "index.html#first-steps",
+    "title": "R workshop - get started",
+    "section": "First steps",
+    "text": "First steps\n\nTour of your Local File System\n\nR / RStudio\nClone code from GitHub\n\nStart a new project by importing the github repository for this workshop\n\nhttps://github.com/libjohn/workshop_R-get-started.git\n\nOpen the import.qmd notebook-file from the Files tab in the RStudio IDE"
+  },
+  {
+    "objectID": "index.html#pipes-and-assignment",
+    "href": "index.html#pipes-and-assignment",
+    "title": "R workshop - get started",
+    "section": "Pipes and Assignment",
+    "text": "Pipes and Assignment\nSome coding syntax is unique in R and the Tidyverse. You will see these symbols frequently.\n\n\n\n\n\n\n\n\n\n<- Assignment - “gets value from”\n\n\n\nBy convention we use two assignment symbols when creating object names\n\n<- typically used at the beginning of a pipeline or function\n= typically used within the mutate function\n\nKeystroke:\nAlt-dash\nExample:\nmy_vector <- c(2, 4, 6:9)\n\n\n\n\n\n\n\n\n%>% Pipes and pipelines - “and then”\n\n\n\nWe can create data sentences, or pipelines, by chaining many functions together from left to right.\nThere are at least three main pipe symbols\n\n|> or %>%\n+ only used in ggplot2 pipelines\n\nKeystroke:\nCtrl-shift-M or Cmd-shift-M\nExample:\ncars |> select(speed)"
+  },
+  {
+    "objectID": "index.html#more-workshops",
+    "href": "index.html#more-workshops",
+    "title": "R workshop - get started",
+    "section": "More workshops",
+    "text": "More workshops\nThis workshop and many others covering topics in data science, visualization, mapping and GIS, and data management are hosted each semester by the Center for Data and Visualization Sciences (CDVS). All workshops are recorded with shareable code, data, slides and recordings. You can find the R-specific resources at our Rfun site. Meanwhile, all CDVS workshop materials are available at our online learning page — including duplicates of the R materials found at Rfun."
+  },
+  {
+    "objectID": "interactive.html",
+    "href": "interactive.html",
+    "title": "Interactivity: Quarto & Observable JS",
     "section": "",
-    "text": "libary(usethis) is a wonderful package when using R to manage version control with git. usethis works with GitHub as the remote location for repository for file distribution. Repositories and RStudio projects (File > New Project...) are complimentary reproducible workflows.\nVersion control has a unique learning curve where frustration is a regular initial experience with git, especially steep for for people unfamiliar with CLI tools. At the same time, git is a very learnable and highly useful tool. git version control with GitHub, orchestrated via RStudio and library(usethis) makes an excellent combination for advancing your reproducible workflow.\n\n\nA competitive advantage of an RStudio/Tidyverse computational ecosystem (with R/RStudio/Tidyverse/R Markdown/Quarto/git) is the ease of creating, managing, and documenting reproducible workflows. Reproducibility has rapidly evolving best practices and the RStudio community is well poised to leverage the best practices. At the same time, reproducibility, is a conceptually broader topic than this ecosystem. The CDVS offers workshops on both the ecosystem and applied tool-suites such as mentioned on this page."
+    "text": "This is a very basic example of displaying an interactive visualization using ObservableJS. Use the drop-down box to test how the plots and tables are reactive to user input."
   },
   {
-    "objectID": "version_control.html#libraryusethis",
-    "href": "version_control.html#libraryusethis",
-    "title": "git/GitHub",
-    "section": "library(usethis)",
-    "text": "library(usethis)\nThis is an excellent package that simplifies RStudio project interactions with git repositories, especially when distributing files via GitHub.\n\nTips\n\nClone or fork from GitHub\n\nusethis::create_from_github(\"https://github.com/data-and-visualization/git-tutorial\")\n\n\n\nCreate the GitHub repo from local\n\nlibrary(usethis)\nuse_git()          # initialize a git repo\nuse_git_ignore()\nuse_readme.Rmd()\nuse_ccby_license()\n# Before next step  → stage & commit changes\nuse_github()       # Connect local repo to GitHub\n\n\n\nRename default branch\n\nlibrary(usethis)\ngit_default_branch()\ngit_default_branch_rename()\ngit_default_branch_rediscover()\n\n\n\nset-up git and manage GitHub credentials\n\n# Sign-in to your GitHub account\n# Read: https://usethis.r-lib.org/articles/articles/git-credentials.html\n# Read: https://usethis.r-lib.org/articles/articles/usethis-setup.html\nusethis::create_github_token()\ngitcreds::gitcreds_set()\ngh::gh_whoami()\nusethis::git_sitrep()\nusethis::use_git_config(user.name = \"Jane Doe\", user.email = \"jane@example.com\")\nusethis::git_sitrep()"
+    "objectID": "interactive.html#transpose-to-arquero",
+    "href": "interactive.html#transpose-to-arquero",
+    "title": "Interactivity: Quarto & Observable JS",
+    "section": "Transpose to arquero",
+    "text": "Transpose to arquero\nBehind the scenes, when rendering this report, I use {r} code-chunks to import and wrangle the data. I’m importing and wrangling my data with a quarto-friendly code language. Then I transpose my data frame into an OJS object.\n\n```{ojs}\n//| echo: fenced\nmy_data = aq.from(transpose(trade_df_ojs))\nmy_survey = aq.from(transpose(my_df_tall_ojs))\n```"
   },
   {
-    "objectID": "version_control.html#gitlab",
-    "href": "version_control.html#gitlab",
-    "title": "git/GitHub",
-    "section": "gitlab",
-    "text": "gitlab\nMany report that library(gitlabr) is useful for orchestrating GitLab remotes.\nSee Also: Configuring SSH Keys & Credentials"
+    "objectID": "interactive.html#one-more-example",
+    "href": "interactive.html#one-more-example",
+    "title": "Interactivity: Quarto & Observable JS",
+    "section": "One more example",
+    "text": "One more example\nThe next code-chunk shows a very simple example of ObservableJS {Plot} code for visualization. This example is not interactive but it demonstrates the remarkable similarity to {ggplot2} syntax.\nplot\n\n```{ojs}\n//| echo: fenced\nPlot.plot({\n  marks: [\n    Plot.ruleY([0]),\n    Plot.lineY(my_data_wrangled, {\n      x: \"date\",\n      y: \"sales\",\n      stroke: \"business\"\n    }),\n  ]\n})\n```\n\n\n\n\n\n\n\n\n\n\n\n\n↥ Look up!\n\n\n\nNotice the crispness and clarity of the simple non-interactive plot above. Observable Plot shows well on the web!"
   },
   {
-    "objectID": "version_control.html#more-resources",
-    "href": "version_control.html#more-resources",
-    "title": "git/GitHub",
-    "section": "More resources",
-    "text": "More resources\nPlease see the introductory Rfun videos about version control & reproducibility. Check out Rfun’s shareable code, slides, datasets, and exercises\nHappy Git and GitHub for the useR\n\n\n\ngit/GitHub/RSudio\n\n\n\nReproducibility"
+    "objectID": "interactive.html#arquero-data-wrangling",
+    "href": "interactive.html#arquero-data-wrangling",
+    "title": "Interactivity: Quarto & Observable JS",
+    "section": "Arquero data wrangling",
+    "text": "Arquero data wrangling\n\nDerive date\nAside from the {dplyr} wrangling that I did in the background of this code notebook, I still needed to parse the date fields. Arquero to the rescue.\nArquero! Now what is that? Observable JavaScript is its own coding language and we can minimize the learning curve by keeping our data wrangling within our favorite coding language. Then we can focus on using the {Plot} grammar and syntax, which is quite similar to {ggplot2} – see the above example. However, Observable JS is a complete and rich coding language of its own. But just like {shiny}, we want to learn just enough to get the job done. Still, there’s always an edge case where a little data wrangling is optimal. This is where {arquero} comes in. Arquero is used for data transformation and is easy to learn because it was inspired by {dplyr}. Show the code for the first plot on this page and you’ll see the similarity to {dplyr}.\nBelow I parse a data type using {arquero}.\n\n\n```{ojs}\n//| echo: fenced\nmy_data_wrangled = my_data\n  .derive({  date: d =>  op.parse_date(d.date) })\n```"
   },
   {
-    "objectID": "visualization.html",
-    "href": "visualization.html",
-    "title": "Visualization",
+    "objectID": "interactive.html#observablejs-libraries",
+    "href": "interactive.html#observablejs-libraries",
+    "title": "Interactivity: Quarto & Observable JS",
+    "section": "Observablejs libraries",
+    "text": "Observablejs libraries\nBy convention, observable libraries are loaded at the bottom of a code notebook. You can read more about observablejs at Observablehq.com. By way of a teaser, I didn’t have to use {r} to wrangle the retail data. I could have imported the data directly from observable. Such as ….\n> import { data, advancedDate } from \"@observablehq/monthly-retail-trade-report-data\"\nBut on this page, I’m demonstrating how we leveraged {R} and {ojs} code with Quarto, so that I can present useful interactivity and demonstrate multi-lingual coding using a Quarto notebook.\n\n```{ojs}\n//| echo: fenced\nimport { aq, op } from '@uwdata/arquero'\n// import { data, advancedDate } from \"@observablehq/monthly-retail-trade-report-data\"\n// import {button as downloadButton} from \"@jeremiak/download-data-button\"\n```"
+  },
+  {
+    "objectID": "interactive.html#examples-and-documentation",
+    "href": "interactive.html#examples-and-documentation",
+    "title": "Interactivity: Quarto & Observable JS",
+    "section": "Examples and documentation",
+    "text": "Examples and documentation\nSee a very cool demo at the Quarto-Observable introduction page. Learn more about this exciting option at the Quarto-Observable JS Guide."
+  },
+  {
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Join two data frames",
     "section": "",
-    "text": "libary(ggplot2) is invoked automatically when you invoke library(tidyverse). So you don’t have to load both. Loading tidyverse is a meta package that includes many other useful packages, e.g. dplyr.\nggplot2 is a visualizaton package that helps create stunning visualzations based on the grammar of graphics. The documentation is installed with the package. However, the online documentation is convenient and easy to read.\nYou can apply multiple layers to a gpplot2 object. There are many geoms to choose from enabling scatterplots, bar graphs, histograms, boxplots, etc. The grammar promotes reproducible workflows so you can generate visualizations consistently and transparently."
+    "text": "library(tidyverse)"
   },
   {
-    "objectID": "visualization.html#ggplot2-syntax",
-    "href": "visualization.html#ggplot2-syntax",
-    "title": "Visualization",
-    "section": "ggplot2 syntax",
-    "text": "ggplot2 syntax\nlibrary(tidyverse)\n# library(ggplot2)\nmy_df |> \n  ggplot(aes(x = my_x_var, y = my_y_var)) +\n  geom_point() +\n  geom_line()"
+    "objectID": "join.html#join",
+    "href": "join.html#join",
+    "title": "Join two data frames",
+    "section": "Join",
+    "text": "Join\nThere are a series of join commands\n\nleft_join, inner_join, right_join, full_join,\nsemi_join, anti_join\n\n\n\n\n{dplyr} joins visualized in venn diagrams\n\n\nFirst let’s read in the favorability ratings data from fivethirtyeight.com"
   },
   {
-    "objectID": "visualization.html#example",
-    "href": "visualization.html#example",
-    "title": "Visualization",
-    "section": "example",
-    "text": "example"
+    "objectID": "join.html#data",
+    "href": "join.html#data",
+    "title": "Join two data frames",
+    "section": "data",
+    "text": "data\nThese exercisees use the following ggplot2 training datasets\n\ndplyr::starwars\nData from fivethrityeight.org (modified)\n\n\nfav_ratings <- read_csv(\"data/538_favorability_popularity.csv\", skip = 11)\nfav_ratings\n\n\n\n  \n\n\n\n\nstarwars\n\n\n\n  \n\n\n\nJoin on a key that is common across two data frames. For best results use a numeric key that promotes precision. Of course, we’re going to use a alphabetic key, name, which will highlight what can go wrong and introduce troubleshooting strategies.\nIn this case, the key will be the name variable that is common to both tables. We’re using the fav_ratings tibble and the starwars tibble.\n\n\n\n\nfav_ratings  |>  \n  left_join(starwars, by = join_by(name))  |> \n  arrange(desc(fav_rating))\n\n\n\n  \n\n\n\n\nanti_join\nwhat is in the left table and not the right table.\n\nanti_join(fav_ratings, starwars) |> arrange(name)\n\nJoining with `by = join_by(name)`\n\n\n\n\n  \n\n\nanti_join(starwars, fav_ratings) |> arrange(name)\n\nJoining with `by = join_by(name)`\n\n\n\n\n  \n\n\n\n\n\nsemi_join or inner_join\njoin only the rows that match.\n\nfav_ratings |> \n  semi_join(starwars)\n\nJoining with `by = join_by(name)`\n\n\n\n\n  \n\n\n\n\n\nRegex\nRegular expressions and {stringr} can be handy when manipulating character variables into join keys.\n\nstr_detect()\nstr_to_lower()\nstr_remove()\nstr_trim()\nstr_extract()\n\n\n\n\n\nstarwars %>% \n  filter(str_detect(name, \n                    regex(\"3p|palpatine|obi|amidala|leia|d2\", \n                          ignore_case = TRUE))) %>% \n  arrange(name)\n\n\n\n  \n\n\n\n\nfav_ratings %>% \n  filter(str_detect(name, \n                    regex(\"3p|palpatine|obi|amidala|leia|d2\", \n                          ignore_case = TRUE))) %>% \n  arrange(name)"
   },
   {
-    "objectID": "visualization.html#more-information",
-    "href": "visualization.html#more-information",
-    "title": "Visualization",
-    "section": "More information",
-    "text": "More information\nPlease see the introductory Rfun videos about ggplot2. Check out Rfun’s shareable code, slides, datasets, and exercises.\n\nSee Also  \n\n<div id=\"quarto-navigation-envelope\" class=\"hidden\">\n<p><span class=\"hidden\" data-render-id=\"quarto-int-sidebar-title\">Intro to R (Rfun)</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar-title\">Intro to R (Rfun)</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Home\">Home</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Load/import data\">Load/import data</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Data Wrangling\">Data Wrangling</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Visualization\">Visualization</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Mapping/Spatial-Analysis\">Mapping/Spatial-Analysis</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:git/GitHub\">git/GitHub</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:More Rfun!\">More Rfun!</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:About\">About</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Rfun|CDVS\">Rfun|CDVS</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Rfun Home\">Rfun Home</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar:Center for Data &amp; Visualization\">Center for Data &amp; Visualization</span> <span class=\"hidden\" data-render-id=\"footer-center\">Text and figures are licensed under Creative Commons Attribution <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a><br> <a href=\"https://JohnLittle.info\">John Little</a> · <a href=\"https://rfun.library.duke.edu\">Rfun</a> · <a href=\"https://library.duke.edu/data\">Center for Data &amp; Visualization Sciences</a> · <a href=\"https://library.duke.edu\">Duke University Libraries</a></span></p>\n</div>\n<div id=\"quarto-meta-markdown\" class=\"hidden\">\n<p><span class=\"hidden\" data-render-id=\"quarto-metatitle\">Intro to R (Rfun) - Visualization</span> <span class=\"hidden\" data-render-id=\"quarto-metasitename\">Intro to R (Rfun)</span></p>\n</div>\n<div id=\"quarto-title-processor\" class=\"hidden\">\n\n</div>\n</section>\n</main> <!-- /main -->\n<script type=\"application/javascript\">\nwindow.document.addEventListener(\"DOMContentLoaded\", function (event) {\n  const icon = \"\";\n  const anchorJS = new window.AnchorJS();\n  anchorJS.options = {\n    placement: 'right',\n    icon: icon\n  };\n  anchorJS.add('.anchored');\n  const clipboard = new window.ClipboardJS('.code-copy-button', {\n    target: function(trigger) {\n      return trigger.previousElementSibling;\n    }\n  });\n  clipboard.on('success', function(e) {\n    // button target\n    const button = e.trigger;\n    // don't keep focus\n    button.blur();\n    // flash \"checked\"\n    button.classList.add('code-copy-button-checked');\n    setTimeout(function() {\n      button.classList.remove('code-copy-button-checked');\n    }, 1000);\n    // clear code selection\n    e.clearSelection();\n  });\n  function tippyHover(el, contentFn) {\n    const config = {\n      allowHTML: true,\n      content: contentFn,\n      maxWidth: 500,\n      delay: 100,\n      arrow: false,\n      appendTo: function(el) {\n          return el.parentElement;\n      },\n      interactive: true,\n      interactiveBorder: 10,\n      theme: 'quarto',\n      placement: 'bottom-start'\n    };\n    window.tippy(el, config); \n  }\n  const noterefs = window.document.querySelectorAll('a[role=\"doc-noteref\"]');\n  for (var i=0; i<noterefs.length; i++) {\n    const ref = noterefs[i];\n    tippyHover(ref, function() {\n      let href = ref.getAttribute('href');\n      try { href = new URL(href).hash; } catch {}\n      const id = href.replace(/^#\\/?/, \"\");\n      const note = window.document.getElementById(id);\n      return note.innerHTML;\n    });\n  }\n  var bibliorefs = window.document.querySelectorAll('a[role=\"doc-biblioref\"]');\n  for (var i=0; i<bibliorefs.length; i++) {\n    const ref = bibliorefs[i];\n    const cites = ref.parentNode.getAttribute('data-cites').split(' ');\n    tippyHover(ref, function() {\n      var popup = window.document.createElement('div');\n      cites.forEach(function(cite) {\n        var citeDiv = window.document.createElement('div');\n        citeDiv.classList.add('hanging-indent');\n        citeDiv.classList.add('csl-entry');\n        var biblioDiv = window.document.getElementById('ref-' + cite);\n        if (biblioDiv) {\n          citeDiv.innerHTML = biblioDiv.innerHTML;\n        }\n        popup.appendChild(citeDiv);\n      });\n      return popup.innerHTML;\n    });\n  }\n});\n</script>\n</div> <!-- /content -->\n<footer class=\"footer\">\n  <div class=\"nav-footer\">\n      <div class=\"nav-footer-center\">\n        <div class='footer-contents'>Text and figures are licensed under Creative Commons Attribution [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)<br> [John Little](https://JohnLittle.info) · [Rfun](https://rfun.library.duke.edu) ·  [Center for Data & Visualization Sciences](https://library.duke.edu/data) ·  [Duke University Libraries](https://library.duke.edu)</div>  \n      </div>\n  </div>\n</footer>\n</body>\n</html>"
+    "objectID": "join.html#see-also",
+    "href": "join.html#see-also",
+    "title": "Join two data frames",
+    "section": "See Also",
+    "text": "See Also\n\ndplyr::bind_rows()\ndplyr::bind_cols()"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "R/Tidyverse/Quarto - get started",
+    "section": "",
+    "text": "Attribution 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\nwiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More considerations\n for the public: \nwiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\nIf You Share Adapted Material You produce, the Adapter’s License You apply must not prevent recipients of the Adapted Material from complying with this Public License.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material; and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "longer_wider.html",
+    "href": "longer_wider.html",
+    "title": "Pivot",
+    "section": "",
+    "text": "Often our goal is to reshape our data frame into a tidy data (Wickham 2014) format frequently known as tall data. We can use the {tidyr} package to reshape data into tall or wide formats. When coding in the tidyverse context, tall data is much easier to iterate over — without ever writing for loops or other kind of flow control. Later, in the advance section, we’ll introduce the {purrr} package for powerful iteration techniques.\nTidy data\nMany of the {dplyr} functions help with making data tidy. Additionally, in this chapter, we focus on using the {tidyr} function: pivot_longer, as well as pivot_wider.\nSee Also the Pivot Vignette"
+  },
+  {
+    "objectID": "longer_wider.html#load-library-packages",
+    "href": "longer_wider.html#load-library-packages",
+    "title": "Pivot",
+    "section": "Load library packages",
+    "text": "Load library packages\nwe’ll load the {tidyverse} meta package which loads eight packges, including {tidyr}.\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "longer_wider.html#data",
+    "href": "longer_wider.html#data",
+    "title": "Pivot",
+    "section": "Data",
+    "text": "Data\nNow that we’ve loaded {tidyr}, our practice datasets are avaiable in the tidyr package.\n\ndata(relig_income)\ndata(fish_encounters)"
+  },
+  {
+    "objectID": "longer_wider.html#longer",
+    "href": "longer_wider.html#longer",
+    "title": "Pivot",
+    "section": "Longer",
+    "text": "Longer\n\npivot_longer()\n\n\n\n\nWe can start with the tidyr::relig_income data frame. This is wide data and does not conform to tidy data(Wickham 2014) principles. This makes it harder to interate over by row because there are multiple observations in each row. In this data frame, each row has 10 observations, one observation for each income category.\n\nrelig_income\n\n\n\n  \n\n\n\nWe can pivot this to tall data (i.e. pivot_longer) so that we have one observation per row for a total of 180 rows.\n\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\")"
+  },
+  {
+    "objectID": "longer_wider.html#wider",
+    "href": "longer_wider.html#wider",
+    "title": "Pivot",
+    "section": "Wider",
+    "text": "Wider\nOf course, sometimes we want wide data. There are a variety of reasons to wrangle data into a wide-data format and we will discuss that, below. Here we use pivot_wider to accomplish this.\n\nfish_encounters\n\n\n\n  \n\n\n\n\nfish_encounters %>% \n  pivot_wider(names_from = station, values_from = seen)"
+  },
+  {
+    "objectID": "longer_wider.html#why-pivot-data",
+    "href": "longer_wider.html#why-pivot-data",
+    "title": "Pivot",
+    "section": "Why pivot data?",
+    "text": "Why pivot data?\nWhy pivot data? Your analysis may be easier, or may require, the shape of data to match a particular structure. For example, ggplot generally prefers long tidy data. For example, once the data are properly shaped, analysis and variations becomes easier. Below is a quick example of using ggplot to format data in a long and tidy shape to create a bar plot. Of course, the plot needs some refining and hence improvements become easier to accomplish with the tall data shape. Nonetheless, below shows an initial draft of a bar plot.\n\n\nCode\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\") %>% \n  ggplot(aes(religion, count, fill = income)) +\n  geom_col()\n\n\n\n\n\nOnce the data are properly shaped, variations on analysis becomes easier. Here I will, additionally, format some of the variables as categorical vectors, so that I can redraw the plot for more clarity. That is, to tell my data story more clearly.\nMy goal is to format the vectors as factors using the forcats package. This will allow me arrange\n\nthe order of the bars\nthe order of the stacked elements of each bar\nthe order of the Legend\n\nI will also change the color scheme of the discrete color from the fill argument, in combination with the scale_fill_iridis_d function.\n\n\nCode\ninc_levels = c(\"Don't know/refused\",\n               \"<$10k\", \"$10-20k\", \"$20-30k\", \"$30-40k\",\n               \"$40-50k\", \"$50-75k\", \"$75-100k\", \"$100-150k\",\n               \">150k\")\n\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\") %>% \n  mutate(income = fct_relevel(income, inc_levels)) %>% \n  ggplot(aes(fct_reorder(religion, count), \n             count, fill = fct_rev(income))) +\n  geom_col() +\n  scale_fill_viridis_d(direction = -1) +\n  coord_flip() \n\n\n\n\n\nNonetheless, unpivoted, wide data, can be subset and visualized even though this is not ideal when attempting visualization variations on a more complex data frame. Here, unpivoted, I will make a bar chart of religious affiliation for incomes between $40k and $50k.\n\n\nCode\nrelig_income %>% \n  ggplot(aes(fct_reorder(religion, `$40-50k`), `$40-50k`)) +\n  geom_col() + \n  coord_flip()\n\n\n\n\n\nNote: Tidy, pivot_longer, data will be easier to manipulate with ggplot2. For example, You can subset the data with a single filter function, thereby more easily enabling different income charts. Below, although there is an additional line of code, the code is easier to read and easier to modify if I want to use a different income value.\n\nfilter(income == \"$40-50k\")\n\n\n\nCode\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\") %>% \n  filter(income == \"$40-50k\") %>% \n  ggplot(aes(fct_reorder(religion, count), count)) +\n  geom_col() +\n  coord_flip() \n\n\n\n\n\nIt also becomes a natural step to make comparisons with all the income values using ggplot2::facet_wrap()\n\n\nCode\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\") %>% \n  mutate(income = fct_relevel(income, inc_levels)) %>% \n  ggplot(aes(fct_reorder(religion, count), \n             count)) +\n  geom_col(show.legend = FALSE) +\n  coord_flip() +\n  facet_wrap(vars(income), nrow = 2)\n\n\n\n\n\nAnother variation. Again, ggplot2 affordances are easier to leverage with tall data.\n\n\nCode\nrelig_income %>%\n  pivot_longer(-religion, names_to = \"income\", values_to = \"count\") %>% \n  mutate(religion = fct_lump_n(religion, 4, w = count)) %>% \n  mutate(income = fct_relevel(income, inc_levels)) %>% \n  group_by(religion, income) %>%\n  summarise(sumcount = sum(count)) %>% \n  ggplot(aes(fct_reorder(religion, sumcount), \n             sumcount)) + \n  geom_col(fill = \"grey80\", show.legend = FALSE) +\n  geom_col(data = . %>% filter(income == \"$40-50k\"),\n           fill = \"firebrick\") +\n  geom_col(data = . %>% filter(income == \">150k\"),\n           fill = \"forestgreen\") +\n  coord_flip() +\n  facet_wrap(vars(income), nrow = 2)"
+  },
+  {
+    "objectID": "map_import_clean_regex.html",
+    "href": "map_import_clean_regex.html",
+    "title": "Import multiple Excel files",
+    "section": "",
+    "text": "The code and companion youtube playlist show practical R/data-wrangling tips and tricks. This case study demonstrates custom functions, regex (regular expressions), and iteration. The workflow shows techniques for common needs such: data-scraping, ingesting multiple files, transforming messy data into tidy data, quickly cleaning column names, separating multivalue fields, uniting variable values, and nesting data."
+  },
+  {
+    "objectID": "map_import_clean_regex.html#playlist",
+    "href": "map_import_clean_regex.html#playlist",
+    "title": "Import multiple Excel files",
+    "section": "Playlist",
+    "text": "Playlist"
+  },
+  {
+    "objectID": "map_import_clean_regex.html#code-and-data",
+    "href": "map_import_clean_regex.html#code-and-data",
+    "title": "Import multiple Excel files",
+    "section": "Code and data",
+    "text": "Code and data\nGithub ▶️ libjohn/workshop_rfun/iterate"
+  },
+  {
+    "objectID": "outline.html",
+    "href": "outline.html",
+    "title": "Two-day R data-science workshop",
+    "section": "",
+    "text": "What is R\n\ndata-first programming/coding language\nextend R with domain-specific packages. See: MetaCran, CRAN, github, bioconductor\n\nWhat is the Tidyverse\nWhat is Tidy data\nReproducibility: data-first tools help leverage reproducible workflows throughout computational thinking\n\nblank-slate instead of .Rdata\nRestart instead of rm(list = ls())\nIntentional use of the RStudio projects feature\nVersion Control: git and GitHub\n{renv} for archiving/documenting package environments\n\nTool suite\n\nRStudio\nQuarto Notebooks (Merge literate coding with report rendering)\n{dplyr} & {tidyr} - a grammar for data wrangling\n{ggplot2} - a grammar of graphics\nOther packages e.g. {readr}, {forcats}, {stringr}, {purrr}, {tidymodels}\n\nConsole\n\nbasic computation\nvectors and vectorized math\nenvironment variables and data variables\nassignment variables: <- and = (not the same as equivalency ==)\npipes = |> and %>%\n\nRStudio Projects\n\nuse projects instead of setwd() ; relative paths are vital to reproducibility\nDocuments: Quarto document\n\nImport CSV data\n\nread_csv() and the data import wizard found in Files tab and Environment tab\nOther data formats\n\n{readxl}, {haven}\n\nSQL\n\nCode-chunks can perform SQL\n{dbplyr}\nBest Practices with Databases\n\nExercise\n\nimport a CSV file\nimport a Stata categorical file using {haven}\n\n\n{dplyr}\n\nselect(), filter(), arrange(), mutate(), group_by(), summarize(), count()\nExercise\nSemantic meaning in data \nCodebooks in a literate coding context\n\n\n\n\n\n\n\n\n{ggplot2} viz\n\nExercise\n\nbasic interactivity - ggplotly()\n\nExercise\n\n{broom} and handling modeling outputs (e.g. linear regression)\n\nAdvertise {tidymodels}\nExercise\n\n{skimr} and EDA \n\nskim()\nReprise group_by() and summarize() \n\n{tidyr} pivot_longer() and pivot_wider()\n\nTall data - what is it?\nTall data for iteration: computation \nTall data for visualization , facet_wrap()\nTall data for modeling ; {purrr} a first look.\n\njoin with dplyr::left_join() or other {dplyr} join functions\nWrap-up and Summarize the day"
+  },
+  {
+    "objectID": "outline.html#day-two",
+    "href": "outline.html#day-two",
+    "title": "Two-day R data-science workshop",
+    "section": "Day Two",
+    "text": "Day Two\n\nPart 3 Iteration and custom functions\n\nQuestions from yesterday\nR is a functional programming language\n\nWhat is functional programing?\n\nCustomizing functions and iterating without FOR loops\n\nFOR loops?\nTidyverse preference for data frames\n\nVectorized math (review)\n\nVectorized iteration ; environment variables and data variables\n\nCase study - import multiple data files + data cleaning + analysis + visualization\n\nread_csv() again\n\nIntroduce {stringr} and regular expressions\nSome nifty data wrangling functions\nComposing custom functions\nNesting data for iteration\n\n\n\n\n\nPart 4 Review, questions, case study, reports\n\nQuestions / Review\nSetup case study\nUsing R to orchestrate data workflows\nReproducible report rendering (slides, PDF, dashboards, etc.)\nSummarize\nFinding help"
+  },
+  {
+    "objectID": "outline.html#resources",
+    "href": "outline.html#resources",
+    "title": "Two-day R data-science workshop",
+    "section": "Resources",
+    "text": "Resources\n\nR for Data Science: book | slack\nTidyverse primers\nRStudio IDE > Help > [ Documentation | Forum | Cheatsheets | Shortcuts ] & on-board Help tab\n\nRStudio User Guide\n\nTidyverse webpages: {package_name}.tidyverse.org (e.g. ggplot2.tidyverse.org)\nInteractivity\n\nHTMLWidgets\nObservableJS\nShiny"
+  },
+  {
+    "objectID": "outline.html#recommendations",
+    "href": "outline.html#recommendations",
+    "title": "Two-day R data-science workshop",
+    "section": "Recommendations",
+    "text": "Recommendations\n\nBlank slate\nUse the Projects in the RStudio IDE\nUse version control (git and GitHub)\nUse {renv} for package reproducible environments\nUse mybinder.org for sharing containers in a reproducible/replicable state"
+  },
+  {
+    "objectID": "packages.html",
+    "href": "packages.html",
+    "title": "Data and code",
+    "section": "",
+    "text": "Remember. R and RStudio are not the same thing. It’s a good idea to have up-to-date installations. As of this writing, the easiest way to find both applications for local download are from the post.co page\n\n\n\nDownload R and RStudio"
+  },
+  {
+    "objectID": "packages.html#install-r-rstudio-r-packages",
+    "href": "packages.html#install-r-rstudio-r-packages",
+    "title": "Data and code",
+    "section": "Install R, RStudio, R packages",
+    "text": "Install R, RStudio, R packages\nI recommend this Interactive tutorial for a nice interactive tutorial on installing R, RStudio, packages."
+  },
+  {
+    "objectID": "packages.html#quarto-installation",
+    "href": "packages.html#quarto-installation",
+    "title": "Data and code",
+    "section": "Quarto installation",
+    "text": "Quarto installation\nQuarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at Quarto.org"
+  },
+  {
+    "objectID": "packages.html#install-packages",
+    "href": "packages.html#install-packages",
+    "title": "Data and code",
+    "section": "Install packages",
+    "text": "Install packages\nPackages can be installed with the install.packages() function. Alternatively, from within RStudio > Packages > install\n\n\n\n\n\n\nInstall packages\n\n\n\n\n\n\n\n\nInstall Once!\n\n\n\nYou only have to install a package once and should avoid putting the install.packages() function in your scripts. Of course, you will need to update packages from time to time."
+  },
+  {
+    "objectID": "packages.html#load-packages",
+    "href": "packages.html#load-packages",
+    "title": "Data and code",
+    "section": "Load packages",
+    "text": "Load packages\nYou should load packages at the top of your script. Then write your script. Then Run All\n\n\n\n\n\nLoad packages\n\n\n\n\n\nRun packages"
+  },
+  {
+    "objectID": "packages.html#loading-the-tidyverse",
+    "href": "packages.html#loading-the-tidyverse",
+    "title": "Data and code",
+    "section": "Loading the tidyverse",
+    "text": "Loading the tidyverse\n\n\n\n\n\n\nTidyverse is a meta-package of several packages\n\n\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. More accurately it’s a meta-package that loads about eight other packages. When you type load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages that tidyverse loads. Redundantly, it’s fine to write multiple load statements, but check the feedback from the code-chunk and you’ll see what is being loaded by load(tidyverse)."
+  },
+  {
+    "objectID": "proj.html",
+    "href": "proj.html",
+    "title": "Projects",
+    "section": "",
+    "text": "R and RStudio are not the same thing — they go together\n\n\n\nR is a coding language interpreter. RStudio is an Integrated Development Environment (IDE) used to make it easier to interact with the coding language.\n\n\nThe projects feature of R is useful for keeping project and ideas discrete. Using the project feature helps us set-up and maintain an reproducible workflow, makes it easier to share our code with others, and enables good coding hygiene, such as using relative file paths\n\n\n\n\n\n\n\nRStudio Projects\n\n\n\nLook in the upper-right corner of your RStudio IDE. Or, File > New Projects\nChoose between New, Existing, or Version Control.\nIf you choose a New project, there are several options for project types. I recommend starting with Quarto Project2\n\n\n\n\n\n\nNew Quarto project\n\n\n\n\n\nNew Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwitch between projects\n\n\n\nBy clicking the upper-right hand corner of your project name, you’ll be able to easily switch between projects."
+  },
+  {
+    "objectID": "proj.html#settings-in-rstudio-preferences",
+    "href": "proj.html#settings-in-rstudio-preferences",
+    "title": "Projects",
+    "section": "Settings in RStudio preferences",
+    "text": "Settings in RStudio preferences\nFurther recommendations on reproducibility suggest setting the following global preferences\n\n\n\n\n\nGlobal options > General\n\n\n\n\n\nGlobal options > Code\n\n\n\n\n\n\n\n\n\nTools > Global options\n\n\n\nUncheck\n\nRestore most recently opened project (uncheck)\nRestore previously open source document (uncheck)\nRestore .Rdata (uncheck)\nSave workspace to .RData to NEVER\nAlways save history (uncheck)\n\n\nRead more about the blank slate approach to reproducibility using the RStudio IDE."
+  },
+  {
+    "objectID": "proj.html#reproducibility",
+    "href": "proj.html#reproducibility",
+    "title": "Projects",
+    "section": "Reproducibility",
+    "text": "Reproducibility\nReproducibility is an that supports from compuational thinking by ensuring all documents, analysis, data, and code are readily available so that the computations can be executed and re-executed to achieve identical results3\n\n\n\n\n\nReproducibility pyramid (Little and Lafferty-Hess, 2023)\n\n\n\nTwo fot he most basic principle in reproducibility are…\n\nDo everything with code\nRender documents from code\n\n\nDeveloping computation techniques to honor these principles means, whenever possible, reduce or eliminate mouse-clicks, copy/paste steps, and other computational actions. Among other reasons, we do this because such actions are hard to document for ourselves and others.\nIn this way, using a coding language such as R along with a reproducible publishing scheme such as Quarto, while also incorporating literate coding(Knuth 1984), tidy data(Wickham 2014), and and tidyverse principles(Wickham et al. 2019) is an ideal way to ensure not only the reproducibility of your analysis.\nBuilding on these strong foundations increases the chances of archiving your work for posterity. We have learned this by looking back at the computational workflows of the nineteen seventies through the early two-thousands. Many, if not most of which can no longer be reproduced without excessive retrofitting expense."
+  },
+  {
+    "objectID": "proj.html#archiving-dependencies-with-renv",
+    "href": "proj.html#archiving-dependencies-with-renv",
+    "title": "Projects",
+    "section": "Archiving dependencies with {renv}",
+    "text": "Archiving dependencies with {renv}\n“The renv package helps you create reproducible environments for your R projects.” {renv}\n\nThe renv package is a new effort to bring project-local R dependency management to your projects. The goal is for renv to be a robust, stable replacement for the Packrat package, with fewer surprises and better default behaviors. — Introduction to renv / Kevin Ushey"
+  },
+  {
+    "objectID": "purrr.html",
+    "href": "purrr.html",
+    "title": "Iteration with {purrr}",
+    "section": "",
+    "text": "Review the functions page!\n\n\n\n\n\nIf you have not already read the functions page, do so before reading about {purrr}. The purrr package is about applying functions repetitively. You should have a good idea about what a function is and how to write a custom function.\nFrom the functions page we learned scant definitions of functional programming and functions. We also learned about the special conditions of programming with {dplyr}, which demands a working understanding of environment and data variables.1 Now we want to apply our functions, row-by-row, to a data frame. We’ll use the purrr package.\nRemember that in functional programming we’re iterating, or recursing, without using FOR loops. For example, in the regression page, we saw an example of nesting data frames by category (i.e. by gender). After nesting, we have two subsetted data frames that are embeded within a parent-data-frame. The embedded data frames are contained within a list-column."
+  },
+  {
+    "objectID": "purrr.html#map",
+    "href": "purrr.html#map",
+    "title": "Iteration with {purrr}",
+    "section": "map()",
+    "text": "map()\nNow, using {purrr} we can apply a function — such as a linear model regression lm() — over each row of the parent data frame. To do this, we use the map_ class of functions. I say class of functions, because map allows us to define the returned data type. Sometimes we want to return a character data-type (map_chr), sometimes an integer (map_int), sometimes a data fram (map_df), etc. In the case of a linear model, which is a list data-type, we’ll use the generic map() function to apply an anonymous function.\n\n\n\n\n\n\n\n\n\n\nAnonymous functions\n\n\n\nExamples of an anonymous function:\n\\(x) x + 1\nfunction(x) x + 1\nUnlike the add_numbers() function we composed on the functions page, anonymous functions have no object name, hence they are anonymous. Anonymous functions, sometimes called lambda functions are a convenience for coders using functional programming languages.\n\n\n\nmy_subset_df <- evals |> \n  janitor::clean_names() |> \n  nest(my_data = -gender) |> \n  mutate(my_fit_bty = map(my_data, function(my_data) \n                                lm(score ~ bty_avg, data = my_data)\n                         )\n        )\nmy_subset_df\n\n\n\n  \n\n\n\n\nLook at the fitted object\nWhen we look at the resulting my_fit_bty data variable, we see the kind of output we get from lm()\n\nmy_subset_df$my_fit_bty\n\n[[1]]\n\nCall:\nlm(formula = score ~ bty_avg, data = my_data)\n\nCoefficients:\n(Intercept)      bty_avg  \n    3.95006      0.03064  \n\n\n[[2]]\n\nCall:\nlm(formula = score ~ bty_avg, data = my_data)\n\nCoefficients:\n(Intercept)      bty_avg  \n     3.7666       0.1103  \n\n\nEarlier, we learned to use the broom::tidy() function to transform a fitted model — contained as a list data-type — into a data frame2. We can easily tidy just the first model.\n\ntidy(my_subset_df$my_fit_bty[[1]])\n\n\n\n  \n\n\n\n\n\nNamed functions\nTo tidy all the models, we want to use the map function again. This time we map a named function, tidy(). We do this row-by-row, without writing a FOR loop.\n\nmy_subset_df |> \n  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy))\n\n\n\n  \n\n\n\nThe only difference between my_fit_bty and my_fit_bty_tidy is that my_fit_bty_tidy is the model output for the former is a list, the later is a data frame. my_subset_df$my_fit_bty_tidy is a list-column of nested data frames, just like my_subset_df$data, which we nested in the first code-chunk of this page.\nTo unnest the data frames, use the unnest() function.\n\nmy_subset_df |> \n  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy)) |> \n  unnest(my_fit_bty_tidy)\n\n\n\n  \n\n\n\nNow we have fitted model data, contained within a data frame that we can manipulate further. For example, using dplyr functions it’s easy to make a pipeline to look at the p-values of bty_avg, by gender.\n\nmy_subset_df |> \n  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy)) |> \n  unnest(my_fit_bty_tidy) |> \n  select(gender, term, p.value) |> \n  filter(term == \"bty_avg\")\n\n\n\n  \n\n\n\nWhen we combine linear modeling with other broom functions such as glance() and augment(), then we can further our analysis and data manipulation."
+  },
+  {
+    "objectID": "purrr.html#anonymous-functions-1",
+    "href": "purrr.html#anonymous-functions-1",
+    "title": "Iteration with {purrr}",
+    "section": "Anonymous functions",
+    "text": "Anonymous functions\nAnonymous functions have no name. Unlike a named function (e.g. broom::tidy above, or make_scatterplot from the functions page). Below we map an anonymous function within map(). The first argument to map is a list or data frame. The next argument can be a named function or an anonymous function.\n\nmy_subset_df_with_plots <- my_subset_df |> \n  mutate(my_plot = map(my_data, function(my_data) \n    my_data |> \n      ggplot(aes(bty_avg, score)) + \n      geom_point() +\n      geom_smooth(method = lm, se = FALSE, formula = y ~ x)\n                      )\n         )\nmy_subset_df_with_plots\n\n\n\n  \n\n\n\nAnd now we can pull those plots\n\nmy_subset_df_with_plots |> \n  pull(my_plot)\n\n\n\n\n\n\n\nFemale\n\n\n\n\n\n\n\nMale"
+  },
+  {
+    "objectID": "purrr.html#map2",
+    "href": "purrr.html#map2",
+    "title": "Iteration with {purrr}",
+    "section": "map2()",
+    "text": "map2()\nIf you have more than one argument to map, you can use functions such as map2() or pmap(). An example of map2() can be found on the regression page.\n# Example of mapping a anonymous function with two variables.\n\nmap2(my_df, my_plot, gender, function(x, y) { \n                               x + labs(title = str_to_title(y))\n                             }          \n    )\n\n# x refers to the second argument of map2, \n# y refers to the third argument, i.e. `gender`"
+  },
+  {
+    "objectID": "regression.html",
+    "href": "regression.html",
+    "title": "Regression",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(moderndive)\nlibrary(broom)\nlibrary(skimr)"
+  },
+  {
+    "objectID": "regression.html#data",
+    "href": "regression.html#data",
+    "title": "Regression",
+    "section": "Data",
+    "text": "Data\nData are from the {moderndive} package1, Modern dive (Kim, Ismay, and Kuhn 2021), and the {dplyr} package (Wickham et al. 2023).\n\nevals_ch5 <- evals %>% \n  select(ID, score, bty_avg, age)\n\nevals\n\n\n\n  \n\n\nevals_ch5\n\n\n\n  \n\n\n\n\nevals_ch5 %>% \n  summary()\n\n       ID            score          bty_avg           age       \n Min.   :  1.0   Min.   :2.300   Min.   :1.667   Min.   :29.00  \n 1st Qu.:116.5   1st Qu.:3.800   1st Qu.:3.167   1st Qu.:42.00  \n Median :232.0   Median :4.300   Median :4.333   Median :48.00  \n Mean   :232.0   Mean   :4.175   Mean   :4.418   Mean   :48.37  \n 3rd Qu.:347.5   3rd Qu.:4.600   3rd Qu.:5.500   3rd Qu.:57.00  \n Max.   :463.0   Max.   :5.000   Max.   :8.167   Max.   :73.00  \n\n\n\nskimr::skim(evals_ch5)\n\n\nData summary\n\n\nName\nevals_ch5\n\n\nNumber of rows\n463\n\n\nNumber of columns\n4\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nID\n0\n1\n232.00\n133.80\n1.00\n116.50\n232.00\n347.5\n463.00\n▇▇▇▇▇\n\n\nscore\n0\n1\n4.17\n0.54\n2.30\n3.80\n4.30\n4.6\n5.00\n▁▁▅▇▇\n\n\nbty_avg\n0\n1\n4.42\n1.53\n1.67\n3.17\n4.33\n5.5\n8.17\n▃▇▇▃▂\n\n\nage\n0\n1\n48.37\n9.80\n29.00\n42.00\n48.00\n57.0\n73.00\n▅▆▇▆▁"
+  },
+  {
+    "objectID": "regression.html#correlation",
+    "href": "regression.html#correlation",
+    "title": "Regression",
+    "section": "Correlation",
+    "text": "Correlation\n\nstrong correlation\nUsing the cor function to show correlation. For example see the strong correlation between starwars$mass to starwars$height\n\nmy_cor_df <- starwars %>% \n  filter(mass < 500) %>% \n  summarise(my_cor = cor(height, mass))\nmy_cor_df\n\n\n\n  \n\n\n\nThe cor() function shows a positive correlation of 0.7612612. This indicates a positive correlation between height and mass.\n\n\nweak correlation\nBy contrast, see here a regression line that visualizes the weak correlation between evals_ch5$score and evals_ch5$age\n\nevals_ch5 %>% \n  ggplot(aes(score, age)) +\n  geom_jitter() +\n  geom_smooth(method = lm, formula = y ~ x, se = FALSE)"
+  },
+  {
+    "objectID": "regression.html#linear-model",
+    "href": "regression.html#linear-model",
+    "title": "Regression",
+    "section": "Linear model",
+    "text": "Linear model\n\nFor every increase of 1 unit increase in bty_avg, there is an associated increase of, on average, 0.067 units of score. from ModenDive\n\n\n# Fit regression model:\nscore_model <- lm(score ~ bty_avg, data = evals_ch5)\n\nscore_model\n\n\nCall:\nlm(formula = score ~ bty_avg, data = evals_ch5)\n\nCoefficients:\n(Intercept)      bty_avg  \n    3.88034      0.06664  \n\n\n\nsummary(score_model)\n\n\nCall:\nlm(formula = score ~ bty_avg, data = evals_ch5)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-1.9246 -0.3690  0.1420  0.3977  0.9309 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)    \n(Intercept)  3.88034    0.07614   50.96  < 2e-16 ***\nbty_avg      0.06664    0.01629    4.09 5.08e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.5348 on 461 degrees of freedom\nMultiple R-squared:  0.03502,   Adjusted R-squared:  0.03293 \nF-statistic: 16.73 on 1 and 461 DF,  p-value: 5.083e-05"
+  },
+  {
+    "objectID": "regression.html#broom",
+    "href": "regression.html#broom",
+    "title": "Regression",
+    "section": "Broom",
+    "text": "Broom\nThe {broom} package is useful for containing the outcomes of some models as data frames. A more holistic approach to tidy modeling is to use the {tidymodels} package/approach\nTidy the model fit into a data frame with broom::tidy(), then we can use dplyr functions for data wrangling.\n\nbroom::tidy(score_model)\n\n\n\n  \n\n\n\nget evaluative measure into a data frame\n\nbroom::glance(score_model)\n\n\n\n  \n\n\n\n\nMore model data\npredicted scores can be found in the .fitted variable below\n\nbroom::augment(score_model)"
+  },
+  {
+    "objectID": "regression.html#example-of-iterative-modeling-with-nested-categories-of-data",
+    "href": "regression.html#example-of-iterative-modeling-with-nested-categories-of-data",
+    "title": "Regression",
+    "section": "Example of iterative modeling with nested categories of data",
+    "text": "Example of iterative modeling with nested categories of data\nIn this next example we nest data by the gender category, then iterate over those categories using the {purrr} package to map anonymous functions over our data frames that is nested by our category. Look closely and you’ll see correlations, linear model regression, and visualizations — iterated over the gender category. purr::map iteration methods are beyond what we’ve learned so far, but you can notice how tidy-data and tidyverse principles are leveraged in data wrangling and analysis. In future lessons we’ll learn how to employ these techniques along with writing custom functions.\n\nlibrary(tidyverse)\n\nmy_iterations <- evals |> \n  janitor::clean_names() |> \n  nest(data = -gender) |> \n  mutate(cor_age = map_dbl(data, \\(data) cor(data$score, data$age))) |> \n  mutate(cor_bty = map_dbl(data, \\(data) cor(data$score, data$bty_avg)))  |> \n  mutate(my_fit_bty = map(data, \\(data) lm(score ~ bty_avg, data = data) |> \n                            broom::tidy())) |> \n  mutate(my_plot = map(data, \\(data) ggplot(data, aes(bty_avg, score)) + \n                         geom_point(aes(color = age)) +\n                         geom_smooth(method = lm, \n                                     se = FALSE,\n                                     formula = y ~ x))) |> \n  mutate(my_plot = map2(my_plot, gender, \\(my_plot, gender) my_plot +\n                          labs(title = str_to_title(gender))))\n\nThis generates a data frame consisting of lists columns such as my_fit_bty and my_plot\n```{r}\nmy_iterations\n```\n\n\n\n\n  \n\n\n\nmy_terations$my_fit_bty is a list column consisting of tibble-style data frames. We can unnest those data frames.\n```{r}\nmy_iterations |> \n  unnest(my_fit_bty)\n```\n\n\n\n\n  \n\n\n\nmy_iterations$my_plot is a list column consisting of ggplot2 objects. We can pull those out of the data frame.\n```{r}\nmy_iterations |> \n  pull(my_plot)\n```\n\n\n\n\n\n\nFemale\n\n\n\n\n\n\n\nMale"
+  },
+  {
+    "objectID": "regression.html#next-steps",
+    "href": "regression.html#next-steps",
+    "title": "Regression",
+    "section": "Next steps",
+    "text": "Next steps\nThe example above introduces how multiple models can be fitted through the nesting of data. Of course, modeling can be much more complex. A good next step is to gain basic introductions about tidymodels. You’ll gain tips on integrating tidyverse principles with modeling, machine learning, feature selection, and tuning. Alternatively, endeavor to increase your skills in iteration using the purrr package so you can leverage iteration with custom functions."
+  },
+  {
+    "objectID": "tidymodels.html",
+    "href": "tidymodels.html",
+    "title": "Tidymodels and machine learning",
+    "section": "",
+    "text": "The {tidymodels} concept (Kuhn and Silge 2022) is a group of packages in support of modeling and machine learning. In the last section we learned how to manipulate a basic linear model though a combination of the base-R lm() function and the tidyverse {broom} package along with the nest() function. However, modeling can be much more involved. This basic overview introduces tidymodels, a conceptual approach to integrating tidyverse principles with modeling, machine learning, feature selection and tuning.\nBeyond the core of integrating machine learning and modeling with the tidyverse, tidymodels supports a variety of useful analytical and computational approaches. A short list of examples includes statistical analysis (e.g. bootstrapping, hypothesis testing, k-means clustering, logistic regression, etc.), robust modeling (e.g. classification, least squares, resampling), creating performance metrics, tuning, clustering, classification, text analysis, neural networks, and more."
+  },
+  {
+    "objectID": "tidymodels.html#get-started",
+    "href": "tidymodels.html#get-started",
+    "title": "Tidymodels and machine learning",
+    "section": "Get started",
+    "text": "Get started\nModelers and ML coders can approach tidymodels by\n\nEngaging with the five-step tutorial (build a model, use recipes to pre-process data, evaluate with resampling, tune, and predict.\nDive deeper to find articles that help apply the tidymodels approach to your needs."
+  },
+  {
+    "objectID": "tidy_tuesday_itra.html",
+    "href": "tidy_tuesday_itra.html",
+    "title": "Example EDA",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(skimr)\nBasic steps taken in this rough exploration of data….\nA brief discussion of packages which proport to perform EDA for you can be found in the Get Started section of this site.\nNote: This page is not intended to teach formal EDA. What happens on this page is merely a brutal re-enactment of some informal explorations that a person might take as they familiarize themselves with new data. If you’re like most people, you might want to skip to the visualizations. Meanwhile, the sections and code-chunks preceding visualization are valuable and at least worth a glance,"
+  },
+  {
+    "objectID": "tidy_tuesday_itra.html#import-data",
+    "href": "tidy_tuesday_itra.html#import-data",
+    "title": "Example EDA",
+    "section": "Import data",
+    "text": "Import data\nThe data come from a TidyTuesday, a weekly social learning project dedicated to gaining practical experience with R and data science. In this case the TidyTuesday data are based on International Trail Running Association (ITRA) data but inspired by Benjamin Nowak, . We will use the TidyTuesday data that are on GitHub. Nowak’s data are also available on GitHub.\n\nrace_df <- read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/race.csv\")\nrank_df <- read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/ultra_rankings.csv\")\n\n\nglimpse(race_df)\n\nRows: 1,207\nColumns: 13\n$ race_year_id   <dbl> 68140, 72496, 69855, 67856, 70469, 66887, 67851, 68241,…\n$ event          <chr> \"Peak District Ultras\", \"UTMB®\", \"Grand Raid des Pyréné…\n$ race           <chr> \"Millstone 100\", \"UTMB®\", \"Ultra Tour 160\", \"PERSENK UL…\n$ city           <chr> \"Castleton\", \"Chamonix\", \"vielle-Aure\", \"Asenovgrad\", \"…\n$ country        <chr> \"United Kingdom\", \"France\", \"France\", \"Bulgaria\", \"Turk…\n$ date           <date> 2021-09-03, 2021-08-27, 2021-08-20, 2021-08-20, 2021-0…\n$ start_time     <time> 19:00:00, 17:00:00, 05:00:00, 18:00:00, 18:00:00, 17:0…\n$ participation  <chr> \"solo\", \"Solo\", \"solo\", \"solo\", \"solo\", \"solo\", \"solo\",…\n$ distance       <dbl> 166.9, 170.7, 167.0, 164.0, 159.9, 159.9, 163.8, 163.9,…\n$ elevation_gain <dbl> 4520, 9930, 9980, 7490, 100, 9850, 5460, 4630, 6410, 31…\n$ elevation_loss <dbl> -4520, -9930, -9980, -7500, -100, -9850, -5460, -4660, …\n$ aid_stations   <dbl> 10, 11, 13, 13, 12, 15, 5, 8, 13, 23, 13, 5, 12, 15, 0,…\n$ participants   <dbl> 150, 2300, 600, 150, 0, 300, 0, 200, 120, 100, 300, 50,…\n\n\n\nglimpse(rank_df)\n\nRows: 137,803\nColumns: 8\n$ race_year_id    <dbl> 68140, 68140, 68140, 68140, 68140, 68140, 68140, 68140…\n$ rank            <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, NA, NA, NA,…\n$ runner          <chr> \"VERHEUL Jasper\", \"MOULDING JON\", \"RICHARDSON Phill\", …\n$ time            <chr> \"26H 35M 25S\", \"27H 0M 29S\", \"28H 49M 7S\", \"30H 53M 37…\n$ age             <dbl> 30, 43, 38, 55, 48, 31, 55, 40, 47, 29, 48, 47, 52, 49…\n$ gender          <chr> \"M\", \"M\", \"M\", \"W\", \"W\", \"M\", \"W\", \"W\", \"M\", \"M\", \"M\",…\n$ nationality     <chr> \"GBR\", \"GBR\", \"GBR\", \"GBR\", \"GBR\", \"GBR\", \"GBR\", \"GBR\"…\n$ time_in_seconds <dbl> 95725, 97229, 103747, 111217, 117981, 118000, 120601, …"
+  },
+  {
+    "objectID": "tidy_tuesday_itra.html#eda-with-skimr",
+    "href": "tidy_tuesday_itra.html#eda-with-skimr",
+    "title": "Example EDA",
+    "section": "EDA with skimr",
+    "text": "EDA with skimr\n\nskim(race_df)\n\n\nData summary\n\n\nName\nrace_df\n\n\nNumber of rows\n1207\n\n\nNumber of columns\n13\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n5\n\n\nDate\n1\n\n\ndifftime\n1\n\n\nnumeric\n6\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nevent\n0\n1.00\n4\n57\n0\n435\n0\n\n\nrace\n0\n1.00\n3\n63\n0\n371\n0\n\n\ncity\n172\n0.86\n2\n30\n0\n308\n0\n\n\ncountry\n4\n1.00\n4\n17\n0\n60\n0\n\n\nparticipation\n0\n1.00\n4\n5\n0\n4\n0\n\n\n\nVariable type: Date\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nmedian\nn_unique\n\n\n\n\ndate\n0\n1\n2012-01-14\n2021-09-03\n2017-09-30\n711\n\n\n\nVariable type: difftime\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nmedian\nn_unique\n\n\n\n\nstart_time\n0\n1\n0 secs\n82800 secs\n05:00:00\n39\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nrace_year_id\n0\n1\n27889.65\n20689.90\n2320\n9813.5\n23565.0\n42686.00\n72496.0\n▇▃▃▂▂\n\n\ndistance\n0\n1\n152.62\n39.88\n0\n160.1\n161.5\n165.15\n179.1\n▁▁▁▁▇\n\n\nelevation_gain\n0\n1\n5294.79\n2872.29\n0\n3210.0\n5420.0\n7145.00\n14430.0\n▅▇▇▂▁\n\n\nelevation_loss\n0\n1\n-5317.01\n2899.12\n-14440\n-7206.5\n-5420.0\n-3220.00\n0.0\n▁▂▇▇▅\n\n\naid_stations\n0\n1\n8.63\n7.63\n0\n0.0\n9.0\n14.00\n56.0\n▇▆▁▁▁\n\n\nparticipants\n0\n1\n120.49\n281.83\n0\n0.0\n21.0\n150.00\n2900.0\n▇▁▁▁▁\n\n\n\n\n\nRead more about automagic EAD packages."
+  },
+  {
+    "objectID": "tidy_tuesday_itra.html#freewheelin-eda",
+    "href": "tidy_tuesday_itra.html#freewheelin-eda",
+    "title": "Example EDA",
+    "section": "Freewheelin’ EDA",
+    "text": "Freewheelin’ EDA\n\nrace_df |> \n  count(country, sort = TRUE) |> \n  filter(str_detect(country, regex(\"Ke\", ignore_case = TRUE)))\n\n\n\n  \n\n\n\n\nrace_df |> \n  filter(country == \"Turkey\")\n\n\n\n  \n\n\n\n\nrace_df |> \n  count(participation, sort = TRUE)\n\n\n\n  \n\n\n\n\nrace_df |> \n  count(participants, sort = TRUE)\n\n\n\n  \n\n\n\n\nskim(rank_df)\n\n\nData summary\n\n\nName\nrank_df\n\n\nNumber of rows\n137803\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n4\n\n\nnumeric\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nrunner\n0\n1.00\n3\n52\n0\n73629\n0\n\n\ntime\n17791\n0.87\n8\n11\n0\n72840\n0\n\n\ngender\n30\n1.00\n1\n1\n0\n2\n0\n\n\nnationality\n0\n1.00\n3\n3\n0\n133\n0\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nrace_year_id\n0\n1.00\n26678.70\n20156.18\n2320\n8670\n21795\n40621\n72496\n▇▃▃▂▂\n\n\nrank\n17791\n0.87\n253.56\n390.80\n1\n31\n87\n235\n1962\n▇▁▁▁▁\n\n\nage\n0\n1.00\n46.25\n10.11\n0\n40\n46\n53\n133\n▁▇▂▁▁\n\n\ntime_in_seconds\n17791\n0.87\n122358.26\n37234.38\n3600\n96566\n114167\n148020\n296806\n▁▇▆▁▁\n\n\n\n\n\n\nrank_df |> \n  filter(str_detect(nationality, regex(\"ken\", ignore_case = TRUE)))\n\n\n\n  \n\n\n\n\nrank_df |> \n  arrange(rank)\n\n\n\n  \n\n\nrank_df |> \n  count(rank, sort = TRUE)\n\n\n\n  \n\n\nrank_df |> \n  drop_na(rank) |> \n  count(rank, gender, age, sort = TRUE)\n\n\n\n  \n\n\nrace_df |> \n  count(distance, sort = TRUE)\n\n\n\n  \n\n\n\n\nrank_df |> \n  filter(race_year_id == 41449)\n\n\n\n  \n\n\nrace_df |> \n  filter(race_year_id == 41449)\n\n\n\n  \n\n\nrace_df |> \n  filter(distance == 161)\n\n\n\n  \n\n\n\n\nrace_df\n\n\n\n  \n\n\n\n\nrace_df |> \n  count(race, city, sort = TRUE)\n\n\n\n  \n\n\nrace_df |> \n  filter(race == \"Centurion North Downs Way 100\")\n\n\n\n  \n\n\n\n\nrace_df |> \n  filter(race_year_id == 68140)\n\n\n\n  \n\n\nrace_df |> \n  filter(race == \"Millstone 100\")\n\n\n\n  \n\n\nrace_df |> \n  filter(event == \"Peak District Ultras\")\n\n\n\n  \n\n\nrace_df |> \n  count(race, sort = TRUE)  \n\n\n\n  \n\n\nrace_df |> \n  count(city, sort = TRUE)  \n\n\n\n  \n\n\nrace_df |> \n  count(event, sort = TRUE)  \n\n\n\n  \n\n\n\n\nrace_df |> \n  filter(event == \"Burning River Endurance Run\")"
+  },
+  {
+    "objectID": "tidy_tuesday_itra.html#visualize-wrangle-and-summarize",
+    "href": "tidy_tuesday_itra.html#visualize-wrangle-and-summarize",
+    "title": "Example EDA",
+    "section": "Visualize, wrangle, and summarize",
+    "text": "Visualize, wrangle, and summarize\nHere I’m using this State of Ultra Running report as a model to demonstrate some of the capabilities of R / Tidyverse\n\njoin datasets\n\nJoin, Assign, and Pipe\nIn this case I want to join the two data frames rank_df and race_df using the left_join() function.\nI can assign the output of a “data pipe” (i.e. data sentence) to use in subsequent code-chunks. A common R / Tidyverse assignment operator is the <- characters. You can read this as “gets value from”.\nAdditionally, I’m using a pipe operator (|>) as a conjunction to connect functions. In this way I can form a data sentence. Many people call the data sentence a data pipe, or just a pipe. You may see another common pipe operator: %>%. \\> and %>% are synonymous.\nusing dplyr::left_join() I combine the two data sets and then use {ggplot2} to create a line graph of participants by year.\n\nmy_df_joined <- rank_df |> \n  left_join(race_df, by = \"race_year_id\") |>\n  mutate(my_year = lubridate::year(date))\n\n\n\n\nViz participants\nLet’ make a quick line plot showing how many people participate in races each year. Here we have a date field this is also a date data-type. Data types are important and in this example using a data data-type means {ggplot2} will simplify our x-axis labels.\nHere we use the {lubridate} package to help manage my date data-types. We also use {ggplot2} to generate a line graph as a time series via the {ggplot2} package and a geom_line() layer. Note that {ggplot2} uses the ‘+’ as the conjunction or pipe.\n\nrank_df |> \n  left_join(race_df |> select(race_year_id, date), by = \"race_year_id\") |>\n  mutate(my_year = lubridate::year(date)) |> \n  count(my_year, sort = TRUE) |> \n  ggplot(aes(my_year, n)) +\n  geom_line()\n\n\n\n\n\n\nby distance\nHere I use count() in different ways to see what I can see. I comment out each attempt before settling on summarizing a table of total country participants by year.\n\nmy_df_joined |> \n  mutate(participation = str_to_lower(participation)) |> \n  # count(participation, sort = TRUE)\n  # count(city) |> \n  # count(race) |> \n  count(my_year, country, sort = TRUE)\n\n\n\n  \n\n\nmy_df_joined |> \n  mutate(participation = str_to_lower(participation)) |> \n  count(my_year, country, sort = TRUE) |> \n  drop_na(country) |> \n  mutate(country = fct_lump_prop(country, prop = .03)) |> \n  ggplot(aes(my_year, n)) +\n  geom_line(aes(color = country))\n\n\n\n\n\n\nby country\nI used fct_lump_prop() in the previous code-chunk to lump the country variable into categories by frequency. Here we refine the categories into specific levels. We are still mutating the country variable as a categorical factor; this time using the fct_other() function of {forcats} with some pre-defined levels (see the my_levels vector in the code-chunk below).\n\nmy_levels <- c(\"United States\", \"France\", \"United Kingdom\", \"Spain\")\n\nmy_df_joined |> \n  mutate(country = fct_other(country, keep = my_levels)) |> \n  count(my_year, country, sort = TRUE) |> \n  drop_na(country) |> \n  ggplot(aes(my_year, n, color = country)) +\n  geom_line() +\n  geom_point() +\n  scale_color_brewer(palette = \"Dark2\") \n\n\n\n\n\n\nCountry race-host\n\nmy_df_joined |> \n  drop_na(country) |> \n  mutate(country = fct_lump_n(country, n = 7)) |>\n  count(country, sort = TRUE) |> \n  ggplot(aes(x = n, y = fct_reorder(country, n))) +\n  geom_col()\n\n\n\n\n\n\nNationality of runner\n\nmy_df_joined |> \n  mutate(nationality = fct_lump_n(nationality, n = 7)) |> \n  count(nationality, sort = TRUE) |> \n  ggplot(aes(n, fct_reorder(nationality, n))) +\n  geom_col()\n\n\n\n\n\n\nUnique participants\n\nmy_df_joined |> \n  distinct(my_year, runner) |> \n  count(my_year) |> \n  ggplot(aes(my_year, n)) +\n  geom_line()\n\n\n\n\n\n\nParticipant frequency separated by gender\nNote the use of count, if_else, as.character, and group_by to transform the data for visualizing. Meanwhile, the visual bar graph is a proportional graph with the y-axis label by percentage. We do this by manipulating the plot scales. Scales are also used to choose colors from a predefined palette (i.e. “Dark2”.) Findally, we facet the plot by gender (See facet_wrap()).\n\nmy_df_joined |> \n  count(my_year, gender, runner, sort = TRUE) |> \n  mutate(n_category = if_else(n >= 5, \"more\", as.character(n))) |> \n  group_by(my_year) |> \n  mutate(total_races = sum(n)) |> \n  ungroup() |> \n  ggplot(aes(my_year, total_races))  +\n  geom_col(aes(fill = fct_rev(n_category)), position = \"fill\") +\n  scale_fill_brewer(palette = \"Dark2\") +\n  scale_y_continuous(labels = scales::percent) +\n  facet_wrap(vars(gender)) \n\n\n\n\n\n\nPace per mile\nWe want to calculate a value for each runner’s pace (i.e. minute_miles). We have to create and convert a character data-type of the time variable into a numeric floating point (or dbl) data-type so that we can calculate pace (i.e. race-minutes divided by distance.) These data transformations required a lot of manipulation as I was thinking through my goal. I could optimized this code, perhaps. However it works and I’ve got other things to do. Do I care if the CPU works extra hard? No, not in this case.\n\nmy_df_joined |> \n  mutate(time_hms = str_remove_all(time, \"[HMS]\"), .after = time) |> \n  mutate(time_hms = str_replace_all(time_hms, \"\\\\s\", \":\")) |> \n  separate(time_hms, into = c(\"h\", \"m\", \"s\"), sep = \":\") |> \n  mutate(bigminutes = (\n    (as.numeric(h) * 60) + as.numeric(m) + (as.numeric(s) * .75)\n    ), .before = h) |> \n  mutate(pace = bigminutes / distance, .before = bigminutes) |> \n  drop_na(pace, distance, my_year) |> \n  filter(distance > 0,\n         pace > 0) |> \n  group_by(my_year, gender) |>  \n  summarise(avg_pace = mean(pace), max_pace = max(pace), min_pace = min(pace)) |> \n  pivot_longer(-c(my_year, gender), names_to = \"pace_type\")  |> \n  separate(value, into = c(\"m\", \"s\"), remove = FALSE) |> \n  mutate(h = \"00\", .before = m) |> \n  mutate(m = str_pad(as.numeric(m), width = 2, pad = \"0\")) |> \n  mutate(s = str_pad(round(as.numeric(str_c(\"0.\",s)) * 60), width = 2, pad = \"0\")) |> \n  unite(minute_miles, h:s, sep = \":\") |> \n  mutate(minute_miles = hms::as_hms(minute_miles)) |> \n  # drop_na(gender) |> \n  ggplot(aes(my_year, minute_miles)) +\n  geom_line(aes(color = pace_type), size = 1) +\n  scale_color_brewer(palette = \"Dark2\") +\n  theme_classic() +\n  facet_wrap(vars(gender))\n\n`summarise()` has grouped output by 'my_year'. You can override using the\n`.groups` argument.\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\nAge trends\nIn this code-chunk we use a {ggplot2} function, cut_width(), to generate rough categories by age. dplyr::case_when() is a more thorough and sophisticated way to make some cuts in my data, but ggplot2::cut_width() works well for a quick visualization.\nNote the use of labels, scales, themes, and guides in the last visualization. A good plot will need refinement with some or all of these functions.\n\nmy_df_joined |> \n  mutate(age_cut = cut_width(age, width = 10, boundary = 0), .after = age) |> \n  count(age_cut, gender, sort = TRUE)\n\n\n\n  \n\n\nmy_df_joined |> \n  filter(age < 80) |> \n  drop_na(gender) |> \n  ggplot(aes(y = cut_width(age, width = 10, boundary = 0))) +\n  geom_bar(aes(fill = gender)) +\n  facet_wrap(vars(gender))\n\n\n\nmy_df_joined |> \n  filter(age < 70, age >= 20) |>\n  drop_na(gender) |> \n  ggplot(aes(my_year)) +\n  geom_bar(aes(fill = fct_rev(cut_width(age, width = 10, boundary = 0))), position = \"fill\") +\n  scale_y_continuous(labels = scales::percent) +\n  scale_fill_brewer(palette = \"Dark2\") +\n  labs(fill = \"Age\", title = \"Age distribution of ultra runners\",\n       caption = \"Source: ITRA > Benjamin Nowak > Tidy Tuesday\",\n       x = NULL, y = NULL) +\n  theme_classic() +\n  theme(legend.position = \"top\", plot.title.position = \"plot\") + \n  guides(fill = guide_legend(reverse = TRUE))"
+  },
+  {
+    "objectID": "viz.html",
+    "href": "viz.html",
+    "title": "Vizualization with ggplot2",
+    "section": "",
+    "text": "I only need the ggplot2 package but I like to load tidyverse because it includes 8 complimentary packages, including ggplot2.\nGet more information from:"
+  },
+  {
+    "objectID": "viz.html#ggplot2-template-code",
+    "href": "viz.html#ggplot2-template-code",
+    "title": "Vizualization with ggplot2",
+    "section": "ggplot2 template code",
+    "text": "ggplot2 template code\nThe ggplot2 template is used to identify the dataframe, identify the x and y axis, and define visualized layers\n\nggplot(data = ---, mapping = aes(x = ---, y = ---)) + geom_----()\n\nNote: ---- is meant to imply text (function names, dataframe names, variable names) you supply.\nIt is helpful to see the argument mapping, above. In practice, rather than typing the formal arguments, code is typically shorthanded to this:\n\ndataframe %>%  ggplot(aes(xvar, yvar)) + geom_----()"
+  },
+  {
+    "objectID": "viz.html#goal",
+    "href": "viz.html#goal",
+    "title": "Vizualization with ggplot2",
+    "section": "Goal",
+    "text": "Goal\nVisualize a scatter plot showing the relationship of mass to height for Star Wars characters in the dplyr::starwars dataframe, excluding the heaviest character. Indicate a linear regression line."
+  },
+  {
+    "objectID": "viz.html#import-data",
+    "href": "viz.html#import-data",
+    "title": "Vizualization with ggplot2",
+    "section": "Import data",
+    "text": "Import data\ndplyr has an on-board dataset, starwars\n\ndata(starwars)\nstarwars"
+  },
+  {
+    "objectID": "viz.html#steps-to-visualization",
+    "href": "viz.html#steps-to-visualization",
+    "title": "Vizualization with ggplot2",
+    "section": "Steps to Visualization",
+    "text": "Steps to Visualization\n\nDraw the base layer\nThis feels like, and looks like, you drew an empty box.\n\n\n\n\nstarwars %>% \n  ggplot() \n\n\n\n\nBut wait, there’s more….\n\n\nMap the aesthetics to variables in the data frame\nStill doesn’t look like much. You will initialize the plot scales and labels based on the values of the variables in the dataframe.\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot(aes(height, mass))\n\n\n\n\nIn the above, I subset the data, removing any Star Wars characters weighing more than 500 Kg – dplyr::filter(). Then I initialized the base layer with the height as the x axis and mass as the y axis. ggplot drew the scales for me.\n\n\nVisualize a layer\nSince I have two numeric variables, height and mass, I’ll start with a scatter plot. Scatter plots are generated by the geom_point() function.\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot(aes(height, mass)) +\n  geom_point() \n\n\n\n\n\n\nGlobal v local arguments\nSo far, the aesthetics are mapped in the aes() function within the initial ggplot function. As such, these values are mapped globally and all layers are affected by this mapping. See the aes() function, above. Arguments can also be mapped locally, within a geom function layer, as as geom_point(aes(height, mass)).\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot() +\n  geom_point(aes(height, mass)) \n\n\n\n\n\n\nMapping v Setting\nDataframe values can be mapped inside the aesthetic, aes(), to visualize variable dataframe values. Alternatively, data values can be set as an argument outside the aes() function but inside the geom_ function. This is done to affect a visual quality that is manually assigned, as opposed to being derived from variable data values.\nAesthetic arguments include:\n\ncolor\nfill\nsize\nlinetype\nopacity\nshape\nand more see documentation for each geom_\n\n\nMapping: color is mapped inside aes() function. In this case, color = starwars$gender\n\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot() +\n  # geom_point(mapping = aes(x = height, y = mass, color = gender))\n  geom_point(aes(height, mass, color = gender))\n\n\n\n\nNotice the legend was drawn automatically, above, by mapping an aesthetic\n\nSetting: The color argument can be set outside the aes() function, but within the geom_ function. In this case with color = \"goldenrod\"\n\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot() +\n  geom_point(aes(height, mass), color = \"goldenrod\")"
+  },
+  {
+    "objectID": "viz.html#layers",
+    "href": "viz.html#layers",
+    "title": "Vizualization with ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\n\n\n\n\n\nMore layers\n\n\n\nA list of all available geom_ functions, or layers, can be found in the help or on the ggplot2 website\n\n\n\nCommon geom_ functions\n\n\n\nType\nGeom\n\n\n\n\nBar graph:\ngeom_bar() geom_col()\n\n\nHistogram:\ngeom_histogram()\n\n\nScatter plot:\ngeom_point() geom_jitter()\n\n\nLine graph:\ngeom_line()\n\n\nBox plot:\ngeom_boxplot()\n\n\nDensity:\ngeom_density() geom_violin()\n\n\nHeat map:\ngeom_heatmap()\n\n\nMapping:\ngeom_sf()\n\n\nRegression line:\ngeom_smooth()\n\n\n\n\n\nBoxplot\n\nstarwars %>% \n  mutate(species = fct_lump_min(species, 2)) %>% \n  ggplot(aes(species, height)) +\n  geom_boxplot() \n\n\n\n\n\n\nLine graph\n\nbabynames::babynames %>% \n  filter(name == \"Watts\") %>% \n  ggplot(aes(year, n)) +\n  # geom_point() +\n  geom_line()\n\n\n\n\n\n\nOverplotting\nThere are two simple approaches to visualizing overplotted data: geom_jitter() and decrease the opacity be setting the alpha = argument.\n\nAdjust opacity. The alpha argument within the geom function affects the opacity of the points. In this way, overplotted data will appear as darker points on the plot\n\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot() +\n  geom_point(aes(height, mass), alpha = .3)\n\n\n\n\n\nJitter the data with geom_jitter()\n\ngeom_jitter will not change the values of the data but it will offset data points, making it easier to perceive the overplotting.\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot() +\n  geom_jitter(aes(height, mass))\n\n\n\n\n\n\nMultiple layers\nEach layer, visualized by a geom_ function, can support local arguments and draw from the global settings. Below we use the geom_line() function, followed by the geom_point() function.\nbabynames %>%\n  ggplot(aes(year, prop)) +\n  geom_line(aes(color = sex)) +\n  geom_point(alpha = 0.4, shape = \"cross\")\n\nThe full code for the above graph can be seen below.\nlibrary(babynames)\nlibrary(ggplot)\n\nbabynames %>% \n  filter(name == \"John\" & sex == \"M\" | \n           name == \"Elizabeth\" & sex == \"F\") %>% \n  ggplot(aes(year, prop)) +\n  geom_line(aes(color = sex)) +\n  geom_point(alpha = 0.4, shape = \"cross\") +\n  geom_text(data = . %>% filter(year == 1965), aes(label = name),\n            nudge_y = .009) +\n  labs(title = \"Name Popularity\") + \n  theme(legend.position = \"none\")\n\n\nGoal\nRecall the goal mentioned in the beginning. We want a scatter plot and a regression line. The regression line is drawn with the geom_smooth() function.\n\nstarwars %>% \n  filter(mass < 500) %>% \n  ggplot(aes(height, mass)) +\n  geom_point() +\n  geom_smooth(method = lm, se = FALSE)"
+  },
+  {
+    "objectID": "viz.html#arrange-order",
+    "href": "viz.html#arrange-order",
+    "title": "Vizualization with ggplot2",
+    "section": "Arrange order",
+    "text": "Arrange order\nCategorical values are most easily ordered with the forcats library. Part of the Tidyverse, the forcats package is used to transform string data as a factor data type. Data types in R can be simple distinctions useful in efficient computation, such as calculating numeric outcomes versus manipulating character data (i.e. string or text data). R data types are rich and sometimes complex. Staying simple, text data consisting of categories, may be efficiently handled as a factor data type. For example, eye colors can be categorized. Brown, blue, and green are nominal categorical values for the factor variable eye_color. Among other things, treating eye_color as a factor data type enables visually ordering categorical values by frequency.\n\nBefore arranging order\n\nmsleep %>% \n  ggplot(aes(vore)) +\n  geom_bar()\n\n\n\n\n\n\nArranging order with \\\\{forcats\\\\}\nChange the order of the bars by the frequency of observations using forcats::fct_infreq()\n\nmsleep %>% \n  ggplot(aes(fct_infreq(vore))) +\n  geom_bar() \n\n\n\n\nNotice below, we use the fill = argument to set the color of an individual bar. In the scatter plot examples, above, we used the color = argument. In many geoms_ you can use both color and fill arguments. How do these arguments differ? Where can you look to find out more about fill and color?\n\nstarwars %>% \n  ggplot(aes(fct_rev(fct_infreq(eye_color)))) +\n  geom_bar(fill = \"grey70\") +\n  geom_bar(data = starwars %>% filter(eye_color == \"orange\"), fill = \"darkorange\") +\n  coord_flip()"
+  },
+  {
+    "objectID": "viz.html#facet-wrap",
+    "href": "viz.html#facet-wrap",
+    "title": "Vizualization with ggplot2",
+    "section": "Facet wrap",
+    "text": "Facet wrap\nFaceting is great way to make subplots of the same data frame. See both facet_wrap() and facet_grid()\n\nmpg %>% \n  ggplot(aes(displ, hwy)) +\n  geom_point() +\n  facet_wrap(vars(class))"
+  },
+  {
+    "objectID": "viz.html#scales",
+    "href": "viz.html#scales",
+    "title": "Vizualization with ggplot2",
+    "section": "Scales",
+    "text": "Scales\nScales are used to affect the visual qualities of the data. I’ll introduce scales to visualize discrete categories by associating each discrete value with a specific color. Read more about scales.\nViridis scales apply color palettes to continuous, discrete, or binned data. For discrete data we can use the scale_fill_viridis_d() function.\n\nBy using one the scale_fill_ functions, we are able to affect the variable values associated in the fill = conservation argument.\n\n\nmy_plot <- msleep %>% \n  ggplot(aes(fct_infreq(vore), sleep_total)) +\n  geom_col(aes(fill = conservation))\n\nmy_plot +\n  scale_fill_viridis_d(na.value = \"grey80\")\n\n\n\n\nThe color brewer palette is similar but has a wider array of palettes to choose from. Below we use scale_fill_brewer() and a default qualitative color palette by setting the type = argument to qual (for qualitative). Alternatively, or additionally, we could assign a palette = argument to choose a particular ColorBrewer palette, such as choosing the “Dark2” palette with the argument palette = \"Dark2\"\n\nmy_plot +\n  scale_fill_brewer(type = \"qual\", na.value = \"grey80\") \n\n\n\n\nSometimes a manual scale is preferred. Below we use scale_fill_manual() to associate a defined set of color names with my fill = conservation argument\n\nmycolors <- c(\"firebrick\", \"forestgreen\", \"navy\", \"darkorange\", \n               \"goldenrod\", \"sienna\")\n\nmy_plot +\n  scale_fill_manual(values = mycolors, na.value = \"grey80\") \n\n\n\n\nTo find available colors: Google search “R color names”, or specific to ColorBrewer….\n\n#display.brewer.pal(7,\"Dark2\")\nRColorBrewer::display.brewer.all()\n\n\n\n\nScales are used to manipulate the visual properties of the data. Beyond using scales to modify colors, another example is logarithmic scales to account for data skew. In this way you can clarify the data pattern. For example, using the ChickWeight dataset, we visualize the weights of the chicks over time. Hint: You can visualize the data skew with a histogram, geom_histogram().\n\ndata(\"ChickWeight\")\n\nChickWeight %>% \n  ggplot(aes(Time, weight, color = Diet)) +\n  geom_line(aes(group = Chick))\n\n\n\n\nUsing scale_y_log10 we can alter the scale to highlight a more understandable data pattern\n\nchicken_plot <- ChickWeight %>% \n  ggplot(aes(Time, weight, color = Diet)) +\n  geom_line(aes(group = Chick)) +\n  scale_y_log10()\nchicken_plot"
+  },
+  {
+    "objectID": "viz.html#labels",
+    "href": "viz.html#labels",
+    "title": "Vizualization with ggplot2",
+    "section": "Labels",
+    "text": "Labels\nThe labs() function is specialized scales function, used to apply labels. For example, use the labs() function to add a title, subtitle, legend title, modify axis labels, and set a caption. See more on scales.\nFirst let’s wrangle a data frame, make a plot, and assign it to an object name\n\nplot_sleep <- msleep %>% \n  mutate(vore = case_when(\n    vore == \"herbi\" ~ \"Herbivore\",\n    vore == \"omni\"  ~ \"Omnivore\",\n    vore == \"carni\" ~ \"Carnivore\",\n    vore == \"insecti\" ~ \"Insectivore\"\n  ))  %>%\n  mutate(my_order = sum(sleep_total), .by = vore) |> \n  summarise(sleep_total = sum(sleep_total, na.rm = TRUE), .by = c(vore, my_order, conservation)) |> \n  ggplot(aes(fct_rev(fct_reorder(vore, my_order)), sleep_total)) +\n  geom_col(aes(fill = conservation)) +\n  scale_fill_brewer(type = \"qual\", na.value = \"grey80\")\n\nNow we can add labels with the labs function\n\nplot_sleep +\n  labs(title = \"Animal sleep times\", \n       subtitle = \"A practice dataset\",\n       fill = \"Conservation\\nType\",\n       x = \"\",\n       y = \"Sleep time in hours\",\n       caption = \"Source: ggplot::msleep\")"
+  },
+  {
+    "objectID": "viz.html#themes",
+    "href": "viz.html#themes",
+    "title": "Vizualization with ggplot2",
+    "section": "Themes",
+    "text": "Themes\nThemes are used to manipulate the stylistic characteristics of the non-data components of your plot, such as font faces, text sizes, and grid lines. ProTip: quickly manipulate a single plot with preset themes such as theme_dark, or use a specialized theme extension such as theme_ipsum from the hrbrthemes package.\n\nhttps://ggplot2.tidyverse.org/reference/ggtheme.html\n\nfor example… theme_dark(), theme_light(), theme_classic()\n\nhttps://cinc.rud.is/web/packages/hrbrthemes/\nhttps://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/\n\nSee more on themes\n\nExample themes\n\n\n\nImage source: from R for Data Science by Grolemund & Wickham\n\n\n\n\ntheme_dark()\n\nplot_sleep +\n  theme_dark()\n\n\n\n\n\n\ntheme_classic\n\nplot_sleep +\n  theme_classic()\n\n\n\n\n\n\nhbrthemes\nhttps://cinc.rud.is/web/packages/hrbrthemes/\n\nplot_sleep +\n  hrbrthemes::theme_ipsum(grid = \"Y\") +\n  hrbrthemes::scale_fill_ipsum(na.value = \"grey80\",\n                               labels = c(\"Critical\", \"Domesticated\", \n                                          \"Endangered\", \"Least Concern\", \n                                          \"Threatened\", \"Vulnerable\")) +\n  theme(plot.title.position = \"plot\")"
+  },
+  {
+    "objectID": "viz.html#combine-plots",
+    "href": "viz.html#combine-plots",
+    "title": "Vizualization with ggplot2",
+    "section": "Combine plots",
+    "text": "Combine plots\nThe patchwork package makes it “ridiculously simple to combine separate ggplot objects into the same graphic.” The /will separate plots vertically. The | will separate plots horizontally. See more about patchwork\n\nTry also: (plot_sleep | chicken_plot)\n\n\n# https://patchwork.data-imaginist.com/\nlibrary(patchwork)\n\n(plot_sleep / chicken_plot)"
+  },
+  {
+    "objectID": "viz.html#interactive-plots",
+    "href": "viz.html#interactive-plots",
+    "title": "Vizualization with ggplot2",
+    "section": "Interactive plots",
+    "text": "Interactive plots\nUse the ggplotly function will transform your static ggplot object into an interactive plot for use in dashboards and web presentations. ggplotly1 is an example of HTML widgets for R2, an easy to implement approach that will be explained more in the next section.\n\nlibrary(plotly)\nggplotly(plot_sleep)\n\n\n\n\n\nFor more advanced interactivity we’ll also explore ObservableJS.3"
+  },
+  {
+    "objectID": "viz.html#animate-plots",
+    "href": "viz.html#animate-plots",
+    "title": "Vizualization with ggplot2",
+    "section": "Animate plots",
+    "text": "Animate plots\nUse the {gganimate} package to bring your plot to life through the wonders of animation. Learn more at the resource page for gganimate\nFor Example:\n\n\n\n\n\nImage source:  https://gganimate.com/index.html#yet-another-example"
+  },
+  {
+    "objectID": "viz.html#attribution",
+    "href": "viz.html#attribution",
+    "title": "Vizualization with ggplot2",
+    "section": "Attribution",
+    "text": "Attribution\nAdapted in whole or in part; based on the Visualize Data with ggplot2 slides by Garrett Grolemund at RStudio which carries the CC BY Garrett Grolemund, RStudio license."
+  },
+  {
+    "objectID": "widgets.html",
+    "href": "widgets.html",
+    "title": "Easy interactive viz",
+    "section": "",
+    "text": "The ggplotly function of the {plotly} package (Sievert 2020) is an example implementation of HTML Widgets for R. Beyond {plotly} there are many widgets to choose from. Widgets can be chained together via {crosstalk} to support cross-widget interactions such as linked brushing and filtering. The HTML widgets approach is simpler to implement than Shiny and delivers powerful interactive visualizations to your audience."
+  },
+  {
+    "objectID": "widgets.html#examples",
+    "href": "widgets.html#examples",
+    "title": "Easy interactive viz",
+    "section": "Examples",
+    "text": "Examples"
+  },
+  {
+    "objectID": "widgets.html#plotly",
+    "href": "widgets.html#plotly",
+    "title": "Easy interactive viz",
+    "section": "plotly",
+    "text": "plotly\nIn the previous ggplot2 section on interactivity, we briefly introduced an example interactive bar chart using ggplotly to transform a {ggplot2} object. {plotly} has its own rich syntax and can do more than make interactive ggplot2 plots. Here’s another quick example. Follow the links, above, to more documentation and examples. Try the examples below.\n\nlibrary(dplyr)\nlibrary(plotly)\n\nmy_df <- starwars |> filter(mass < 500) \n\nplot_ly(my_df, x = my_df$height, y = my_df$mass, \n        text = my_df$name,\n        mode = \"markers\", color = my_df$gender)"
+  },
+  {
+    "objectID": "widgets.html#dygraphs",
+    "href": "widgets.html#dygraphs",
+    "title": "Easy interactive viz",
+    "section": "dygraphs",
+    "text": "dygraphs\nAnother HTML widget is {dygraph} for time-series data\n\nlibrary(dygraphs)\ndygraph(nhtemp, main = \"New Haven Temperatures\") %>% \n  dyRangeSelector(dateWindow = c(\"1920-01-01\", \"1960-01-01\"))"
+  },
+  {
+    "objectID": "widgets.html#crosstalk-and-leaflet",
+    "href": "widgets.html#crosstalk-and-leaflet",
+    "title": "Easy interactive viz",
+    "section": "crosstalk and leaflet",
+    "text": "crosstalk and leaflet\nUsing {crosstalk} for cross widget interaction (linked brushing and filtering) between two HTML widgets. In this example we link {leaflet} and {DT} widgets\n\n\n\nCode\nlibrary(crosstalk)\nlibrary(leaflet)\nlibrary(DT)\n\n# Wrap data frame in SharedData\nsd <- SharedData$new(quakes[sample(nrow(quakes), 100),])\n\n# Create a filter input\nfilter_slider(\"mag\", \"Magnitude\", sd, column=~mag, step=0.1, width=250)\n\n\n\nMagnitude\n\n\n\n\n\nCode\n# Use SharedData like a dataframe with Crosstalk-enabled widgets\nbscols(\n  leaflet(sd) %>% addTiles() %>% addMarkers(),\n  datatable(sd, extensions=\"Scroller\", style=\"bootstrap\", class=\"compact\", width=\"100%\",\n    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))\n)"
+  },
+  {
+    "objectID": "widgets.html#reactable",
+    "href": "widgets.html#reactable",
+    "title": "Easy interactive viz",
+    "section": "reactable",
+    "text": "reactable\nOr use {reactable} another easy-to-use interactive data tables package.\n\n\nlibrary(reactable)\n\nggplot2::mpg |> \n  slice_head(n = 20) |> \n  reactable(searchable = TRUE, minRows = 10)"
+  },
+  {
+    "objectID": "widgets.html#more",
+    "href": "widgets.html#more",
+    "title": "Easy interactive viz",
+    "section": "More",
+    "text": "More\nSee more HTML widgets at the HTML Widgets for R gallery.\nIn the next section we’ll introduce a very powerful interactive tool that works with Quarto: ObservableJS."
+  },
+  {
+    "objectID": "wrangle.html",
+    "href": "wrangle.html",
+    "title": "Wrangle Data with {dplyr}",
+    "section": "",
+    "text": "{dplyr} verbs help you wrangle, clean, and normalize your data\n\n\n\n\n\n\ndplyr function\nuse for\n\n\n\n\nselect()\nsubset columns\n\n\nfilter()\nsubset rows\n\n\narrange()\nsort rows by column variable values\n\n\ngroup_by()\nuse with summarize for subtotals\n\n\nsummarize()\ngenerate column totals and subtotals, etc.\n\n\ncount()\na specialized summarize() function\n\n\n\n\nExamples\nFirst we need to load the {dplyr} package for wrangling and the {readr} package for importing CSV data. In our case, we’ll do that by loading the tidyverse which loads {dplyr}, {readr} and several other helpful packages. Then we need to load our data\n\nlibrary(tidyverse)\nbrodhead_center <- read_csv(\"data/brodhead_center.csv\")\n\n\nselect()\n\nbrodhead_center |> \n  select(name, type)\n\n\n\n  \n\n\n\n\n\n\n\n\nSelect columns\n\n\n\n\nfilter()\n\nbrodhead_center |> \n  filter(menuType == \"dessert\")\n\n\n\n  \n\n\n\n\n\n\n\n\nFilter by rows\n\n\n\n\narrange()\n\nbrodhead_center |> \n  arrange(cost)\n\n\n\n  \n\n\n\n\n\n\n\n\nArrange rows by the values in a column\n\n\n\n\nmutate()\n\nbrodhead_center |> \n  mutate(ratings_high = rating * 2)\n\n\n\n  \n\n\n\n\n\n\n\n\nCreate new variable or modify variable with mutate()\n\n\nWe can also mutate data by groups or categories\n\nbrodhead_center |> \n  mutate(avg_item_rating_rest = mean(rating, na.rm = TRUE), \n         .by = name, \n         .after = name)\n\n\n\n  \n\n\n\n\n\ncount()\n\n\n\n\n\n\n\n  \n    \n      Count values in a group\n    \n    \n    \n      menuType\n      n\n    \n  \n  \n    entree\n24\n    appetizer\n23\n    dessert\n7\n    side\n5\n  \n  \n  \n\n\n\n\nbrodhead_center |> \n  count(menuType)\n\n\n\n  \n\n\n\n\n\ngroup_by() & summarise()\n\n\n\n\n\n\n\n  \n    \n      Summarise column\n    \n    \n    \n      Sum_of_cost\n    \n  \n  \n    412\n  \n  \n  \n\n\n\n\nbrodhead_center |> \n  group_by(name) |> \n  summarise(min_cost = min(cost), mean_cost = mean(cost), max_cost = max(cost))\n\n\n\n  \n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by-nc/4.0/"
   }
 ]

@@ -1,56 +1,101 @@
 ---
-title: "Introduction to R: _a quickstart to R and the Tidyverse for data science_"
+title: "R workshop - get started"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
 ---
 
-Below are the introductory video streams hosted by the Rfun learning series. Follow the quick reference pages linked from the page header and please **explore more** at the [**Rfun**](https://rfun.library.duke.edu) site.
+**Let's learn R**
 
-::: {layout-ncol="2"}
-**FIRST: Introduction**\
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Wmozk2qEsL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-**SECOND: Data Wrangling with `dplyr`**\
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PGSXf-NMWVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-::: panel-tabset
-## `ggplot2`
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TIJzx5eQbgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-
-</iframe>
-
-## Intro `ggplot2`
-
-<iframe height="315" width="560" src="https://warpwire.duke.edu/w/v4gFAA/" frameborder="0" scrolling="0" allow="autoplay *; encrypted-media *; fullscreen *; picture-in-picture *;" allowfullscreen>
-
-</iframe>
-
-## Advanced Viz
-
-<iframe src="https://library.capture.duke.edu/Panopto/Pages/Embed.aspx?id=b41df32a-cfa3-4e8c-b374-aab600f18fc7&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;start=0&amp;interactivity=all" width="560" height="315" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-
-</iframe>
+::: column-margin
+[![](images/DALL-E_2023-07-13_learn_R.png){fig-alt="Learn R"}](images/DALL-E_2023-07-13_learn_R.png)
 :::
 
-::: panel-tabset
-## Mapping
+-   Basic
 
-<iframe height="315" width="500" src="https://warpwire.duke.edu/w/JZ8EAA/" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen>
+    -   RStudio **projects** and **reproducibility** with Quarto
 
-</iframe>
+        -   Import, wrangle, and summarize data
 
-## Geospatial Analysis
+        -   Visualize --- plus simple *interactivity*
 
-<iframe height="315" width="560" src="https://warpwire.duke.edu/w/cUoFAA/" frameborder="0" scrolling="0" allow="autoplay *; encrypted-media *; fullscreen *; picture-in-picture *;" allowfullscreen>
+        -   Tidy data --- plus *pivoting* and *joining* data frames
 
-</iframe>
+        -   Regression --- just a taste
+
+    -   An example of joining data and Exploratory Data Analysis
+
+-   Advanced
+
+    -   Interactive visualization with ObservableJS
+
+    -   Custom functions
+
+    -   Iteration with {purrr}
+
+    -   Tidymodels
+
+::: callout-tip
+## Quarto and reproducibility
+
+This is a [Quarto website](https://quarto.org/docs/websites "quarto website documentation") authored with [R](https://www.r-project.org/ "download R") and the [RStudio IDE](https://posit.co/products/open-source/rstudio/ "Download RStudio"). Quarto is part of your reproducible workflow and helps you render your analysis into various formats (PDF, Word, Website, Interactive, etc.)
 :::
 
-**Basic/brief into to linear regression workflow** <iframe width="560" height="315" src="https://www.youtube.com/embed/Wmozk2qEsL0?start=1183" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## First steps
 
-**Iteration and Custom Functions**\
-- [Shareable Code](https://github.com/libjohn/workshop_rfun_iterate) available now<br>- YouTube modular videos coming soon.
+1.  Tour of your Local File System
+    -   R / RStudio
+    -   Clone code from GitHub
+2.  Start a new project by importing the github repository for this workshop
+    -   <https://github.com/libjohn/workshop_R-get-started.git>
+3.  Open the `import.qmd` notebook-file from the *Files* tab in the RStudio IDE
+
+## Pipes and Assignment
+
+Some coding syntax is unique in R and the Tidyverse. You will see these symbols frequently.
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/FK5UKBT-8iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
 :::
 
-------------------------------------------------------------------------
+::: callout-note
+## `<-` Assignment - "*gets value from*"
 
-Additional background and explanatory videos/materials are available from [Rfun.library.duke.edu](https://rfun.library.duke.edu)
+By convention we use two assignment symbols when creating object names
+
+> `<-` typically used at the beginning of a pipeline or function
+>
+> `=` typically used within the `mutate` function
+
+**Keystroke**:\
+Alt-dash
+
+**Example**:\
+`my_vector <- c(2, 4, 6:9)`
+:::
+
+::: callout-note
+## `%>%` Pipes and pipelines - "*and then*"
+
+We can create *data sentences*, or **pipelines**, by chaining many functions together from left to right.
+
+There are at least three main pipe symbols
+
+> `|>` or `%>%`
+>
+> `+` only used in ggplot2 pipelines
+
+**Keystroke**:\
+Ctrl-shift-M or Cmd-shift-M
+
+**Example:**\
+`cars |> select(speed)`
+:::
+
+## More workshops
+
+[This workshop and many others](https://library.duke.edu/data/workshops) covering topics in data science, visualization, mapping and GIS, and data management are hosted each semester by the **Center for Data and Visualization Sciences** (CDVS). All workshops are recorded with shareable code, data, slides and recordings. You can find the [R-specific resources at our Rfun](https://rfun.library.duke.edu) site. Meanwhile, *all CDVS workshop* materials are available at our [online learning page](https://library.duke.edu/data/workshops) --- including duplicates of the R materials found at Rfun.

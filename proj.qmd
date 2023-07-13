@@ -1,0 +1,101 @@
+---
+title: "Projects"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
+---
+
+## RStudio Projects[^1]
+
+[^1]: <https://support.posit.co/hc/en-us/articles/200526207-Using-Projects>
+
+::: callout-note
+## R and RStudio are not the same thing --- they go together
+
+**R** is a coding language interpreter. **RStudio** is an *Integrated Development Environment* (IDE) used to make it easier to interact with the coding language.
+:::
+
+The projects feature of R is useful for keeping project and ideas discrete. Using the project feature helps us set-up and maintain an reproducible workflow, makes it easier to share our code with others, and enables good coding hygiene, such as using relative file paths
+
+### How to...
+
+::: column-margin
+[![RStudio Projects](images/projects.jpg){fig-alt="RStudio Projects"}](images/projects.jpg)
+:::
+
+1.  Look in the upper-right corner of your RStudio IDE. Or, `File > New Projects`
+2.  Choose between **New**, Existing, or Version Control.
+3.  If you choose a New project, there are several options for project types. I recommend starting with **Quarto Project**[^2]
+
+[^2]: Quarto projects are a special subtype of RStudio projects. [https://quarto.org/docs/projects/quarto-projects.html](https://quarto.org/docs/projects/quarto-projects.htmlhttps://quarto.org/docs/projects/quarto-projects.html)
+
+::: {layout-ncol="2"}
+[![New Quarto project](images/quarto_project.jpg){fig-alt="New Quarto project" width="250"}](images/quarto_project.jpg)
+
+[![New Quarto Document](images/new_quarto_document.jpg){fig-alt="New Quarto Document" width="225"}](images/new_quarto_document.jpg)
+:::
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/w_xCkbf7iYw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
+::: callout-tip
+## Switch between projects
+
+By clicking the upper-right hand corner of your project name, you'll be able to easily switch between projects.
+:::
+
+## Settings in RStudio preferences
+
+Further recommendations on reproducibility suggest setting the following global preferences
+
+::: {layout-ncol="2"}
+[![Global options \> General](images/prefers_global_options_general.jpg){fig-alt="Global options > General" width="200"}](images/prefers_global_options_general.jpg)
+
+[![Global options \> Code](images/prefers_global_options_pipe.jpg){fig-alt="Global options > Code" width="300"}](images/prefers_global_options_pipe.jpg)
+:::
+
+::: column-margin
+[![Tools \> Global options](images/prefers_global_options.jpg){fig-alt="Tools > Global options" width="200"}](images/prefers_global_options.jpg)
+:::
+
+-   **Uncheck**
+
+    -   Restore most recently opened project (uncheck)
+    -   Restore previously open source document (uncheck)
+    -   Restore .Rdata (uncheck)
+    -   Save workspace to .RData to **NEVER**
+    -   Always save history (uncheck)
+
+Read more about the [blank slate approach to reproducibility](https://docs.posit.co/ide/user/ide/get-started/#blank-slate) using the RStudio IDE.
+
+## Reproducibility
+
+Reproducibility is an that supports from compuational thinking by ensuring all documents, analysis, data, and code are readily available so that the computations can be executed and re-executed to achieve identical results[^3]
+
+[^3]: <https://en.wikipedia.org/wiki/Reproducibility>
+
+::: column-margin
+![Reproducibility pyramid (Little and Lafferty-Hess, 2023)](images/Little_reproducibility_project_pyramid.jpg){fig-alt="Reproducibility pyramid"}
+:::
+
+> Two fot he most basic principle in reproducibility are...
+>
+> 1.  **Do everything with code**
+> 2.  **Render documents from code**
+
+Developing computation techniques to honor these principles means, whenever possible, reduce or eliminate mouse-clicks, copy/paste steps, and other computational actions. Among other reasons, we do this because such actions are hard to document for ourselves and others.
+
+In this way, using a coding language such as R along with a reproducible publishing scheme such as Quarto, while also incorporating literate coding[@knuth1984], tidy data[@wickham2014], and and tidyverse principles[@wickham2019] is an ideal way to ensure not only the reproducibility of your analysis.
+
+Building on these strong foundations increases the chances of archiving your work for posterity. We have learned this by looking back at the computational workflows of the nineteen seventies through the early two-thousands. Many, if not most of which can no longer be reproduced without excessive retrofitting expense.
+
+## Archiving dependencies with {renv}
+
+"The `renv` package helps you create **r**eproducible **env**ironments for your R projects." {[renv](https://rstudio.github.io/renv)}
+
+> The `renv` package is a new effort to bring project-local R dependency management to your projects. The goal is for `renv` to be a robust, stable replacement for the [Packrat](https://rstudio.github.io/packrat/) package, with fewer surprises and better default behaviors. --- [Introduction to renv / Kevin Ushey](Introduction%20to%20renv%20by%20Kevin%20Ushey "renv package")

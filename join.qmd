@@ -1,0 +1,119 @@
+---
+title: "Join two data frames"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
+---
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+```
+
+## Join
+
+There are a series of [join commands](https://dplyr.tidyverse.org/reference/index.html#section-two-table-verbs)
+
+-   left_join, inner_join, right_join, full_join,
+-   semi_join, anti_join
+
+![{dplyr} joins visualized in venn diagrams](images/join_diagram.png)
+
+First let's read in the favorability ratings data from fivethirtyeight.com
+
+## data
+
+These exercisees use the following [`ggplot2` training datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
+
+-   dplyr::starwars
+-   Data from fivethrityeight.org (modified)
+
+```{r}
+#| message: false
+#| warning: false
+fav_ratings <- read_csv("data/538_favorability_popularity.csv", skip = 11)
+fav_ratings
+```
+
+```{r}
+starwars
+```
+
+Join on a **key** that is common across two data frames. For best results use a numeric key that promotes precision. Of course, we're going to use a alphabetic key, `name`, which will highlight what can go wrong and introduce troubleshooting strategies.
+
+In this case, the key will be the `name` variable that is common to both tables. We're using the `fav_ratings` tibble and the `starwars` tibble.
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/GJUcnEV_6O0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
+```{r}
+fav_ratings  |>  
+  left_join(starwars, by = join_by(name))  |> 
+  arrange(desc(fav_rating))
+```
+
+### anti_join
+
+what is in the left table and not the right table.
+
+```{r}
+anti_join(fav_ratings, starwars) |> arrange(name)
+anti_join(starwars, fav_ratings) |> arrange(name)
+```
+
+### semi_join or inner_join
+
+join only the rows that match.
+
+```{r}
+fav_ratings |> 
+  semi_join(starwars)
+```
+
+### Regex
+
+Regular expressions and {stringr} can be handy when manipulating character variables into join keys.
+
+-   str_detect()
+
+-   str_to_lower()
+
+-   str_remove()
+
+-   str_trim()
+
+-   str_extract()
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/UCrYhpGT_B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
+```{r}
+starwars %>% 
+  filter(str_detect(name, 
+                    regex("3p|palpatine|obi|amidala|leia|d2", 
+                          ignore_case = TRUE))) %>% 
+  arrange(name)
+```
+
+```{r}
+fav_ratings %>% 
+  filter(str_detect(name, 
+                    regex("3p|palpatine|obi|amidala|leia|d2", 
+                          ignore_case = TRUE))) %>% 
+  arrange(name)
+```
+
+## See Also
+
+-   dplyr::**bind_rows**()
+
+-   dplyr::**bind_cols**()

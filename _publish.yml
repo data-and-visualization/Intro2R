@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 77b7ca51-64d2-4322-aa81-165791d19879
+      url: 'https://intro2r.library.duke.edu'

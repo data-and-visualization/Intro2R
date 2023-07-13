@@ -1,0 +1,82 @@
+---
+title: "Getting started with ai-assisted LLMs"
+subtitle: "chatGPT, copilot, Palm, POE"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
+---
+
+Ai-assisted coding tools such as OpenAI's **ChatGPT**, Google's **Bard**, and GitHub's **Copilot** can be a used in code generation, code completion, and learning to code. R-specific approaches to assisted coding are convenient and available through RStudio addins such as {[**gptstudio**](#0)}.
+
+::: {.callout-warning collapse="true"}
+## warning
+
+This information is fluid and ever-evolving. The AI field of LLMs is in flux.
+
+LLMs can save you time. They can be biased, inaccurate, and generate harmful content.
+
+Be careful and circumspect about the data uploaded to these models.
+:::
+
+## Quick Start
+
+[Bing Chat](https://www.microsoft.com/en-us/edge/features/bing-chat) can access openAI's *ChatGPT* where you must use the MSEdge browser. [Google **Bard**](https://bard.google.com) works in any browser. Another option is [**poe**.com](https://poe.com). Poe is especially useful for experimenting with a variety of LLMs including *ChatGPT*, Google-*PaLM* (Bard), *Sage*, and *Claude*.
+
+Below is *from* the Bard LLM when asked for advice on learning to code with ai-assited LLMs:
+
+> -   Be specific in your requests
+> -   Use clear and concise language
+> -   Provide examples
+> -   Be patient
+> -   Use a variety of LLMs and experiment with different approaches
+> -   **Use LLMs as a supplement to other learning resources**
+> -   Verify your computational results
+
+See Also: the warning, above, and the *ethics* section, below.
+
+## Tools or packages
+
+Aside from the websites mentioned in the *Quick Start* section above, there are many approaches to integrating AI-assistance directly into an IDE such as RStudio or VSCode. These addins, or plugins, are highlighted for their seemless integration in a coding IDE.
+
+### gptstudio
+
+The gptstudio can reference a variety of LLMs defaulting to ChatGPT. A big advantage to {[gptstudio](https://michelnivard.github.io/gptstudio/)} is the ability to stay within the **RStudio** IDE, interacting seemlessly with notebooks or plain script files. From the Addins menu, get assistance writing code, or checking spelling and grammar. A companion package {gpttools} can extend {gptstudio}.
+
+#### Preequisites
+
+-   OpenAI account
+-   OpenAI API key (requires a credit card but may not require payment)
+-   Set the API key in RStudio environment. For security, if using version control (such as GitHub), include the .Renviron in the .gitignore file
+
+[Setup details are explained](https://michelnivard.github.io/gptstudio/#prerequisites) at gptstudio. Pricing seems exceedingly low as of this writing but there are no garauntees. The API allows coder to set cost limits.
+
+### RTutor
+
+There is a [website](https://rtutor.ai/) or a [**package** for integrating into **RStudio**](https://github.com/gexijin/RTutor). Does not require an API key, but paying your way is appreciated. This is a tutor designed to help teach about ai-assisted coding and learn about exploring datasets. A subsection of RTutor automatically runs datasets through various EDA packages.
+
+### Github Copilot
+
+Defaults to OpenAI's *codex* LLM based on code found in GitHub. This tools is focused on code completion rather than conceptual computational thinking. Must use the **VSCode** IDE, an IDE with similarities to the RStudio IDE.
+
+## Comparisons of models
+
+**gptstudio**: Great for its deep integration into RStudio and ability to work within code-chunks or prose. Setting up the API key is a necessary configuration. Be sure to protect any API-key linked to a credit card.
+
+**Bard/PaLM:** Google's LLM. Fast, efficient and familiar.
+
+**Poe.com**: Easy access to several LLM models: ChatGPT, PaLM, GPT-4, Claude, and Sage. Works well. Comparison of LLM responses is convenient. Log-out is found in the settings page.
+
+**ChatGPT**: OpenAI's LLM. This works well. Free website can slow down due to user congestion limits. Subscription models exist, presumably with less congestion.
+
+**Copilot**: OpenAI's codex LLM focused on code completion. In my experience copilot is less useful in understanding conceptual questions about computational data analysis. Uses the VSCode IDE; a nice app that works with many coding languages including R. VSCode also works with Quarto. The R set-up in VSCode is a bit cranky. If you're a Pythonite, VSCode set-up is more convenient than R. If you're an R coder, you might be happy sticking with RStudio.
+
+### Summary comparison
+
+Bard/PaLM and ChatGPT (via addins, poe.com, bing.com, or openai.com) have worked well in my tests. There seem to be some usage-congession limitations, especially if you don't subscribe. See also the tips at the top of this page about using using LLMs for assisted coding.
+
+## Ethics
+
+LLMs knowledge bases are private and lack transparency. There are important societal concerns about the fairness of equitable access to these tools. It's unclear how developers or the users of these models can be held accountable.

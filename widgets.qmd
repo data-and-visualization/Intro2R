@@ -1,0 +1,96 @@
+---
+title: "Easy interactive viz" 
+subtitle: "{plotly} and other HTML Widgets"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
+---
+
+The gg`plotly` function of the {plotly} package [@sievert2020] is an example implementation of [HTML Widgets for R](https://www.htmlwidgets.org/). Beyond {plotly} there are [**many** widgets](http://gallery.htmlwidgets.org/) to choose from. Widgets can be chained together via {[crosstalk](https://rstudio.github.io/crosstalk/)} to support cross-widget interactions such as linked brushing and filtering. The HTML widgets approach is simpler to implement than Shiny and delivers powerful interactive visualizations to your audience.
+
+## Examples
+
+## plotly
+
+In the [previous ggplot2 section on interactivity](viz.html#interactive-plots), we briefly introduced an example interactive bar chart using `ggplotly` to transform a {ggplot2} object. {[plotly](https://plotly.com/ggplot2/)} has its own rich syntax and can do more than make interactive ggplot2 plots. Here's another quick example. Follow the links, above, to more documentation and examples. Try the examples below.
+
+```{r}
+#| label: plotly
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+my_df <- starwars |> filter(mass < 500) 
+
+plot_ly(my_df, x = my_df$height, y = my_df$mass, 
+        text = my_df$name,
+        mode = "markers", color = my_df$gender)
+  
+
+```
+
+## dygraphs
+
+Another HTML widget is {[dygraph](https://rstudio.github.io/dygraphs/)} for time-series data
+
+```{r}
+library(dygraphs)
+dygraph(nhtemp, main = "New Haven Temperatures") %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+```
+
+## crosstalk and leaflet
+
+Using {[`crosstalk`](https://rstudio.github.io/crosstalk/)} for cross widget interaction (linked brushing and filtering) between two HTML widgets. In this example we link {leaflet} and {DT} widgets
+
+::: column-page
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+library(crosstalk)
+library(leaflet)
+library(DT)
+
+# Wrap data frame in SharedData
+sd <- SharedData$new(quakes[sample(nrow(quakes), 100),])
+
+# Create a filter input
+filter_slider("mag", "Magnitude", sd, column=~mag, step=0.1, width=250)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+```
+:::
+
+## reactable
+
+Or use {[`reactable`](https://glin.github.io/reactable/index.html)} another easy-to-use interactive data tables package.
+
+::: column-page
+
+```{r}
+library(reactable)
+
+ggplot2::mpg |> 
+  slice_head(n = 20) |> 
+  reactable(searchable = TRUE, minRows = 10)
+
+```
+:::
+
+## More
+
+See more HTML widgets at the [HTML Widgets for R gallery](http://gallery.htmlwidgets.org/).
+
+In the [next section](interactive.html) we'll introduce a very powerful interactive tool that works with Quarto: ObservableJS.

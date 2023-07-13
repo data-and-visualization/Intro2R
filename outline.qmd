@@ -1,0 +1,216 @@
+---
+title: "Two-day R data-science workshop"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC 
+bibliography: references.bib
+---
+
+## Day One:
+
+### Part 1 - getting started
+
+-   What is R
+
+    -   data-first programming/coding language
+
+    -   extend R with domain-specific **packages**. See: [MetaCran](https://www.r-pkg.org/), [CRAN](https://cran.r-project.org/), github, [bioconductor](https://www.bioconductor.org/)
+
+-   What is the [Tidyverse](https://www.tidyverse.org/)
+
+-   What is [Tidy data](https://r4ds.had.co.nz/tidy-data.html)
+
+-   **Reproducibility**: data-first tools help leverage reproducible workflows throughout computational thinking
+
+    -   blank-slate instead of .Rdata
+
+    -   Restart instead of `rm(list = ls())`
+
+    -   Intentional use of the RStudio projects feature
+
+    -   Version Control: git and GitHub
+
+    -   {`renv`} for archiving/documenting package environments
+
+-   Tool suite
+
+    -   RStudio
+
+    -   Quarto Notebooks (Merge literate coding with report rendering)
+
+    -   {`dplyr`} & {`tidyr`} - a grammar for data wrangling
+
+    -   {`ggplot2`} - a grammar of graphics
+
+    -   Other packages e.g. {`readr`}, {`forcats`}, {`stringr`}, {`purrr`}, {`tidymodels`}
+
+-   Console
+
+    -   basic computation
+
+    -   vectors and vectorized math
+
+    -   environment variables and data variables
+
+    -   **assignment** variables: `<-` and `=` (not the same as equivalency `==`)
+
+    -   **pipe**s = `|>` and `%>%`
+
+-   RStudio [Projects](https://docs.posit.co/ide/user/ide/guide/code/projects.html)
+
+    -   use projects instead of `setwd()` ; relative paths are vital to reproducibility
+    -   Documents: Quarto document
+
+-   Import CSV data
+
+    -   `read_csv()` and the data import wizard found in *Files* tab and *Environment* tab
+
+    -   Other data formats
+
+        -   {`readxl`}, {`haven`}
+
+    -   SQL
+
+        -   Code-chunks can perform SQL
+
+        -   {`dbplyr`}
+
+        -   [Best Practices with Databases](https://solutions.posit.co/connections/db/)
+
+    -   **Exercise**
+
+        -   import a CSV file
+
+        -   import a Stata categorical file using {*haven*}
+
+-   {`dplyr`}
+
+    -   select(), filter(), arrange(), mutate(), group_by(), summarize(), count()
+
+    -   **Exercise**
+
+    -   Semantic meaning in data 
+
+    -   Codebooks in a literate coding context
+
+\
+
+### Part 2 - visualization plus EDA
+
+-   {ggplot2} viz
+
+    -   **Exercise**
+
+-   basic interactivity - ggplotly()
+
+    -   **Exercise**
+
+-   {`broom`} and handling modeling outputs (e.g. linear regression)
+
+    -   Advertise {`tidymodels`}
+
+    -   **Exercise**
+
+-   {skimr} and EDA 
+
+    -   skim()
+
+    -   Reprise group_by() and summarize() 
+
+-   {`tidyr`} pivot_longer() and pivot_wider()
+
+    -   **Tall data** - what is it?
+
+    -   Tall data for iteration: computation 
+
+    -   Tall data for visualization , facet_wrap()
+
+    -   Tall data for modeling ; {purrr} a first look.
+
+-   join with `dplyr::left_join()` or other {`dplyr`} join functions
+
+-   Wrap-up and Summarize the day
+
+\
+
+## Day Two
+
+### Part 3 Iteration and custom functions
+
+-   Questions from yesterday
+
+-   R is a functional programming language
+
+    -   What is functional programing?
+
+        -   Customizing functions and iterating without FOR loops
+
+    -   FOR loops?
+
+    -   Tidyverse preference for data frames
+
+-   Vectorized math (review)
+
+    -   Vectorized iteration ; environment variables and data variables
+
+-   Case study - import multiple data files + data cleaning + analysis + visualization
+
+    -   read_csv() again
+
+-   Introduce {`stringr`} and regular expressions
+
+-   Some nifty data wrangling functions
+
+-   Composing custom functions
+
+-   Nesting data for iteration
+
+\
+
+### Part 4 Review, questions, case study, reports
+
+-   Questions / Review
+
+-   Setup case study
+
+-   Using R to orchestrate data workflows
+
+-   Reproducible report rendering (slides, PDF, dashboards, etc.)
+
+-   Summarize
+
+-   Finding help
+
+## Resources
+
+-   R for Data Science: [book](https://r4ds.had.co.nz/) \| [slack](https://www.rfordatasci.com/)
+
+-   Tidyverse [primers](https://posit.cloud/learn/primers)
+
+-   RStudio IDE \> Help \> \[ Documentation \| Forum \| Cheatsheets \| Shortcuts \] & on-board *Help* tab
+
+    -   [RStudio User Guide](https://docs.posit.co/ide/user/)
+
+-   Tidyverse webpages: {`package_name`}.tidyverse.org (e.g. ggplot2.tidyverse.org)
+
+-   Interactivity
+
+    -   [HTMLWidgets](https://www.htmlwidgets.org)
+
+    -   [ObservableJS](https://quarto.org/docs/interactive/ojs/)
+
+    -   [Shiny](https://shiny.rstudio.com/)
+
+## Recommendations
+
+-   [Blank slate](https://docs.posit.co/ide/user/ide/get-started/#blank-slate)
+
+-   Use the Projects in the RStudio IDE
+
+-   Use version control (git and GitHub)
+
+-   Use {[`renv`](https://rstudio.github.io/renv/index.html)} for package reproducible environments
+
+-   Use [mybinder.org](https://mybinder.org/) for sharing containers in a reproducible/replicable state

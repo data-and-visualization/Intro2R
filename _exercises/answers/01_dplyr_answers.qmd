@@ -1,0 +1,151 @@
+---
+title: "Answers 01 - dplyr -- data wrangling"
+
+date-modified: 'today'
+date-format: long
+
+format: 
+  html:
+    footer: "CC BY 4.0 John R Little"
+
+license: CC BY
+---
+
+### Setup
+
+a.  Load the `tidyverse` library package
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+```
+
+b.  Import data
+
+```{r}
+#| message: false
+#| warning: false
+library(here)
+brodhead <- read_csv(here("data/brodhead_center.csv"))
+```
+
+### exercise_01 -- Data Wrangling
+
+1.  Which restaurant has the lowest cost item and what is the item?
+
+```{r}
+brodhead %>% 
+  arrange(cost) %>% 
+  select(name, type, itemName, cost)
+```
+
+#### Alternative Answer
+
+```{r}
+lowest_cost_item <- brodhead %>% 
+  arrange(cost) %>% 
+  select(name) %>% 
+  slice_head() %>% 
+  pull()
+lowest_cost_item  
+```
+
+The lowest cost item can be found at `r lowest_cost_item`.
+
+2.  Which restaurant has the most expensive item(s)? What are those item(s)?
+
+```{r}
+brodhead %>% 
+  arrange(desc(cost)) %>% 
+  select(name, type, itemName, cost)
+```
+
+#### Alternative Answers
+
+```{r}
+answer2 <- brodhead %>% 
+  select(name, type, itemName, cost) %>% 
+  filter(type == "restaurant",
+         cost == max(cost)) 
+answer2
+```
+
+```{r}
+expensive_items <- brodhead %>% 
+  select(name, type, itemName, cost) %>% 
+  filter(type == "restaurant",
+         cost == max(cost)) %>% 
+  select(name, itemName) 
+
+expensive_items
+```
+
+**Example of inline coding** (Render report to see result.)
+
+The `r unique(expensive_items$name)` restaurant offers the following items at the highest cost: `r expensive_items$itemName`.
+
+3.  At the Brodhead Center, how many of the entrees (found in the `menuType` variable) cost eight dollars?
+
+```{r}
+brodhead %>% 
+  filter(cost == 8, menuType == "entree") %>% 
+  select(name, menuType, itemName, cost)
+```
+
+The **answer** is 8. You know this because the Tibble (data frame) has 8 rows.
+
+#### Alternative Answer
+
+```{r}
+brodhead %>% 
+  filter(cost == 8, menuType == "entree") %>% 
+  select(name, menuType, itemName, cost) %>% 
+  count(menuType)
+```
+
+#### Alternative Answer
+
+```{r}
+eight_dollar_items <- brodhead %>% 
+  filter(cost == 8, menuType == "entree") %>% 
+  select(name, menuType, itemName, cost) 
+
+length(eight_dollar_items$itemName)
+```
+
+4.  The head of Duke dining is considering reducing prices at the Brodhead Center. Using what we've learned in class, write code that will calculate a new variable (`halfPrice`) that contains items at half price.
+
+```{r}
+brodhead %>% 
+  mutate(halfPrice = (cost / 2)) %>% 
+  select(name, itemName, cost, halfPrice) %>% 
+  mutate(halfPrice = scales::dollar(halfPrice))
+```
+
+5.  How many entrees are in the dataset (`menuType` variable)? How many desserts
+
+```{r}
+brodhead %>% 
+  count(menuType)
+# You can use `filter()` to limit by menuType
+```
+
+#### Alternative Answer
+
+```{r}
+brodhead %>% 
+  count(menuType) %>% 
+  filter(menuType == "entree") %>% 
+  pull(n)
+```
+
+```{r}
+#| echo: false
+my_answer <- brodhead %>% 
+  count(menuType) %>% 
+  filter(menuType == "entree") %>% 
+  pull(n)
+```
+
+There are `r my_answer` entrees.

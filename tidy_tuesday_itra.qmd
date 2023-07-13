@@ -1,0 +1,343 @@
+---
+title: "Example EDA"
+author: "John Little"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
+---
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(skimr)
+```
+
+Basic steps taken in this rough exploration of data....
+
+-   import data
+-   wrangle data
+-   join data
+-   visualize data
+
+A brief discussion of packages which proport to perform EDA for you can be found in the [Get Started section of this site](eda.html "selective summary of eda packages").
+
+Note: This page is not intended to teach formal EDA. What happens on this page is merely a brutal re-enactment of some informal explorations that a person might take as they familiarize themselves with new data. If you're like most people, you might want to [skip to the visualizations](#visualize-wrangle-and-summarize). Meanwhile, the sections and code-chunks preceding visualization are valuable and at least worth a glance,
+
+## Import data
+
+The data come from a [TidyTuesday](https://github.com/rfordatascience/tidytuesday), a weekly social learning project dedicated to gaining practical experience with R and data science. In this case the TidyTuesday data are based on [International Trail Running Association (ITRA)](https://itra.run/Races/FindRaceResults) data but inspired by Benjamin Nowak, . We will use the [TidyTuesday data that are on GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-10-26). Nowak's data are [also available on GitHub](https://github.com/BjnNowak/UltraTrailRunning).
+
+```{r}
+#| message: false
+#| warning: false
+race_df <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/race.csv")
+rank_df <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/ultra_rankings.csv")
+```
+
+```{r}
+glimpse(race_df)
+```
+
+```{r}
+glimpse(rank_df)
+```
+
+## EDA with skimr
+
+```{r}
+skim(race_df)
+```
+
+Read more about automagic [EAD packages](eda.html).
+
+## Freewheelin' EDA
+
+```{r}
+race_df |> 
+  count(country, sort = TRUE) |> 
+  filter(str_detect(country, regex("Ke", ignore_case = TRUE)))
+```
+
+```{r}
+race_df |> 
+  filter(country == "Turkey")
+```
+
+```{r}
+race_df |> 
+  count(participation, sort = TRUE)
+```
+
+```{r}
+race_df |> 
+  count(participants, sort = TRUE)
+```
+
+```{r}
+skim(rank_df)
+```
+
+```{r}
+rank_df |> 
+  filter(str_detect(nationality, regex("ken", ignore_case = TRUE)))
+```
+
+```{r}
+rank_df |> 
+  arrange(rank)
+
+rank_df |> 
+  count(rank, sort = TRUE)
+rank_df |> 
+  drop_na(rank) |> 
+  count(rank, gender, age, sort = TRUE)
+
+race_df |> 
+  count(distance, sort = TRUE)
+```
+
+```{r}
+rank_df |> 
+  filter(race_year_id == 41449)
+
+race_df |> 
+  filter(race_year_id == 41449)
+
+race_df |> 
+  filter(distance == 161)
+```
+
+```{r}
+race_df
+```
+
+```{r}
+race_df |> 
+  count(race, city, sort = TRUE)
+
+race_df |> 
+  filter(race == "Centurion North Downs Way 100")
+```
+
+```{r}
+race_df |> 
+  filter(race_year_id == 68140)
+
+race_df |> 
+  filter(race == "Millstone 100")
+
+race_df |> 
+  filter(event == "Peak District Ultras")
+
+race_df |> 
+  count(race, sort = TRUE)  
+
+race_df |> 
+  count(city, sort = TRUE)  
+
+race_df |> 
+  count(event, sort = TRUE)  
+```
+
+```{r}
+race_df |> 
+  filter(event == "Burning River Endurance Run")
+```
+
+## Visualize, wrangle, and summarize
+
+Here I'm using [this *State of Ultra Running* report](https://runrepeat.com/state-of-ultra-running) as a model to demonstrate **some** of the capabilities of R / Tidyverse
+
+### join datasets
+
+#### Join, Assign, and Pipe
+
+In this case I want to **join** the two data frames `rank_df` and `race_df` using the `left_join()` function.
+
+I can **assign** the output of a "data pipe" (i.e. data sentence) to use in subsequent code-chunks. A common R / Tidyverse assignment operator is the `<-` characters. You can read this as "gets value from".
+
+Additionally, I'm using a **pipe** operator (`|>`) as a conjunction to connect functions. In this way I can form a *data sentence*. Many people call the data sentence a *data pipe*, or just a *pipe*. You may see another common pipe operator: `%>%`. `\>` and `%>%` are synonymous.
+
+using `dplyr::left_join()` I combine the two data sets and then use {`ggplot2`} to create a line graph of participants by year.
+
+```{r}
+my_df_joined <- rank_df |> 
+  left_join(race_df, by = "race_year_id") |>
+  mutate(my_year = lubridate::year(date))
+```
+
+### Viz participants
+
+Let' make a quick line plot showing how many people participate in races each year. Here we have a `date` field this is also a date data-type. Data types are important and in this example using a data data-type means {`ggplot2`} will simplify our x-axis labels.
+
+Here we use the {`lubridate`} package to help manage my date data-types. We also use {`ggplot2`} to generate a line graph as a *time series* via the {`ggplot2`} package and a `geom_line()` *layer*. Note that {`ggplot2`} uses the '`+`' as the conjunction or *pipe*.
+
+```{r}
+rank_df |> 
+  left_join(race_df |> select(race_year_id, date), by = "race_year_id") |>
+  mutate(my_year = lubridate::year(date)) |> 
+  count(my_year, sort = TRUE) |> 
+  ggplot(aes(my_year, n)) +
+  geom_line()
+```
+
+### by distance
+
+Here I use `count()` in different ways to see what I can see. I comment out each attempt before settling on summarizing a table of total country participants by year.
+
+```{r}
+my_df_joined |> 
+  mutate(participation = str_to_lower(participation)) |> 
+  # count(participation, sort = TRUE)
+  # count(city) |> 
+  # count(race) |> 
+  count(my_year, country, sort = TRUE)
+
+my_df_joined |> 
+  mutate(participation = str_to_lower(participation)) |> 
+  count(my_year, country, sort = TRUE) |> 
+  drop_na(country) |> 
+  mutate(country = fct_lump_prop(country, prop = .03)) |> 
+  ggplot(aes(my_year, n)) +
+  geom_line(aes(color = country))
+
+```
+
+### by country
+
+I used `fct_lump_prop()` in the previous code-chunk to lump the `country` variable into categories by frequency. Here we refine the categories into specific **levels**. We are still *mutating* the `country` variable as a categorical factor; this time using the `fct_other()` function of {`forcats`} with some pre-defined levels (see the `my_levels` vector in the code-chunk below).
+
+```{r}
+my_levels <- c("United States", "France", "United Kingdom", "Spain")
+
+my_df_joined |> 
+  mutate(country = fct_other(country, keep = my_levels)) |> 
+  count(my_year, country, sort = TRUE) |> 
+  drop_na(country) |> 
+  ggplot(aes(my_year, n, color = country)) +
+  geom_line() +
+  geom_point() +
+  scale_color_brewer(palette = "Dark2") 
+```
+
+### Country race-host
+
+```{r}
+my_df_joined |> 
+  drop_na(country) |> 
+  mutate(country = fct_lump_n(country, n = 7)) |>
+  count(country, sort = TRUE) |> 
+  ggplot(aes(x = n, y = fct_reorder(country, n))) +
+  geom_col()
+```
+
+### Nationality of runner
+
+```{r}
+my_df_joined |> 
+  mutate(nationality = fct_lump_n(nationality, n = 7)) |> 
+  count(nationality, sort = TRUE) |> 
+  ggplot(aes(n, fct_reorder(nationality, n))) +
+  geom_col()
+```
+
+### Unique participants
+
+```{r}
+my_df_joined |> 
+  distinct(my_year, runner) |> 
+  count(my_year) |> 
+  ggplot(aes(my_year, n)) +
+  geom_line()
+```
+
+### Participant frequency separated by gender
+
+Note the use of `count`, `if_else`, `as.character`, and `group_by` to transform the data for visualizing. Meanwhile, the visual bar graph is a proportional graph with the y-axis label by percentage. We do this by manipulating the plot *scales*. Scales are also used to choose colors from a predefined palette (i.e. "Dark2".) Findally, we facet the plot by gender (See `facet_wrap()`).
+
+```{r}
+my_df_joined |> 
+  count(my_year, gender, runner, sort = TRUE) |> 
+  mutate(n_category = if_else(n >= 5, "more", as.character(n))) |> 
+  group_by(my_year) |> 
+  mutate(total_races = sum(n)) |> 
+  ungroup() |> 
+  ggplot(aes(my_year, total_races))  +
+  geom_col(aes(fill = fct_rev(n_category)), position = "fill") +
+  scale_fill_brewer(palette = "Dark2") +
+  scale_y_continuous(labels = scales::percent) +
+  facet_wrap(vars(gender)) 
+```
+
+### Pace per mile
+
+We want to calculate a value for each runner's pace (i.e. `minute_miles`). We have to create and convert a character data-type of the `time` variable into a numeric floating point (or `dbl`) data-type so that we can calculate pace (i.e. race-minutes divided by distance.) These data transformations required a lot of manipulation as I was thinking through my goal. I could optimized this code, perhaps. However it works and I've got other things to do. Do I care if the CPU works extra hard? No, not in this case.
+
+```{r, dev='svg'}
+my_df_joined |> 
+  mutate(time_hms = str_remove_all(time, "[HMS]"), .after = time) |> 
+  mutate(time_hms = str_replace_all(time_hms, "\\s", ":")) |> 
+  separate(time_hms, into = c("h", "m", "s"), sep = ":") |> 
+  mutate(bigminutes = (
+    (as.numeric(h) * 60) + as.numeric(m) + (as.numeric(s) * .75)
+    ), .before = h) |> 
+  mutate(pace = bigminutes / distance, .before = bigminutes) |> 
+  drop_na(pace, distance, my_year) |> 
+  filter(distance > 0,
+         pace > 0) |> 
+  group_by(my_year, gender) |>  
+  summarise(avg_pace = mean(pace), max_pace = max(pace), min_pace = min(pace)) |> 
+  pivot_longer(-c(my_year, gender), names_to = "pace_type")  |> 
+  separate(value, into = c("m", "s"), remove = FALSE) |> 
+  mutate(h = "00", .before = m) |> 
+  mutate(m = str_pad(as.numeric(m), width = 2, pad = "0")) |> 
+  mutate(s = str_pad(round(as.numeric(str_c("0.",s)) * 60), width = 2, pad = "0")) |> 
+  unite(minute_miles, h:s, sep = ":") |> 
+  mutate(minute_miles = hms::as_hms(minute_miles)) |> 
+  # drop_na(gender) |> 
+  ggplot(aes(my_year, minute_miles)) +
+  geom_line(aes(color = pace_type), size = 1) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_classic() +
+  facet_wrap(vars(gender))
+```
+
+### Age trends
+
+In this code-chunk we use a {`ggplot2`} function, `cut_width()`, to generate rough categories by age. `dplyr::case_when()` is a more thorough and sophisticated way to make some cuts in my data, but `ggplot2::cut_width()` works well for a quick visualization.
+
+Note the use of labels, scales, themes, and guides in the last visualization. A good plot will need refinement with some or all of these functions.
+
+```{r}
+my_df_joined |> 
+  mutate(age_cut = cut_width(age, width = 10, boundary = 0), .after = age) |> 
+  count(age_cut, gender, sort = TRUE)
+
+my_df_joined |> 
+  filter(age < 80) |> 
+  drop_na(gender) |> 
+  ggplot(aes(y = cut_width(age, width = 10, boundary = 0))) +
+  geom_bar(aes(fill = gender)) +
+  facet_wrap(vars(gender))
+
+my_df_joined |> 
+  filter(age < 70, age >= 20) |>
+  drop_na(gender) |> 
+  ggplot(aes(my_year)) +
+  geom_bar(aes(fill = fct_rev(cut_width(age, width = 10, boundary = 0))), position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_brewer(palette = "Dark2") +
+  labs(fill = "Age", title = "Age distribution of ultra runners",
+       caption = "Source: ITRA > Benjamin Nowak > Tidy Tuesday",
+       x = NULL, y = NULL) +
+  theme_classic() +
+  theme(legend.position = "top", plot.title.position = "plot") + 
+  guides(fill = guide_legend(reverse = TRUE))
+
+```
+
+ 
