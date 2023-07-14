@@ -90,7 +90,7 @@ Reproducibility is an idea from computational thinking. A reproducible approach 
 
 Developing computation techniques to honor reproducibility principles means, whenever possible, reduce or eliminate mouse-clicks and hard-to-document copy/paste steps. We do this because such actions are barriers for ourselves and others when it comes to re-executing code.
 
-Using a coding language such as R, along with a report rendering scheme such as Quarto, is an ideal way to ensure the reproducibility of your analysis. Reproducibility is further enhanced by leveraging literate coding[@knuth1984], tidy data[@wickham2014], and tidyverse principles[@wickham2019].
+Using a coding language such as R, along with a report rendering scheme such as Quarto, is an ideal way to ensure the reproducibility of your analysis and publications. Reproducibility is further enhanced by leveraging literate coding [@knuth1984], tidy data [@wickham2014], and tidyverse principles [@wickham2019].
 
 Building computation upon this foundations increases the chances of archiving your work for posterity. When we look back at the computational workflows of the nineteen seventies through the early two-thousands, we see the natural problems and evolution of solutions that now lead us to good reproducible technique.
 

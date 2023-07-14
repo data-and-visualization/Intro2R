@@ -8,13 +8,13 @@ license: CC BY-NC
 bibliography: references.bib
 ---
 
-R is a functional programming language[^1]. This means repetitive execution is emphasized without using *FOR loops*[^2]*.* No for loops? How is that possible? Basically coders focus on applying the same operation, row by row over a data frame without toiling over the syntax of For loops.
+R is a functional programming language.[^1] This means repetitive execution is emphasized without using *FOR loops.*[^2] *No FOR loops*‽ How is that possible? Basically, coders focus on applying the same operation, row by row, over a data frame --- without toiling over the syntax of For loops.
 
 [^1]: <https://en.wikipedia.org/wiki/Functional_programming>
 
 [^2]: [https://en.wikipedia.org/wiki/For_loop](https://en.wikipedia.org/wiki/For_loophttps://en.wikipedia.org/wiki/For_loop)
 
-If you're new to R, you may not realize that you've been using functions throughout this website. All the packages we introduced (dplyr, ggplot2, skimr, and even base-R, etc.) are made up collections of functions. For example, {dplyr} gives us the `filter()` and the `select()` functions. At the end of the [section on regression](regression.html#example-of-iterative-modeling-with-nested-categories-of-data), we saw an example of using the `nest()` function so our data frame is set for the repetition of our regression (the `lm()` function) row-by-row. We did this without ever writing a FOR loop.
+If you're new to R, you may not realize that you've been using functions throughout this workshop series. All the packages we introduced (dplyr, ggplot2, skimr, and even base-R, etc.) are made up collections of functions. For example, {dplyr} gives us the `filter()` and the `select()` functions. At the end of the [section on regression](regression.html#example-of-iterative-modeling-with-nested-categories-of-data), we saw an example of using the `nest()` function so our data frame is set for the repetition of our regression (the `lm()` function) row-by-row. We did this without ever writing a FOR loop.
 
 ## Definition
 
@@ -63,7 +63,9 @@ starwars |>
 
 While the custom function, `add_numbers`, didn't save us much time. We can create more sophisticated functions. For example, we can write a function that plots x and y.
 
-The function, below, uses [*indirection syntax*](https://dplyr.tidyverse.org/articles/programming.html#indirection) (i.e. double-braces) because there's a difference between an *environment* variable and a *data* variable. An explanation of indirection is found in the enthusiastically recommended [*Programming with dplyr*](https://dplyr.tidyverse.org/articles/programming.html)vignette. Essentially, an **environment variable** shows up in the RStudio environment tab. While a **data** variable is the name of a variable *within* an environment variable. For example, in a data frame, a column header variable name is a data variable. Data variables have to be called with the [*embrace* operator `{{`](https://rlang.r-lib.org/reference/embrace-operator.html)so that they data can be referenced indirectly. This indirection overcomes a [data masking feature](https://rlang.r-lib.org/reference/topic-data-mask.html) which allows for more efficient coding in many cases, even though indirection has a syntactical costs when composing complex functions.
+The function, below, uses [*indirection syntax*](https://dplyr.tidyverse.org/articles/programming.html#indirection) (i.e. double-braces) because there's a difference between an *environment* variable and a *data* variable. An explanation of indirection is found in the enthusiastically recommended [*Programming with dplyr*](https://dplyr.tidyverse.org/articles/programming.html)vignette. Essentially, an **environment variable** shows up in the RStudio environment tab. While a **data** variable is the name of a variable *within* an environment variable. For example, in a data frame, a column header variable name is a data variable. Data variables have to be called with the [*embrace* operator `{{`](https://rlang.r-lib.org/reference/embrace-operator.html)so that they data can be referenced indirectly. This indirection overcomes a [data masking feature](https://rlang.r-lib.org/reference/topic-data-mask.html) which allows for more efficient coding in many cases.\
+\
+Essentially, ease of coding is emphasised with data masking. This data masking makes it easier to learn R. As a beginner there are fewer syntactical barriers when coding in a tidyverse context. The paradox of this early simplicity comes at the cost of more complex syntax when composing complex functions. This syntactical complexity occurs because data-masked variables need to be referred to indirectly.
 
 ```{r}
 #| layout-ncol: 2
@@ -88,7 +90,7 @@ make_scatterplot(mpg, displ, hwy, class)
 ::: callout-tip
 ## Rule of thumb
 
-If you have to write the same code three times or more, write a function. Among the advantages, this prevents typographical errors.
+If you have to write the same code three times or more, write a function. Among the advantages, this prevents typographical errors. It also prevents mistakes when updating code because there will be fewer places to update code leverages functions and iteration over redundancy.
 :::
 
 ## Can it be simpler?

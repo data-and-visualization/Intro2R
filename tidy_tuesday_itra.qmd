@@ -25,7 +25,11 @@ Basic steps taken in this rough exploration of data....
 
 A brief discussion of packages which proport to perform EDA for you can be found in the [Get Started section of this site](eda.html "selective summary of eda packages").
 
-Note: This page is not intended to teach formal EDA. What happens on this page is merely a brutal re-enactment of some informal explorations that a person might take as they familiarize themselves with new data. If you're like most people, you might want to [skip to the visualizations](#visualize-wrangle-and-summarize). Meanwhile, the sections and code-chunks preceding visualization are valuable and at least worth a glance,
+Note: This page is not intended to teach formal EDA. What happens on this page is merely a brutal re-enactment of some informal explorations that a person *might* take as they familiarize themselves with new data. If you're like most people, you might want to [skip to the visualizations](#visualize-wrangle-and-summarize). Meanwhile, the sections and code-chunks preceding visualization are worth a glance.
+
+::: column-margin
+[![Age Distribution of runners.](images/age_ultra_runners.svg)](images/age_ultra_runners.svg)
+:::
 
 ## Import data
 
@@ -148,7 +152,7 @@ race_df |>
   filter(event == "Burning River Endurance Run")
 ```
 
-## Visualize, wrangle, and summarize
+## Visualize, wrangle, and summarize {#visualize-wrangle-and-summarize}
 
 Here I'm using [this *State of Ultra Running* report](https://runrepeat.com/state-of-ultra-running) as a model to demonstrate **some** of the capabilities of R / Tidyverse
 
@@ -340,4 +344,25 @@ my_df_joined |>
 
 ```
 
- 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+my_plot <- 
+  my_df_joined |> 
+  filter(age < 70, age >= 20) |>
+  drop_na(gender) |> 
+  ggplot(aes(my_year)) +
+  geom_bar(aes(fill = fct_rev(cut_width(age, width = 10, boundary = 0))), position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_brewer(palette = "Dark2") +
+  labs(fill = "Age", title = "Age distribution of ultra runners",
+       caption = "Source: ITRA > Benjamin Nowak > Tidy Tuesday",
+       x = NULL, y = NULL) +
+  theme_classic() +
+  theme(legend.position = "top", plot.title.position = "plot") + 
+  guides(fill = guide_legend(reverse = TRUE))
+
+ggsave(here::here("images/age_ultra_runners.svg"))
+```

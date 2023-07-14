@@ -16,7 +16,9 @@ Often our goal is to reshape a data frame into a *tidy data* [@wickham2014] form
 
 [![Image credit: Tidy data from the book \_R for Data Science\_](images/tidy_data.png){fig-alt="Tidy data"}](images/tidy_data.png)
 
-Tidy data
+Tidy data[^1]
+
+[^1]: A robust discussion of *tidy data* can be found in *R for Data Science* [@wickham2023]*: [https://r4ds.had.co.nz/tidy-data.html](https://r4ds.had.co.nz/tidy-data.htmlhttps://r4ds.had.co.nz/tidy-data.html)*
 
 -   Every variable is a column
 -   Every row is an observation
