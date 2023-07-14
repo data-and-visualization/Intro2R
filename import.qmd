@@ -19,7 +19,7 @@ In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to
 Below are some of the core [*tidyverse*](https://tidyverse.tidyverse.org/) packages. There are many more very handy tidyverse packages.
 
 | package   | use                               | package     | use                           |
-|------------------|--------------------|------------------|------------------|
+|----------------|----------------------|----------------|-------------------|
 | `dplyr`   | data wrangling                    | `forcats`   | categorical data / factors    |
 | `ggplot2` | visualization                     | `lubridate` | dates and times               |
 | `readr`   | import CSV                        | `stringr`   | regular expressions / strings |
@@ -32,7 +32,7 @@ The data import wizard is a quick and easy way to import your data
 
 [![Import dataset](images/data_import.jpg){fig-alt="import dataset"}](images/data_import.jpg)
 
-But, it's actually **way better** and hardly any more effort to follow the **reproducible steps**, below...
+It's actually way **better** and hardly any more effort to follow the **reproducible steps**, below...
 
 ## Load library packages
 
@@ -44,7 +44,7 @@ library(tidyverse)
 
 ## Import data
 
-In RStudio,, in the Files quadrant and tab, click the `data` folder, then left-click the `brodhead_center.csv` file. Using the context menu, choose the *Import Dataset...* option. Once inside the data wizard, you can paste the necessary code into the code chunk below
+In RStudio, in the Files quadrant and tab, click the `data` folder, then left-click the `brodhead_center.csv` file. Using the context menu, choose the *Import Dataset...* option. Once inside the data wizard, you can copy the code int he code-preview window, then paste the code into the code chunk of your quarto document or r script.
 
 ::: column-margin
 ```{=html}
@@ -100,9 +100,12 @@ brodhead_center |>
 ```
 
 ```{r}
+#| warning: false
+#| message: false
 brodhead_center |> 
+  filter(name != "Tandoor") |> 
   ggplot(aes(x = rating, y = cost)) +
-  geom_point(aes(color = name))
+  geom_jitter(aes(color = name))
 ```
 
 ```{r}
@@ -110,8 +113,9 @@ brodhead_center |>
 #| code-summary: "Show the code"
 brodhead_center |> 
   drop_na(rating, cost, name) |> 
+  filter(name != "Tandoor") |> 
   ggplot(aes(x = factor(rating), y = cost)) +
-  geom_tile(aes(fill = name)) +
+  geom_tile(aes(fill = name), alpha = .3) +
   scale_y_continuous(label = scales::dollar) +
   scale_fill_brewer(palette = "Dark2") + 
   labs(x = "rating", y = NULL, title = "Heatmap: cost over ratings", 

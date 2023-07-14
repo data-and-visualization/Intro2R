@@ -126,3 +126,12 @@ brodhead_center |>
   group_by(name) |> 
   summarise(min_cost = min(cost), mean_cost = mean(cost), max_cost = max(cost))
 ```
+
+##### or
+
+Summarize by groups, without `group_by()`
+
+```{r}
+brodhead_center |> 
+  summarise(min_cost = min(cost), .by = name)
+```

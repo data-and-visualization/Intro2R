@@ -63,7 +63,7 @@ Defaults to OpenAI's *codex* LLM based on code found in GitHub. This tools is fo
 
 ## Comparisons of models
 
-**gptstudio**: Great for its deep integration into RStudio and ability to work within code-chunks or prose. Setting up the API key is a necessary configuration. Be sure to protect any API-key linked to a credit card.
+**gptstudio**: Great for its deep integration into RStudio and ability to work within code-chunks or prose. Setting up the API key is a necessary configuration. The {gptstudio} documentation shows clearly how to protect API-keys linked to a credit card --- a notable issue when using version control like GitHub.
 
 **Bard/PaLM:** Google's LLM. Fast, efficient and familiar.
 
@@ -79,4 +79,4 @@ Bard/PaLM and ChatGPT (via addins, poe.com, bing.com, or openai.com) have worked
 
 ## Ethics
 
-LLMs knowledge bases are private and lack transparency. There are important societal concerns about the fairness of equitable access to these tools. It's unclear how developers or the users of these models can be held accountable.
+LLMs knowledge bases are private and lack transparency. There are important societal concerns about the fairness of equitable access to these tools. It's unclear how developers or users of these models can be held accountable.

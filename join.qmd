@@ -22,11 +22,11 @@ There are a series of [join commands](https://dplyr.tidyverse.org/reference/inde
 
 ![{dplyr} joins visualized in venn diagrams](images/join_diagram.png)
 
-First let's read in the favorability ratings data from fivethirtyeight.com
+First let's import the favorability ratings data from fivethirtyeight.com
 
 ## data
 
-These exercisees use the following [`ggplot2` training datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
+These exercises use the following [`ggplot2` training datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
 
 -   dplyr::starwars
 -   Data from fivethrityeight.org (modified)
@@ -42,9 +42,9 @@ fav_ratings
 starwars
 ```
 
-Join on a **key** that is common across two data frames. For best results use a numeric key that promotes precision. Of course, we're going to use a alphabetic key, `name`, which will highlight what can go wrong and introduce troubleshooting strategies.
+Join on a **key** that is common across two data frames. For best results use a numeric key that promotes precision. Unfortunately our data frames do not have a numeric key to use as our join key. We'll use an alphabetic key, `name`, and this will highlight what can go wrong. along with troubleshooting strategies.
 
-In this case, the key will be the `name` variable that is common to both tables. We're using the `fav_ratings` tibble and the `starwars` tibble.
+The `name` variable is the key because it is common to both tables: `fav_ratings` and `starwars`.
 
 ::: column-margin
 ```{=html}
@@ -60,7 +60,7 @@ fav_ratings  |>
 
 ### anti_join
 
-what is in the left table and not the right table.
+anti_join will determine data values that are in the left table and not the right table.
 
 ```{r}
 anti_join(fav_ratings, starwars) |> arrange(name)
@@ -69,7 +69,7 @@ anti_join(starwars, fav_ratings) |> arrange(name)
 
 ### semi_join or inner_join
 
-join only the rows that match.
+Join only the rows that match.
 
 ```{r}
 fav_ratings |> 
@@ -78,16 +78,12 @@ fav_ratings |>
 
 ### Regex
 
-Regular expressions and {stringr} can be handy when manipulating character variables into join keys.
+Regular expressions (regex) and {stringr} can be handy when manipulating character variables into join keys. We use regex when troubleshooting what is not matching. In other computatons we might also use regex for more sophisticated text manipulations, specifically for finding patterns in text.
 
 -   str_detect()
-
 -   str_to_lower()
-
 -   str_remove()
-
 -   str_trim()
-
 -   str_extract()
 
 ::: column-margin

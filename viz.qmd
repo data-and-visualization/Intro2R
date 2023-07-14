@@ -28,11 +28,11 @@ The ggplot2 template is used to identify the dataframe, identify the x and y axi
 
 > `ggplot(data = ---, mapping = aes(x = ---, y = ---)) + geom_----()`
 
-Note: `----` is meant to imply text (function names, dataframe names, variable names) you supply.
+Note: `----` is meant to imply text you supply. e.g. function names, data frame names, variable names.
 
 It is helpful to see the argument mapping, above. In practice, rather than typing the formal arguments, code is typically shorthanded to this:
 
-> `dataframe %>%  ggplot(aes(xvar, yvar)) + geom_----()`
+> `dataframe |>  ggplot(aes(xvar, yvar)) + geom_----()`
 
 ## Goal
 
@@ -62,7 +62,7 @@ starwars
 
 ### Draw the base layer
 
-This feels like, and looks like, you drew an empty box.
+This feels like, and looks like, you drew an empty box. This is the foundation canvas layer for the resulting visualization.
 
 ::: column-margin
 ```{=html}
@@ -75,11 +75,9 @@ starwars %>%
   ggplot() 
 ```
 
-*But wait, there's more....*
-
 ### Map the aesthetics to variables in the data frame
 
-Still doesn't look like much. You will initialize the plot scales and labels based on the values of the variables in the dataframe.
+Still doesn't look like much. {ggplot2} will initialize the plot scales and labels based on the values of the variables in the data frame.
 
 ```{r}
 starwars %>% 
@@ -87,7 +85,7 @@ starwars %>%
   ggplot(aes(height, mass))
 ```
 
-In the above, I subset the data, removing any *Star Wars* characters weighing more than 500 Kg -- `dplyr::filter()`. Then I initialized the base layer with the `height` as the x axis and `mass` as the y axis. ggplot drew the scales for me.
+In the above, I subset the data, removing any *Star Wars* characters weighing more than 500 Kg -- `dplyr::filter()`. Then I initialized the base layer and map the x-axis to `height`, and the y-axis to `mass`. ggplot drew the scales for me.
 
 ### Visualize a layer
 
@@ -127,7 +125,7 @@ Aesthetic arguments include:
 -   linetype
 -   opacity
 -   shape
--   *and more* see documentation for each geom\_
+-   *and more.* See [documentation for each geom\_ layer](https://ggplot2.tidyverse.org/reference/index.html#layers).
 
 > Mapping: `color` is **mapped** *inside* `aes()` function. In this case, `color = starwars$gender`
 
@@ -227,20 +225,22 @@ starwars %>%
 
 Each layer, visualized by a geom\_ function, can support local arguments and draw from the global settings. Below we use the `geom_line()` function, followed by the `geom_point()` function.
 
-```         
+```{r}}
+# simplified code
 babynames %>%
   ggplot(aes(year, prop)) +
   geom_line(aes(color = sex)) +
   geom_point(alpha = 0.4, shape = "cross")
 ```
 
-![](images/line_graph_je_names.png)
+```{r}
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Show the full code"
 
-The full code for the above graph can be seen below.
-
-```         
 library(babynames)
-library(ggplot)
+library(ggplot2)
 
 babynames %>% 
   filter(name == "John" & sex == "M" | 
@@ -252,6 +252,7 @@ babynames %>%
             nudge_y = .009) +
   labs(title = "Name Popularity") + 
   theme(legend.position = "none")
+
 ```
 
 ### Goal
@@ -270,7 +271,7 @@ starwars %>%
 
 ## Arrange order
 
-Categorical values are most easily ordered with the `forcats` library. Part of the Tidyverse, the [forcats](https://forcats.tidyverse.org/) package is used to transform string data as a factor data type. Data types in R can be simple distinctions useful in efficient computation, such as calculating numeric outcomes versus manipulating character data (i.e. string or text data). R data types are rich and sometimes complex. Staying simple, text data consisting of categories, may be efficiently handled as a factor data type. For example, eye colors can be categorized. Brown, blue, and green are nominal categorical values for the factor variable `eye_color`. Among other things, treating `eye_color` as a factor data type enables visually ordering categorical values by frequency.
+Categorical values are ordered with the `forcats` library. Part of the Tidyverse, the [forcats](https://forcats.tidyverse.org/) package is used to transform string data into the factor data-type. For example, eye colors can be categorized. Brown, blue, and green are nominal categorical values for the factor variable `eye_color`. Among other things, treating `eye_color` as a factor data type enables visual ordering of categorical values by frequency.
 
 #### Before arranging order
 
@@ -280,7 +281,7 @@ msleep %>%
   geom_bar()
 ```
 
-### Arranging order with \\\\{forcats\\\\}
+### Arranging order with {forcats}
 
 Change the order of the bars by the frequency of observations using `forcats::fct_infreq()`
 
@@ -290,7 +291,9 @@ msleep %>%
   geom_bar() 
 ```
 
-Notice below, we use the `fill =` argument to set the color of an individual bar. In the scatter plot examples, above, we used the `color =` argument. In many `geoms_` you can use both `color` and `fill` arguments. How do these arguments differ? Where can you look to find out more about `fill` and `color`?
+Notice below, we use the `fill =` argument to set the color of an individual bar. In the scatter plot examples, above, we used the `color =` argument. In many `geoms_` you can use both `color` and `fill` arguments. How do these arguments differ? Where can you look to find out more about `fill` and `color`?[^1]
+
+[^1]: The documentation for each layer. You can find documentation at [https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.orghttps://ggplot2.tidyverse.org) or in the RStudio IDE by looking in the Files Quadrant \> the Help tab.
 
 ```{r}
 starwars %>% 
@@ -314,7 +317,7 @@ mpg %>%
 
 ## Scales
 
-Scales are used to affect the visual qualities of the data. I'll introduce scales to visualize discrete categories by associating each discrete value with a specific color. [Read more about scales](https://ggplot2.tidyverse.org/reference/index.html#section-scales).
+Scales are used to affect the visual qualities of the data. Scales help visualize discrete categories by associating each discrete value with a specific color. [Read more about scales](https://ggplot2.tidyverse.org/reference/index.html#section-scales).
 
 Viridis scales apply color palettes to continuous, discrete, or binned data. For discrete data we can use the `scale_fill_viridis_d()` function.
 
@@ -377,7 +380,7 @@ chicken_plot
 
 ## Labels
 
-The `labs()` function is specialized scales function, used to apply labels. For example, use the `labs()` function to add a title, subtitle, legend title, modify axis labels, and set a caption. See more on [scales](https://ggplot2.tidyverse.org/reference/index.html#section-scales).
+The `labs()` function is a specialized scales function, used to apply labels. For example, use the `labs()` function to add a title, subtitle, legend title, modify axis labels, and set a caption. See more on [scales](https://ggplot2.tidyverse.org/reference/index.html#section-scales).
 
 First let's wrangle a data frame, make a plot, and assign it to an object name
 
@@ -479,11 +482,15 @@ library(patchwork)
 
 ## Interactive plots
 
-Use the `ggplotly` function will transform your static ggplot object into an interactive plot for use in dashboards and web presentations. ggplotly[^1] is an example of [HTML widgets for R](https://htmlwidgets.org)[^2], an easy to implement approach that will be explained more in the [next section](widgets.html).
+Use the `ggplotly` function will transform your static ggplot object into an interactive plot for use in dashboards and web presentations. ggplotly[^2] is an example of [HTML widgets for R](https://htmlwidgets.org)[^3], an easy to implement approach that will be explained more in the [next section](widgets.html).
 
-[^1]: See Also: the [Plotly ggplot2 Library](https://plotly.com/ggplot2/) page, and the [*Interactive web-based data visualization with R, plotly, and shiny*](https://plotly-r.com/) book.
+[^2]: See Also: the [Plotly ggplot2 Library](https://plotly.com/ggplot2/) page, and the [*Interactive web-based data visualization with R, plotly, and shiny*](https://plotly-r.com/) book.
 
-[^2]: HTML widgets use JavaScript visualization libraries just by using the R language. The widgets can be embedded into Quarto and R Markdown documents.
+[^3]: HTML widgets use JavaScript visualization libraries just by using the R language. The widgets can be embedded into Quarto and R Markdown documents.
+
+<!-- Requires an older version of {knitr} -->
+
+<!-- remotes::install_version("knitr", version = "1.42") -->
 
 ```{r}
 #| label: plotly-example
@@ -494,9 +501,9 @@ library(plotly)
 ggplotly(plot_sleep)
 ```
 
-For more advanced interactivity we'll also explore [ObservableJS](interactive.html).[^3]
+For more advanced interactivity we'll also explore [ObservableJS](interactive.html).[^4]
 
-[^3]: Through Quarto you can leverage [ObservableJS](https://observablehq.com/@observablehq/observables-not-javascript), an especially interactive application that is perfect for end-user interactive data exploration.
+[^4]: Through Quarto you can leverage [ObservableJS](https://observablehq.com/@observablehq/observables-not-javascript), an especially interactive application that is perfect for end-user interactive data exploration.
 
 ## Animate plots
 

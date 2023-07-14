@@ -11,9 +11,9 @@ bibliography: references.bib
 
 All data are readily available for this workshop.
 
-Whenever possible on-board datasets are used. This means you do not have to load any data, but you may have to load a library. For example the `starwars` dataset is part of the {dplyr} package. You may first have to load `library(dplyr)` to access the starwars data frame. Alternatively, you could access the data with the fully verbose *package::object* syntax: `dplyr::starwars`.
+Whenever possible on-board datasets are used. Therefore, you may not have to load any data at all. For most of the data you only to [load a library](packages.html#load-packages). For example the `starwars` dataset is part of the {dplyr} package --- `library(dplyr)` to access the starwars data frame. Alternatively, you can access the data with the fully verbose *package::function* syntax --- `dplyr::starwars`.
 
-Some data sets are imported via the `read_csv` function. You can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Then you'll find a data folder with the CSV files used in this workshop. Refer to the [import](import.html) page for tips on importing data.
+Some data sets are imported via the `read_csv` function and you can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. You'll find a data folder with CSV files used in this workshop. Refer to the [import](import.html) page for tips on importing data.
 
 ## Code
 

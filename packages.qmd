@@ -9,13 +9,13 @@ bibliography: references.bib
 
 ## Download R & RStudio
 
-Remember. R and RStudio are not the same thing. It's a good idea to have up-to-date installations. As of this writing, the easiest way to find both applications for local download are from the post.co page
+R and RStudio are not the same thing. Both are open source applications and it is a good idea to have up-to-date installations. As of this writing, the easiest way to find both applications for local download are from the posit.co page. There are cloud versions of RStudio available for the Duke University community at the [VCM containers page](https://cmgr.oit.duke.edu/containers).
 
 ![Download R and RStudio](images/install_r.jpg)
 
 ## Install R, RStudio, R packages
 
-I recommend this Interactive [tutorial](https://tutorials.shinyapps.io/00-setup/ "how to install R, RStudio, and packages") for a nice interactive tutorial on installing R, RStudio, packages.
+I recommend this Interactive [tutorial](https://tutorials.shinyapps.io/00-setup/ "how to install R, RStudio, and packages") for a guided overview of installing R, RStudio, packages.
 
 ## Quarto installation
 
@@ -41,7 +41,7 @@ You only have to install a package once and should avoid putting the `install.pa
 
 ## Load packages
 
-You should load packages at the top of your script. Then write your script. Then Run All
+You should load packages at the top of your script. Write your script, then click the green arrow in the code-chunks; or Run All (Ctrl-Alt-R)
 
 ::: {layout-ncol="2"}
 [![Load packages](images/packages_load.jpg){fig-alt="Load packages"}](images/packages_load.jpg)
@@ -54,5 +54,5 @@ You should load packages at the top of your script. Then write your script. Then
 ::: {layout-ncol="2"}
 ![Tidyverse is a meta-package of several packages](images/package_tidyverse.jpg)
 
-[Tidyverse](https://tidyverse.org "tidyverse") [@wickham2019] is a concept but also a package. More accurately it's a meta-package that loads about eight other packages. When you type `load(tidyverse)`, there's no need to also load `ggplot2`, `dplyr`, `lubridate` or any of the packages that tidyverse loads. Redundantly, it's fine to write multiple load statements, but check the feedback from the code-chunk and you'll see what is being loaded by `load(tidyverse)`.
+[Tidyverse](https://tidyverse.org "tidyverse") [@wickham2019] is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command `load(tidyverse)`, there's no need to also load `ggplot2`, `dplyr`, `lubridate` or any of the packages. Those packages are included. Redundantly, it's fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by `load(tidyverse)`.
 :::

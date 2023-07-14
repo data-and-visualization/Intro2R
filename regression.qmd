@@ -77,7 +77,11 @@ evals_ch5 %>%
 
 ## Linear model
 
-> For every increase of 1 unit increase in bty_avg, there is an associated increase of, on average, 0.067 units of score. from [*ModenDive*](https://moderndive.com/5-regression.html)
+::: callout-tip
+## Interpretation
+
+For every increase of 1 unit increase in bty_avg, there is an associated increase of, on average, 0.067 units of score. from [*ModenDive*](https://moderndive.com/5-regression.html) [@kim2021]
+:::
 
 ```{r}
 # Fit regression model:

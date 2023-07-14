@@ -12,7 +12,7 @@ license: CC BY-NC
 bibliography: references.bib
 ---
 
-Often our goal is to reshape our data frame into a *tidy data* [@wickham2014] format frequently known as **tall data**. We can use the {[tidyr](https://tidyr.tidyverse.org/)} package to reshape data into tall or wide formats. When coding in the tidyverse context, tall data is much easier to iterate over --- without ever writing *for* loops or other kind of flow control. Later, in the [advance section, we'll introduce the {purrr} package](purrr.html "purrr") for powerful iteration techniques.
+Often our goal is to reshape a data frame into a *tidy data* [@wickham2014] format. This is also known as **tall data or long data**. The {[tidyr](https://tidyr.tidyverse.org/)} package has functions to reshape data into tall or wide formats. When coding in the tidyverse context, tall data is much easier to iterate over --- without ever writing *for* loops or other kind of flow control. Later, in the [advance section, we'll introduce the {purrr} package](purrr.html "purrr") for more powerful iteration.
 
 [![Image credit: Tidy data from the book \_R for Data Science\_](images/tidy_data.png){fig-alt="Tidy data"}](images/tidy_data.png)
 
@@ -28,7 +28,7 @@ See Also the [*Pivot Vignette*](https://tidyr.tidyverse.org/articles/pivot.html)
 
 ## Load library packages
 
-we'll load the {tidyverse} meta package which loads eight packges, including {tidyr}.
+Load the {tidyverse} meta package which loads eight packges, including {tidyr}.
 
 ```{r}
 #| warning: false
@@ -38,7 +38,7 @@ library(tidyverse)
 
 ## Data
 
-Now that we've loaded {tidyr}, our practice datasets are avaiable in the [tidyr](https://tidyr.tidyverse.org/reference/index.html#section-data) package.
+Our practice datasets are now available.
 
 ```{r}
 data(relig_income)
@@ -55,7 +55,7 @@ data(fish_encounters)
 ```
 :::
 
-We can start with the tidyr::relig_income data frame. This is wide data and does not conform to tidy data[@wickham2014] principles. This makes it harder to interate over by row because there are multiple observations in each row. In this data frame, each row has 10 observations, one observation for each income category.
+We can start with the tidyr::relig_income data frame. This is wide data and does not conform to tidy data [@wickham2014] principles. This makes it harder to iterate by row because there are multiple observations in each row. In this data frame, each row has 10 observations, one observation for each income category.
 
 ```{r}
 relig_income
@@ -70,7 +70,7 @@ relig_income %>%
 
 ## Wider
 
-Of course, sometimes we want wide data. There are a variety of reasons to wrangle data into a wide-data format and we will discuss that, below. Here we use `pivot_wider` to accomplish this.
+Of course, sometimes we want wide data. There are a variety of reasons to wrangle data into a wide-data format. We use `pivot_wider` to accomplish this.
 
 ```{r}
 fish_encounters
@@ -83,7 +83,7 @@ fish_encounters %>%
 
 ## Why pivot data?
 
-Why pivot data? Your analysis may be easier, or may require, the shape of data to match a particular structure. For example, ggplot generally prefers long tidy data. For example, once the data are properly shaped, analysis and variations becomes easier. Below is a quick example of using ggplot to format data in a long and tidy shape to create a bar plot. Of course, the plot needs some refining and hence improvements become easier to accomplish with the tall data shape. Nonetheless, below shows an initial draft of a bar plot.
+Why pivot data? Your analysis may require the shape of data to match a particular structure. For example, ggplot generally prefers long tidy data. Once the data are properly shaped, analysis and variations becomes easier. Below is a quick example of using ggplot to format data in a long and tidy shape to create a bar plot. Of course, the plot needs some refining. Hence, improvements become easier to accomplish with the tall data shape. Nonetheless, below shows an initial draft of a bar plot.
 
 ```{r}
 #| code-fold: true
@@ -94,15 +94,15 @@ relig_income %>%
   geom_col()
 ```
 
-Once the data are properly shaped, variations on analysis becomes easier. Here I will, additionally, format some of the variables as categorical vectors, so that I can redraw the plot for more clarity. That is, to tell my data story more clearly.
+Once the data are properly shaped, variations on analysis becomes easier. Next, I format some variables as categorical vectors (i.e. factors), so that I can redraw the plot for clarity.
 
-My goal is to format the vectors as factors using the `forcats` package. This will allow me arrange
+My goal is to format the vectors as factors using the `forcats` package. This will allow me to arrange
 
 -   the order of the bars
 -   the order of the stacked elements of each bar
 -   the order of the Legend
 
-I will also change the color scheme of the discrete color from the `fill` argument, in combination with the `scale_fill_iridis_d` function.
+I will also change the color scheme of the discrete color from the `fill` argument, in combination with the `scale_fill_viridis_d` function.
 
 ```{r}
 #| code-fold: true
@@ -122,7 +122,7 @@ relig_income %>%
   coord_flip() 
 ```
 
-Nonetheless, unpivoted, wide data, can be subset and visualized even though this is not ideal when attempting visualization variations on a more complex data frame. Here, unpivoted, I will make a bar chart of religious affiliation for incomes between \$40k and \$50k.
+Nonetheless, the un-pivoted, wide data, can be subset and visualized even though this is not ideal when attempting more complex visualization variations. Here, un-pivoted, I will make a bar chart of religious affiliation for incomes between \$40k and \$50k. Since I'm using just one variable, the code is not hard to compose. But note, the data re not in a tidy-data format.
 
 ```{r}
 #| code-fold: true
@@ -133,7 +133,7 @@ relig_income %>%
   coord_flip()
 ```
 
-Note: Tidy, `pivot_longer`, data will be easier to manipulate with `ggplot2`. For example, You can subset the data with a single `filter` function, thereby more easily enabling different income charts. Below, although there is an additional line of code, the code is easier to read and easier to modify if I want to use a different income value.
+Tidy, `pivot_longer`, data will be easier to manipulate with `ggplot2`. For example, You can subset the data with a single `filter` function, thereby more easily enabling different income charts. Below, the code is easier to read and easier to modify if I want to use a different income value.
 
 > `filter(income == "$40-50k")`
 
@@ -148,7 +148,7 @@ relig_income %>%
   coord_flip() 
 ```
 
-It also becomes a natural step to make comparisons with all the income values using `ggplot2::facet_wrap()`
+Getting more complex, a natural step is to make comparisons across incomes. To do this we use `ggplot2::facet_wrap()`
 
 ```{r}
 #| code-fold: true
