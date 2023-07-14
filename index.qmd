@@ -7,7 +7,7 @@ license: CC BY-NC
 bibliography: references.bib
 ---
 
-**Let's learn R**
+**Let's learn R 🍇**
 
 ::: column-margin
 [![](images/DALL-E_2023-07-13_learn_R.png){fig-alt="Learn R"}](images/DALL-E_2023-07-13_learn_R.png)
