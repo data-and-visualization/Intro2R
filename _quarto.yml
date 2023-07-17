@@ -6,6 +6,7 @@ execute:
 
 website:
   title: "R/Tidyverse/Quarto - get started"
+  favicon: "images/rfun_logo.png"
   repo-url: https://github.com/data-and-visualization/Intro2R
   repo-actions: [edit, issue]
   page-footer: 
@@ -14,12 +15,21 @@ website:
     center: "<a href='https://library.duke.edu/data'>Center for Data & Visualization Sciences</a>"
     right: "<a href='https://library.duke.edu/'>Duke University Libraries</a>"
   navbar: 
+    logo: "images/rfun_logo.png"
+    logo-alt: "Rfun R learning Resources"
+    logo-href: https://rfun.library.duke.edu/
     right:
       - text: About
         href: about.qmd
       - icon: github
         href: https://github.com/data-and-visualization/Intro2R
         aria-label: GitHub
+      - text: "CDVS"
+        menu:
+          - text: "Rfun Home"
+            href: "https://rfun.library.duke.edu/"
+          - text: "Cntr for Data & Viz Sci"
+            href: https://library.duke.edu/data/  
   sidebar:
     style: "floating"
     collapse-level: 1
