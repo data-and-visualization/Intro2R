@@ -45,7 +45,7 @@ Then we can call that function like this
 add_nubmers(8, 10)
 ```
 
-The console will return a response, or we can store that response in an object. Or we can can combine that function with the mutate function and iterate over all the rows in a data frame
+The console will return a response, or we can store that response in an object. Or we can combine that function with the mutate function and iterate over all the rows in a data frame
 
 ```{r}
 #| warning: false
@@ -90,7 +90,7 @@ make_scatterplot(mpg, displ, hwy, class)
 ::: callout-tip
 ## Rule of thumb
 
-If you have to write the same code three times or more, write a function. Among the advantages, this prevents typographical errors. It also prevents mistakes when updating code because there will be fewer places to update code leverages functions and iteration over redundancy.
+If you have to write the same code three times or more, write a function. Among the advantages, this prevents typographical errors. Additionally, writing functions can prevent mistakes in coding because there will be fewer places to update.
 :::
 
 ## Can it be simpler?

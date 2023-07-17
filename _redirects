@@ -1,0 +1,6 @@
+# redirects from older version of website i.e. https://github.com/data-and-visualization/Intro2R/releases/tag/v1.0
+/data_management.html         /import.html
+/data_wrangling.html          /wrangle.html
+/visualization.html           /viz.html
+/gis.html                     https://map-rfun.library.duke.edu/
+/version_control.html         https://git-rfun.library.duke.edu/
