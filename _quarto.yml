@@ -16,8 +16,6 @@ website:
     right: "<a href='https://library.duke.edu/'>Duke University Libraries</a>"
   navbar: 
     logo: "images/rfun_logo.png"
-    logo-alt: "Rfun R learning Resources"
-    logo-href: https://rfun.library.duke.edu/
     right:
       - text: About
         href: about.qmd

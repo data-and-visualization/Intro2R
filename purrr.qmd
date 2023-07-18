@@ -105,14 +105,14 @@ tidy(my_subset_df$my_fit_bty[[1]])
 
 ### Named functions
 
-If we wanted to tidy all the models --- not only the fist model as above --- then we use the `map` function (again.) This time we **map** a named function, i.e. `broom::tidy()`. We do this row-by-row with `map()`, i.e. **without** using a FOR loop.
+If we wanted to tidy all the models --- not only the fist model (above) --- then we use the `map` function (again.) This time we **map** a named function, i.e. `broom::tidy()`. We do this row-by-row with `map()`, i.e. **without** using a FOR loop.
 
 ```{r}
 my_subset_df |> 
   mutate(my_fit_bty_tidy = map(my_fit_bty, tidy))
 ```
 
-A difference between `my_fit_bty` and `my_fit_bty_tidy` is that `my_fit_bty_tidy` is the model output for the former is a *list*, the later is a *data frame*. Therefore, the parent data frame --- `my_subset_df`--- has a data variable: `my_fit_bty_tidy`, aka `$my_subset_df$my_fit_bty_tidy`. my_fit_bty_tidy is a list-column of nested data frames, just like `my_subset_df$data` --- which we nested in the first code-chunk of this page as `evals$data`.
+A difference between `my_fit_bty` and `my_fit_bty_tidy` is that `my_fit_bty_tidy` is the model output for the former is a *list*, the later is a *data frame*. Therefore, the parent data frame --- `my_subset_df`--- has a data variable: `my_fit_bty_tidy`, aka `my_subset_df$my_fit_bty_tidy`. my_fit_bty_tidy is a list-column of nested data frames, just like `my_subset_df$data` --- which we nested in the first code-chunk of this page as `evals$data`.
 
 To un-nest the data frames, use the `unnest()` function.
 

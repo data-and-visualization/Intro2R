@@ -80,10 +80,10 @@ Reproducibility is an idea from computational thinking. A reproducible approach 
 [^3]: <https://en.wikipedia.org/wiki/Reproducibility>
 
 ::: column-margin
-![Reproducibility pyramid (Little and Lafferty-Hess, 2023)](images/Little_reproducibility_project_pyramid.jpg){fig-alt="Reproducibility pyramid"}
+[![Reproducibility pyramid (Little and Lafferty-Hess, 2023)](images/Little_reproducibility_project_pyramid.svg){fig-alt="Reproducibility pyramid"}](images/Little_reproducibility_project_pyramid.svg)
 :::
 
-> Two of the most basic principle in reproducibility are...
+> Two of the most basic principles in reproducibility are...
 >
 > 1.  **Do everything with code**
 > 2.  **Render documents from code**
