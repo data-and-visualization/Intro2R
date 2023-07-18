@@ -28,7 +28,10 @@ Goals:
 library(tidyverse)
 ```
 
-2.  Fill in the blanks. Using what you've seen in class, if `data/brodhead_center.csv` is a CSV (comma separated values) file, how would you load the file into a new object called `brodhead`? Hint. the `data` directory is parallel (over from) the `exercises` directory. `..` is a way to move up a directory. `../data` is a way to indicate the location of the data directory. Then add the filename after the slash. Or use the Import Data wizard from the *Environment* tab -- but be sure to copy the code from the wizard into the code-chunk in the notebook.
+2.  Fill in the blanks. Using what you've seen in class, if `data/brodhead_center.csv` is a CSV (comma separated values) file, how would you load the file into a new object called `brodhead`?
+    -   Hint 1. the `data` directory is parallel (over from) the `exercises` directory. You'll need to use relative file paths to refer to this location: \<project_root\>/data/file\
+        Often people find using the {here} package is easiest. e.g. `read_csv(here::here("data", "file")`
+    -   Hint 2. the `data` directory is parallel (over from) the `exercises` directory. `..` is a way to move up a directory. `../data` is a way to indicate the location of the data directory. Then add the filename after the slash. Or use the Import Data wizard from the *Environment* tab -- but be sure to copy the code from the wizard into the code-chunk in the notebook.
 
 ```{r}
 _____  <- read_csv(________)
