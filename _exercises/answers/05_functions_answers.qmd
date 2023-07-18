@@ -1,0 +1,39 @@
+---
+title: "Exercise 03"
+subtitle: "functions"
+---
+
+Compose a function to take the square root, `sqrt()`, of a number which is multiplied by 10
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+sqrt_by_10 <- function(my_x) {
+  sqrt(my_x * 10)
+}
+```
+
+Execute the function
+
+```{r}
+sqrt_by_10(3)
+
+sqrt(3 * 10)
+```
+
+Compose a function that multiplies two numbers
+
+```{r}
+multiply_two_numbers <- function(x, y) {
+  (x * y)
+}
+```
+
+Execute the function
+
+```{r}
+starwars |> 
+  mutate(new_number = multiply_two_numbers(mass, height), .after = mass)
+```

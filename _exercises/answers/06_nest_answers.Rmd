@@ -49,7 +49,7 @@ You can create the same outcome as above with an anonymous function.
 ```{r}
 gapminder::gapminder |> 
   nest(-continent) |> 
-  mutate(my_plot = map(data, ~ .x |> ggplot(aes(year, pop)) + geom_line(aes(color = country)))) |> 
+  mutate(my_plot = map(data, function(x) x |> ggplot(aes(year, pop)) + geom_line(aes(color = country)))) |> 
   pull(my_plot)
 
 ```

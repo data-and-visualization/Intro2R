@@ -27,7 +27,7 @@ b.  Import data
 #| message: false
 #| warning: false
 library(here)
-brodhead <- read_csv(here("data/brodhead_center.csv"))
+brodhead <- read_csv(here("data", "brodhead_center.csv"))
 ```
 
 ### exercise_01 -- Data Wrangling

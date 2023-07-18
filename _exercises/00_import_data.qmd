@@ -83,7 +83,7 @@ library(haven)
 library(here)
 
 my_labeled_vectors_df <- 
-  read_sav(here("data", "student_satisfaction_test_data_from_qualtrics.sav"))
+  read_sav(here("data", "student_satisfaction_test-data_from_qualtrics.sav"))
 ```
 
 ```{r}

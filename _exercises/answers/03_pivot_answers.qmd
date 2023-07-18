@@ -18,7 +18,7 @@ library(tidyverse)
 
 ## data
 
-These exercisees use the following [`ggplot2` training datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
+These exercises use the following [`ggplot2` training datasets](https://ggplot2.tidyverse.org/reference/index.html#section-data)
 
 -   ggplot2::economics
 
@@ -33,7 +33,7 @@ economics_long %>% arrange(date)
 
 ## Goal
 
-using one of the dplyr pivot functions, pivot the economics data to long format
+Using one of the dplyr pivot functions, pivot the economics data to long format
 
 ```{r}
 economics %>% 
