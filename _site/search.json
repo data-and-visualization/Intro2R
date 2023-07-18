@@ -95,21 +95,21 @@
     "href": "import.html",
     "title": "Import Data",
     "section": "",
-    "text": "Did you start with a Project?\n\n\n\nReproducibility starts at the foundation! Always begin by opening a project. See New Projects for tips.\nIn this workshop we recommend the Tidyverse approach to learning and using R\nBelow are some of the core tidyverse packages. There are many more very handy tidyverse packages."
+    "text": "Did you start with a Project?\n\n\n\nReproducibility starts at the foundation! Always begin by opening a project. See New Projects for tips.\nIn this workshop we recommend the Tidyverse approach to learning and using R\nBelow are some of the core tidyverse packages that are loaded with the function: library(tidyverse)."
   },
   {
     "objectID": "import.html#data-import-wizard",
     "href": "import.html#data-import-wizard",
     "title": "Import Data",
     "section": "Data import wizard",
-    "text": "Data import wizard\nThe data import wizard is a quick and easy way to import your data\n\n\n\nImport dataset\n\n\nIt’s actually way better and hardly any more effort to follow the reproducible steps, below…"
+    "text": "Data import wizard\nThe data import wizard is a quick and easy way to import your data\n\n\n\nImport dataset\n\n\nIt’s actually way better to follow the reproducible steps – and hardly any more effort – below…"
   },
   {
     "objectID": "import.html#load-library-packages",
     "href": "import.html#load-library-packages",
     "title": "Import Data",
     "section": "Load library packages",
-    "text": "Load library packages\n\nlibrary(tidyverse)"
+    "text": "Load library packages\nOpen a Quarto document, Insert a code-chunk (Ctrl-Alt-I) and copy the following code. Then execute the code. You may first have to install the tidyverse-package if you have not already1.\n\nlibrary(tidyverse)"
   },
   {
     "objectID": "import.html#import-data",
@@ -347,7 +347,7 @@
     "href": "packages.html#install-r-rstudio-r-packages",
     "title": "Data and code",
     "section": "Install R, RStudio, R packages",
-    "text": "Install R, RStudio, R packages\nI recommend this Interactive tutorial for a guided overview of installing R, RStudio, packages."
+    "text": "Install R, RStudio, R packages\nIn R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. Metacran, CRAN, Bioconductor, R-universe, Github) to aid in the specialization and efficiency of R coding.\nI recommend this Interactive tutorial for a guided overview of installing R, RStudio, packages."
   },
   {
     "objectID": "packages.html#quarto-installation",
@@ -396,14 +396,28 @@
     "href": "proj.html#reproducibility",
     "title": "Projects",
     "section": "Reproducibility",
-    "text": "Reproducibility\nReproducibility is an idea from computational thinking. A reproducible approach to computing ensures all documents, analysis, data, and code are readily available and helps ensure computations can be executed and re-executed to achieve identical results3\n\n\n\n\n\nReproducibility pyramid (Little and Lafferty-Hess, 2023)\n\n\n\nTwo of the most basic principles in reproducibility are…\n\nDo everything with code\nRender documents from code\n\n\nDeveloping computation techniques to honor reproducibility principles means, whenever possible, reduce or eliminate mouse-clicks and hard-to-document copy/paste steps. We do this because such actions are barriers for ourselves and others when it comes to re-executing code.\nUsing a coding language such as R, along with a report rendering scheme such as Quarto, is an ideal way to ensure the reproducibility of your analysis and publications. Reproducibility is further enhanced by leveraging literate coding (Knuth 1984), tidy data (Wickham 2014), and tidyverse principles (Wickham et al. 2019).\nBuilding computation upon this foundations increases the chances of archiving your work for posterity. When we look back at the computational workflows of the nineteen seventies through the early two-thousands, we see the natural problems and evolution of solutions that now lead us to good reproducible technique."
+    "text": "Reproducibility\nA reproducible approach to computing ensures that all documents are readily available and facilitates the execution and re-execution of computations to achieve identical results.3\n\n\n\n\n\nReproducibility pyramid (Little and Lafferty-Hess, 2023)\n\n\n\nTwo of the most basic principles in reproducibility are…\n\nDo everything with code\nRender documents from code\n\n\nDeveloping computation techniques to honor reproducibility principles means, whenever possible, reduce or eliminate mouse-clicks and hard-to-document copy/paste steps. We do this because such actions are barriers for ourselves and others when it comes to re-executing code.\nUsing a coding language such as R, along with a report rendering scheme such as Quarto, is an ideal way to ensure the reproducibility of your analysis and publications. Reproducibility is further enhanced by leveraging literate coding (Knuth 1984), tidy data (Wickham 2014), and tidyverse principles (Wickham et al. 2019).\nBuilding computation upon this foundations increases the chances of archiving your work for posterity. When we look back at the computational workflows of the nineteen seventies through the early two-thousands, we see the natural problems and evolution of solutions that now lead us to good reproducible technique."
   },
   {
     "objectID": "proj.html#archiving-dependencies-with-renv",
     "href": "proj.html#archiving-dependencies-with-renv",
     "title": "Projects",
     "section": "Archiving dependencies with {renv}",
-    "text": "Archiving dependencies with {renv}\n“The renv package helps you create reproducible environments for your R projects.” {renv}4\n\nThe renv package is a new effort to bring project-local R dependency management to your projects. The goal is for renv to be a robust, stable replacement for the Packrat package, with fewer surprises and better default behaviors. — Introduction to renv / Kevin Ushey"
+    "text": "Archiving dependencies with {renv}\n“The renv package helps create reproducible environments for your R projects.” {renv}4\n\n{renv} is a new effort to bring project-local R dependency management to your projects. The goal is for renv to be a robust, stable replacement for the {packrat} package, with fewer surprises and better default behaviors.5"
+  },
+  {
+    "objectID": "proj.html#version-control-and-code-repositories",
+    "href": "proj.html#version-control-and-code-repositories",
+    "title": "Projects",
+    "section": "Version Control and Code Repositories:",
+    "text": "Version Control and Code Repositories:\nTools for reproducibility, collaboration, documentation, and backup\nVersion control6 is the practice of tracking and managing changes to files and projects over time. Code repositories7 are platforms for storing, managing, and sharing code. Researchers can use these tools to improve the reproducibility, collaboration, documentation, and backup of their research.\nFor example, version control can be used to track changes to a computational model, allowing researchers to easily revert to previous versions of the project if necessary. Code repositories can be used to share code with collaborators, making it easier to work together on projects.\nVersion control and code repositories can also be used to document the development process, which can help future researchers who want to build on the work. Additionally, code repositories can be used to create backups of code and data, which can help protect against data loss."
+  },
+  {
+    "objectID": "proj.html#research-artifacts",
+    "href": "proj.html#research-artifacts",
+    "title": "Projects",
+    "section": "Research artifacts",
+    "text": "Research artifacts\nStoring, sharing, and citing your work.\nArchival data repositories8 are different from code repositories in that they aim to preserve research milestones as an artifact. This can include a published article, the code and data used to produce the article, and any other relevant materials.\nMeanwhile, Code repositories (mentioned above), are more focused on current workflows, and they are often used to store and share code that is used in research projects.\nLinking code and data repositories can be helpful for researchers who want to ensure the reproducibility and posterity of their work. By linking the two repositories, researchers can make it easy for others to find and access the code and data that they used to produce their results.\nFor example, Referencing and citing your reproducible artifacts, data, and computational workflow is easily accomplished with GitHub (a code repository) and Zenodo (a data repository). Using the techniques described, the two repositories can be easily linked and synchronized. This means that any major versions or milestones in GitHub will be automatically imported into Zenodo, where they will be given a Digital Object Identifier (DOI).\nA DOI is a unique identifier that can be used to cite research artifacts. This makes it easy for others to find and reference your work."
   },
   {
     "objectID": "purrr.html",

@@ -16,10 +16,10 @@ Reproducibility starts at the [foundation](proj.html#reproducibility)! Always be
 
 In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to learning and using R
 
-Below are some of the core [*tidyverse*](https://tidyverse.tidyverse.org/) packages. There are many more very handy tidyverse packages.
+Below are some of the core [*tidyverse*](https://tidyverse.tidyverse.org/) packages that are loaded with the function: `library(tidyverse)`.
 
 | package   | use                               | package     | use                           |
-|----------------|----------------------|----------------|-------------------|
+|------------------|-------------------|------------------|------------------|
 | `dplyr`   | data wrangling                    | `forcats`   | categorical data / factors    |
 | `ggplot2` | visualization                     | `lubridate` | dates and times               |
 | `readr`   | import CSV                        | `stringr`   | regular expressions / strings |
@@ -32,9 +32,13 @@ The data import wizard is a quick and easy way to import your data
 
 [![Import dataset](images/data_import.jpg){fig-alt="import dataset"}](images/data_import.jpg)
 
-It's actually way **better** and hardly any more effort to follow the **reproducible steps**, below...
+It's actually way **better** to follow the **reproducible steps** -- and hardly any more effort -- below...
 
 ## Load library packages
+
+Open a Quarto document, Insert a code-chunk (Ctrl-Alt-I) and copy the following code. Then execute the code. You may first have to [install the tidyverse-package](packages.html#install-packages) if you have not already[^1].
+
+[^1]: In R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. [Metacran](https://www.r-pkg.org/), CRAN, [Bioconductor](https://bioconductor.org/), [R-universe](https://r-universe.dev/search/), Github) to aid in the specialization and efficiency of R coding.
 
 ```{r}
 #| warning: false
