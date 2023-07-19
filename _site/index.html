@@ -142,12 +142,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data.html" class="sidebar-item-text sidebar-link">Data and code</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./packages.html" class="sidebar-item-text sidebar-link">Download/install/packages</a>
+  <a href="./packages.html" class="sidebar-item-text sidebar-link">Get RStudio - Packages</a>
   </div>
 </li>
       </ul>
@@ -160,6 +155,11 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">start <strong>Coding</strong></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./proj.html" class="sidebar-item-text sidebar-link">Projects (Reproducibility)</a>
@@ -317,6 +317,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#first-steps" id="toc-first-steps" class="nav-link active" data-scroll-target="#first-steps">First steps</a></li>
+  <li><a href="#download-project-data-and-code" id="toc-download-project-data-and-code" class="nav-link" data-scroll-target="#download-project-data-and-code">Download Project (data and code)</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  </ul></li>
   <li><a href="#pipes-and-assignment" id="toc-pipes-and-assignment" class="nav-link" data-scroll-target="#pipes-and-assignment">Pipes and Assignment</a></li>
   <li><a href="#more-workshops" id="toc-more-workshops" class="nav-link" data-scroll-target="#more-workshops">More workshops</a></li>
   </ul>
@@ -403,6 +408,34 @@ Quarto and reproducibility
 </ul></li>
 <li>Open the <code>import.qmd</code> notebook-file from the <em>Files</em> tab in the RStudio IDE</li>
 </ol>
+</section>
+<section id="download-project-data-and-code" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="download-project-data-and-code">Download Project (data and code)</h2>
+<p>All data and code are readily available for this workshop.</p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>Whenever possible on-board datasets are used. Therefore, you may not have to load any data at all. For most of the data you only to <a href="packages.html#load-packages">load a library</a>. For example the <code>starwars</code> dataset is part of the {dplyr} package — <code>library(dplyr)</code> to access the starwars data frame. Alternatively, you can access the data with the fully verbose <em>package::function</em> syntax — <code>dplyr::starwars</code>.</p>
+<p>Some data sets are imported via the <code>read_csv</code> function and you can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. You’ll find a data folder with CSV files used in this workshop. Refer to the <a href="import.html">import</a> page for tips on importing data.</p>
+</section>
+<section id="code" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="code">Code</h3>
+<p>You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/github_download.jpg" class="img-fluid figure-img" alt="download code"></p>
+<p></p><figcaption class="figure-caption">Download zipped code from GitHub</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Or</p>
+<p>Use this link to <a href="https://github.com/data-and-visualization/Intro2R.git" title="github code repo">the GitHub repo</a>,</p>
+<ol type="1">
+<li>Click the green code button</li>
+<li>Download ZIP</li>
+<li>Unzip and double click the <code>Intro2R.Rproj</code> file</li>
+</ol>
+</section>
 </section>
 <section id="pipes-and-assignment" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="pipes-and-assignment">Pipes and Assignment</h2>

@@ -12,6 +12,8 @@ bibliography: references.bib
 ## Did you start with a Project?
 
 Reproducibility starts at the [foundation](proj.html#reproducibility)! Always begin by opening a project. See [New Projects](proj.html) for tips.
+
+We **recommend** entering your code in **code-chunks** within [**coding notebooks**](quarto.html).
 :::
 
 In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to learning and using R

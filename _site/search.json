@@ -42,20 +42,6 @@
     "text": "Ethics\nLLMs knowledge bases are private and lack transparency. There are important societal concerns about the fairness of equitable access to these tools. It’s unclear how developers or users of these models can be held accountable."
   },
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Data and code",
-    "section": "",
-    "text": "All data are readily available for this workshop.\nWhenever possible on-board datasets are used. Therefore, you may not have to load any data at all. For most of the data you only to load a library. For example the starwars dataset is part of the {dplyr} package — library(dplyr) to access the starwars data frame. Alternatively, you can access the data with the fully verbose package::function syntax — dplyr::starwars.\nSome data sets are imported via the read_csv function and you can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. You’ll find a data folder with CSV files used in this workshop. Refer to the import page for tips on importing data."
-  },
-  {
-    "objectID": "data.html#code",
-    "href": "data.html#code",
-    "title": "Data and code",
-    "section": "Code",
-    "text": "Code\nYou an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.\n\n\n\n\n\nDownload zipped code from GitHub\n\n\nOr\nUse this link to the GitHub repo,\n\nClick the green code button\nDownload ZIP\nUnzip and double click the Intro2R.Rproj file"
-  },
-  {
     "objectID": "eda.html",
     "href": "eda.html",
     "title": "Exploratory Data Analysis packages",
@@ -95,7 +81,7 @@
     "href": "import.html",
     "title": "Import Data",
     "section": "",
-    "text": "Did you start with a Project?\n\n\n\nReproducibility starts at the foundation! Always begin by opening a project. See New Projects for tips.\nIn this workshop we recommend the Tidyverse approach to learning and using R\nBelow are some of the core tidyverse packages that are loaded with the function: library(tidyverse)."
+    "text": "Did you start with a Project?\n\n\n\nReproducibility starts at the foundation! Always begin by opening a project. See New Projects for tips.\nWe recommend entering your code in code-chunks within coding notebooks.\nIn this workshop we recommend the Tidyverse approach to learning and using R\nBelow are some of the core tidyverse packages that are loaded with the function: library(tidyverse)."
   },
   {
     "objectID": "import.html#data-import-wizard",
@@ -152,6 +138,13 @@
     "title": "R workshop - get started",
     "section": "First steps",
     "text": "First steps\n\nTour of your Local File System\n\nR / RStudio\nClone code from GitHub\n\nStart a new project by importing the github repository for this workshop\n\nhttps://github.com/data-and-visualization/Intro2R.git\n\nOpen the import.qmd notebook-file from the Files tab in the RStudio IDE"
+  },
+  {
+    "objectID": "index.html#download-project-data-and-code",
+    "href": "index.html#download-project-data-and-code",
+    "title": "R workshop - get started",
+    "section": "Download Project (data and code)",
+    "text": "Download Project (data and code)\nAll data and code are readily available for this workshop.\n\nData\nWhenever possible on-board datasets are used. Therefore, you may not have to load any data at all. For most of the data you only to load a library. For example the starwars dataset is part of the {dplyr} package — library(dplyr) to access the starwars data frame. Alternatively, you can access the data with the fully verbose package::function syntax — dplyr::starwars.\nSome data sets are imported via the read_csv function and you can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. You’ll find a data folder with CSV files used in this workshop. Refer to the import page for tips on importing data.\n\n\nCode\nYou an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.\n\n\n\n\n\nDownload zipped code from GitHub\n\n\nOr\nUse this link to the GitHub repo,\n\nClick the green code button\nDownload ZIP\nUnzip and double click the Intro2R.Rproj file"
   },
   {
     "objectID": "index.html#pipes-and-assignment",
@@ -338,44 +331,37 @@
   {
     "objectID": "packages.html",
     "href": "packages.html",
-    "title": "Data and code",
+    "title": "R & RStudio, packages, tidyverse",
     "section": "",
     "text": "R and RStudio are not the same thing. Both are open source applications and it is a good idea to have up-to-date installations. As of this writing, the easiest way to find both applications for local download are from the posit.co page. There are cloud versions of RStudio available for the Duke University community at the VCM containers page.\n\n\n\nDownload R and RStudio"
   },
   {
     "objectID": "packages.html#install-r-rstudio-r-packages",
     "href": "packages.html#install-r-rstudio-r-packages",
-    "title": "Data and code",
+    "title": "R & RStudio, packages, tidyverse",
     "section": "Install R, RStudio, R packages",
     "text": "Install R, RStudio, R packages\nIn R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. Metacran, CRAN, Bioconductor, R-universe, Github) to aid in the specialization and efficiency of R coding.\nI recommend this Interactive tutorial for a guided overview of installing R, RStudio, packages."
   },
   {
     "objectID": "packages.html#quarto-installation",
     "href": "packages.html#quarto-installation",
-    "title": "Data and code",
+    "title": "R & RStudio, packages, tidyverse",
     "section": "Quarto installation",
-    "text": "Quarto installation\nQuarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at Quarto.org"
+    "text": "Quarto installation\nQuarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at Quarto.org\n\n\n\n\n\n\nWhat is Quarto?\n\n\n\n\n\nQuarto is a scientific publishing system. As a next-genderation R Markdown, it offers new features, tight integration, and consistent documentation that make it a better choice for reproducible coding.\nFor example, Quarto can render documents in more output formats than R Markdown, including HTML, PDF, EPUB, and slides. The visual editor makes it easy to combine code, text, and figures in a single document."
   },
   {
-    "objectID": "packages.html#install-packages",
-    "href": "packages.html#install-packages",
-    "title": "Data and code",
-    "section": "Install packages",
-    "text": "Install packages\nPackages can be installed with the install.packages() function. Alternatively, from within RStudio > Packages > install\n\n\n\n\n\n\nInstall packages\n\n\n\n\n\n\n\n\nInstall Once!\n\n\n\nYou only have to install a package once and should avoid putting the install.packages() function in your scripts. Of course, you will need to update packages from time to time."
+    "objectID": "packages.html#packages",
+    "href": "packages.html#packages",
+    "title": "R & RStudio, packages, tidyverse",
+    "section": "Packages",
+    "text": "Packages\nPackages can be installed with the install.packages() function. Alternatively, from within RStudio > Packages > install\n\n\n\n\n\n\nInstall packages\n\n\n\n\n\n\n\n\nInstall Once!\n\n\n\nYou only have to install a package once and should avoid putting the install.packages() function in your scripts. Of course, you will need to update packages from time to time.\n\n\n\nLoad packages\nYou should load packages at the top of your script. Write your script, then click the green arrow in the code-chunks; or Run All (Ctrl-Alt-R)\n\n\n\n\n\nLoad packages\n\n\n\n\n\nRun packages"
   },
   {
-    "objectID": "packages.html#load-packages",
-    "href": "packages.html#load-packages",
-    "title": "Data and code",
-    "section": "Load packages",
-    "text": "Load packages\nYou should load packages at the top of your script. Write your script, then click the green arrow in the code-chunks; or Run All (Ctrl-Alt-R)\n\n\n\n\n\nLoad packages\n\n\n\n\n\nRun packages"
-  },
-  {
-    "objectID": "packages.html#loading-the-tidyverse",
-    "href": "packages.html#loading-the-tidyverse",
-    "title": "Data and code",
-    "section": "Loading the tidyverse",
-    "text": "Loading the tidyverse\n\n\n\n\n\n\nTidyverse is a meta-package of several packages\n\n\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it’s fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by load(tidyverse)."
+    "objectID": "packages.html#tidyverse",
+    "href": "packages.html#tidyverse",
+    "title": "R & RStudio, packages, tidyverse",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\n\n\n\n\n\nTidyverse is a meta-package of several packages\n\n\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it’s fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by load(tidyverse)."
   },
   {
     "objectID": "proj.html",
@@ -446,6 +432,34 @@
     "title": "Iteration with {purrr}",
     "section": "map2() & pmap()",
     "text": "map2() & pmap()\nIf you have more than one argument to map, you can use functions such as map2() or pmap(). An example of map2() can be found on the regression page.\n```{r}\n# Example of mapping a anonymous function with two variables.\n\nmap2(my_df, my_plot, gender, function(x, y) { x + labs(title = str_to_title(y)) } )\n\n# x refers to the second argument of map2, i.e. `my_plot`\n\n# y refers to the third argument, i.e. `gender`\n\n```"
+  },
+  {
+    "objectID": "quarto.html",
+    "href": "quarto.html",
+    "title": "Start coding",
+    "section": "",
+    "text": "After installing R, RStudio, and the Tidyverse packages, you’re ready to send commands to the R-interpreter."
+  },
+  {
+    "objectID": "quarto.html#console",
+    "href": "quarto.html#console",
+    "title": "Start coding",
+    "section": "Console",
+    "text": "Console\nA very simple way to code is to send commands directly to the console (bottom-left quadrant in RStudio). For example, type: cars — then hit the enter key.\nThis approach is convenient but not very reproducible."
+  },
+  {
+    "objectID": "quarto.html#notebooks---recomended",
+    "href": "quarto.html#notebooks---recomended",
+    "title": "Start coding",
+    "section": "Notebooks - RECOMENDED",
+    "text": "Notebooks - RECOMENDED\nI recommend using Quarto Documents. This provides a visual notebook where coders blend code with prose, then render publishable documents from the quarto-document. Another option are R Markdown documents; R Markdown is the predecessor to Quarto.\n\n\n\n\n\nSample Quarto Document\n\n\nThe basic steps are\n\nBegin new Quarto document (File > New file > Quarto document)\nCompose explanation of goals and code-chunks using natural language (i.e. prose)\nAdd code-chunks (Ctrl-Alt-i) to compose code. (intersperse code-chunks with prose)\nRender document into a publishable report1\n\n\nRecommended Quarto links\n\nQuarto tutorial (Includes step-by-step hello.qmd document: from authoring to rendering )\nQuarto FAQ for R Markdown users\nQuarto example publication types. Plus guides and deep-references docs"
+  },
+  {
+    "objectID": "quarto.html#scripts---plain-vanilla",
+    "href": "quarto.html#scripts---plain-vanilla",
+    "title": "Start coding",
+    "section": "Scripts - plain vanilla",
+    "text": "Scripts - plain vanilla\nYou can also code the old fashion way using a plain vanilla .R script.2"
   },
   {
     "objectID": "regression.html",
