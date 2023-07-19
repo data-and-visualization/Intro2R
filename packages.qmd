@@ -1,5 +1,7 @@
 ---
-title: "Data and code"
+title: "R & RStudio, packages, tidyverse"
+subtitle: "Downloading and installing"
+
 date-modified: 'today'
 date-format: long
 
@@ -23,7 +25,15 @@ I recommend this Interactive [tutorial](https://tutorials.shinyapps.io/00-setup/
 
 Quarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at [Quarto.org](https://quarto.org/docs/get-started/ "Get Started with Quarto")
 
-## Install packages
+::: {.callout-tip collapse="true"}
+## What is Quarto?
+
+[Quarto](https://quarto.org) is a scientific publishing system. As a next-genderation R Markdown, it offers new features, tight integration, and consistent documentation that make it a better choice for reproducible coding.
+
+For example, Quarto can render documents in more output formats than R Markdown, including HTML, PDF, EPUB, and slides. The visual editor makes it easy to combine code, text, and figures in a single document.
+:::
+
+## Packages
 
 Packages can be installed with the `install.packages()` function. Alternatively, from within RStudio \> Packages \> install
 
@@ -41,7 +51,7 @@ Packages can be installed with the `install.packages()` function. Alternatively,
 You only have to install a package once and should avoid putting the `install.packages()` function in your scripts. Of course, you will need to update packages from time to time.
 :::
 
-## Load packages
+### Load packages
 
 You should load packages at the top of your script. Write your script, then click the green arrow in the code-chunks; or Run All (Ctrl-Alt-R)
 
@@ -51,7 +61,7 @@ You should load packages at the top of your script. Write your script, then clic
 [![Run packages](images/packages_run.jpg){fig-alt="Run packages" width="175"}](images/packages_run.jpg)
 :::
 
-## Loading the tidyverse
+## Tidyverse
 
 ::: {layout-ncol="2"}
 ![Tidyverse is a meta-package of several packages](images/package_tidyverse.jpg)

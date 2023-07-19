@@ -36,12 +36,12 @@ website:
       - section: Home
         contents:
           - href: index.qmd
-          - text: Data and code
-            href: data.qmd
-          - text: Download/install/packages
+          - text: Get RStudio - Packages
             href: packages.qmd
       - section: Get started
         contents:
+          - text: start **Coding**
+            href: quarto.qmd
           - text: Projects (Reproducibility)
             href: proj.qmd
           - text: Import data

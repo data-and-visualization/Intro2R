@@ -1,0 +1,43 @@
+---
+title: "Start coding"
+subtitle: "Console, script,or Notebook"
+---
+
+After installing R, RStudio, and the Tidyverse packages, you're ready to send commands to the R-interpreter.
+
+## Console
+
+A very simple way to code is to send commands directly to the *console* (bottom-left quadrant in RStudio). For example, type: *cars ---* then hit the enter key.
+
+This approach is convenient but not very [reproducible](proj.html#reproducibility).
+
+## Notebooks - RECOMENDED
+
+I recommend using Quarto Documents. This provides a visual notebook where coders blend code with prose, then render publishable documents from the quarto-document. Another option are R Markdown documents; R Markdown is the predecessor to Quarto.
+
+::: column-margin
+[![Sample Quarto Document](/images/quarto.jpg)](https://quarto.org/docs/get-started/hello/rstudio.html#authoring)
+:::
+
+The basic steps are
+
+1.  Begin new Quarto document (`File > New file > Quarto document`)
+2.  Compose explanation of goals and code-chunks using *natural language* (i.e. prose)
+3.  Add code-chunks (`Ctrl-Alt-i`) to compose code. (intersperse code-chunks with prose)
+4.  Render document into a publishable report[^1]
+
+[^1]: Many report formats are available including: PDF, MS Word, Slides, PPTX, HTML, EPUB, Web sites, Blogs, Interactive interfaces.
+
+### Recommended Quarto links
+
+-   [Quarto tutorial](https://quarto.org/docs/get-started/hello/rstudio.html) (Includes step-by-step [hello.qmd document](https://quarto.org/docs/get-started/hello/rstudio/_hello.qmd): from authoring to rendering )
+
+-   Quarto [FAQ for R Markdown](https://quarto.org/docs/faq/rmarkdown.html) users
+
+-   Quarto [example](https://quarto.org/docs/gallery/) publication types. Plus [guides](https://quarto.org/docs/guide/) and [deep-references docs](https://quarto.org/docs/reference/)
+
+## Scripts - plain vanilla
+
+You can also code the old fashion way using a plain vanilla .R script.[^2]
+
+[^2]: Literally, no reason you have to join the twenty-first century. You do you. I don't judge 😃
