@@ -12,14 +12,6 @@ The code-along exercises for this workshop are in the GitHub repository but they
 
 ```{=html}
 <!-- 
-Todo
-
-1.  Quarto
-    -   websites
-    -   slides
-    -   PDF
-    -   Books (ebooks; epub)
-2.  Version Control and {usethis} | Git and GitHub | Zenodo archiving | Orchid
 
 Publish Notes
 - To Render website:  RStudio > <<this project>> > Build > Build website
