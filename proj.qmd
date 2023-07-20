@@ -17,7 +17,7 @@ bibliography: references.bib
 **R** is a coding language interpreter. **RStudio** is an *Integrated Development Environment* (IDE) used to make it easier to interact with the coding language.
 :::
 
-The projects feature of R helps keep projects and ideas discrete. Using the project feature enables the foundation of a reproducible workflow, makes it easier to share our code across installations, and enables good coding hygiene --- such as using relative file paths.
+The projects feature of R helps keep projects and ideas discrete and establish a [reproducible](proj.html#reproducibility) workflow. It is easier to share code across installations with projects, such as using relative file paths or other coding hygiene practices.
 
 ### How to...
 
@@ -27,7 +27,7 @@ The projects feature of R helps keep projects and ideas discrete. Using the proj
 
 1.  Look in the upper-right corner of your RStudio IDE. Or, `File > New Projects`
 2.  Choose between **New**, Existing, or Version Control.
-3.  If you choose a New project, there are several options for project types. Personally, I like starting with **Quarto Website**. However **Quarto** **Project**[^2] is a more generic setup. You can also easily choose *Quarto Blog* or *Quarto Book*.
+3.  If you choose a New project, there are several options for project types. Personally, I like starting with **Quarto Website**. However **Quarto** **Project**[^2] is a more generic setup. You can also choose *Quarto Blog* or *Quarto Book*.
 
 [^2]: Read more about each of the special subtypes of RStudio projects. [https://quarto.org/docs/projects/quarto-projects.html](https://quarto.org/docs/projects/quarto-projects.htmlhttps://quarto.org/docs/projects/quarto-projects.html)
 
@@ -104,7 +104,7 @@ Building computation upon this foundations increases the chances of archiving yo
 
 [^5]: [*Introduction to renv*](https://rstudio.github.io/renv/articles/renv.html) / Kevin Ushey
 
-## Version Control and Code Repositories: 
+## Version Control and Code Repositories:
 
 Tools for reproducibility, collaboration, documentation, and backup
 

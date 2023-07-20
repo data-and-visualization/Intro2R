@@ -368,7 +368,7 @@
     "href": "proj.html",
     "title": "Projects",
     "section": "",
-    "text": "R and RStudio are not the same thing — they go together\n\n\n\nR is a coding language interpreter. RStudio is an Integrated Development Environment (IDE) used to make it easier to interact with the coding language.\n\n\nThe projects feature of R helps keep projects and ideas discrete. Using the project feature enables the foundation of a reproducible workflow, makes it easier to share our code across installations, and enables good coding hygiene — such as using relative file paths.\n\n\n\n\n\n\n\nRStudio Projects\n\n\n\nLook in the upper-right corner of your RStudio IDE. Or, File > New Projects\nChoose between New, Existing, or Version Control.\nIf you choose a New project, there are several options for project types. Personally, I like starting with Quarto Website. However Quarto Project2 is a more generic setup. You can also easily choose Quarto Blog or Quarto Book.\n\n\n\n\n\n\nNew Quarto project\n\n\n\n\n\nNew Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwitch between projects\n\n\n\nBy clicking the upper-right hand corner of your project name, you’ll be able to easily switch between projects."
+    "text": "R and RStudio are not the same thing — they go together\n\n\n\nR is a coding language interpreter. RStudio is an Integrated Development Environment (IDE) used to make it easier to interact with the coding language.\n\n\nThe projects feature of R helps keep projects and ideas discrete and establish a reproducible workflow. It is easier to share code across installations with projects, such as using relative file paths or other coding hygiene practices.\n\n\n\n\n\n\n\nRStudio Projects\n\n\n\nLook in the upper-right corner of your RStudio IDE. Or, File > New Projects\nChoose between New, Existing, or Version Control.\nIf you choose a New project, there are several options for project types. Personally, I like starting with Quarto Website. However Quarto Project2 is a more generic setup. You can also choose Quarto Blog or Quarto Book.\n\n\n\n\n\n\nNew Quarto project\n\n\n\n\n\nNew Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwitch between projects\n\n\n\nBy clicking the upper-right hand corner of your project name, you’ll be able to easily switch between projects."
   },
   {
     "objectID": "proj.html#settings-in-rstudio-preferences",
@@ -445,14 +445,14 @@
     "href": "quarto.html#console",
     "title": "Start coding",
     "section": "Console",
-    "text": "Console\nA very simple way to code is to send commands directly to the console (bottom-left quadrant in RStudio). For example, type: cars — then hit the enter key.\nThis approach is convenient but not very reproducible."
+    "text": "Console\nA very simple way to code is to send commands directly to the console (bottom-left quadrant in RStudio). For example: in the RStudio console, type cars — then hit the enter key.\nThis approach is convenient but not very reproducible."
   },
   {
     "objectID": "quarto.html#notebooks---recomended",
     "href": "quarto.html#notebooks---recomended",
     "title": "Start coding",
     "section": "Notebooks - RECOMENDED",
-    "text": "Notebooks - RECOMENDED\nI recommend using Quarto Documents. This provides a visual notebook where coders blend code with prose, then render publishable documents from the quarto-document. Another option are R Markdown documents; R Markdown is the predecessor to Quarto.\n\n\n\n\n\nSample Quarto Document\n\n\nThe basic steps are\n\nBegin new Quarto document (File > New file > Quarto document)\nCompose explanation of goals and code-chunks using natural language (i.e. prose)\nAdd code-chunks (Ctrl-Alt-i) to compose code. (intersperse code-chunks with prose)\nRender document into a publishable report1\n\n\nRecommended Quarto links\n\nQuarto tutorial (Includes step-by-step hello.qmd document: from authoring to rendering )\nQuarto FAQ for R Markdown users\nQuarto example publication types. Plus guides and deep-references docs"
+    "text": "Notebooks - RECOMENDED\nWe recommend using Quarto Documents. This provides a visual notebook where coders blend code with prose, then render publishable documents from the quarto-document. Another option is R Markdown documents; R Markdown is the predecessor to Quarto.\n\n\n\n\n\nSample Quarto Document\n\n\nThe basic steps are\n\nBegin new Quarto document (File > New file > Quarto document)\nCompose explanation of goals and code-chunks using natural language (i.e. prose)\nAdd code-chunks (Ctrl-Alt-i) to compose code. (intersperse code-chunks with prose)\nRender document into a publishable report1\n\n\nRecommended Quarto links\n\nQuarto tutorial (Includes step-by-step hello.qmd document: from authoring to rendering )\nQuarto FAQ for R Markdown users\nQuarto example publication types. Plus guides and deep-references docs"
   },
   {
     "objectID": "quarto.html#scripts---plain-vanilla",

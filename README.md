@@ -20,5 +20,10 @@ Todo
     -   PDF
     -   Books (ebooks; epub)
 2.  Version Control and {usethis} | Git and GitHub | Zenodo archiving | Orchid
+
+Publish Notes
+- To Render website:  RStudio > <<this project>> > Build > Build website
+- To Publish website:  RStudio > <<this project>> > Terminal > `quarto publish`
+
 -->
 ```

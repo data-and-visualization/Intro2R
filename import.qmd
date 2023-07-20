@@ -13,7 +13,7 @@ bibliography: references.bib
 
 Reproducibility starts at the [foundation](proj.html#reproducibility)! Always begin by opening a project. See [New Projects](proj.html) for tips.
 
-We **recommend** entering your code in **code-chunks** within [**coding notebooks**](quarto.html).
+We **recommend** entering your code in **code-chunks** within [**coding notebooks**](quarto.html#notebooks---recomended).
 :::
 
 In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to learning and using R
@@ -21,7 +21,7 @@ In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to
 Below are some of the core [*tidyverse*](https://tidyverse.tidyverse.org/) packages that are loaded with the function: `library(tidyverse)`.
 
 | package   | use                               | package     | use                           |
-|-----------|-----------------------------------|-------------|-------------------------------|
+|--------------|------------------------|--------------|---------------------|
 | `dplyr`   | data wrangling                    | `forcats`   | categorical data / factors    |
 | `ggplot2` | visualization                     | `lubridate` | dates and times               |
 | `readr`   | import CSV                        | `stringr`   | regular expressions / strings |
