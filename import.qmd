@@ -125,7 +125,7 @@ brodhead_center |>
   scale_y_continuous(label = scales::dollar) +
   scale_fill_brewer(palette = "Dark2") + 
   labs(x = "rating", y = NULL, title = "Heatmap: cost over ratings", 
-       caption = "Source: https://github.com/libjohn/tutorial_intro2r_brain",
+       caption = "Source: https://github.com/data-and-visualization/Intro2R",
        fill = "Restaurant name") +
   theme_classic() +
   theme(plot.title.position = "plot")
