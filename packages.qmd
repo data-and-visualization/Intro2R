@@ -17,23 +17,11 @@ R and RStudio are not the same thing. Both are open source applications and it i
 
 ## Install R, RStudio, R packages
 
-In R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. [Metacran](https://www.r-pkg.org/), CRAN, [Bioconductor](https://bioconductor.org/), [R-universe](https://r-universe.dev/search/), Github) to aid in the specialization and efficiency of R coding.
-
-I recommend this Interactive [tutorial](https://tutorials.shinyapps.io/00-setup/ "how to install R, RStudio, and packages") for a guided overview of installing R, RStudio, packages.
-
-## Quarto installation
-
-Quarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at [Quarto.org](https://quarto.org/docs/get-started/ "Get Started with Quarto")
-
-::: {.callout-tip collapse="true"}
-## What is Quarto?
-
-[Quarto](https://quarto.org) is a scientific publishing system. As a next-genderation R Markdown, it offers new features, tight integration, and consistent documentation that make it a better choice for reproducible coding.
-
-For example, Quarto can render documents in more output formats than R Markdown, including HTML, PDF, EPUB, and slides. The visual editor makes it easy to combine code, text, and figures in a single document.
-:::
+After downloading R and R Studio, it's time to install each application. I recommend this Interactive [tutorial](https://tutorials.shinyapps.io/00-setup/ "how to install R, RStudio, and packages") for a guided overview of installing R, RStudio, and packages. A summary of installing packages is below.
 
 ## Packages
+
+In R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. [Metacran](https://www.r-pkg.org/), CRAN, [Bioconductor](https://bioconductor.org/), [R-universe](https://r-universe.dev/search/), Github) to aid in the specialization and efficiency of R coding.
 
 Packages can be installed with the `install.packages()` function. Alternatively, from within RStudio \> Packages \> install
 
@@ -63,8 +51,20 @@ You should load packages at the top of your script. Write your script, then clic
 
 ## Tidyverse
 
-::: {layout-ncol="2"}
-![Tidyverse is a meta-package of several packages](images/package_tidyverse.jpg)
+![Tidyverse is a meta-package of several packages](images/package_tidyverse.jpg){style="float:right;"}
 
-[Tidyverse](https://tidyverse.org "tidyverse") [@wickham2019] is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command `load(tidyverse)`, there's no need to also load `ggplot2`, `dplyr`, `lubridate` or any of the packages. Those packages are included. Redundantly, it's fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by `load(tidyverse)`.
+Tidyverse [@wickham2019] is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there's no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it's fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by `load(tidyverse)`.
+
+## Quarto installation
+
+Quarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at [Quarto.org](https://quarto.org/docs/get-started/ "Get Started with Quarto")
+
+::: {.callout-tip collapse="true"}
+## What is Quarto?
+
+[Quarto](https://quarto.org) is a scientific publishing system. As a next-genderation R Markdown, it offers new features, tight integration, and consistent documentation that make it a better choice for reproducible coding.
+
+For example, Quarto can render documents in more output formats than R Markdown, including HTML, PDF, EPUB, and slides. The visual editor makes it easy to combine code, text, and figures in a single document.
 :::
+
+## 

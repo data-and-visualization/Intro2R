@@ -15,6 +15,10 @@ We recommend entering your code in code-chunks (Insert \> code-chunks) within [c
 
 ## Console
 
+![R console quadrant in RStudio](images/console.jpg){style="float:left; padding:20px;" width="369"}
+
+\
+
 A very simple way to code is to send commands directly to the *console* (bottom-left quadrant in RStudio). For example: in the RStudio console, type *cars ---* then hit the enter key.
 
 This approach is convenient but not very [reproducible](proj.html#reproducibility).
@@ -48,4 +52,4 @@ The basic steps are
 
 You can also code the old fashion way using a plain vanilla .R script.[^2]
 
-[^2]: There is no mandate to join the twenty-first century and honor academic values like *reproducibility, such as* rendering reports from code. You do you. I don't judge 😃
+[^2]: `File > New file > R script`. There is no mandate to join the twenty-first century and honor academic values like *reproducibility, such as* rendering reports from code. You do you. I don't judge 😃

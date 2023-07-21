@@ -123,7 +123,7 @@
     "href": "import.html#visualize-your-data-with-ggplot2",
     "title": "Import Data",
     "section": "Visualize your data with {ggplot2}",
-    "text": "Visualize your data with {ggplot2}\nHere’s a quick teaser on visualizing data. Read more in the visualization chapter.\n\nbrodhead_center |> \n  ggplot(aes(x = name, y = cost)) +\n  geom_boxplot() \n\n\n\n\n\nbrodhead_center |> \n  filter(name != \"Tandoor\") |> \n  ggplot(aes(x = rating, y = cost)) +\n  geom_jitter(aes(color = name))\n\n\n\n\n\n\nShow the code\nbrodhead_center |> \n  drop_na(rating, cost, name) |> \n  filter(name != \"Tandoor\") |> \n  ggplot(aes(x = factor(rating), y = cost)) +\n  geom_tile(aes(fill = name), alpha = .3) +\n  scale_y_continuous(label = scales::dollar) +\n  scale_fill_brewer(palette = \"Dark2\") + \n  labs(x = \"rating\", y = NULL, title = \"Heatmap: cost over ratings\", \n       caption = \"Source: https://github.com/libjohn/tutorial_intro2r_brain\",\n       fill = \"Restaurant name\") +\n  theme_classic() +\n  theme(plot.title.position = \"plot\")"
+    "text": "Visualize your data with {ggplot2}\nHere’s a quick teaser on visualizing data. Read more in the visualization chapter.\n\nbrodhead_center |> \n  ggplot(aes(x = name, y = cost)) +\n  geom_boxplot() \n\n\n\n\n\nbrodhead_center |> \n  filter(name != \"Tandoor\") |> \n  ggplot(aes(x = rating, y = cost)) +\n  geom_jitter(aes(color = name))\n\n\n\n\n\n\nShow the code\nbrodhead_center |> \n  drop_na(rating, cost, name) |> \n  filter(name != \"Tandoor\") |> \n  ggplot(aes(x = factor(rating), y = cost)) +\n  geom_tile(aes(fill = name), alpha = .3) +\n  scale_y_continuous(label = scales::dollar) +\n  scale_fill_brewer(palette = \"Dark2\") + \n  labs(x = \"rating\", y = NULL, title = \"Heatmap: cost over ratings\", \n       caption = \"Source: https://github.com/data-and-visualization/Intro2R\",\n       fill = \"Restaurant name\") +\n  theme_classic() +\n  theme(plot.title.position = \"plot\")"
   },
   {
     "objectID": "index.html",
@@ -340,7 +340,21 @@
     "href": "packages.html#install-r-rstudio-r-packages",
     "title": "R & RStudio, packages, tidyverse",
     "section": "Install R, RStudio, R packages",
-    "text": "Install R, RStudio, R packages\nIn R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. Metacran, CRAN, Bioconductor, R-universe, Github) to aid in the specialization and efficiency of R coding.\nI recommend this Interactive tutorial for a guided overview of installing R, RStudio, packages."
+    "text": "Install R, RStudio, R packages\nAfter downloading R and R Studio, it’s time to install each application. I recommend this Interactive tutorial for a guided overview of installing R, RStudio, and packages. A summary of installing packages is below."
+  },
+  {
+    "objectID": "packages.html#packages",
+    "href": "packages.html#packages",
+    "title": "R & RStudio, packages, tidyverse",
+    "section": "Packages",
+    "text": "Packages\nIn R, a package is a collection of R functions, and/or data, and/or documentation. R users find and install packages via centralized package-hubs (e.g. Metacran, CRAN, Bioconductor, R-universe, Github) to aid in the specialization and efficiency of R coding.\nPackages can be installed with the install.packages() function. Alternatively, from within RStudio > Packages > install\n\n\n\n\n\n\nInstall packages\n\n\n\n\n\n\n\n\nInstall Once!\n\n\n\nYou only have to install a package once and should avoid putting the install.packages() function in your scripts. Of course, you will need to update packages from time to time.\n\n\n\nLoad packages\nYou should load packages at the top of your script. Write your script, then click the green arrow in the code-chunks; or Run All (Ctrl-Alt-R)\n\n\n\n\n\nLoad packages\n\n\n\n\n\nRun packages"
+  },
+  {
+    "objectID": "packages.html#tidyverse",
+    "href": "packages.html#tidyverse",
+    "title": "R & RStudio, packages, tidyverse",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\n\n\nTidyverse is a meta-package of several packages\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it’s fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by load(tidyverse)."
   },
   {
     "objectID": "packages.html#quarto-installation",
@@ -348,20 +362,6 @@
     "title": "R & RStudio, packages, tidyverse",
     "section": "Quarto installation",
     "text": "Quarto installation\nQuarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at Quarto.org\n\n\n\n\n\n\nWhat is Quarto?\n\n\n\n\n\nQuarto is a scientific publishing system. As a next-genderation R Markdown, it offers new features, tight integration, and consistent documentation that make it a better choice for reproducible coding.\nFor example, Quarto can render documents in more output formats than R Markdown, including HTML, PDF, EPUB, and slides. The visual editor makes it easy to combine code, text, and figures in a single document."
-  },
-  {
-    "objectID": "packages.html#packages",
-    "href": "packages.html#packages",
-    "title": "R & RStudio, packages, tidyverse",
-    "section": "Packages",
-    "text": "Packages\nPackages can be installed with the install.packages() function. Alternatively, from within RStudio > Packages > install\n\n\n\n\n\n\nInstall packages\n\n\n\n\n\n\n\n\nInstall Once!\n\n\n\nYou only have to install a package once and should avoid putting the install.packages() function in your scripts. Of course, you will need to update packages from time to time.\n\n\n\nLoad packages\nYou should load packages at the top of your script. Write your script, then click the green arrow in the code-chunks; or Run All (Ctrl-Alt-R)\n\n\n\n\n\nLoad packages\n\n\n\n\n\nRun packages"
-  },
-  {
-    "objectID": "packages.html#tidyverse",
-    "href": "packages.html#tidyverse",
-    "title": "R & RStudio, packages, tidyverse",
-    "section": "Tidyverse",
-    "text": "Tidyverse\n\n\n\n\n\n\nTidyverse is a meta-package of several packages\n\n\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it’s fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by load(tidyverse)."
   },
   {
     "objectID": "proj.html",
@@ -445,7 +445,7 @@
     "href": "quarto.html#console",
     "title": "Start coding",
     "section": "Console",
-    "text": "Console\nA very simple way to code is to send commands directly to the console (bottom-left quadrant in RStudio). For example: in the RStudio console, type cars — then hit the enter key.\nThis approach is convenient but not very reproducible."
+    "text": "Console\n\n\n\nR console quadrant in RStudio\n\n\n\n\nA very simple way to code is to send commands directly to the console (bottom-left quadrant in RStudio). For example: in the RStudio console, type cars — then hit the enter key.\nThis approach is convenient but not very reproducible."
   },
   {
     "objectID": "quarto.html#notebooks---recomended",
