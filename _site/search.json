@@ -18,7 +18,7 @@
     "href": "ai.html#quick-start",
     "title": "Getting started with ai-assisted LLMs",
     "section": "Quick Start",
-    "text": "Quick Start\nBing Chat can access openAI’s ChatGPT where you must use the MSEdge browser. Google Bard works in any browser. Another option is poe.com. Poe is especially useful for experimenting with a variety of LLMs including ChatGPT, Google-PaLM (Bard), Sage, and Claude.\nBelow is from the Bard LLM when asked for advice on learning to code with ai-assited LLMs:\n\n\nBe specific in your requests\nUse clear and concise language\nProvide examples\nBe patient\nUse a variety of LLMs and experiment with different approaches\nUse LLMs as a supplement to other learning resources\nVerify your computational results\n\n\nSee Also: the warning, above, and the ethics section, below."
+    "text": "Quick Start\nBing Chat1 can access openAI’s ChatGPT where you must use the MSEdge browser. Google Bard works in any browser. Another option is poe.com. Poe is especially useful for experimenting with a variety of Large Language Models (LLM) including ChatGPT, Google-PaLM (Bard), Sage, and Claude. Each of the options mentioned above are provided free of charge.2\nBelow is from the Bard LLM when asked for advice on learning to code with ai-assited LLMs:\n\n\nBe specific in your requests\nUse clear and concise language\nProvide examples\nBe patient\nUse a variety of LLMs and experiment with different approaches\nUse LLMs as a supplement to other learning resources\nVerify your computational results\n\n\nSee Also: the warning, above, and the ethics section, below."
   },
   {
     "objectID": "ai.html#tools-or-packages",
@@ -719,5 +719,12 @@
     "title": "Wrangle Data with {dplyr}",
     "section": "",
     "text": "{dplyr} verbs help you wrangle, clean, and normalize your data\n\n\n\n\n\n\ndplyr function\nuse for\n\n\n\n\nselect()\nsubset columns\n\n\nfilter()\nsubset rows\n\n\narrange()\nsort rows by column variable values\n\n\ngroup_by()\nuse with summarize for subtotals\n\n\nsummarize()\ngenerate column totals and subtotals, etc.\n\n\ncount()\na specialized summarize() function\n\n\n\n\nExamples\nFirst we need to load the {dplyr} package for wrangling and the {readr} package for importing CSV data. In our case, we’ll do that by loading the tidyverse which loads {dplyr}, {readr} and several other helpful packages. Then we need to load our data\n\nlibrary(tidyverse)\nbrodhead_center <- read_csv(\"data/brodhead_center.csv\")\n\n\nselect()\n\nbrodhead_center |> \n  select(name, type)\n\n\n\n  \n\n\n\n\n\n\n\n\nSelect columns\n\n\n\n\nfilter()\n\nbrodhead_center |> \n  filter(menuType == \"dessert\")\n\n\n\n  \n\n\n\n\n\n\n\n\nFilter by rows\n\n\n\n\narrange()\n\nbrodhead_center |> \n  arrange(cost)\n\n\n\n  \n\n\n\n\n\n\n\n\nArrange rows by the values in a column\n\n\n\n\nmutate()\n\nbrodhead_center |> \n  mutate(ratings_high = rating * 2)\n\n\n\n  \n\n\n\n\n\n\n\n\nCreate new variable or modify variable with mutate()\n\n\nWe can also mutate data by groups or categories\n\nbrodhead_center |> \n  mutate(avg_item_rating_rest = mean(rating, na.rm = TRUE), \n         .by = name, \n         .after = name)\n\n\n\n  \n\n\n\n\n\ncount()\n\n\n\n\n\n\n\n  \n    \n      Count values in a group\n    \n    \n    \n      menuType\n      n\n    \n  \n  \n    entree\n24\n    appetizer\n23\n    dessert\n7\n    side\n5\n  \n  \n  \n\n\n\n\nbrodhead_center |> \n  count(menuType)\n\n\n\n  \n\n\n\n\n\ngroup_by() & summarise()\n\n\n\n\n\n\n\n  \n    \n      Summarise column\n    \n    \n    \n      Sum_of_cost\n    \n  \n  \n    412\n  \n  \n  \n\n\n\n\nbrodhead_center |> \n  group_by(name) |> \n  summarise(min_cost = min(cost), mean_cost = mean(cost), max_cost = max(cost))\n\n\n\n  \n\n\n\n\nor\nSummarize by groups, without group_by()\n\nbrodhead_center |> \n  summarise(min_cost = min(cost), .by = name)\n\n\n\n  \n\n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  {
+    "objectID": "ai.html#footnotes",
+    "href": "ai.html#footnotes",
+    "title": "Getting started with ai-assisted LLMs",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAt the time this sentence was composed Bing Chat is using ChatGPT4.↩︎\nFree but possibly rate limited as of the date-time this sentence was composed.↩︎"
   }
 ]

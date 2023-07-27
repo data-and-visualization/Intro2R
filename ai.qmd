@@ -14,7 +14,7 @@ Ai-assisted coding tools such as OpenAI's **ChatGPT**, Google's **Bard**, and Gi
 ::: {.callout-warning collapse="true"}
 ## warning
 
-This information is fluid and ever-evolving. The AI field of LLMs is in flux.
+This information is fluid and ever-evolving. The AI field of Large Language Models (LLM) is in flux.
 
 LLMs can save you time. They can be biased, inaccurate, and generate harmful content.
 
@@ -23,7 +23,11 @@ Be careful and circumspect about the data uploaded to these models.
 
 ## Quick Start
 
-[Bing Chat](https://www.microsoft.com/en-us/edge/features/bing-chat) can access openAI's *ChatGPT* where you must use the MSEdge browser. [Google **Bard**](https://bard.google.com) works in any browser. Another option is [**poe**.com](https://poe.com). Poe is especially useful for experimenting with a variety of LLMs including *ChatGPT*, Google-*PaLM* (Bard), *Sage*, and *Claude*.
+[Bing Chat](https://www.microsoft.com/en-us/edge/features/bing-chat)[^1] can access openAI's *ChatGPT* where you must use the MSEdge browser. [Google **Bard**](https://bard.google.com) works in any browser. Another option is [**poe**.com](https://poe.com). Poe is especially useful for experimenting with a variety of Large Language Models (LLM) including *ChatGPT*, Google-*PaLM* (Bard), *Sage*, and *Claude*. Each of the options mentioned above are provided free of charge.[^2]
+
+[^1]: At the time this sentence was composed Bing Chat is using ChatGPT4.
+
+[^2]: Free but possibly rate limited as of the date-time this sentence was composed.
 
 Below is *from* the Bard LLM when asked for advice on learning to code with ai-assited LLMs:
 
