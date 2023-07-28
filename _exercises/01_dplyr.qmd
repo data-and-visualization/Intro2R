@@ -37,6 +37,8 @@ a.  Add a code chunk and Load the `tidyverse` library package
 library(tidyverse)
 ```
 
+/* Test of the commit and push function.
+
 b.  Insert a code chunk and import (`read_csv()`) the brodhead practice data from the `data` directory. Assign the imported data to an object name, e.g. "brodhead"
 
 ```{r}
