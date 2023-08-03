@@ -98,56 +98,6 @@ my_survey_filtered_too.view()
 ```
 :::
 
-```{r}
-#| eval: false
-# This is really an {ojs} code-chunk.  Switched code to R because interpolator didn't honor "eval: false" hash-pipe
-# I know I should just throw this away, but I'm keeping it here for now.  You can ignore this code chunk.
-//| eval: false
-
-// viewof radio_2 = 
-// Inputs.radio(
-//   new  Map([
-//     ["One",    'q1_label'], 
-//     ["Four",   'q4_label'],
-//     ["Five",   'q5_label'],
-//     ["Eight",  'q8_label'],
-//     ["Ten",    'q10_label'],
-//     ["Twelve", 'q12_label']
-//   ]),
-//   {  label: html`<b>Question:</b>`,
-//      value: 'q1_label',
-//      multiple: true
-// })
-
-// my_survey_filtered = my_survey
-//   .filter(aq.escape(d => d.my_question == radio_2))
-//   .groupby('my_question', 'response', 'rnumber')
-//   .count()
-//   .orderby('my_question', 'rnumber')
-//   
-// Plot.plot({
-//   marginRight: 140,
-//   y: {
-//     axis: null,
-//     domain: d3.sort(my_survey_filtered, d => -d.rnumber).map(d => d.response).reverse()
-//   },
-//   x: {
-//     grid: true
-//   },
-//  marks: [
-//     Plot.barX(my_survey_filtered, {y: "response", x: "count"}),
-//     Plot.text(my_survey_filtered, {
-//       x: "count",
-//       y: "response",
-//       text: "response",
-//       textAnchor: "start",
-//       dx: 6
-//     })
-//   ]
-// })
-
-```
-
 ::: {.callout-tip collapse="true"}
 ## Workflow: How'd we do that?
 
@@ -166,7 +116,9 @@ my_data = aq.from(transpose(trade_df_ojs))
 my_survey = aq.from(transpose(my_df_tall_ojs))
 ```
 
-## One more example
+## Simplified example
+
+### basic
 
 The next code-chunk shows a very simple example of ObservableJS `{Plot}` code for visualization. This example *is not interactive* but it demonstrates the remarkable similarity to `{ggplot2}` syntax.
 
@@ -186,7 +138,7 @@ Plot.plot({
 })
 ```
 
-::: callout-important
+::: callout-note
 ## ↥ Look up!
 
 Notice the crispness and clarity of the simple non-interactive plot above. [Observable Plot](https://observablehq.com/@observablehq/plot) shows well on the web!
@@ -199,9 +151,9 @@ Notice the crispness and clarity of the simple non-interactive plot above. [Obse
 
 Aside from the `{dplyr}` wrangling that I did in the background of this code notebook, I still needed to parse the date fields. Arquero to the rescue.
 
-**Arquero**! Now what is that? *Observable JavaScript* is its own coding language and we can minimize the learning curve by keeping our data wrangling within our favorite coding language. **Then** we can focus on using the [{Plot}](https://observablehq.com/plot) grammar and syntax, which is quite similar to `{ggplot2}` -- see the above example. However, [Observable JS](https://quarto.org/docs/interactive/ojs/) is a complete and rich coding language of its own. But just like [{`shiny`}](https://quarto.org/docs/interactive/shiny/), we want to learn just enough to get the job done. Still, there's always an edge case where a little data wrangling is optimal. This is where [`{arquero}`](https://observablehq.com/@uwdata/introducing-arquero) comes in. Arquero is used for data transformation and is easy to learn because it was inspired by `{dplyr}`. *Show the code* for the first plot on this page and you'll see the similarity to `{dplyr}`.
+**Arquero**! Now what is that? *Observable JavaScript* is its own coding language and we can minimize the learning curve by keeping our data wrangling within our favorite coding language R. This way we can focus on using the [{Plot}](#0) grammar and syntax that is very similar to `{ggplot2}` -- see the above example. However, [Observable JS](#0) is a complete and rich language of its own. So, just like [{`shiny`}](#0), we want to learn just enough to get the job done. That said, there is a case where a little more data wrangling is optimal. This is where [`{arquero}`](#0) comes in. Arquero is used for data wrangling and is easy to learn because it was inspired by `{dplyr}`. *Show the code* for the first plot on this page and you'll see the similarity to `{dplyr}`.
 
-Below I parse a data type using `{arquero}`.
+Below we can coerce a data-type for the `my_data$date` vector by transforming a *character* data-type to a *date* data-type using Arquero's `.derive()` function. Arquero's `.derive()` function is similar to `dplyr::mutate()`
 :::
 
 ```{ojs}
@@ -210,19 +162,12 @@ my_data_wrangled = my_data
   .derive({  date: d =>  op.parse_date(d.date) })
 ```
 
-## Observablejs libraries
-
-By convention, observable libraries are loaded at the bottom of a code notebook. You can read more about observablejs at Observablehq.com. By way of a teaser, I didn't have to use `{r}` to wrangle the retail data. I could have *imported the data directly from observable*. Such as ....
-
-\> `import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"`
-
-But on this page, I'm demonstrating how we leveraged `{R}` and `{ojs}` code with Quarto, so that I can present useful interactivity and demonstrate multi-lingual coding using a Quarto notebook.
+On this page, we use both `{r}` and `{ojs}` code chunks within one Quarto notebook. This shows how to present useful interactivity in a multilingual coding context.
 
 ```{ojs}
-//| echo: fenced
 import { aq, op } from '@uwdata/arquero'
-// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"
-// import {button as downloadButton} from "@jeremiak/download-data-button"
+// aq = import('https://esm.run/arquero') 
+// op = import('https://esm.run/arquero')
 ```
 
 ## Examples and documentation

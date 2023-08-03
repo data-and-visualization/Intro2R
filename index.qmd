@@ -64,10 +64,10 @@ Some data sets are imported via the `read_csv` function and you can download the
 
 ### Code
 
-You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.
+You can download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.
 
 ::: column-margin
-![Download zipped code from GitHub](images/github_download.jpg){alt="Download zipped code from GitHub" fig-alt="download code"}
+![Download zipped code from GitHub](images/github_download.jpg){fig-alt="download code"}
 :::
 
 Or
