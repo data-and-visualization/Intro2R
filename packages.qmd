@@ -55,6 +55,8 @@ You should load packages at the top of your script. Write your script, then clic
 
 Tidyverse [@wickham2019] is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there's no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it's fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by `load(tidyverse)`.
 
+> Type in the Console: `install.packages("tidyverse")`
+
 ## Quarto installation
 
 Quarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at [Quarto.org](https://quarto.org/docs/get-started/ "Get Started with Quarto")

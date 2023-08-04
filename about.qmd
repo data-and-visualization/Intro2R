@@ -14,4 +14,10 @@ The code for this workshop and this webpage are all part of a single RStudio pro
 
 You can find an [**outline** for this](outline.html) workshop. For more information or resource on learning R, please also visit the [Rfun learning series](https://Rfun.library.duke.edu).
 
-## 
+## Misc
+
+::: {.callout-note collapse="true"}
+## Earlier version of a package?
+
+`remotes::install_version("knitr", "1.42")`
+:::

@@ -1,0 +1,57 @@
+---
+title:  "R for Lunch: schedule"
+subtitle: "Fall semester, 2023"
+author: "John Little"
+---
+
+In this series we'll learn to use R for reproducible computational thinking. Each one-hour session builds upon the last. Sessions will be **in-person**; recordings released at a later date (TBD).
+
+::: callout-warning
+Lunch will NOT be provided but you are welcome to bring your own!
+:::
+
+**Attendees** will use their **personal laptops**. Preparation: The R application, RStudio, the Tidyverse, and Quarto will be **installed, in advance, by attendees.** ([Instructions will be available](https://intro2r.library.duke.edu/packages).)
+
+## Schedule
+
+### Getting started: **import data, data wrangling**
+
+[**Thursday - 8/31/23** ; 12:30pm.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+Learn how to import data following a brief tour of the RStudio IDE and an introduction to coding notebooks. Five essential {`dplyr`} data wrangling verbs are introduced and a sample visualization is presented.
+
+### Data wrangling with dplyr
+
+[**Friday** - 9/1/23 ; 12:30.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+We explore the five essential {`dplyr`} data wrangling verbs. We demonstrate and apply data pipes inside code-chunks within coding notebooks, which were discussed in the previous session.
+
+### Visualization with ggplot2
+
+[Friday - 9/8/23 ; 12:30.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+We visualize data by leveraging previously discussed reproducible coding techniques, including the {dplyr} verbs. We apply the *grammar of graphics* to our coding workflow.
+
+### Coding with ChatGPT
+
+[Friday - 9/15/23 ; 12:30.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+Ai-assisted coding can improve efficiency. Learn a few basics about Large Language Models (LLMs); LLMs can help and sometimes bedevil us. Discover which LLMs work best with R. Techniques and add-ins are shared to save time and learn more.
+
+### Tidy data, pivot, join, and iteration (part 1)
+
+[Friday - 9/22/23 ; 12:30.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+Building on the last session and our goal of efficiency, we create strategies to avoid LLM barriers. Begin to engage the power of *functional programming* as applied in the tidy-data context.
+
+### Functions & {purrr}; iteration part2
+
+[Friday - 9/22/23 ; 12:30.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+FOR loops? Maybe FOR loops are a bit dated. Let's surf past the next level and apply custom functions to larger quantities of data while using fewer coding steps.
+
+### Regression and tidymodels
+
+[Friday - 10/6/23 ; **1:30**.]{style="color: #D3D3D3; font-size: small"} [Register for location](https://library.duke.edu/data/workshops){style="font-size: x-small"}.
+
+R is a great tool for academic computational workflow and R is borne from the statistics discipline. Wading only ankle deep, we learn computation techniques for modeling. Please note: this is not a refresher workshop on picking or interpreting models. This is a workshop on efficient syntax to apply models.
