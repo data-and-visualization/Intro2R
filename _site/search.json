@@ -263,7 +263,7 @@
     "href": "packages.html#tidyverse",
     "title": "R & RStudio, packages, tidyverse",
     "section": "Tidyverse",
-    "text": "Tidyverse\n\n\n\nTidyverse is a meta-package of several packages\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it’s fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by load(tidyverse).\n\nType in the Console: install.packages(\"tidyverse\")"
+    "text": "Tidyverse\n\n\n\nTidyverse is a meta-package of several packages\n\n\nTidyverse (Wickham et al. 2019) is a concept but also a package. When we load the tidyverse we load a meta-package that includes eight other packages. After the command load(tidyverse), there’s no need to also load ggplot2, dplyr, lubridate or any of the packages. Those packages are included. Redundantly, it’s fine to load the same package twice. Check the feedback from the code-chunk to see what is loaded by library(tidyverse).\n\n\ninstall.packages(\"tidyverse\") (do once)   library(tidyverse) (each session)"
   },
   {
     "objectID": "packages.html#quarto-installation",
