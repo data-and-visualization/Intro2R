@@ -20,6 +20,7 @@ bibliography: references.bib
 | `select()`     | subset columns                             |
 | `filter()`     | subset rows                                |
 | `arrange()`    | sort rows by column variable values        |
+| `mutate()`     | Create new, or modify variables            |
 | `group_by()`   | use with summarize for subtotals           |
 | `summarize()`  | generate column totals and subtotals, etc. |
 | `count()`      | a specialized `summarize()` function       |
