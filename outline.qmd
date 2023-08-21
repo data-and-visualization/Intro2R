@@ -8,27 +8,31 @@ license: CC BY-NC
 bibliography: references.bib
 ---
 
-## Day One:
+## Why R / Tidyverse / Quarto
 
-### Part 1 - getting started
+We're going to learn about one of the best tool-based ecosystems for orchestrating and sharing our reproducible computational thinking. A major tennant of reproducibility is to *do everything with code*. This include generating our reports from code (Quarto) as well as importing data, wrangling, modeling, and visualizing data (Tidyverse.)
 
--   What is R
+R and the [Tidyverse](https://www.tidyverse.org/) are a powerful language for data analysis[^1]. In addition to a wide range of built in functions there are thousands of library packages[^2] we can use in custom programming to extend R into specialized areas of computation.
 
-    -   data-first programming/coding language
+[^1]: R is a data-first programming language
 
-    -   extend R with domain-specific **packages**. See: [MetaCran](https://www.r-pkg.org/), [CRAN](https://cran.r-project.org/), github, [bioconductor](https://www.bioconductor.org/)
+[^2]: Extend R with domain-specific **packages**. See: [MetaCran](https://www.r-pkg.org/), [CRAN](https://cran.r-project.org/), github, [bioconductor](https://www.bioconductor.org/)
 
--   What is the [Tidyverse](https://www.tidyverse.org/)
+Based on a weekly [schedule](schedule.html), we will learn tidyverse tools and techniques to transform our data into the [tidy data format](https://r4ds.had.co.nz/tidy-data.html), a consistent format for data organization, manipulation, and analysis.
 
--   What is [Tidy data](https://r4ds.had.co.nz/tidy-data.html)
+This workshop series is sponsored by The Center for Data and Visualization Sciences, part of the Duke University Libraries. Videos and links to code, data, and slides for this and many other R workshops can be found at [Rfun](https://rfun.library.duke.edu). These and all other CDVS all workshop resources are available at the [CDVS online learning page](https://library.duke.edu/data/tutorials).
+
+### Getting started
 
 -   **Reproducibility**: data-first tools help leverage reproducible workflows throughout computational thinking
 
-    -   blank-slate instead of .Rdata
+    -   Do everything with code
+
+    -   Organize our work into [RStudio **Projects**](projects.html)
+
+    -   [blank-slate](https://docs.posit.co/ide/user/ide/get-started/#blank-slate) instead of .Rdata
 
     -   Restart instead of `rm(list = ls())`
-
-    -   Intentional use of the RStudio projects feature
 
     -   Version Control: git and GitHub
 
@@ -44,7 +48,7 @@ bibliography: references.bib
 
     -   {`ggplot2`} - a grammar of graphics
 
-    -   Other packages e.g. {`readr`}, {`forcats`}, {`stringr`}, {`purrr`}, {`tidymodels`}
+    -   Other packages including, for example: {`readr`}, {`forcats`}, {`stringr`}, {`purrr`}, {`tidymodels`}
 
 -   Console
 
@@ -97,7 +101,7 @@ bibliography: references.bib
 
 \
 
-### Part 2 - visualization plus EDA
+### Visualization plus EDA
 
 -   {ggplot2} viz
 
@@ -133,11 +137,7 @@ bibliography: references.bib
 
 -   Wrap-up and Summarize the day
 
-\
-
-## Day Two
-
-### Part 3 Iteration and custom functions
+### Iteration and custom functions
 
 -   Questions from yesterday
 
@@ -165,11 +165,9 @@ bibliography: references.bib
 
 -   Composing custom functions
 
--   Nesting data for iteration
+-   Nesting data for iteration\
 
-\
-
-### Part 4 Review, questions, case study, reports
+### Review, questions, case study, reports
 
 -   Questions / Review
 
@@ -209,8 +207,8 @@ bibliography: references.bib
 
 -   Use the Projects in the RStudio IDE
 
--   Use version control (git and GitHub)
+-   Use version control (git and GitHub) with {[usethis](https://usethis.r-lib.org/)}
 
 -   Use {[`renv`](https://rstudio.github.io/renv/index.html)} for package reproducible environments
 
--   Use [mybinder.org](https://mybinder.org/) for sharing containers in a reproducible/replicable state
+-   Use {[fs](https://fs.r-lib.org/ "file system manipulation via R")} for working with file systems
