@@ -1,5 +1,5 @@
 ---
-title: "Two-day R data-science workshop"
+title: "Outline for R/data-science workshop"
 
 date-modified: 'today'
 date-format: long
