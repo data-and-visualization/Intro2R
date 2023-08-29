@@ -14,6 +14,12 @@ Recommended EDA packages
 -   {skimr} - [https://docs.ropensci.org/skimr](https://docs.ropensci.org/skimrhttps://github.com/taiyun/corrplot/)\
     a frictionless approach to summary statistics
 
+-   {gtExtras} - [https://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.html](https://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.htmlhttps://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.html)\
+    create a summary table with historgrams or area bar chatrs from a dataframe
+
+-   {DataExplorer} - [https://boxuancui.github.io/DataExplorer/reference/plot_intro.html](https://boxuancui.github.io/DataExplorer/reference/plot_intro.htmlhttps://boxuancui.github.io/DataExplorer/reference/plot_intro.html)\
+    Plot basic information
+
 -   {corrplot} - [https://github.com/taiyun/corrplot](https://github.com/taiyun/corrplot/)\
     a visual exploratory tool on correlation matrix that supports automatic variable reordering
 
