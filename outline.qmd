@@ -58,7 +58,7 @@ This workshop series is sponsored by The Center for Data and Visualization Scien
 
     -   environment variables and data variables
 
-    -   **assignment** variables: `<-` and `=` (not the same as equivalency `==`)
+    -   **assignment** operators: `<-` and `=` (not the same as equivalency `==`)
 
     -   **pipe**s = `|>` and `%>%`
 
