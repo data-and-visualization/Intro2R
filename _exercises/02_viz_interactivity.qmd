@@ -37,5 +37,5 @@ library(plotly)
 Make the `star_gender` object interactive
 
 ```{r}
-ggplotly(star_gender)
+ggplotly(________)
 ```
