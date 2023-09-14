@@ -67,19 +67,23 @@ Defaults to OpenAI's *codex* LLM based on code found in GitHub. This tools is fo
 
 ## Comparisons of models
 
-**gptstudio**: Great for its deep integration into RStudio and ability to work within code-chunks or prose. Setting up the API key is a necessary configuration. The {gptstudio} documentation shows clearly how to protect API-keys linked to a credit card --- a notable issue when using version control like GitHub.
+[**gptstudio**](https://michelnivard.github.io/gptstudio/): Great for its deep integration into RStudio and ability to work within code-chunks or prose. Setting up the API key is a necessary configuration. The {gptstudio} documentation shows clearly how to protect API-keys linked to a credit card --- a notable issue when using version control like GitHub.
 
-**Bard/PaLM:** Google's LLM. Fast, efficient and familiar.
+*Open Source LLMs*: [**h2o**](https://gpt.h2o.ai/) (Apache) [**Llama** **2**](https://codellama.h2o.ai/) (restricted Open) are available. Early reports are that Llama 2 is nearly as powerful as GPT 4 and has a mostly-open, or more-open, license than the proprietary licenses of the more proprietary models.
 
-**Poe.com**: Easy access to several LLM models: ChatGPT, PaLM, GPT-4, Claude, and Sage. Works well. Comparison of LLM responses is convenient. Log-out is found in the settings page.
+[**Poe.com**](https://poe.com): Easy access to several LLM models: ChatGPT, PaLM, GPT-4, Claude, and Sage. Works well. Comparison of LLM responses is convenient. Log-out is found in the settings page.
 
-**ChatGPT**: OpenAI's LLM. This works well. Free website can slow down due to user congestion limits. Subscription models exist, presumably with less congestion.
+[**Claude**](https://claude.ai/): Of the easily accessible and free LLMs, I've had the best luck with Claude.ai. Llama 2 may be as good or better.
 
-**Copilot**: OpenAI's codex LLM focused on code completion. In my experience copilot is less useful in understanding conceptual questions about computational data analysis. Uses the VSCode IDE; a nice app that works with many coding languages including R. VSCode also works with Quarto. The R set-up in VSCode is a bit cranky. If you're a Pythonite, VSCode set-up is more convenient than R. If you're an R coder, you might be happy sticking with RStudio.
+[**Bard**](https://bard.google.com)**/PaLM:** Google's LLM. Fast, efficient and familiar.
+
+[**ChatGPT**](https://openai.com/chatgpt): OpenAI's LLM. This works well. Free website can slow down due to user congestion limits. Subscription models exist, presumably with less congestion.
+
+[**Copilot**](https://github.com/features/copilot): OpenAI's codex LLM focused on code completion. In my experience copilot is less useful in understanding conceptual questions about computational data analysis. Uses the VSCode IDE; a nice app that works with many coding languages including R. VSCode also works with Quarto. The R set-up in VSCode is a bit cranky. If you're a Pythonite, VSCode set-up is more convenient than R. If you're an R coder, you might be happy sticking with RStudio.
 
 ### Summary comparison
 
-Bard/PaLM and ChatGPT (via addins, poe.com, bing.com, or openai.com) have worked well in my tests. There seem to be some usage-congession limitations, especially if you don't subscribe. See also the tips at the top of this page about using using LLMs for assisted coding.
+*Claude* and *Llama 2* are my current favorites. Bard/PaLM and ChatGPT (via addins, poe.com, bing.com, or openai.com) have worked well in my tests. There seem to be some usage-congestion limitations, especially if you don't subscribe or want to use the latest ChatGPT model.
 
 ## Ethics
 
