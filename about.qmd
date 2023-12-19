@@ -10,6 +10,12 @@ bibliography: references.bib
 
 This website is hosted by the [Center for Data & Visualization Sciences](https://library.duke.edu/data/), part of the [Duke University Libraries](https://library.duke.edu). composed in the [RStudio IDE](https://posit.co/download/rstudio-desktop/), as [R code](https://en.wikipedia.org/wiki/R_(programming_language)) authored as a [Quarto](https://quarto.org/) notebooks. With Quarto it is easy to render multiple report formats such as a PDF document or this website. In this case the report format is a [web site hosted](https://intro2R.library.duke.edu/) gratis at netlify.
 
+::: {style="text-align: center"}
+![](images/rfun_logo.png)
+:::
+
+Formerly, this site was known as the Rfun site. The content from that site has been consolidated here.
+
 The code for this workshop and this webpage are all part of a single RStudio project that can be [found in a GitHub repository](https://github.com/data-and-visualization/Intro2R). The code-along exercises for this workshop are in the GitHub repository but they are not part of the web site. You can work through the exercises by first downloading the GitHub repository. Then find the exercises within the `_exercises` directory.
 
 You can find an [**outline** for this](outline.html) workshop. For more information or resource on learning R, please also visit the [Rfun learning series](https://Rfun.library.duke.edu).
