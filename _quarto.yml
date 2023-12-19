@@ -88,6 +88,10 @@ website:
         contents:
           - text: link-to
             href: https://github.com/data-and-visualization/Intro2R/tree/main/_exercises
+      - section: Data Sources
+        contents:
+          - text: for Regression
+            href: data-sources-for-regression-analysis.qmd           
 
 format:
   html:
