@@ -22,12 +22,9 @@ website:
       - icon: github
         href: https://github.com/data-and-visualization/Intro2R
         aria-label: GitHub
-      - text: "CDVS"
-        menu:
-          - text: "Rfun Home"
-            href: "https://rfun.library.duke.edu/"
-          - text: "Cntr for Data & Viz Sci"
-            href: https://library.duke.edu/data/  
+      - icon: box-arrow-up-right
+        href: https://library.duke.edu/data/
+        aria-label: Link out to Center for Data & Visualization Sciences
   sidebar:
     style: "floating"
     collapse-level: 1
@@ -61,23 +58,36 @@ website:
           - text: plotly | HTML widgets
             href: widgets.qmd
           - text: More interactivity {ojs}
-            href: interactive.qmd            
-      - section: AI-assist code (ChatGPT)
+            href: interactive.qmd
+      - section: Mapping
+        contents:
+          - text: "Link out to Rfun/map ->"
+            href: https://map-rfun.library.duke.edu/
+            aria-label: Link out to Rfun Maps
+      - section: Ai-assist code (ChatGPT)
         contents:
           - text: How to
             href: ai.qmd
-      - section: Models/Regression
-        contents:
-          - text: Regression
-            href: regression.qmd
-          - text: Tidymodels
-            href: tidymodels.qmd
       - section: Functions & iteration
         contents:
           - text: Custom functions
             href: functions.qmd
           - text: Iteration with {purrr}
             href: purrr.qmd            
+      - section: Models/Regression
+        contents:
+          - text: Regression
+            href: regression.qmd
+          - text: Tidymodels
+            href: tidymodels.qmd
+      - section: Sentiment Analysis
+        contents:
+          - text: "Link out to Rfun/sentiment ->"
+            href: https://github.com/libjohn/workshop_textmining
+      - section: Web scraping
+        contents:
+          - text: "Link out to data scraping ->"
+            href: https://github.com/libjohn/workshop_webscraping
       - section: Examples
         contents:
           - text: Exploratory Data Analysis (EDA)
@@ -86,7 +96,7 @@ website:
             href: map_import_clean_regex.qmd
       - section: Exercises
         contents:
-          - text: link-to
+          - text: "Link out to code exercises ->"
             href: https://github.com/data-and-visualization/Intro2R/tree/main/_exercises
       - section: Data Sources
         contents:
