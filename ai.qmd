@@ -21,6 +21,20 @@ LLMs can save you time. They can be biased, inaccurate, and generate harmful con
 Be careful and circumspect about the data uploaded to these models.
 :::
 
+## Recommendation
+
+-   For conceptual coding help
+
+    -   Use the free version of **GPT4** via [**bing.com/chat**](https://bing.com/chat). Set the *conversation style* to "More Precise"
+
+    -   Alternatively, [**Claude.ai**](https://Claude.ai)
+
+    -   Either of the above can be very helpful, especially when focusing your questions (prompt engineering) on the Tidyverse approach to data science.
+
+-   For code completion
+
+    -   Signup for [GitHub for education](https://education.github.com/benefits), to integrate the free code-completion [GitHub Copilot into your RStudio](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html "Copilot and RStudio IDE") or VSCode IDE
+
 ## Quick Start
 
 [Bing Chat](https://www.microsoft.com/en-us/edge/features/bing-chat)[^1] can access openAI's *ChatGPT*. [Google **Bard**](https://bard.google.com) works in any browser. Another option is [**poe**.com](https://poe.com). Poe is especially useful for experimenting with a variety of Large Language Models (LLM) including *ChatGPT*, Google-*PaLM* (Bard), *Sage*, and *Claude*. Each of the options mentioned above are provided free of charge.[^2]
@@ -63,7 +77,7 @@ There is a [website](https://rtutor.ai/) or a [**package** for integrating into 
 
 ### Github Copilot
 
-Defaults to OpenAI's *codex* LLM based on code found in GitHub. This tools is focused on code completion rather than conceptual computational thinking. Must use the **VSCode** IDE, an IDE with similarities to the RStudio IDE.
+Copilot is an autocomplete feature and works well in some cases. RStudio offers [tips for integrating](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html "Copilot integration with RStudio IDE") the tool into the RStudio editor. Defaults to OpenAI's *codex* LLM based on code found in GitHub. This tool is focused on code completion rather than conceptual computational thinking. [Free for teachers and students](https://education.github.com/benefits "Github for Education benefits").
 
 ## Comparisons of models
 
