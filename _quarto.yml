@@ -20,11 +20,19 @@ website:
       - text: About
         href: about.qmd
       - icon: github
-        href: https://github.com/data-and-visualization/Intro2R
         aria-label: GitHub
-      - icon: box-arrow-up-right
-        href: https://library.duke.edu/data/
-        aria-label: Link out to Center for Data & Visualization Sciences
+        menu:
+          - text: Source Code
+            url: https://github.com/data-and-visualization/Intro2R
+          - text: Report Bug/Error
+            url: https://github.com/data-and-visualization/Intro2R/issues/new
+      - icon: house-door-fill
+        aria-label: Home
+        menu:
+          - text: "Rfun: An R learning resource"
+            url: https://rfun.library.duke.edu
+          - text: Center for Data & Visualization Sciences
+            url: https://library.duke.edu/data/
   sidebar:
     style: "floating"
     collapse-level: 1
@@ -74,13 +82,15 @@ website:
             href: functions.qmd
           - text: Iteration with {purrr}
             href: purrr.qmd            
+          - text: "Iterate workshop (videos)"
+            href: https://www.youtube.com/playlist?list=PLIUcX1JrVUNWW7RgPh9ysmJM3mBpIAlYG
       - section: Models/Regression
         contents:
           - text: Regression
             href: regression.qmd
           - text: Tidymodels
             href: tidymodels.qmd
-      - section: Sentiment Analysis
+      - section: Sentiment analysis
         contents:
           - text: "Link out to Rfun/sentiment ->"
             href: https://github.com/libjohn/workshop_textmining
@@ -90,15 +100,17 @@ website:
             href: https://github.com/libjohn/workshop_webscraping
       - section: Examples
         contents:
-          - text: Exploratory Data Analysis (EDA)
+          - text: Exploratory Data Analysis
             href: tidy_tuesday_itra.qmd
-          - text: map() 10x Excel files
+          - text: "`map()` iterate functions over many files"
             href: map_import_clean_regex.qmd
+          - text: Case Studies (videos)
+            href: https://www.youtube.com/playlist?list=PLIUcX1JrVUNV_ihIoJX96I_c32Gp8_3h2
       - section: Exercises
         contents:
           - text: "Link out to code exercises ->"
             href: https://github.com/data-and-visualization/Intro2R/tree/main/_exercises
-      - section: Data Sources
+      - section: Data sources
         contents:
           - text: for Regression
             href: data-sources-for-regression-analysis.qmd           
