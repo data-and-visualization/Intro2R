@@ -17,7 +17,6 @@ website:
   navbar: 
     logo: "images/rfun_logo.png"
     background: "primary"
-#    foreground: "primary"
     right:
       - text: About
         href: about.qmd
@@ -39,6 +38,7 @@ website:
     style: "floating"
     collapse-level: 1
     search: false
+    logo: "images/rfun_logo.png"    
     contents:
       - section: Home
         contents:
@@ -115,7 +115,7 @@ website:
       - section: Data sources
         contents:
           - text: for Regression
-            href: data-sources-for-regression-analysis.qmd           
+            href: data-sources-for-regression-analysis.qmd    
 
 format:
   html:
