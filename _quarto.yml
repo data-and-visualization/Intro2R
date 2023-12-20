@@ -16,6 +16,8 @@ website:
     right: "<a href='https://library.duke.edu/'>Duke University Libraries</a>"
   navbar: 
     logo: "images/rfun_logo.png"
+    background: "primary"
+#    foreground: "primary"
     right:
       - text: About
         href: about.qmd
