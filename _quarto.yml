@@ -111,7 +111,7 @@ website:
       - section: Exercises
         contents:
           - text: "Link out to code exercises ->"
-            href: https://github.com/data-and-visualization/Intro2R/tree/main/_exercises
+            href: https://github.com/libjohn/rforlunch_exercises/tree/main
       - section: Data sources
         contents:
           - text: for Regression
