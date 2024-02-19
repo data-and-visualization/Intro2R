@@ -118,6 +118,8 @@ For example, version control can be used to track changes to a computational mod
 
 Version control and code repositories can also be used to document the development process, which can help future researchers who want to build on the work. Additionally, code repositories can be used to create backups of code and data, which can help protect against data loss.
 
+For tips on using the {usethis} package to simplify git (plus either GitHub or GitLab) with R, please see this [quick-start page on Version-control and reproducibility.](https://rfun.library.duke.edu/git)
+
 ## Research artifacts
 
 Storing, sharing, and citing your work.
